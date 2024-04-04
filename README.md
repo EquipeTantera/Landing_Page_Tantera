@@ -50,33 +50,5 @@ Em desenvolvimento 🚧🕸
 
 ## 👨‍💻 Desenvolvedores
 
-<div style="display:flex;">
-
-  <div style="text-align:center;">
-
-[<img src="https://avatars.githubusercontent.com/u/86068799?v=4" width=100><br><sub> <strong>Raphaela Ferraz</strong> </sub>](https://github.com/raphaelaferraz)
-
-[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/raphaela-guiland-ferraz/)](https://www.linkedin.com/in/raphaela-guiland-ferraz/)
-[![Gmail Badge](https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white&link=https://www.linkedin.com/in/raphaela-guiland-ferraz/)](mailto:raphaela.ferraz@sou.inteli.edu.br)
-
-  </div>
-
-  <div style="text-align:center; margin-left: 2rem;">
-
-[<img style="border-radius:100px;" src="https://avatars.githubusercontent.com/u/88007865?v=4" width=100><br><sub> <strong>Ana Goes</strong> </sub>](https://github.com/Anag0es)
-
-[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/ana-luisa-goes-barbosa/)](https://www.linkedin.com/in/ana-luisa-goes-barbosa/)
-[![Gmail Badge](https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white&link=https://www.linkedin.com/in/ana-luisa-goes-barbosa/)](mailto:ana.barbosa@sou.inteli.edu.br)
-
-  </div>
-
-  <div style="text-align:center; margin-left: 2rem;">
-
-[<img style="border-radius:100px;" src="https://media.discordapp.net/attachments/1225526790957568172/1225526841981534278/Ft_Inteli_01.jpeg?ex=662173d0&is=660efed0&hm=c8a2da1c3a4db45f5729136af8a17b61d835143bd5f331367f24f2fd5fbaa5d9&=&format=webp&width=700&height=700" width=100><br><sub> <strong>Kaleb Carvalho</strong> </sub>](https://github.com/KalebIsaias)
-
-[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/kaleb-carvalho/)](https://www.linkedin.com/in/kaleb-carvalho/)
-[![Gmail Badge](https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white&link=https://www.linkedin.com/in/kaleb-carvalho/)](mailto:Kaleb.Carvalho@sou.inteli.edu.br)
-
-  </div>
-  
-</div>
+| ![Raphaela Ferraz](https://cdn.discordapp.com/attachments/1225526790957568172/1225542874385612872/image_147_2.png?ex=662182be&is=660f0dbe&hm=06c8ae1d340781b48420ec0feabbe6d804c3f0ad4b12a2b9dfe2d9b57ab926e6&)<br>[Raphaela Ferraz](https://github.com/raphaelaferraz)<br>[![Linkedin](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/raphaela-guiland-ferraz/) [![Gmail](https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white)](mailto:raphaela.ferraz@sou.inteli.edu.br) | ![Ana Goes](https://avatars.githubusercontent.com/u/88007865?v=4&s=100)<br>[Ana Goes](https://github.com/Anag0es)<br>[![Linkedin](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/ana-luisa-goes-barbosa/) [![Gmail](https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white)](mailto:ana.barbosa@sou.inteli.edu.br) | ![Kaleb Carvalho](https://media.discordapp.net/attachments/1225526790957568172/1225526841981534278/Ft_Inteli_01.jpeg?ex=662173d0&is=660efed0&hm=c8a2da1c3a4db45f5729136af8a17b61d835143bd5f331367f24f2fd5fbaa5d9&=&format=webp&width=100&height=100&s=100)<br>[Kaleb Carvalho](https://github.com/KalebIsaias)<br>[![Linkedin](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/kaleb-carvalho/) [![Gmail](https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white)](mailto:Kaleb.Carvalho@sou.inteli.edu.br) |
+| :---: | :---: | :---: |

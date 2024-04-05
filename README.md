@@ -27,7 +27,7 @@ Em desenvolvimento 🚧🕸
 
 - [ViteJS](https://vitejs.dev/)
 - [SCSS](https://sass-lang.com/)
-- [Shadcn](https://shadcn.com/)
+- [Shadcn](https://ui.shadcn.com/)
 
 **Backend:**
 
@@ -46,7 +46,7 @@ Em desenvolvimento 🚧🕸
 
 ## 📝 Licença
 
-<!-- Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes. -->
+Este projeto está sob a licença CC0 1.0 Universal. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 👨‍💻 Desenvolvedores
 

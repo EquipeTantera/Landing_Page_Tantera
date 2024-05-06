@@ -17,7 +17,7 @@
 
 #### **Backend:**
 **Strapi** ([https://docs.strapi.io/](https://docs.strapi.io/))
-- - **Definição:** Strapi é um Headless CMS (Content Management System) de código aberto, que facilita a criação e o gerenciamento de conteúdo para APIs. Ele oferece um painel administrativo intuitivo e recursos de personalização que se adaptam a diferentes tipos de projetos. O Strapi será fundamental para a landing page, pois fornece uma interface amigável para gerenciar conteúdo e permite a fácil integração de APIs com diferentes front-ends.
+- **Definição:** Strapi é um Headless CMS (Content Management System) de código aberto, que facilita a criação e o gerenciamento de conteúdo para APIs. Ele oferece um painel administrativo intuitivo e recursos de personalização que se adaptam a diferentes tipos de projetos. O Strapi será fundamental para a landing page, pois fornece uma interface amigável para gerenciar conteúdo e permite a fácil integração de APIs com diferentes front-ends.
 - **Justificativa:** Anteriormente, a escolha seria o Django para o backend. No entanto, o Strapi foi selecionado por ser mais flexível, mais fácil de usar e possuir uma interface mais amigável. Além disso, o Strapi proporciona um desenvolvimento ágil e eficiente, o que é perfeito para gerenciar conteúdo dinâmico na landing page.
 
 #### **Banco de dados:**

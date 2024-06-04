@@ -50,5 +50,32 @@ Este projeto está sob a licença CC0 1.0 Universal. Veja o arquivo [LICENSE](LI
 
 ## 👨‍💻 Contribuidores
 
-| ![Raphaela Ferraz](https://cdn.discordapp.com/attachments/1225526790957568172/1225542874385612872/image_147_2.png?ex=662182be&is=660f0dbe&hm=06c8ae1d340781b48420ec0feabbe6d804c3f0ad4b12a2b9dfe2d9b57ab926e6&)<br>[Raphaela Ferraz](https://github.com/raphaelaferraz) <br> Diretora da TanTech <br>[![Linkedin](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/raphaela-guiland-ferraz/) [![Gmail](https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white)](mailto:raphaela.ferraz@sou.inteli.edu.br) | ![Ana Goes](https://avatars.githubusercontent.com/u/88007865?v=4&s=100)<br>[Ana Goes](https://github.com/Anag0es) <br> Desenvolvedora <br>[![Linkedin](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/ana-luisa-goes-barbosa/) [![Gmail](https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white)](mailto:ana.barbosa@sou.inteli.edu.br) | ![Kaleb Carvalho](https://media.discordapp.net/attachments/1225526790957568172/1225526841981534278/Ft_Inteli_01.jpeg?ex=662173d0&is=660efed0&hm=c8a2da1c3a4db45f5729136af8a17b61d835143bd5f331367f24f2fd5fbaa5d9&=&format=webp&width=100&height=100&s=100)<br>[Kaleb Carvalho](https://github.com/KalebIsaias)<br>Desenvolvedor<br>[![Linkedin](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/kaleb-carvalho/) [![Gmail](https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white)](mailto:Kaleb.Carvalho@sou.inteli.edu.br) | ![Victor Marques](https://cdn.discordapp.com/attachments/887123408838615101/1226966910609129673/T02DWH2MXQR-U04LF94CKE0-940c5b75cd52-192_1.png?ex=6626b0fb&is=66143bfb&hm=d54294ae3e626a558cc8ce96394a3ec67529504e5dee3e23b016ceea9023723f&)<br>[Victor Marques](https://github.com/VictorGM01)<br>Consultor de Tecnologia<br>[![Linkedin](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/victor-gabriel-marques/) [![Gmail](https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white)](mailto:victor@engvictor.com.br)
-| :---: | :---: | :---: |  :---: |
+<table style="width:100%; text-align:center; display:flex; align-items: center;">
+    <tr>
+        <td style="width:100%; text-align:center;">
+            <img src="https://avatars.githubusercontent.com/u/86068799?v=4" style="width: 100px;" alt="Raphaela Ferraz"><br>
+            <a href="https://github.com/raphaelaferraz" style="text-align:center;">Raphaela Ferraz</a> <br> Diretora da TanTech <br>
+            <a href="https://www.linkedin.com/in/raphaela-guiland-ferraz/"><img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white"></a>
+            <a href="mailto:raphaela.ferraz@sou.inteli.edu.br"><img src="https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white"></a>
+        </td>
+        <td>
+            <img src="https://avatars.githubusercontent.com/u/88007865?v=4&s=100" style="width: 100px; border-radius: 50%;" alt="Ana Goes"><br>
+            <a href="https://github.com/Anag0es">Ana Goes</a> <br> Desenvolvedora <br>
+            <a href="https://www.linkedin.com/in/ana-luisa-goes-barbosa/"><img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white"></a>
+            <a href="mailto:ana.barbosa@sou.inteli.edu.br"><img src="https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white"></a>
+        </td>
+        <td>
+            <img src="https://avatars.githubusercontent.com/u/124212005?v=4" style="width: 100px;" alt="Bianca Borges"><br>
+            <a href="https://www.linkedin.com/in/bianca-borges-969586206/">Bianca Borges</a><br>Desenvolvedora<br>
+            <a href="https://www.linkedin.com/in/bianca-borges-969586206/"><img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white"></a>
+            <a href="mailto:bianca.lins@sou.inteli.edu.br"><img src="https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white"></a>
+        </td>
+        <td>
+            <img src="https://avatars.githubusercontent.com/u/86068797?v=4" style="width: 100px;" alt="Victor Marques"><br>
+            <a href="https://github.com/VictorGM01">Victor Marques</a><br>Consultor de Tecnologia<br>
+            <a href="https://www.linkedin.com/in/victor-gabriel-marques/"><img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white"></a>
+            <a href="mailto:victor@engvictor.com.br"><img src="https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white"></a>
+        </td>
+    </tr>
+</table>
+

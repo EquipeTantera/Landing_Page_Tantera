@@ -34,7 +34,7 @@ export default function Header({ background }) {
       </div>
       <input type="checkbox" id="menuToggle" className={styles.header__menu} onChange={toggleMenu}/>
       <label htmlFor="menuToggle" className={styles.header__menu__label}>
-        <img src="/menu.svg" alt='Menu'/>
+        <img src={menuOpen ? "/close.svg" : "/menu.svg"} alt={menuOpen ? 'Close' : 'Menu'} className={menuOpen ? styles.header__menu__label__close : styles.header__menu__label__open} />
       </label>
       <nav className={styles.header__nav}>
         <ul className={styles.header__nav__list}>

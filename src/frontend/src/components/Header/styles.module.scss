@@ -31,7 +31,12 @@
       z-index: 2;      
       cursor: pointer;
   
-      img {
+      &__close {
+        width: 20px;  
+        height: auto;
+      }
+
+      &__open {
         width: 30px;  
         height: auto;
       }

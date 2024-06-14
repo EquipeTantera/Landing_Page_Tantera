@@ -1,0 +1,64 @@
+@use '_variables' as v;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: v.$white-1;
+  color: v.$black;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.28125rem;
+}
+
+h3 {
+  font-size: 1.5625rem;
+}
+
+strong {
+  font-weight: bold;
+}
+
+a {
+  color: v.$white-1;
+}
+
+ul {
+  margin-left: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+h5 {
+  font-size: 0.875rem;
+}
+
+h6 {
+  font-size: 0.75rem;
+}

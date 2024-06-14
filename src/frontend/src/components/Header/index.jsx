@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-export default function Header({ background }) {
+export default function Header({ background, backgroundMenu }) {
   const [scroll, setScroll] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -27,6 +27,21 @@ export default function Header({ background }) {
     setMenuOpen(!menuOpen);
   };
 
+  const getMenuImage = () => {
+    if (menuOpen) {
+      return "/close.svg";
+    } else {
+      switch (backgroundMenu) {
+      case "purple":
+        return "/menu-purple.svg";
+      case "red":
+        return "/menu-red.svg";
+      default:
+        return "/menu-red.svg";
+      }
+    }
+  };
+
   return ReactDOM.createPortal(
     <header className={`${styles.header} ${scroll ? styles.scrolled : ''} ${menuOpen ? styles.menuActive : ''}`}>
       <div className={styles.header__container}>
@@ -34,7 +49,7 @@ export default function Header({ background }) {
       </div>
       <input type="checkbox" id="menuToggle" className={styles.header__menu} onChange={toggleMenu}/>
       <label htmlFor="menuToggle" className={styles.header__menu__label}>
-        <img src={menuOpen ? "/close.svg" : "/menu.svg"} alt={menuOpen ? 'Close' : 'Menu'} className={menuOpen ? styles.header__menu__label__close : styles.header__menu__label__open} />
+        <img src={getMenuImage()} alt={menuOpen ? 'Close' : 'Menu'} className={menuOpen ? styles.header__menu__label__close : styles.header__menu__label__open} />
       </label>
       <nav className={styles.header__nav}>
         <ul className={styles.header__nav__list}>
@@ -61,4 +76,5 @@ export default function Header({ background }) {
 
 Header.propTypes = {
   background: PropTypes.string,
+  backgroundMenu: PropTypes.string,
 };

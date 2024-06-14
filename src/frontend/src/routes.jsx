@@ -6,7 +6,7 @@ export default function AppRoutes() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Page backgroundHeader={'#D80101'}><Home /></Page>} />
+        <Route path="/" element={<Page backgroundColorHeader={'#D80101'} backgroundMenuHeader={'purple'}><Home /></Page>} />
       </Routes>
     </Router>
   );

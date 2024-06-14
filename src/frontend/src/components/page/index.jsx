@@ -1,10 +1,10 @@
 import Header from '../Header';
 import PropType from 'prop-types';
 
-export default function Page({ children, backgroundHeader }) {
+export default function Page({ children, backgroundColorHeader, backgroundMenuHeader }) {
   return (
     <>
-      <Header background={backgroundHeader}/>
+      <Header background={backgroundColorHeader} backgroundMenu={backgroundMenuHeader}/>
       <main>
         {children}
       </main>
@@ -14,5 +14,6 @@ export default function Page({ children, backgroundHeader }) {
 
 Page.propTypes = {
   children: PropType.node.isRequired,
-  backgroundHeader: PropType.string,
+  backgroundColorHeader: PropType.string,
+  backgroundMenuHeader: PropType.string,
 };

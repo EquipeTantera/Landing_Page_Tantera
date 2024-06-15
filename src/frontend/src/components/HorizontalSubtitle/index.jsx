@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
-export default function VerticalSubtitle({ title, colorImage, tag }) {
+export default function HorizontalSubtitle({ title, colorImage, tag }) {
   return (
     <>
       {tag && <div className={styles.tag}/>}
@@ -14,7 +14,7 @@ export default function VerticalSubtitle({ title, colorImage, tag }) {
   );
 }
 
-VerticalSubtitle.propTypes = {
+HorizontalSubtitle.propTypes = {
   title: PropTypes.string.isRequired,
   colorImage: PropTypes.oneOf(['purple', 'red']).isRequired,
   tag: PropTypes.bool,

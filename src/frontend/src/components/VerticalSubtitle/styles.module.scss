@@ -1,0 +1,19 @@
+@use "../../styles/_variables" as v;
+
+.container {
+  min-height: 9.5rem;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2rem;
+
+  &__title {
+    font-family: 'DriveCorps';
+    font-size: 4rem;
+    color: v.$white-1;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+}

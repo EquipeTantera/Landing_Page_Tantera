@@ -1,0 +1,26 @@
+.container {
+  &__title {
+    font-family: 'DriveCorps';
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
+
+  &__text {
+    font-family: 'Poppins';
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__text {
+      font-size: 1rem;
+      line-height: 2rem;
+    }
+  }
+}

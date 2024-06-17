@@ -1,0 +1,128 @@
+@use "../../styles/_variables" as v;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+  width: 100%;
+  position: fixed;
+  transition: background-color 0.3s;
+  z-index: 2;
+
+  &__container__imagem {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  &__menu {
+    display: block;  
+    position: absolute;
+    top: 1rem;       
+    left: 1rem;
+    opacity: 0;      
+    z-index: 3;      
+    width: 40px;
+    height: 40px;    
+    cursor: pointer;
+
+    &__label {
+      display: none;
+      z-index: 2;      
+      cursor: pointer;
+  
+      &__close {
+        width: 12px;  
+        height: auto;
+      }
+
+      &__open {
+        width: 30px;  
+        height: auto;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+
+    &__list {
+      display: flex;
+      flex-direction: row;
+
+      &__item {
+        margin-right: 1.5rem;
+
+        &__link {
+          font-size: 2rem;
+          text-decoration: none;
+          font-family: 'DriveCorps';
+          transition: .5s;
+
+          &:hover {
+            transition: .5s;
+            color: v.$purple-1 !important;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+
+  &.scrolled {
+    background-color: transparent;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 1rem;
+    
+    &__nav {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+
+      &__list {
+        flex-direction: column;
+
+        &__item {
+          margin-bottom: 1.5rem;
+
+          &:nth-child(1) {
+            margin-top: 1rem;
+          }
+
+          &__link {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+
+    &__container__imagem {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    &__menu:checked + &__menu__label + .header__nav {
+      display: flex;
+      position: absolute;
+      top: 5rem;
+      left: 0;
+      background-color: v.$purple-1;
+    }
+
+    &__menu__label {
+      display: block !important;
+    }
+  }
+
+  .menuActive {
+    background-color: v.$purple-1; 
+  }
+
+}

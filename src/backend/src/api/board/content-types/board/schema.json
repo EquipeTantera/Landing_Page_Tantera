@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "boards",
+  "info": {
+    "singularName": "board",
+    "pluralName": "boards",
+    "displayName": "board",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "board_id": {
+      "type": "uid"
+    },
+    "description": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer"
+    },
+    "start_date": {
+      "type": "date"
+    },
+    "end_date": {
+      "type": "date"
+    },
+    "current": {
+      "type": "boolean"
+    },
+    "member_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "planning_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::planning.planning",
+      "mappedBy": "board_id"
+    },
+    "specific_board_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::specific-board.specific-board",
+      "inversedBy": "board_id"
+    }
+  }
+}

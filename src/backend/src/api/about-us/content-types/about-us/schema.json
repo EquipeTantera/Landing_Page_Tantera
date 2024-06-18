@@ -4,7 +4,8 @@
   "info": {
     "singularName": "about-us",
     "pluralName": "about-uses",
-    "displayName": "About_us"
+    "displayName": "About_us",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,14 +22,15 @@
       "type": "string"
     },
     "mascot_image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "mascot_description": {
       "type": "string"
@@ -37,6 +39,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::contact.contact"
+    },
+    "board_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::board.board"
     }
   }
 }

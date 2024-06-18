@@ -794,6 +794,7 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     singularName: 'about-us';
     pluralName: 'about-uses';
     displayName: 'About_us';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -812,6 +813,11 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
       'oneToOne',
       'api::contact.contact'
     >;
+    board_id: Attribute.Relation<
+      'api::about-us.about-us',
+      'oneToMany',
+      'api::board.board'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -823,6 +829,53 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::about-us.about-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBoardBoard extends Schema.CollectionType {
+  collectionName: 'boards';
+  info: {
+    singularName: 'board';
+    pluralName: 'boards';
+    displayName: 'board';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    board_id: Attribute.UID;
+    description: Attribute.String;
+    year: Attribute.Integer;
+    start_date: Attribute.Date;
+    end_date: Attribute.Date;
+    current: Attribute.Boolean;
+    member_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    planning_id: Attribute.Relation<
+      'api::board.board',
+      'oneToMany',
+      'api::planning.planning'
+    >;
+    specific_board_id: Attribute.Relation<
+      'api::board.board',
+      'manyToOne',
+      'api::specific-board.specific-board'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::board.board',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::board.board',
       'oneToOne',
       'admin::user'
     > &
@@ -1076,6 +1129,46 @@ export interface ApiEventRegistrarionCardEventRegistrarionCard
   };
 }
 
+export interface ApiMemberMember extends Schema.CollectionType {
+  collectionName: 'members';
+  info: {
+    singularName: 'member';
+    pluralName: 'members';
+    displayName: 'member';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    member_id: Attribute.UID;
+    name: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    role: Attribute.String;
+    board: Attribute.String;
+    specific_board_id: Attribute.Relation<
+      'api::member.member',
+      'manyToOne',
+      'api::specific-board.specific-board'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::member.member',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::member.member',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPhotoPhoto extends Schema.CollectionType {
   collectionName: 'photos';
   info: {
@@ -1113,6 +1206,49 @@ export interface ApiPhotoPhoto extends Schema.CollectionType {
   };
 }
 
+export interface ApiPlanningPlanning extends Schema.CollectionType {
+  collectionName: 'plannings';
+  info: {
+    singularName: 'planning';
+    pluralName: 'plannings';
+    displayName: 'planning';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    planning_id: Attribute.UID;
+    description: Attribute.String;
+    completed: Attribute.Boolean;
+    board_id: Attribute.Relation<
+      'api::planning.planning',
+      'manyToOne',
+      'api::board.board'
+    >;
+    specific_board_id: Attribute.Relation<
+      'api::planning.planning',
+      'manyToOne',
+      'api::specific-board.specific-board'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::planning.planning',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::planning.planning',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPurposePurpose extends Schema.CollectionType {
   collectionName: 'purposes';
   info: {
@@ -1137,6 +1273,53 @@ export interface ApiPurposePurpose extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::purpose.purpose',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSpecificBoardSpecificBoard extends Schema.CollectionType {
+  collectionName: 'specific_boards';
+  info: {
+    singularName: 'specific-board';
+    pluralName: 'specific-boards';
+    displayName: 'specific_board';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    specific_board_id: Attribute.UID;
+    name: Attribute.String;
+    about: Attribute.String;
+    board_id: Attribute.Relation<
+      'api::specific-board.specific-board',
+      'oneToMany',
+      'api::board.board'
+    >;
+    member_id: Attribute.Relation<
+      'api::specific-board.specific-board',
+      'oneToMany',
+      'api::member.member'
+    >;
+    planning_id: Attribute.Relation<
+      'api::specific-board.specific-board',
+      'oneToMany',
+      'api::planning.planning'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::specific-board.specific-board',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::specific-board.specific-board',
       'oneToOne',
       'admin::user'
     > &
@@ -1191,14 +1374,18 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::board.board': ApiBoardBoard;
       'api::class.class': ApiClassClass;
       'api::contact.contact': ApiContactContact;
       'api::course.course': ApiCourseCourse;
       'api::event.event': ApiEventEvent;
       'api::event-form.event-form': ApiEventFormEventForm;
       'api::event-registrarion-card.event-registrarion-card': ApiEventRegistrarionCardEventRegistrarionCard;
+      'api::member.member': ApiMemberMember;
       'api::photo.photo': ApiPhotoPhoto;
+      'api::planning.planning': ApiPlanningPlanning;
       'api::purpose.purpose': ApiPurposePurpose;
+      'api::specific-board.specific-board': ApiSpecificBoardSpecificBoard;
       'api::year.year': ApiYearYear;
     }
   }

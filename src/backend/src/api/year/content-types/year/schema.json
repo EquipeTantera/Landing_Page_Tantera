@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "years",
+  "info": {
+    "singularName": "year",
+    "pluralName": "years",
+    "displayName": "Year"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "year_id": {
+      "type": "uid"
+    },
+    "year": {
+      "type": "integer"
+    },
+    "event_form_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event-form.event-form",
+      "inversedBy": "year_id"
+    }
+  }
+}

@@ -85,7 +85,7 @@ link do diagrama realizado: [diagrama](https://lucid.app/lucidchart/ee39349f-901
 | `id`           | primary key  | identificador único da tabela | deve ser único |
 | `class_course` | integer      | turma                         | -              |
 
-### Entidade: course
+### Entidade: year
 **Descrição:** Representa o ano para o formulário de inscrição do evento.
 
 | Atributo | Tipo de Dado | Descrição                     | Restrição      |

@@ -788,6 +788,283 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiClassClass extends Schema.CollectionType {
+  collectionName: 'classes';
+  info: {
+    singularName: 'class';
+    pluralName: 'classes';
+    displayName: 'class';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    class_id: Attribute.UID;
+    class_course: Attribute.Integer;
+    event_form_id: Attribute.Relation<
+      'api::class.class',
+      'manyToOne',
+      'api::event-form.event-form'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::class.class',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::class.class',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCourseCourse extends Schema.CollectionType {
+  collectionName: 'courses';
+  info: {
+    singularName: 'course';
+    pluralName: 'courses';
+    displayName: 'course';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    course_id: Attribute.UID;
+    course_name: Attribute.String;
+    event_form_id: Attribute.Relation<
+      'api::course.course',
+      'manyToOne',
+      'api::event-form.event-form'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::course.course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::course.course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEventEvent extends Schema.CollectionType {
+  collectionName: 'events';
+  info: {
+    singularName: 'event';
+    pluralName: 'events';
+    displayName: 'Event';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    event_id: Attribute.UID & Attribute.Required;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    street: Attribute.String;
+    postal_code: Attribute.String;
+    number: Attribute.Integer;
+    date: Attribute.Date;
+    start_time: Attribute.Date;
+    end_time: Attribute.Date;
+    note: Attribute.String;
+    description: Attribute.String;
+    price: Attribute.Decimal;
+    title: Attribute.String;
+    discount: Attribute.Boolean;
+    photos: Attribute.Relation<
+      'api::event.event',
+      'manyToOne',
+      'api::photo.photo'
+    >;
+    event_registrarion_card: Attribute.Relation<
+      'api::event.event',
+      'manyToOne',
+      'api::event-registrarion-card.event-registrarion-card'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::event.event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::event.event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEventFormEventForm extends Schema.CollectionType {
+  collectionName: 'event_forms';
+  info: {
+    singularName: 'event-form';
+    pluralName: 'event-forms';
+    displayName: 'event_form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    event_form_id: Attribute.UID;
+    name: Attribute.String;
+    number: Attribute.BigInteger;
+    email: Attribute.Email;
+    participant: Attribute.Boolean;
+    class_id: Attribute.Relation<
+      'api::event-form.event-form',
+      'oneToMany',
+      'api::class.class'
+    >;
+    course_id: Attribute.Relation<
+      'api::event-form.event-form',
+      'oneToMany',
+      'api::course.course'
+    >;
+    year_id: Attribute.Relation<
+      'api::event-form.event-form',
+      'oneToMany',
+      'api::year.year'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::event-form.event-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::event-form.event-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEventRegistrarionCardEventRegistrarionCard
+  extends Schema.CollectionType {
+  collectionName: 'event_registrarion_cards';
+  info: {
+    singularName: 'event-registrarion-card';
+    pluralName: 'event-registrarion-cards';
+    displayName: 'event_registrarion_card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    event_registrarion_id: Attribute.UID;
+    title: Attribute.String;
+    event_id: Attribute.Relation<
+      'api::event-registrarion-card.event-registrarion-card',
+      'oneToMany',
+      'api::event.event'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::event-registrarion-card.event-registrarion-card',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::event-registrarion-card.event-registrarion-card',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPhotoPhoto extends Schema.CollectionType {
+  collectionName: 'photos';
+  info: {
+    singularName: 'photo';
+    pluralName: 'photos';
+    displayName: 'Photo';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    photo_id: Attribute.UID;
+    photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    event_id: Attribute.Relation<
+      'api::photo.photo',
+      'oneToMany',
+      'api::event.event'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::photo.photo',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::photo.photo',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiYearYear extends Schema.CollectionType {
+  collectionName: 'years';
+  info: {
+    singularName: 'year';
+    pluralName: 'years';
+    displayName: 'Year';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    year_id: Attribute.UID;
+    year: Attribute.Integer;
+    event_form_id: Attribute.Relation<
+      'api::year.year',
+      'manyToOne',
+      'api::event-form.event-form'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::year.year', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::year.year', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -806,6 +1083,13 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::class.class': ApiClassClass;
+      'api::course.course': ApiCourseCourse;
+      'api::event.event': ApiEventEvent;
+      'api::event-form.event-form': ApiEventFormEventForm;
+      'api::event-registrarion-card.event-registrarion-card': ApiEventRegistrarionCardEventRegistrarionCard;
+      'api::photo.photo': ApiPhotoPhoto;
+      'api::year.year': ApiYearYear;
     }
   }
 }

@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_forms",
+  "info": {
+    "singularName": "event-form",
+    "pluralName": "event-forms",
+    "displayName": "event_form"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "event_form_id": {
+      "type": "uid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "number": {
+      "type": "biginteger"
+    },
+    "email": {
+      "type": "email"
+    },
+    "participant": {
+      "type": "boolean"
+    },
+    "class_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::class.class",
+      "mappedBy": "event_form_id"
+    },
+    "course_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course.course",
+      "mappedBy": "event_form_id"
+    },
+    "year_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::year.year",
+      "mappedBy": "event_form_id"
+    }
+  }
+}

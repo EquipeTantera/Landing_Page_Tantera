@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_registrarion_cards",
+  "info": {
+    "singularName": "event-registrarion-card",
+    "pluralName": "event-registrarion-cards",
+    "displayName": "event_registrarion_card"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "event_registrarion_id": {
+      "type": "uid"
+    },
+    "title": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event.event",
+      "mappedBy": "event_registrarion_card"
+    }
+  }
+}

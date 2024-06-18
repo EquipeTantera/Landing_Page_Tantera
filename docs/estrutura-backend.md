@@ -127,4 +127,8 @@ npm i
 # Iniciar o servidor de desenvolvimento
 npm run develop
 ```
+- Login do Strapi para admin: 
+    - email: tantech@admin.com;
+    - senha: Tantech@123.
+
 -> Para rodar o strapi de maneiras especificas, por exemplo, para produção, deploy, etc. Existem outros comandos com npm ou yarn que é possível ler na documentação localizada: `backend\README.md`.

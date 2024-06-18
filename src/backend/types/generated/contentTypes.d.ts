@@ -836,6 +836,37 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
   };
 }
 
+export interface ApiBannerBanner extends Schema.CollectionType {
+  collectionName: 'banners';
+  info: {
+    singularName: 'banner';
+    pluralName: 'banners';
+    displayName: 'Banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner_png: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    banner_id: Attribute.UID;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBoardBoard extends Schema.CollectionType {
   collectionName: 'boards';
   info: {
@@ -1556,6 +1587,37 @@ export interface ApiSpecificBoardSpecificBoard extends Schema.CollectionType {
   };
 }
 
+export interface ApiVideoVideo extends Schema.CollectionType {
+  collectionName: 'videos';
+  info: {
+    singularName: 'video';
+    pluralName: 'videos';
+    displayName: 'video';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    video_id: Attribute.UID;
+    video: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::video.video',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::video.video',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiYearYear extends Schema.CollectionType {
   collectionName: 'years';
   info: {
@@ -1603,6 +1665,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::banner.banner': ApiBannerBanner;
       'api::board.board': ApiBoardBoard;
       'api::category.category': ApiCategoryCategory;
       'api::class.class': ApiClassClass;
@@ -1620,6 +1683,7 @@ declare module '@strapi/types' {
       'api::purpose.purpose': ApiPurposePurpose;
       'api::result.result': ApiResultResult;
       'api::specific-board.specific-board': ApiSpecificBoardSpecificBoard;
+      'api::video.video': ApiVideoVideo;
       'api::year.year': ApiYearYear;
     }
   }

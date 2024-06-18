@@ -12,10 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "event_id": {
-      "type": "uid",
-      "required": true
-    },
     "image": {
       "type": "media",
       "multiple": true,
@@ -59,24 +55,6 @@
     },
     "discount": {
       "type": "boolean"
-    },
-    "photos": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::photo.photo",
-      "inversedBy": "event_id"
-    },
-    "event_registrarion_card": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::event-registrarion-card.event-registrarion-card",
-      "inversedBy": "event_id"
-    },
-    "result_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::result.result",
-      "inversedBy": "event_id"
     }
   }
 }

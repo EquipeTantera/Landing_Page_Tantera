@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "photo_id": {
-      "type": "uid"
-    },
     "photo": {
       "type": "media",
       "multiple": true,
@@ -25,12 +22,6 @@
         "videos",
         "audios"
       ]
-    },
-    "event_id": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::event.event",
-      "mappedBy": "photos"
     }
   }
 }

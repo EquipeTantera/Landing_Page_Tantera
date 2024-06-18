@@ -4,16 +4,14 @@
   "info": {
     "singularName": "purpose",
     "pluralName": "purposes",
-    "displayName": "purpose"
+    "displayName": "purpose",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "purpose_id": {
-      "type": "uid"
-    },
     "purpose_name": {
       "type": "string"
     }

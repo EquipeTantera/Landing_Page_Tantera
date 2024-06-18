@@ -842,13 +842,13 @@ export interface ApiBannerBanner extends Schema.CollectionType {
     singularName: 'banner';
     pluralName: 'banners';
     displayName: 'Banner';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     banner_png: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    banner_id: Attribute.UID;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -879,28 +879,12 @@ export interface ApiBoardBoard extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    board_id: Attribute.UID;
     description: Attribute.String;
     year: Attribute.Integer;
     start_date: Attribute.Date;
     end_date: Attribute.Date;
     current: Attribute.Boolean;
     member_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    planning_id: Attribute.Relation<
-      'api::board.board',
-      'oneToMany',
-      'api::planning.planning'
-    >;
-    specific_board_id: Attribute.Relation<
-      'api::board.board',
-      'manyToOne',
-      'api::specific-board.specific-board'
-    >;
-    result_id: Attribute.Relation<
-      'api::board.board',
-      'manyToOne',
-      'api::result.result'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -931,13 +915,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    category_id: Attribute.UID;
     category: Attribute.String;
-    product_id: Attribute.Relation<
-      'api::category.category',
-      'manyToMany',
-      'api::product.product'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -962,18 +940,13 @@ export interface ApiClassClass extends Schema.CollectionType {
     singularName: 'class';
     pluralName: 'classes';
     displayName: 'class';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    class_id: Attribute.UID;
     class_course: Attribute.Integer;
-    event_form_id: Attribute.Relation<
-      'api::class.class',
-      'manyToOne',
-      'api::event-form.event-form'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -998,12 +971,12 @@ export interface ApiContactContact extends Schema.CollectionType {
     singularName: 'contact';
     pluralName: 'contacts';
     displayName: 'contact';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    contact_id: Attribute.UID;
     name: Attribute.String;
     email: Attribute.Email;
     telephone: Attribute.BigInteger;
@@ -1038,13 +1011,7 @@ export interface ApiCourseCourse extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    course_id: Attribute.UID;
     course_name: Attribute.String;
-    event_form_id: Attribute.Relation<
-      'api::course.course',
-      'manyToOne',
-      'api::event-form.event-form'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1075,7 +1042,6 @@ export interface ApiEventEvent extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    event_id: Attribute.UID & Attribute.Required;
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     street: Attribute.String;
     postal_code: Attribute.String;
@@ -1088,21 +1054,6 @@ export interface ApiEventEvent extends Schema.CollectionType {
     price: Attribute.Decimal;
     title: Attribute.String;
     discount: Attribute.Boolean;
-    photos: Attribute.Relation<
-      'api::event.event',
-      'manyToOne',
-      'api::photo.photo'
-    >;
-    event_registrarion_card: Attribute.Relation<
-      'api::event.event',
-      'manyToOne',
-      'api::event-registrarion-card.event-registrarion-card'
-    >;
-    result_id: Attribute.Relation<
-      'api::event.event',
-      'manyToOne',
-      'api::result.result'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1127,31 +1078,16 @@ export interface ApiEventFormEventForm extends Schema.CollectionType {
     singularName: 'event-form';
     pluralName: 'event-forms';
     displayName: 'event_form';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    event_form_id: Attribute.UID;
     name: Attribute.String;
     number: Attribute.BigInteger;
     email: Attribute.Email;
     participant: Attribute.Boolean;
-    class_id: Attribute.Relation<
-      'api::event-form.event-form',
-      'oneToMany',
-      'api::class.class'
-    >;
-    course_id: Attribute.Relation<
-      'api::event-form.event-form',
-      'oneToMany',
-      'api::course.course'
-    >;
-    year_id: Attribute.Relation<
-      'api::event-form.event-form',
-      'oneToMany',
-      'api::year.year'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1177,18 +1113,13 @@ export interface ApiEventRegistrarionCardEventRegistrarionCard
     singularName: 'event-registrarion-card';
     pluralName: 'event-registrarion-cards';
     displayName: 'event_registrarion_card';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    event_registrarion_id: Attribute.UID;
     title: Attribute.String;
-    event_id: Attribute.Relation<
-      'api::event-registrarion-card.event-registrarion-card',
-      'oneToMany',
-      'api::event.event'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1219,16 +1150,10 @@ export interface ApiMemberMember extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    member_id: Attribute.UID;
     name: Attribute.String;
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     role: Attribute.String;
     board: Attribute.String;
-    specific_board_id: Attribute.Relation<
-      'api::member.member',
-      'manyToOne',
-      'api::specific-board.specific-board'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1253,21 +1178,16 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
     singularName: 'partner';
     pluralName: 'partners';
     displayName: 'partner';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    partner_id: Attribute.UID;
     title: Attribute.String;
     slogan: Attribute.String;
     icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    result_id: Attribute.Relation<
-      'api::partner.partner',
-      'oneToMany',
-      'api::result.result'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1298,13 +1218,7 @@ export interface ApiPhotoPhoto extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    photo_id: Attribute.UID;
     photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    event_id: Attribute.Relation<
-      'api::photo.photo',
-      'oneToMany',
-      'api::event.event'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1329,18 +1243,13 @@ export interface ApiPhotoProductPhotoProduct extends Schema.CollectionType {
     singularName: 'photo-product';
     pluralName: 'photo-products';
     displayName: 'photo_product';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    photo_id: Attribute.UID;
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    product_id: Attribute.Relation<
-      'api::photo-product.photo-product',
-      'oneToMany',
-      'api::product.product'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1371,19 +1280,8 @@ export interface ApiPlanningPlanning extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    planning_id: Attribute.UID;
     description: Attribute.String;
     completed: Attribute.Boolean;
-    board_id: Attribute.Relation<
-      'api::planning.planning',
-      'manyToOne',
-      'api::board.board'
-    >;
-    specific_board_id: Attribute.Relation<
-      'api::planning.planning',
-      'manyToOne',
-      'api::specific-board.specific-board'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1414,7 +1312,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    product_id: Attribute.UID;
     title: Attribute.String;
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     price: Attribute.Decimal;
@@ -1423,16 +1320,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
     size: Attribute.String;
     genre: Attribute.String;
     color: Attribute.String;
-    categories_id: Attribute.Relation<
-      'api::product.product',
-      'manyToMany',
-      'api::category.category'
-    >;
-    photo_product_id: Attribute.Relation<
-      'api::product.product',
-      'manyToOne',
-      'api::photo-product.photo-product'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1457,12 +1344,12 @@ export interface ApiPurposePurpose extends Schema.CollectionType {
     singularName: 'purpose';
     pluralName: 'purposes';
     displayName: 'purpose';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    purpose_id: Attribute.UID;
     purpose_name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1494,29 +1381,8 @@ export interface ApiResultResult extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    result_id: Attribute.UID;
     description: Attribute.String;
     numbering: Attribute.Integer;
-    partner_id: Attribute.Relation<
-      'api::result.result',
-      'manyToOne',
-      'api::partner.partner'
-    >;
-    specific_boards_id: Attribute.Relation<
-      'api::result.result',
-      'oneToMany',
-      'api::specific-board.specific-board'
-    >;
-    board_id: Attribute.Relation<
-      'api::result.result',
-      'oneToMany',
-      'api::board.board'
-    >;
-    event_id: Attribute.Relation<
-      'api::result.result',
-      'oneToMany',
-      'api::event.event'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1541,34 +1407,14 @@ export interface ApiSpecificBoardSpecificBoard extends Schema.CollectionType {
     singularName: 'specific-board';
     pluralName: 'specific-boards';
     displayName: 'specific_board';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    specific_board_id: Attribute.UID;
     name: Attribute.String;
     about: Attribute.String;
-    board_id: Attribute.Relation<
-      'api::specific-board.specific-board',
-      'oneToMany',
-      'api::board.board'
-    >;
-    member_id: Attribute.Relation<
-      'api::specific-board.specific-board',
-      'oneToMany',
-      'api::member.member'
-    >;
-    planning_id: Attribute.Relation<
-      'api::specific-board.specific-board',
-      'oneToMany',
-      'api::planning.planning'
-    >;
-    result_id: Attribute.Relation<
-      'api::specific-board.specific-board',
-      'manyToOne',
-      'api::result.result'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1593,12 +1439,12 @@ export interface ApiVideoVideo extends Schema.CollectionType {
     singularName: 'video';
     pluralName: 'videos';
     displayName: 'video';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    video_id: Attribute.UID;
     video: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1624,18 +1470,13 @@ export interface ApiYearYear extends Schema.CollectionType {
     singularName: 'year';
     pluralName: 'years';
     displayName: 'Year';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    year_id: Attribute.UID;
     year: Attribute.Integer;
-    event_form_id: Attribute.Relation<
-      'api::year.year',
-      'manyToOne',
-      'api::event-form.event-form'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

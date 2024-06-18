@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "product_id": {
-      "type": "uid"
-    },
     "title": {
       "type": "string"
     },
@@ -46,18 +43,6 @@
     },
     "color": {
       "type": "string"
-    },
-    "categories_id": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::category.category",
-      "inversedBy": "product_id"
-    },
-    "photo_product_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::photo-product.photo-product",
-      "inversedBy": "product_id"
     }
   }
 }

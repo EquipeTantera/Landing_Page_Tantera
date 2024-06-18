@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "member_id": {
-      "type": "uid"
-    },
     "name": {
       "type": "string"
     },
@@ -34,12 +31,6 @@
     },
     "board": {
       "type": "string"
-    },
-    "specific_board_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::specific-board.specific-board",
-      "inversedBy": "member_id"
     }
   }
 }

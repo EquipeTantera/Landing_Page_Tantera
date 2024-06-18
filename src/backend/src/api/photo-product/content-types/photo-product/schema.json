@@ -4,31 +4,24 @@
   "info": {
     "singularName": "photo-product",
     "pluralName": "photo-products",
-    "displayName": "photo_product"
+    "displayName": "photo_product",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "photo_id": {
-      "type": "uid"
-    },
     "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
-    },
-    "product_id": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::product.product",
-      "mappedBy": "photo_product_id"
+      ]
     }
   }
 }

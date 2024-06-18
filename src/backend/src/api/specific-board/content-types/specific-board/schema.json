@@ -4,45 +4,19 @@
   "info": {
     "singularName": "specific-board",
     "pluralName": "specific-boards",
-    "displayName": "specific_board"
+    "displayName": "specific_board",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "specific_board_id": {
-      "type": "uid"
-    },
     "name": {
       "type": "string"
     },
     "about": {
       "type": "string"
-    },
-    "board_id": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::board.board",
-      "mappedBy": "specific_board_id"
-    },
-    "member_id": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::member.member",
-      "mappedBy": "specific_board_id"
-    },
-    "planning_id": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::planning.planning",
-      "mappedBy": "specific_board_id"
-    },
-    "result_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::result.result",
-      "inversedBy": "specific_boards_id"
     }
   }
 }

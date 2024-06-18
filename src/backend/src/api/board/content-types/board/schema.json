@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "board_id": {
-      "type": "uid"
-    },
     "description": {
       "type": "string"
     },
@@ -40,24 +37,6 @@
         "videos",
         "audios"
       ]
-    },
-    "planning_id": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::planning.planning",
-      "mappedBy": "board_id"
-    },
-    "specific_board_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::specific-board.specific-board",
-      "inversedBy": "board_id"
-    },
-    "result_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::result.result",
-      "inversedBy": "board_id"
     }
   }
 }

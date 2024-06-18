@@ -12,17 +12,8 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "category_id": {
-      "type": "uid"
-    },
     "category": {
       "type": "string"
-    },
-    "product_id": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::product.product",
-      "mappedBy": "categories_id"
     }
   }
 }

@@ -4,24 +4,16 @@
   "info": {
     "singularName": "class",
     "pluralName": "classes",
-    "displayName": "class"
+    "displayName": "class",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "class_id": {
-      "type": "uid"
-    },
     "class_course": {
       "type": "integer"
-    },
-    "event_form_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::event-form.event-form",
-      "inversedBy": "class_id"
     }
   }
 }

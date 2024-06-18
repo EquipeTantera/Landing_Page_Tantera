@@ -104,3 +104,14 @@ src/
 ``README.md:`` Documentação do projeto.
 
 ``yarn.lock:`` Arquivo de bloqueio de dependências gerenciado pelo Yarn.
+
+## Inicialização da aplicação
+
+```plaintext
+# Instalar as dependências do projeto
+npm i
+
+# Iniciar o servidor de desenvolvimento
+npm run develop
+```
+-> Para rodar o strapi de maneiras especificas, por exemplo, para produção, deploy, etc. Existem outros comandos com npm ou yarn que é possível ler na documentação localizada: `backend\README.md`.

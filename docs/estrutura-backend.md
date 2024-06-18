@@ -107,6 +107,19 @@ src/
 
 ## Inicialização da aplicação
 
+### Banco de dados
+Baixe o **PostgreSQL** por meio [deste link](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+
+```plaintext
+psql -U postgres
+CREATE DATABASE tantechdb;
+CREATE USER tantech WITH PASSWORD 'tantech@123';
+ALTER USER tantech WITH SUPERUSER;
+GRANT ALL PRIVILEGES ON DATABASE tantechdb TO tantech;
+```
+
+### Iniciar o backend
+
 ```plaintext
 # Instalar as dependências do projeto
 npm i

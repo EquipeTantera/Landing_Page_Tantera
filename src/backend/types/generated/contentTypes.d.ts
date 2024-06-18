@@ -788,6 +788,48 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiAboutUsAboutUs extends Schema.SingleType {
+  collectionName: 'about_uses';
+  info: {
+    singularName: 'about-us';
+    pluralName: 'about-uses';
+    displayName: 'About_us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    about_us_id: Attribute.UID;
+    purpose: Attribute.String;
+    foundation: Attribute.String;
+    mascot_image: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    mascot_description: Attribute.String;
+    contact_id: Attribute.Relation<
+      'api::about-us.about-us',
+      'oneToOne',
+      'api::contact.contact'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about-us.about-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about-us.about-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiClassClass extends Schema.CollectionType {
   collectionName: 'classes';
   info: {
@@ -817,6 +859,40 @@ export interface ApiClassClass extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::class.class',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiContactContact extends Schema.CollectionType {
+  collectionName: 'contacts';
+  info: {
+    singularName: 'contact';
+    pluralName: 'contacts';
+    displayName: 'contact';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contact_id: Attribute.UID;
+    name: Attribute.String;
+    email: Attribute.Email;
+    telephone: Attribute.BigInteger;
+    message: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact.contact',
       'oneToOne',
       'admin::user'
     > &
@@ -1037,6 +1113,37 @@ export interface ApiPhotoPhoto extends Schema.CollectionType {
   };
 }
 
+export interface ApiPurposePurpose extends Schema.CollectionType {
+  collectionName: 'purposes';
+  info: {
+    singularName: 'purpose';
+    pluralName: 'purposes';
+    displayName: 'purpose';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    purpose_id: Attribute.UID;
+    purpose_name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::purpose.purpose',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::purpose.purpose',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiYearYear extends Schema.CollectionType {
   collectionName: 'years';
   info: {
@@ -1083,12 +1190,15 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::class.class': ApiClassClass;
+      'api::contact.contact': ApiContactContact;
       'api::course.course': ApiCourseCourse;
       'api::event.event': ApiEventEvent;
       'api::event-form.event-form': ApiEventFormEventForm;
       'api::event-registrarion-card.event-registrarion-card': ApiEventRegistrarionCardEventRegistrarionCard;
       'api::photo.photo': ApiPhotoPhoto;
+      'api::purpose.purpose': ApiPurposePurpose;
       'api::year.year': ApiYearYear;
     }
   }

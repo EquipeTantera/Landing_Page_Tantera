@@ -105,7 +105,6 @@ link do diagrama realizado: [diagrama](https://lucid.app/lucidchart/ee39349f-901
 | `id`                 | primary key  | identificador único da tabela                     | deve ser único |
 | `contact_id`         | foreign key  | chave estrangeira, relação com a coluna `contact` | -              |
 | `board_id`           | foreign key  | chave estrangeira, relação com a coluna `board`   | -              |
-| `reasons_id`         | foreign key  | chave estrangeira, relação com a coluna `reasons` | -              |
 | `purpose`            | varchar      | texto sobre propósitos da diretora                | -              |
 | `foundation`         | varchar      | texto sobre a fundação da atlética                | -              |
 | `mascot_image`       | varchar      | imagem do mascote                                 | -              |

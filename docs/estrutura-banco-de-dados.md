@@ -235,7 +235,7 @@ link do diagrama realizado: [diagrama](https://lucid.app/lucidchart/ee39349f-901
 | `product_id`  | foreign key  | chave estrangeira, relação com a coluna `product`  | -              |
 | `category_id` | foreign key  | chave estrangeira, relação com a coluna `category` | -              |
 
-### Entidade: photo
+### Entidade: photo_product
 **Descrição:** Representa as fotos do produto.
 
 | Atributo     | Tipo de Dado | Descrição                                         | Restrição      |

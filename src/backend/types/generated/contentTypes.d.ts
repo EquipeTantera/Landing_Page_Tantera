@@ -888,6 +888,43 @@ export interface ApiBoardBoard extends Schema.CollectionType {
   };
 }
 
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category_id: Attribute.UID;
+    category: Attribute.String;
+    product_id: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiClassClass extends Schema.CollectionType {
   collectionName: 'classes';
   info: {
@@ -1255,6 +1292,42 @@ export interface ApiPhotoPhoto extends Schema.CollectionType {
   };
 }
 
+export interface ApiPhotoProductPhotoProduct extends Schema.CollectionType {
+  collectionName: 'photo_products';
+  info: {
+    singularName: 'photo-product';
+    pluralName: 'photo-products';
+    displayName: 'photo_product';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    photo_id: Attribute.UID;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    product_id: Attribute.Relation<
+      'api::photo-product.photo-product',
+      'oneToMany',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::photo-product.photo-product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::photo-product.photo-product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPlanningPlanning extends Schema.CollectionType {
   collectionName: 'plannings';
   info: {
@@ -1291,6 +1364,55 @@ export interface ApiPlanningPlanning extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::planning.planning',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: 'products';
+  info: {
+    singularName: 'product';
+    pluralName: 'products';
+    displayName: 'product';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    product_id: Attribute.UID;
+    title: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    price: Attribute.Decimal;
+    description: Attribute.String;
+    sold_out: Attribute.Boolean;
+    size: Attribute.String;
+    genre: Attribute.String;
+    color: Attribute.String;
+    categories_id: Attribute.Relation<
+      'api::product.product',
+      'manyToMany',
+      'api::category.category'
+    >;
+    photo_product_id: Attribute.Relation<
+      'api::product.product',
+      'manyToOne',
+      'api::photo-product.photo-product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product.product',
       'oneToOne',
       'admin::user'
     > &
@@ -1482,6 +1604,7 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::board.board': ApiBoardBoard;
+      'api::category.category': ApiCategoryCategory;
       'api::class.class': ApiClassClass;
       'api::contact.contact': ApiContactContact;
       'api::course.course': ApiCourseCourse;
@@ -1491,7 +1614,9 @@ declare module '@strapi/types' {
       'api::member.member': ApiMemberMember;
       'api::partner.partner': ApiPartnerPartner;
       'api::photo.photo': ApiPhotoPhoto;
+      'api::photo-product.photo-product': ApiPhotoProductPhotoProduct;
       'api::planning.planning': ApiPlanningPlanning;
+      'api::product.product': ApiProductProduct;
       'api::purpose.purpose': ApiPurposePurpose;
       'api::result.result': ApiResultResult;
       'api::specific-board.specific-board': ApiSpecificBoardSpecificBoard;

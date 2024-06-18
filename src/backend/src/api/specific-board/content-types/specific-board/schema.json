@@ -37,6 +37,12 @@
       "relation": "oneToMany",
       "target": "api::planning.planning",
       "mappedBy": "specific_board_id"
+    },
+    "result_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::result.result",
+      "inversedBy": "specific_boards_id"
     }
   }
 }

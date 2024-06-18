@@ -71,6 +71,12 @@
       "relation": "manyToOne",
       "target": "api::event-registrarion-card.event-registrarion-card",
       "inversedBy": "event_id"
+    },
+    "result_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::result.result",
+      "inversedBy": "event_id"
     }
   }
 }

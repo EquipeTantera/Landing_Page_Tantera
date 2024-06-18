@@ -865,6 +865,11 @@ export interface ApiBoardBoard extends Schema.CollectionType {
       'manyToOne',
       'api::specific-board.specific-board'
     >;
+    result_id: Attribute.Relation<
+      'api::board.board',
+      'manyToOne',
+      'api::result.result'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1025,6 +1030,11 @@ export interface ApiEventEvent extends Schema.CollectionType {
       'manyToOne',
       'api::event-registrarion-card.event-registrarion-card'
     >;
+    result_id: Attribute.Relation<
+      'api::event.event',
+      'manyToOne',
+      'api::result.result'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1169,6 +1179,45 @@ export interface ApiMemberMember extends Schema.CollectionType {
   };
 }
 
+export interface ApiPartnerPartner extends Schema.CollectionType {
+  collectionName: 'partners';
+  info: {
+    singularName: 'partner';
+    pluralName: 'partners';
+    displayName: 'partner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    partner_id: Attribute.UID;
+    title: Attribute.String;
+    slogan: Attribute.String;
+    icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    result_id: Attribute.Relation<
+      'api::partner.partner',
+      'oneToMany',
+      'api::result.result'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::partner.partner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::partner.partner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPhotoPhoto extends Schema.CollectionType {
   collectionName: 'photos';
   info: {
@@ -1280,6 +1329,59 @@ export interface ApiPurposePurpose extends Schema.CollectionType {
   };
 }
 
+export interface ApiResultResult extends Schema.CollectionType {
+  collectionName: 'results';
+  info: {
+    singularName: 'result';
+    pluralName: 'results';
+    displayName: 'result';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    result_id: Attribute.UID;
+    description: Attribute.String;
+    numbering: Attribute.Integer;
+    partner_id: Attribute.Relation<
+      'api::result.result',
+      'manyToOne',
+      'api::partner.partner'
+    >;
+    specific_boards_id: Attribute.Relation<
+      'api::result.result',
+      'oneToMany',
+      'api::specific-board.specific-board'
+    >;
+    board_id: Attribute.Relation<
+      'api::result.result',
+      'oneToMany',
+      'api::board.board'
+    >;
+    event_id: Attribute.Relation<
+      'api::result.result',
+      'oneToMany',
+      'api::event.event'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::result.result',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::result.result',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSpecificBoardSpecificBoard extends Schema.CollectionType {
   collectionName: 'specific_boards';
   info: {
@@ -1308,6 +1410,11 @@ export interface ApiSpecificBoardSpecificBoard extends Schema.CollectionType {
       'api::specific-board.specific-board',
       'oneToMany',
       'api::planning.planning'
+    >;
+    result_id: Attribute.Relation<
+      'api::specific-board.specific-board',
+      'manyToOne',
+      'api::result.result'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1382,9 +1489,11 @@ declare module '@strapi/types' {
       'api::event-form.event-form': ApiEventFormEventForm;
       'api::event-registrarion-card.event-registrarion-card': ApiEventRegistrarionCardEventRegistrarionCard;
       'api::member.member': ApiMemberMember;
+      'api::partner.partner': ApiPartnerPartner;
       'api::photo.photo': ApiPhotoPhoto;
       'api::planning.planning': ApiPlanningPlanning;
       'api::purpose.purpose': ApiPurposePurpose;
+      'api::result.result': ApiResultResult;
       'api::specific-board.specific-board': ApiSpecificBoardSpecificBoard;
       'api::year.year': ApiYearYear;
     }

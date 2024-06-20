@@ -1,20 +1,16 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "about_uses",
   "info": {
     "singularName": "about-us",
     "pluralName": "about-uses",
-    "displayName": "About_us",
-    "description": ""
+    "displayName": "About_us"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "about_us_id": {
-      "type": "uid"
-    },
     "purpose": {
       "type": "string"
     },
@@ -22,15 +18,14 @@
       "type": "string"
     },
     "mascot_image": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "type": "media",
+      "multiple": false
     },
     "mascot_description": {
       "type": "string"

@@ -14,6 +14,12 @@
   "attributes": {
     "year": {
       "type": "integer"
+    },
+    "event_form_ids": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event-form.event-form",
+      "mappedBy": "year_id"
     }
   }
 }

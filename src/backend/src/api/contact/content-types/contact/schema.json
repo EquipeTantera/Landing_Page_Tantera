@@ -23,6 +23,12 @@
     },
     "message": {
       "type": "string"
+    },
+    "purpose_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::purpose.purpose",
+      "inversedBy": "contact_id"
     }
   }
 }

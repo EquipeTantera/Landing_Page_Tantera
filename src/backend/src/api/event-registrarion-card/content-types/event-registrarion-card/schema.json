@@ -14,6 +14,11 @@
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "event_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::event.event"
     }
   }
 }

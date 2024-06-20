@@ -43,6 +43,17 @@
     },
     "color": {
       "type": "string"
+    },
+    "category_id": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "product_id"
+    },
+    "photo_product_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::photo-product.photo-product"
     }
   }
 }

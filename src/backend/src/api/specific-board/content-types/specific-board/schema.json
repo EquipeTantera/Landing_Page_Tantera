@@ -17,6 +17,30 @@
     },
     "about": {
       "type": "string"
+    },
+    "board_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::board.board",
+      "inversedBy": "specific_board_id"
+    },
+    "member_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::member.member",
+      "mappedBy": "specific_board_id"
+    },
+    "planning_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::planning.planning",
+      "mappedBy": "specific_board_id"
+    },
+    "result_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::result.result",
+      "inversedBy": "board_id"
     }
   }
 }

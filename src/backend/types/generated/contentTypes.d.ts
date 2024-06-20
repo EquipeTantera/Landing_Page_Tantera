@@ -788,25 +788,20 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
-export interface ApiAboutUsAboutUs extends Schema.SingleType {
+export interface ApiAboutUsAboutUs extends Schema.CollectionType {
   collectionName: 'about_uses';
   info: {
     singularName: 'about-us';
     pluralName: 'about-uses';
     displayName: 'About_us';
-    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    about_us_id: Attribute.UID;
     purpose: Attribute.String;
     foundation: Attribute.String;
-    mascot_image: Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    mascot_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     mascot_description: Attribute.String;
     contact_id: Attribute.Relation<
       'api::about-us.about-us',
@@ -849,6 +844,11 @@ export interface ApiBannerBanner extends Schema.CollectionType {
   };
   attributes: {
     banner_png: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    photo_id: Attribute.Relation<
+      'api::banner.banner',
+      'manyToOne',
+      'api::photo.photo'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -885,6 +885,26 @@ export interface ApiBoardBoard extends Schema.CollectionType {
     end_date: Attribute.Date;
     current: Attribute.Boolean;
     member_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    specific_board_id: Attribute.Relation<
+      'api::board.board',
+      'oneToOne',
+      'api::specific-board.specific-board'
+    >;
+    member_id: Attribute.Relation<
+      'api::board.board',
+      'oneToMany',
+      'api::member.member'
+    >;
+    result_id: Attribute.Relation<
+      'api::board.board',
+      'manyToOne',
+      'api::result.result'
+    >;
+    planning_id: Attribute.Relation<
+      'api::board.board',
+      'manyToOne',
+      'api::planning.planning'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -916,6 +936,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
   attributes: {
     category: Attribute.String;
+    product_id: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::product.product'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -947,6 +972,11 @@ export interface ApiClassClass extends Schema.CollectionType {
   };
   attributes: {
     class_course: Attribute.Integer;
+    event_form_ids: Attribute.Relation<
+      'api::class.class',
+      'manyToMany',
+      'api::event-form.event-form'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -981,6 +1011,11 @@ export interface ApiContactContact extends Schema.CollectionType {
     email: Attribute.Email;
     telephone: Attribute.BigInteger;
     message: Attribute.String;
+    purpose_id: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'api::purpose.purpose'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1012,6 +1047,11 @@ export interface ApiCourseCourse extends Schema.CollectionType {
   };
   attributes: {
     course_name: Attribute.String;
+    event_form_ids: Attribute.Relation<
+      'api::course.course',
+      'manyToMany',
+      'api::event-form.event-form'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1054,6 +1094,26 @@ export interface ApiEventEvent extends Schema.CollectionType {
     price: Attribute.Decimal;
     title: Attribute.String;
     discount: Attribute.Boolean;
+    photo_id: Attribute.Relation<
+      'api::event.event',
+      'oneToMany',
+      'api::photo.photo'
+    >;
+    event_registrarion_card_id: Attribute.Relation<
+      'api::event.event',
+      'oneToOne',
+      'api::event-registrarion-card.event-registrarion-card'
+    >;
+    result_id: Attribute.Relation<
+      'api::event.event',
+      'oneToOne',
+      'api::result.result'
+    >;
+    partner_id: Attribute.Relation<
+      'api::event.event',
+      'oneToMany',
+      'api::partner.partner'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1088,6 +1148,21 @@ export interface ApiEventFormEventForm extends Schema.CollectionType {
     number: Attribute.BigInteger;
     email: Attribute.Email;
     participant: Attribute.Boolean;
+    class_id: Attribute.Relation<
+      'api::event-form.event-form',
+      'manyToMany',
+      'api::class.class'
+    >;
+    course_id: Attribute.Relation<
+      'api::event-form.event-form',
+      'manyToMany',
+      'api::course.course'
+    >;
+    year_id: Attribute.Relation<
+      'api::event-form.event-form',
+      'manyToMany',
+      'api::year.year'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1120,6 +1195,11 @@ export interface ApiEventRegistrarionCardEventRegistrarionCard
   };
   attributes: {
     title: Attribute.String;
+    event_id: Attribute.Relation<
+      'api::event-registrarion-card.event-registrarion-card',
+      'oneToOne',
+      'api::event.event'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1154,6 +1234,11 @@ export interface ApiMemberMember extends Schema.CollectionType {
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     role: Attribute.String;
     board: Attribute.String;
+    specific_board_id: Attribute.Relation<
+      'api::member.member',
+      'manyToOne',
+      'api::specific-board.specific-board'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1188,6 +1273,16 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
     slogan: Attribute.String;
     icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    result_id: Attribute.Relation<
+      'api::partner.partner',
+      'oneToMany',
+      'api::result.result'
+    >;
+    event_id: Attribute.Relation<
+      'api::partner.partner',
+      'manyToOne',
+      'api::event.event'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1219,6 +1314,11 @@ export interface ApiPhotoPhoto extends Schema.CollectionType {
   };
   attributes: {
     photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    banner_id: Attribute.Relation<
+      'api::photo.photo',
+      'oneToMany',
+      'api::banner.banner'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1282,6 +1382,16 @@ export interface ApiPlanningPlanning extends Schema.CollectionType {
   attributes: {
     description: Attribute.String;
     completed: Attribute.Boolean;
+    board_id: Attribute.Relation<
+      'api::planning.planning',
+      'oneToMany',
+      'api::board.board'
+    >;
+    specific_board_id: Attribute.Relation<
+      'api::planning.planning',
+      'manyToOne',
+      'api::specific-board.specific-board'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1320,6 +1430,16 @@ export interface ApiProductProduct extends Schema.CollectionType {
     size: Attribute.String;
     genre: Attribute.String;
     color: Attribute.String;
+    category_id: Attribute.Relation<
+      'api::product.product',
+      'manyToMany',
+      'api::category.category'
+    >;
+    photo_product_id: Attribute.Relation<
+      'api::product.product',
+      'oneToMany',
+      'api::photo-product.photo-product'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1351,6 +1471,11 @@ export interface ApiPurposePurpose extends Schema.CollectionType {
   };
   attributes: {
     purpose_name: Attribute.String;
+    contact_id: Attribute.Relation<
+      'api::purpose.purpose',
+      'oneToOne',
+      'api::contact.contact'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1383,6 +1508,21 @@ export interface ApiResultResult extends Schema.CollectionType {
   attributes: {
     description: Attribute.String;
     numbering: Attribute.Integer;
+    management_id: Attribute.Relation<
+      'api::result.result',
+      'oneToMany',
+      'api::board.board'
+    >;
+    board_id: Attribute.Relation<
+      'api::result.result',
+      'oneToMany',
+      'api::specific-board.specific-board'
+    >;
+    event_id: Attribute.Relation<
+      'api::result.result',
+      'oneToOne',
+      'api::event.event'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1415,6 +1555,26 @@ export interface ApiSpecificBoardSpecificBoard extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     about: Attribute.String;
+    board_id: Attribute.Relation<
+      'api::specific-board.specific-board',
+      'oneToOne',
+      'api::board.board'
+    >;
+    member_id: Attribute.Relation<
+      'api::specific-board.specific-board',
+      'oneToMany',
+      'api::member.member'
+    >;
+    planning_id: Attribute.Relation<
+      'api::specific-board.specific-board',
+      'oneToMany',
+      'api::planning.planning'
+    >;
+    result_id: Attribute.Relation<
+      'api::specific-board.specific-board',
+      'manyToOne',
+      'api::result.result'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1477,6 +1637,11 @@ export interface ApiYearYear extends Schema.CollectionType {
   };
   attributes: {
     year: Attribute.Integer;
+    event_form_ids: Attribute.Relation<
+      'api::year.year',
+      'manyToMany',
+      'api::event-form.event-form'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -55,6 +55,28 @@
     },
     "discount": {
       "type": "boolean"
+    },
+    "photo_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::photo.photo"
+    },
+    "event_registrarion_card_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::event-registrarion-card.event-registrarion-card"
+    },
+    "result_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::result.result",
+      "mappedBy": "event_id"
+    },
+    "partner_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::partner.partner",
+      "mappedBy": "event_id"
     }
   }
 }

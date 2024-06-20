@@ -39,6 +39,17 @@
         "videos",
         "audios"
       ]
+    },
+    "result_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::result.result"
+    },
+    "event_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "partner_id"
     }
   }
 }

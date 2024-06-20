@@ -37,6 +37,29 @@
         "videos",
         "audios"
       ]
+    },
+    "specific_board_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::specific-board.specific-board",
+      "mappedBy": "board_id"
+    },
+    "member_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::member.member"
+    },
+    "result_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::result.result",
+      "inversedBy": "management_id"
+    },
+    "planning_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::planning.planning",
+      "inversedBy": "board_id"
     }
   }
 }

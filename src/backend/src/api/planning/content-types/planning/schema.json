@@ -17,6 +17,18 @@
     },
     "completed": {
       "type": "boolean"
+    },
+    "board_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::board.board",
+      "mappedBy": "planning_id"
+    },
+    "specific_board_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::specific-board.specific-board",
+      "inversedBy": "planning_id"
     }
   }
 }

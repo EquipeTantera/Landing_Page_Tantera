@@ -22,6 +22,12 @@
         "videos",
         "audios"
       ]
+    },
+    "photo_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::photo.photo",
+      "inversedBy": "banner_id"
     }
   }
 }

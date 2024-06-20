@@ -23,6 +23,24 @@
     },
     "participant": {
       "type": "boolean"
+    },
+    "class_id": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::class.class",
+      "inversedBy": "event_form_ids"
+    },
+    "course_id": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::course.course",
+      "inversedBy": "event_form_ids"
+    },
+    "year_id": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::year.year",
+      "inversedBy": "event_form_ids"
     }
   }
 }

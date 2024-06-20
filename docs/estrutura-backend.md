@@ -108,15 +108,18 @@ src/
 ## Inicialização da aplicação
 
 ### Banco de dados
-Baixe o **PostgreSQL** por meio [deste link](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+Baixe o **PgAdmin** por meio [deste link](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 
-```plaintext
-psql -U postgres
-CREATE DATABASE tantechdb;
-CREATE USER tantech WITH PASSWORD 'tantech@123';
-ALTER USER tantech WITH SUPERUSER;
-GRANT ALL PRIVILEGES ON DATABASE tantechdb TO tantech;
-```
+O banco de dados está conectado com o RDS, modifique o arquivo '.env' para que a conexão seja feita:
+
+`DATABASE_CLIENT` = indica o tipo de base de dados que está utilizando;
+`DATABASE_HOST` = indica o host/servidor que está localizado a base dados;
+`DATABASE_PORT` = indica a porta que o banco de dados está;
+`DATABASE_NAME` = indica o nome do banco de dados;
+`DATABASE_USERNAME` = indica o nome de usuário que será utilizado para autenticar a conexão;
+`DATABASE_PASSWORD` = indica a senha para autenticar a conexão;
+`DATABASE_SSL` = indica o uso do SSL (Secure Sockets Layer), no caso será `false`;
+`JWT_SECRET` = indica a chave para verificar o JWT, não será utilizado nesse projeto.
 
 ### Iniciar o backend
 

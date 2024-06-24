@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "results",
+  "info": {
+    "singularName": "result",
+    "pluralName": "results",
+    "displayName": "result",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "numbering": {
+      "type": "integer"
+    },
+    "management_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::board.board",
+      "mappedBy": "result_id"
+    },
+    "board_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::specific-board.specific-board",
+      "mappedBy": "result_id"
+    },
+    "event_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::event.event",
+      "inversedBy": "result_id"
+    }
+  }
+}

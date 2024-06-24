@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "plannings",
+  "info": {
+    "singularName": "planning",
+    "pluralName": "plannings",
+    "displayName": "planning",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "completed": {
+      "type": "boolean"
+    },
+    "board_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::board.board",
+      "mappedBy": "planning_id"
+    },
+    "specific_board_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::specific-board.specific-board",
+      "inversedBy": "planning_id"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "about_uses",
+  "info": {
+    "singularName": "about-us",
+    "pluralName": "about-uses",
+    "displayName": "About_us"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "purpose": {
+      "type": "string"
+    },
+    "foundation": {
+      "type": "string"
+    },
+    "mascot_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "mascot_description": {
+      "type": "string"
+    },
+    "contact_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::contact.contact"
+    },
+    "board_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::board.board"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "photo_products",
+  "info": {
+    "singularName": "photo-product",
+    "pluralName": "photo-products",
+    "displayName": "photo_product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

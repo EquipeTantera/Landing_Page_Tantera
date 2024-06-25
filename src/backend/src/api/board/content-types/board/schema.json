@@ -27,17 +27,6 @@
     "current": {
       "type": "boolean"
     },
-    "member_image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "specific_board_id": {
       "type": "relation",
       "relation": "oneToOne",

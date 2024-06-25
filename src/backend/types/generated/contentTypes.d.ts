@@ -884,7 +884,6 @@ export interface ApiBoardBoard extends Schema.CollectionType {
     start_date: Attribute.Date;
     end_date: Attribute.Date;
     current: Attribute.Boolean;
-    member_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     specific_board_id: Attribute.Relation<
       'api::board.board',
       'oneToOne',

@@ -358,3 +358,93 @@ Parâmetros: nenhum
     }
 }
 ```
+
+## Products - Produtos
+
+### Criar um produto (Create)
+- **Endpoint**: ``POST`` - api/products
+
+Parâmetros:
+- title (varchar): título do produto.
+- price (decimal): preço do produto.
+- description (varchar): descrição do produto.
+- sold_out (boolean): produto está ou não esgotado.
+- size (varchar): tamanho do produto.
+- genre (varchar): genero do produto.
+- color (varchar): cor do produto.
+- image (image): imagem do produto.
+
+*Exemplo de requisição:*
+```json
+{
+  "data": {
+    "title": "testeP",
+    "price": 20.35,
+    "description": "testeD",
+    "sold_out": "True",
+    "size": "M",
+    "genre": "Masculino",
+    "color": "cinza",
+    "image": {
+      "url": "https://i.postimg.cc/J0VbLpVd/Captura-de-tela-2024-06-20-201729.png",
+      "name": "nome_da_imagem.png",
+      "alternativeText": "Texto alternativo da imagem",
+      "caption": "Legenda da imagem"
+    }
+  }
+}
+```
+
+### Encontrar todos os produtos (Find)
+- **Endpoint**: ``GET`` api/products
+
+Parâmetros: nenhum
+
+*Exmeplo de resposta:*
+```json
+{
+    "data": [
+        {
+            "id": 2,
+            "attributes": {
+                "title": "testeP",
+                "price": 20.35,
+                "description": "testeD",
+                "sold_out": true,
+                "size": "M",
+                "genre": "Masculino",
+                "color": "cinza",
+                "createdAt": "2024-06-25T03:11:59.604Z",
+                "updatedAt": "2024-06-25T03:11:59.604Z",
+                "publishedAt": "2024-06-25T03:11:59.457Z"
+            }
+        }
+    ]
+}
+```
+
+### Encontrar um produto (FindOne)
+- **Endpoint**: ``GET`` api/products
+
+Parâmetros: nenhum
+
+*Exmeplo de resposta:*
+```json
+{
+    "data": {
+        "id": 2,
+        "attributes": {
+            "title": "testeP",
+            "price": 20.35,
+            "description": "testeD",
+            "sold_out": true,
+            "size": "M",
+            "genre": "Masculino",
+            "color": "cinza",
+            "createdAt": "2024-06-25T03:11:59.604Z",
+            "updatedAt": "2024-06-25T03:11:59.604Z",
+            "publishedAt": "2024-06-25T03:11:59.457Z"
+        }
+    }
+}
+```

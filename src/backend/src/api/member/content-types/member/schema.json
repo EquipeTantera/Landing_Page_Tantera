@@ -13,12 +13,13 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "image": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -27,10 +28,12 @@
       ]
     },
     "role": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "board": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "specific_board_id": {
       "type": "relation",

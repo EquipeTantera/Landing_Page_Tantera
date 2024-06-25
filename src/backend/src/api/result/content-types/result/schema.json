@@ -13,10 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "description": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "numbering": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "management_id": {
       "type": "relation",

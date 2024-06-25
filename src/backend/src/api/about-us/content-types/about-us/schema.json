@@ -4,7 +4,8 @@
   "info": {
     "singularName": "about-us",
     "pluralName": "about-uses",
-    "displayName": "About_us"
+    "displayName": "About_us",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,23 +13,27 @@
   "pluginOptions": {},
   "attributes": {
     "purpose": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "foundation": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "mascot_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "mascot_description": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "contact_id": {
       "type": "relation",

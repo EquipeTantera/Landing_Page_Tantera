@@ -13,12 +13,13 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "image": {
       "type": "media",
       "multiple": true,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -27,22 +28,28 @@
       ]
     },
     "price": {
-      "type": "decimal"
+      "type": "decimal",
+      "required": true
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "sold_out": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true
     },
     "size": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "genre": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "color": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "category_id": {
       "type": "relation",

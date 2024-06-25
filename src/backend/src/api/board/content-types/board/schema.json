@@ -13,19 +13,24 @@
   "pluginOptions": {},
   "attributes": {
     "description": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "year": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "start_date": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "end_date": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "current": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true
     },
     "specific_board_id": {
       "type": "relation",

@@ -15,7 +15,7 @@
     "image": {
       "type": "media",
       "multiple": true,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -24,37 +24,47 @@
       ]
     },
     "street": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "postal_code": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "number": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "date": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "start_time": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "end_time": {
       "type": "date"
     },
     "note": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "price": {
-      "type": "decimal"
+      "type": "decimal",
+      "required": true
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "discount": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true
     },
     "photo_id": {
       "type": "relation",

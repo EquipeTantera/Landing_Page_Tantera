@@ -794,15 +794,17 @@ export interface ApiAboutUsAboutUs extends Schema.CollectionType {
     singularName: 'about-us';
     pluralName: 'about-uses';
     displayName: 'About_us';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    purpose: Attribute.String;
-    foundation: Attribute.String;
-    mascot_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    mascot_description: Attribute.String;
+    purpose: Attribute.String & Attribute.Required;
+    foundation: Attribute.String & Attribute.Required;
+    mascot_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.Required;
+    mascot_description: Attribute.String & Attribute.Required;
     contact_id: Attribute.Relation<
       'api::about-us.about-us',
       'oneToOne',
@@ -843,7 +845,11 @@ export interface ApiBannerBanner extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    banner_png: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    banner_png: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Attribute.Required;
     photo_id: Attribute.Relation<
       'api::banner.banner',
       'manyToOne',
@@ -879,11 +885,11 @@ export interface ApiBoardBoard extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    description: Attribute.String;
-    year: Attribute.Integer;
-    start_date: Attribute.Date;
-    end_date: Attribute.Date;
-    current: Attribute.Boolean;
+    description: Attribute.String & Attribute.Required;
+    year: Attribute.Integer & Attribute.Required;
+    start_date: Attribute.Date & Attribute.Required;
+    end_date: Attribute.Date & Attribute.Required;
+    current: Attribute.Boolean & Attribute.Required;
     specific_board_id: Attribute.Relation<
       'api::board.board',
       'oneToOne',
@@ -934,7 +940,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    category: Attribute.String;
+    category: Attribute.String & Attribute.Required;
     product_id: Attribute.Relation<
       'api::category.category',
       'manyToMany',
@@ -970,7 +976,7 @@ export interface ApiClassClass extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    class_course: Attribute.Integer;
+    class_course: Attribute.Integer & Attribute.Required;
     event_form_ids: Attribute.Relation<
       'api::class.class',
       'manyToMany',
@@ -1006,10 +1012,10 @@ export interface ApiContactContact extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    email: Attribute.Email;
-    telephone: Attribute.BigInteger;
-    message: Attribute.String;
+    name: Attribute.String & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    telephone: Attribute.BigInteger & Attribute.Required;
+    message: Attribute.String & Attribute.Required;
     purpose_id: Attribute.Relation<
       'api::contact.contact',
       'oneToOne',
@@ -1045,7 +1051,7 @@ export interface ApiCourseCourse extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    course_name: Attribute.String;
+    course_name: Attribute.String & Attribute.Required;
     event_form_ids: Attribute.Relation<
       'api::course.course',
       'manyToMany',
@@ -1081,18 +1087,19 @@ export interface ApiEventEvent extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    street: Attribute.String;
-    postal_code: Attribute.String;
-    number: Attribute.Integer;
-    date: Attribute.Date;
-    start_time: Attribute.Date;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.Required;
+    street: Attribute.String & Attribute.Required;
+    postal_code: Attribute.String & Attribute.Required;
+    number: Attribute.Integer & Attribute.Required;
+    date: Attribute.Date & Attribute.Required;
+    start_time: Attribute.Date & Attribute.Required;
     end_time: Attribute.Date;
-    note: Attribute.String;
-    description: Attribute.String;
-    price: Attribute.Decimal;
-    title: Attribute.String;
-    discount: Attribute.Boolean;
+    note: Attribute.String & Attribute.Required;
+    description: Attribute.String & Attribute.Required;
+    price: Attribute.Decimal & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    discount: Attribute.Boolean & Attribute.Required;
     photo_id: Attribute.Relation<
       'api::event.event',
       'oneToMany',
@@ -1143,10 +1150,10 @@ export interface ApiEventFormEventForm extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    number: Attribute.BigInteger;
-    email: Attribute.Email;
-    participant: Attribute.Boolean;
+    name: Attribute.String & Attribute.Required;
+    number: Attribute.BigInteger & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    participant: Attribute.Boolean & Attribute.Required;
     class_id: Attribute.Relation<
       'api::event-form.event-form',
       'manyToMany',
@@ -1193,7 +1200,7 @@ export interface ApiEventRegistrarionCardEventRegistrarionCard
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
+    title: Attribute.String & Attribute.Required;
     event_id: Attribute.Relation<
       'api::event-registrarion-card.event-registrarion-card',
       'oneToOne',
@@ -1229,10 +1236,11 @@ export interface ApiMemberMember extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    role: Attribute.String;
-    board: Attribute.String;
+    name: Attribute.String & Attribute.Required;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.Required;
+    role: Attribute.String & Attribute.Required;
+    board: Attribute.String & Attribute.Required;
     specific_board_id: Attribute.Relation<
       'api::member.member',
       'manyToOne',
@@ -1268,10 +1276,12 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    slogan: Attribute.String;
-    icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    title: Attribute.String & Attribute.Required;
+    slogan: Attribute.String & Attribute.Required;
+    icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.Required;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.Required;
     result_id: Attribute.Relation<
       'api::partner.partner',
       'oneToMany',
@@ -1312,7 +1322,8 @@ export interface ApiPhotoPhoto extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.Required;
     banner_id: Attribute.Relation<
       'api::photo.photo',
       'oneToMany',
@@ -1348,7 +1359,8 @@ export interface ApiPhotoProductPhotoProduct extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1379,8 +1391,8 @@ export interface ApiPlanningPlanning extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    description: Attribute.String;
-    completed: Attribute.Boolean;
+    description: Attribute.String & Attribute.Required;
+    completed: Attribute.Boolean & Attribute.Required;
     board_id: Attribute.Relation<
       'api::planning.planning',
       'oneToMany',
@@ -1421,14 +1433,15 @@ export interface ApiProductProduct extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    price: Attribute.Decimal;
-    description: Attribute.String;
-    sold_out: Attribute.Boolean;
-    size: Attribute.String;
-    genre: Attribute.String;
-    color: Attribute.String;
+    title: Attribute.String & Attribute.Required;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.Required;
+    price: Attribute.Decimal & Attribute.Required;
+    description: Attribute.String & Attribute.Required;
+    sold_out: Attribute.Boolean & Attribute.Required;
+    size: Attribute.String & Attribute.Required;
+    genre: Attribute.String & Attribute.Required;
+    color: Attribute.String & Attribute.Required;
     category_id: Attribute.Relation<
       'api::product.product',
       'manyToMany',
@@ -1469,7 +1482,7 @@ export interface ApiPurposePurpose extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    purpose_name: Attribute.String;
+    purpose_name: Attribute.String & Attribute.Required;
     contact_id: Attribute.Relation<
       'api::purpose.purpose',
       'oneToOne',
@@ -1505,8 +1518,8 @@ export interface ApiResultResult extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    description: Attribute.String;
-    numbering: Attribute.Integer;
+    description: Attribute.String & Attribute.Required;
+    numbering: Attribute.Integer & Attribute.Required;
     management_id: Attribute.Relation<
       'api::result.result',
       'oneToMany',
@@ -1552,8 +1565,8 @@ export interface ApiSpecificBoardSpecificBoard extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    about: Attribute.String;
+    name: Attribute.String & Attribute.Required;
+    about: Attribute.String & Attribute.Required;
     board_id: Attribute.Relation<
       'api::specific-board.specific-board',
       'oneToOne',
@@ -1604,7 +1617,8 @@ export interface ApiVideoVideo extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    video: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    video: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1635,7 +1649,7 @@ export interface ApiYearYear extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    year: Attribute.Integer;
+    year: Attribute.Integer & Attribute.Required;
     event_form_ids: Attribute.Relation<
       'api::year.year',
       'manyToMany',

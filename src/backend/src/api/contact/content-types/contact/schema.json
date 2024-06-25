@@ -13,16 +13,20 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "email": {
-      "type": "email"
+      "type": "email",
+      "required": true
     },
     "telephone": {
-      "type": "biginteger"
+      "type": "biginteger",
+      "required": true
     },
     "message": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "purpose_id": {
       "type": "relation",

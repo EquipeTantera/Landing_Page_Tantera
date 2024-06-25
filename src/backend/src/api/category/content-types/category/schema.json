@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "category": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "product_id": {
       "type": "relation",

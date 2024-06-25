@@ -276,4 +276,85 @@ Parâmetros: nenhum
 }
 ```
 
+## Partner - Parceiros
 
+### Criar um parceiro (Create)
+- **Endpoint**: ``POST`` - /api/partners
+
+Parâmetros:
+- title (varchar): Nome do parceiro.
+- slogan (varchar): Frase de efeito do parceiro.
+- icon (image): Icone/Logo do parceiro.
+- image/images (image): Uma única image ou array de imagfem do parceiro.
+
+*Exemplo de requisição:*
+```json
+{
+  "data": {
+    "title": "testeA",
+    "slogan": "testeAB",
+    "icon": {
+      "url": "https://i.postimg.cc/J0VbLpVd/Captura-de-tela-2024-06-20-201729.png",
+      "name": "nome_da_imagem.png",
+      "alternativeText": "Texto alternativo da imagem",
+      "caption": "Legenda da imagem"
+    },
+    "images": [
+      {
+        "url": "https://i.postimg.cc/J0VbLpVd/Captura-de-tela-2024-06-20-201729.png",
+        "name": "nome_da_imagem.png",
+        "alternativeText": "Texto alternativo da imagem",
+        "caption": "Legenda da imagem"
+      },
+      {
+        "url": "https://outra-url-da-imagem.com/imagem2.png",
+        "name": "nome_da_imagem2.png",
+        "alternativeText": "Texto alternativo da segunda imagem",
+        "caption": "Legenda da segunda imagem"
+      }
+    ]
+  }
+}
+```
+
+### Encontrar todos os parceiros (Find)
+- **Endpoint**: ``GET`` - /api/partners
+
+Parâmetros: nenhum
+
+*Exemplo de resposta:*
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "attributes": {
+                "title": "testeA",
+                "slogan": "testeAB",
+                "createdAt": "2024-06-25T02:54:04.663Z",
+                "updatedAt": "2024-06-25T02:54:04.663Z",
+                "publishedAt": "2024-06-25T02:54:04.512Z"
+            }
+        }
+    ]
+}
+```
+
+### Encontrar um parceiro (FindOne)
+- **Endpoint**: ``GET`` - api/partners/:id
+
+*Exemplo de resposta:*
+```json
+{
+    "data": {
+        "id": 1,
+        "attributes": {
+            "title": "testeA",
+            "slogan": "testeAB",
+            "createdAt": "2024-06-25T02:54:04.663Z",
+            "updatedAt": "2024-06-25T02:54:04.663Z",
+            "publishedAt": "2024-06-25T02:54:04.512Z"
+        }
+    }
+}
+```

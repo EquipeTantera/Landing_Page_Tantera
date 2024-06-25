@@ -1093,8 +1093,8 @@ export interface ApiEventEvent extends Schema.CollectionType {
     postal_code: Attribute.String & Attribute.Required;
     number: Attribute.Integer & Attribute.Required;
     date: Attribute.Date & Attribute.Required;
-    start_time: Attribute.Date & Attribute.Required;
-    end_time: Attribute.Date;
+    start_time: Attribute.DateTime & Attribute.Required;
+    end_time: Attribute.DateTime & Attribute.Required;
     note: Attribute.String & Attribute.Required;
     description: Attribute.String & Attribute.Required;
     price: Attribute.Decimal & Attribute.Required;

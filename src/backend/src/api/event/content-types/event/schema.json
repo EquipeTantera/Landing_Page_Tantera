@@ -40,11 +40,12 @@
       "required": true
     },
     "start_time": {
-      "type": "date",
+      "type": "datetime",
       "required": true
     },
     "end_time": {
-      "type": "date"
+      "type": "datetime",
+      "required": true
     },
     "note": {
       "type": "string",

@@ -424,7 +424,7 @@ Parâmetros: nenhum
 ```
 
 ### Encontrar um produto (FindOne)
-- **Endpoint**: ``GET`` api/products
+- **Endpoint**: ``GET`` api/products/:id
 
 Parâmetros: nenhum
 
@@ -444,6 +444,74 @@ Parâmetros: nenhum
             "createdAt": "2024-06-25T03:11:59.604Z",
             "updatedAt": "2024-06-25T03:11:59.604Z",
             "publishedAt": "2024-06-25T03:11:59.457Z"
+        }
+    }
+}
+```
+
+## Specific-board - Diretoria especifica
+
+### Criar uma diretoria (Create)
+- **Endpoint**: ``POST`` - api/specific-boards
+
+Parâmetros:
+- name (varchar): nome da diretoria.
+- about (varchar): descrição sobre a diretoria.
+
+*Exemplo de requisição:*
+```json
+{
+    "data":{
+        "name": "teste",
+        "about": "teste",
+        // dados de outras entidades
+        "result_id": ["1", "2", "3"],
+        "board_id": "1",
+        "member_id": "1",
+        "planning_id": ["1", "4", "7"]
+    }
+}
+```
+
+### Encontrar todos as diretorias (Find)
+- **Endpoint**: ``GET`` api/specific-boards
+
+Parâmetros: nenhum
+
+*Exmeplo de resposta:*
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "attributes": {
+                "name": "teste",
+                "about": "teste",
+                "createdAt": "2024-06-27T02:24:03.044Z",
+                "updatedAt": "2024-06-27T02:24:03.044Z",
+                "publishedAt": "2024-06-27T02:24:03.040Z"
+            }
+        }
+    ]
+}
+```
+
+### Encontrar uma diretoria especifica (FindOne)
+- **Endpoint**: ``GET`` api/specific-boards/:id
+
+Parâmetros: nenhum
+
+*Exmeplo de resposta:*
+```json
+{
+    "data": {
+        "id": 1,
+        "attributes": {
+            "name": "teste",
+            "about": "teste",
+            "createdAt": "2024-06-27T02:24:03.044Z",
+            "updatedAt": "2024-06-27T02:24:03.044Z",
+            "publishedAt": "2024-06-27T02:24:03.040Z"
         }
     }
 }

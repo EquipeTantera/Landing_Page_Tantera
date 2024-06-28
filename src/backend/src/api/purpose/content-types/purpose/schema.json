@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "purpose_name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "contact_id": {
       "type": "relation",

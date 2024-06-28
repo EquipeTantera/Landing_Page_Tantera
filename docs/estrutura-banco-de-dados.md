@@ -186,7 +186,6 @@ link do diagrama realizado: [diagrama](https://lucid.app/lucidchart/ee39349f-901
 | `start_date`   | date         | data de inicio                                   | -              |
 | `end_date`     | date         | data de fim da gestão                            | -              |
 | `current`      | boolean      | a gestão é a atual                               | -              |
-| `member_image` | varchar      | imagem de toda a gestão                          | -              |
 
 ### Entidade: member
 **Descrição:** Representa as informações dos membros e seus cargos na atlética.

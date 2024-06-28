@@ -13,16 +13,20 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "number": {
-      "type": "biginteger"
+      "type": "biginteger",
+      "required": true
     },
     "email": {
-      "type": "email"
+      "type": "email",
+      "required": true
     },
     "participant": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true
     },
     "class_id": {
       "type": "relation",

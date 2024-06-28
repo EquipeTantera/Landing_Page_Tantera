@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "class_course": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "event_form_ids": {
       "type": "relation",

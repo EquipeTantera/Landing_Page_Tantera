@@ -13,10 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "about": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "board_id": {
       "type": "relation",

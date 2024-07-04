@@ -9,6 +9,7 @@
     flex-wrap: wrap;
     height: 306px;
     padding: 2rem;
+    position: relative;
   }
 
   &__bottom {
@@ -27,8 +28,18 @@
   }
 
   &__logo {
-    width: 100px;
+    width: 198px;
+    height: 174px;
     margin-bottom: 1rem;
+  }
+
+  &__logoBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
   }
 
   &__address, &__contacts, &__pages {
@@ -42,6 +53,7 @@
     margin-bottom: 1rem;
     font-size: 30px;
     color: #bbb;
+    font-weight: lighter;
   }
 
   ul {
@@ -49,7 +61,7 @@
     padding: 0;
 
     li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 27px;
       display: flex;
       align-items: center;
 

@@ -1,0 +1,74 @@
+.footer {
+  background-color: #33116D;
+  color: #ffffff;
+
+  &__main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 306px;
+    padding: 2rem;
+  }
+
+  &__bottom {
+    background-color: #180733;
+    height: 67px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  &__logo {
+    width: 100px;
+    margin-bottom: 1rem;
+  }
+
+  &__address, &__contacts, &__pages {
+    font-family: 'Poppins', sans-serif;
+    margin: 1rem 0;
+    font-size: 18px;
+  }
+
+  &__title {
+    font-family: 'Drive Corps';
+    margin-bottom: 1rem;
+    font-size: 30px;
+    color: #bbb;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+
+      img.footer__icon {
+        margin-right: 0.5rem;
+        width: 20px;
+        height: auto;
+      }
+    }
+  }
+
+  address {
+    display: flex;
+    align-items: center;
+
+    img.footer__icon {
+      margin-right: 0.5rem;
+      width: 20px;
+      height: auto;
+    }
+  }
+}

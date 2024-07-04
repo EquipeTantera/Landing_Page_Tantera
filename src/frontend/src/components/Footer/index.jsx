@@ -14,7 +14,7 @@ export default function Footer() {
             <h4 className={styles.footer__title}>Localização</h4>
             <address className={styles.footer__address}>
               <img src="..\public\location-dot-icon.svg" alt="Location" className={styles.footer__icon}/>
-              Av. Prof. Almeida Prado, 520 - Butantã, São Paulo - SP, 05508-070
+              Av. Prof. Almeida Prado, 520 - <br /> Butantã, São Paulo - SP, 05508-070
             </address>
           </div>
           <div className={styles.footer__contacts}>

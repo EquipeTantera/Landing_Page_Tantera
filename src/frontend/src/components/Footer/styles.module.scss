@@ -28,8 +28,10 @@
   }
 
   &__logo {
+    margin-top: 20px;
+    margin-left: 140px;
     width: 198px;
-    height: 174px;
+    height: 180px;
     margin-bottom: 1rem;
   }
 
@@ -37,15 +39,16 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 27%;
     height: 100%;
-    z-index: -1;
+    z-index:0;
   }
 
-  &__address, &__contacts, &__pages {
+  &__location, &__contacts, &__pages {
     font-family: 'Poppins', sans-serif;
     margin: 1rem 0;
     font-size: 18px;
+    margin-top: 10px;
   }
 
   &__title {
@@ -59,6 +62,7 @@
   ul {
     list-style: none;
     padding: 0;
+    margin-left: 0;
 
     li {
       margin-bottom: 27px;
@@ -82,5 +86,31 @@
       width: 20px;
       height: auto;
     }
+  }
+
+  @media (max-width: 768px) {
+    .footer__main {
+      height: auto; 
+    }
+
+    .footer__container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer__logo {
+      margin-left: 0;
+  
+    }
+
+    .footer__logoBackground {
+      display: none;
+    }
+
+    .footer__location, .footer__contacts, .footer__pages {
+      text-align: left;
+      width: 100%;
+
+  }
   }
 }

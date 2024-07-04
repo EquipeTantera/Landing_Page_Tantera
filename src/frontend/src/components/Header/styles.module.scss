@@ -7,8 +7,10 @@
   padding: 2rem 3rem;
   width: 100%;
   transition: background-color 0.3s;
-  z-index: 2;
+  z-index: 3; 
   position: absolute;
+  top: 0;
+  left: 0;
 
   &__container__imagem {
     width: 5rem;
@@ -21,14 +23,14 @@
     top: 1rem;       
     left: 1rem;
     opacity: 0;      
-    z-index: 3;      
+    z-index: 4; 
     width: 40px;
     height: 40px;    
     cursor: pointer;
 
     &__label {
       display: none;
-      z-index: 2;      
+      z-index: 4; 
       cursor: pointer;
   
       &__close {
@@ -70,7 +72,6 @@
     }
   }
 
-
   &.scrolled {
     background-color: transparent;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -80,7 +81,7 @@
 @media (max-width: 768px) {
   .header {
     padding: 1rem 1rem;
-    
+
     &__nav {
       display: none;
       flex-direction: column;
@@ -124,5 +125,4 @@
   .menuActive {
     background-color: v.$purple-1; 
   }
-
 }

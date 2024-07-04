@@ -8,19 +8,58 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: relative; 
+  padding: 2rem;
+  box-sizing: border-box;
 
-  @media screen and (max-width: 768px) {
-    width: 100%;
-    height: auto;
-    padding: 2rem;
+  @media screen and (max-width: 1200px) {
+    height: 700px;
 
     .title-shadow {
-      font-size: 20vw;
+      font-size: 300px;
     }
 
     .title {
-      font-size: 5vw;
+      font-size: 80px;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    height: 600px;
+
+    .title-shadow {
+      font-size: 200px;
+    }
+
+    .title {
+      font-size: 60px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    height: 245px;
+    padding: 1rem;
+    margin-top: 70px;
+
+    .title-shadow {
+      font-size: 21vw;
+    }
+
+    .title {
+      font-size: 8vw;
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    padding: 0.5rem;
+    margin-top: 70px;
+
+    .title-shadow {
+      font-size: 105px;
+    }
+
+    .title {
+      font-size: 48px;
     }
   }
 }

@@ -7,10 +7,6 @@ export default function Footer() {
       <div className={styles.footer__main}>
         <div className={styles.footer__container}>
           <div className={styles.footer__location}>
-            <img src="..\public\logo_header.png" alt="Logo" className={styles.footer__logo}/>
-            <img src="..\public\spider-back.png" alt="Spider Background" className={styles.footer__logoBackground} />
-          </div>
-          <div className={styles.footer__location}>
             <h4 className={styles.footer__title}>Localização</h4>
             <address className={styles.footer__address}>
               <img src="..\public\location-dot-icon.svg" alt="Location" className={styles.footer__icon}/>
@@ -35,6 +31,10 @@ export default function Footer() {
               <li>Gestão</li>
               <li>Parceiros</li>
             </ul>
+          </div>
+          <div className={styles.footer__images}>
+            <img src="..\public\logo_header.png" alt="Logo" className={styles.footer__logo}/>
+            <img src="..\public\spider-back.png" alt="Spider Background" className={styles.footer__logoBackground} />
           </div>
         </div>
       </div>

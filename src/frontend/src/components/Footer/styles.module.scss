@@ -1,6 +1,7 @@
 .footer {
   background-color: #33116D;
   color: #ffffff;
+  position: relative;
 
   &__main {
     display: flex;
@@ -165,6 +166,25 @@
       align-self: center;
     }
 
+    .footer__bars {
+      display: flex;
+      justify-content: flex-end;
+      position: absolute;
+      align-items: center;
+      bottom: 0;
+      width: 100%;
+    }
+    
+    .footer__bar {
+      background-color: #55358A;
+      width: 162px;
+      height: 1100px;
+      opacity: 40%;
+      margin-right: 30px;
+      z-index: 0; /* Coloca as barras atrás dos elementos */
+
+    }
+    
     &__logoBackground {
       display: none;
     }

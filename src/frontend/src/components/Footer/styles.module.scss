@@ -26,7 +26,7 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    padding-left: 500px; // Ajuste para dar espaço à logo
+    padding-left: 500px;
   }
 
   &__logo {
@@ -105,14 +105,14 @@
     &__container {
       flex-direction: column;
       align-items: center;
-      padding-left: 50px; // Remover padding em telas médias
+      padding-left: 50px;
     }
 
     &__logo {
-      position: relative; // Alterar a posição para relativa em telas médias
+      position: relative;
       margin-bottom: 2rem;
-      transform: none; // Remover transformação
-      margin-left: 0; // Remover margem esquerda
+      transform: none;
+      margin-left: 0;
       text-align: center;
       align-self: center;
     }
@@ -126,7 +126,7 @@
     }
 
     &__location, &__contacts, &__pages {
-      text-align: left; // Manter o texto alinhado à esquerda
+      text-align: left;
       width: 100%;
       margin-top: 40px;
     }
@@ -154,37 +154,18 @@
     &__container {
       flex-direction: column;
       align-items: center;
-      padding-left: 0; // Remover padding no mobile
+      padding-left: 0;
     }
 
     &__logo {
-      position: relative; // Alterar a posição para relativa no mobile
+      position: relative;
       margin-bottom: 2rem;
-      transform: none; // Remover transformação
-      margin-left: 0; // Remover margem esquerda
+      transform: none;
+      margin-left: 0;
       text-align: center;
       align-self: center;
     }
 
-    .footer__bars {
-      display: flex;
-      justify-content: flex-end;
-      position: absolute;
-      align-items: center;
-      bottom: 0;
-      width: 100%;
-    }
-    
-    .footer__bar {
-      background-color: #55358A;
-      width: 162px;
-      height: 1100px;
-      opacity: 40%;
-      margin-right: 30px;
-      z-index: 0; /* Coloca as barras atrás dos elementos */
-
-    }
-    
     &__logoBackground {
       display: none;
     }
@@ -194,7 +175,7 @@
     }
 
     &__location, &__contacts, &__pages {
-      text-align: left; // Manter o texto alinhado à esquerda
+      text-align: left; 
       width: 100%;
       margin-top: 30px;
     }

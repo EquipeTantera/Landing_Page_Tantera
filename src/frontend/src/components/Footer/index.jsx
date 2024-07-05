@@ -4,10 +4,6 @@ import styles from './styles.module.scss';
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.footer__bars}>
-      <div className={styles.footer__bar}></div>
-      <div className={styles.footer__bar}></div>
-      </div>
       <div className={styles.footer__main}>
         <div className={styles.footer__container}>
           <div className={styles.footer__location}>
@@ -41,9 +37,10 @@ export default function Footer() {
             <img src="..\public\spider-back.png" alt="Spider Background" className={styles.footer__logoBackground} />
           </div>
         </div>
-      
       </div>
-
+      <div className={styles.footer__bottom}>
+        © 2024 Atlética Tantera. Todos os direitos reservados. | Termos de Uso | Política de Privacidade
+      </div>
     </footer>
   );
 }

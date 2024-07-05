@@ -33,7 +33,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className={styles.footer__images}>
-            <img src="..\public\logo_header.png" alt="Logo" className={styles.footer__logo}/>
+            <img src="..\public\logo_header.svg" alt="Logo" className={styles.footer__logo}/>
             <img src="..\public\spider-back.png" alt="Spider Background" className={styles.footer__logoBackground} />
           </div>
         </div>

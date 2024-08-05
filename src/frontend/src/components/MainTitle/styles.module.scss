@@ -1,0 +1,63 @@
+@use "../../styles/_variables" as v;
+
+.container {
+  width: 100%;
+  height: 45rem;
+  flex-shrink: 0;
+  background-color: v.$red-1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; 
+  padding: 2rem;
+  box-sizing: border-box;
+
+  &__secundary,
+  &__primary {
+    text-align: center;
+    font-family: "Drive Corps";
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__secundary {
+    color: v.$red-1;
+    -webkit-text-stroke-width: 6px;
+    -webkit-text-stroke-color: rgba(254, 254, 254, 0.30);
+    font-size: 413px;
+    z-index: 1;
+  }
+
+  &__primary {
+    color: v.$white-1;
+    font-size: 6rem;
+    z-index: 2;
+  }
+
+  @media screen and (max-width: 1200px) {
+    height: 20rem;
+
+    &__secundary {
+      font-size: 18.75rem;
+    }
+
+    &__primary {
+      font-size: 5rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    &__secundary {
+      font-size: 21vw;
+    }
+
+    &__primary {
+      font-size: 8vw;
+    }
+  }
+}

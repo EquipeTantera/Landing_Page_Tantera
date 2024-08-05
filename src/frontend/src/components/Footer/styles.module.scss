@@ -1,6 +1,8 @@
+@use "../../styles/_variables" as v;
+
 .footer {
-  background-color: #33116D;
-  color: #ffffff;
+  background-color: v.$purple-2;
+  color: v.$white-1;
   position: relative;
 
   &__main {
@@ -8,14 +10,12 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    height: 306px;
-    padding: 2rem;
     position: relative;
   }
 
   &__bottom {
-    background-color: #180733;
-    height: 67px;
+    background-color: v.$purple-1;
+    height: 4.18rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,19 +26,18 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    padding-left: 500px;
+    padding-left: 25rem;
+    gap: 2rem;
   }
 
   &__logo {
-    margin-top: 20px;
-    width: 198px;
-    height: 180px;
+    margin-top: 1.25rem;
     margin-bottom: 1rem;
     position: absolute;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    margin-left: 200px;
+    margin-left: 6rem;
   }
 
   &__logoBackground {
@@ -53,49 +52,58 @@
 
   &__location, &__contacts, &__pages {
     font-family: 'Poppins', sans-serif;
-    margin: 1rem 0;
-    font-size: 18px;
-    margin-top: 10px;
+    margin-top: 2rem;
+    font-size: 1.125rem;
   }
 
   &__title {
     font-family: 'Drive Corps';
     margin-bottom: 1rem;
-    font-size: 30px;
-    color: #bbb;
+    font-size: 1.875rem;
+    color: v.$grey-1;
     font-weight: lighter;
   }
 
-  ul {
+  &__list-links, &__list-pages {
     list-style: none;
     padding: 0;
     margin-left: 0;
 
-    li {
-      margin-bottom: 27px;
+    &__item, &_item__link {
+      margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
+      color: v.$grey-1;
+    }
+  }
 
-      img.footer__icon {
-        margin-right: 0.5rem;
-        width: 20px;
-        height: auto;
-      }
+  &__icon {
+    margin-right: 0.5rem;
+    width: 1.25rem;
+    height: auto;
+  }
+
+  &__list-pages__item, &__list-links__item__link {
+    &:hover {
+      color: v.$white-1;
+      cursor: pointer;
     }
   }
 
   address {
     display: flex;
     align-items: center;
+    color: v.$grey-1;
+    line-height: 2rem;
 
     img.footer__icon {
       margin-right: 0.5rem;
-      width: 30px;
+      width: 1.875rem;
       height: auto;
     }
   }
 
-  @media (max-width: 1300px) and (min-width: 769px) {
+  @media (max-width: 768px) {
     &__main {
       height: auto;
       flex-direction: column;
@@ -105,7 +113,8 @@
     &__container {
       flex-direction: column;
       align-items: center;
-      padding-left: 50px;
+      padding: 0 1rem;
+      gap: 0;
     }
 
     &__logo {
@@ -128,56 +137,7 @@
     &__location, &__contacts, &__pages {
       text-align: left;
       width: 100%;
-      margin-top: 40px;
-    }
-
-    &__pages {
-      order: 2;
-    }
-
-    &__images {
-      order: 3;
-    }
-
-    &__location, &__contacts {
-      order: 1;
-    }
-  }
-
-  @media (max-width: 768px) {
-    &__main {
-      height: auto;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    &__container {
-      flex-direction: column;
-      align-items: center;
-      padding-left: 0;
-    }
-
-    &__logo {
-      position: relative;
-      margin-bottom: 2rem;
-      transform: none;
-      margin-left: 0;
-      text-align: center;
-      align-self: center;
-    }
-
-    &__logoBackground {
-      display: none;
-    }
-
-    &__bottom {
-      text-align: center;
-    }
-
-    &__location, &__contacts, &__pages {
-      text-align: left; 
-      width: 100%;
-      margin-top: 30px;
+      margin-top: 2.5rem;
     }
 
     &__pages {

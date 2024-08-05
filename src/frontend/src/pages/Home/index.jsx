@@ -1,4 +1,3 @@
-import React from 'react';
 import HorizontalSubtitle from '../../components/HorizontalSubtitle';
 import Content from '../../components/Content';
 import styles from './styles.module.scss';

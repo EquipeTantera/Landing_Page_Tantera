@@ -1,38 +1,27 @@
-import PropType from 'prop-types';
-import styles from './styles.module.scss'
+import PropTypes from 'prop-types';
+import styles from './styles.module.scss';
 
 export default function VerticalSubtitle({ title, subtitle, imageBackground }) {
-  let sectionStyle = {
+  const baseStyle = {
     backgroundImage: `url(${imageBackground})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: 'auto'
   };
 
-  let subtitleStyle = {
-    backgroundImage: `url(${imageBackground})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    height: 'auto'
-  };
+  const sectionStyle = imageBackground === 'red' ? {
+    ...baseStyle,
+    backgroundImage: 'url(public/red-papper-background.png)',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'left center'
+  } : baseStyle;
 
-  if (imageBackground === 'red') {
-    sectionStyle = {
-      backgroundImage: 'url(public/red-papper-background.png)',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'left center',
-      // minHeight: '40rem'
-    };
-  }
-
-  if (subtitle === 'presidência') {
-    subtitleStyle = {
-      backgroundImage: 'url(public/subtitle-presidency.svg)',
-      backgroundRepeat: 'repeat',
-      backgroundPosition: 'left bottom',
-      minHeight: '56rem'
-    };
-  }
+  const subtitleStyle = subtitle === 'presidência' ? {
+    backgroundImage: 'url(public/subtitle-presidency.svg)',
+    backgroundRepeat: 'repeat',
+    backgroundPosition: 'left bottom',
+    minHeight: '56rem'
+  } : baseStyle;
 
   return (
     <section className={styles.section} style={sectionStyle}>
@@ -47,7 +36,7 @@ export default function VerticalSubtitle({ title, subtitle, imageBackground }) {
 }
 
 VerticalSubtitle.propTypes = {
-  title: PropType.string.isRequired,
-  subtitle: PropType.string,
-  imageBackground: PropType.string,
-}
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+  imageBackground: PropTypes.string,
+};

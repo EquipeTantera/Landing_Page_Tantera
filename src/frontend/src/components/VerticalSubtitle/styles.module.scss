@@ -1,0 +1,16 @@
+@use "../../styles/_variables" as v;
+
+
+.section {
+  padding: 7rem 0 4rem 2rem;
+  width: 35%;
+
+  &__title {
+    font-family: v.$DriveCorps;
+    font-size: 5rem;
+    color: v.$white-1;
+    margin-bottom: 4rem;
+    margin-left: 4rem;
+  }
+
+}

@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <div className={styles.container}>
         <section className={styles.container__section}>
-          <VerticalSubtitle />
+          <h1>askdjaksd</h1>
         </section>
       </div>
     </>

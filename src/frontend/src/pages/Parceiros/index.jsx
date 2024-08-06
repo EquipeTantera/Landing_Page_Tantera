@@ -11,8 +11,8 @@ export default function Parceiros() {
       />
       <VerticalSubtitle 
         title="Presidência"
-        subtitle="presidência"
         imageBackground="red"
+        subtitle="presidência"
       />
       <HorizontalSubtitle title='teste teste' colorImage='red' tag={false} />
     </>

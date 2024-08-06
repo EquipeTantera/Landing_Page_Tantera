@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 export default function VerticalSubtitle({ title, subtitle, imageBackground }) {
+  let sectionStyle;
+
   const baseStyle = {
     backgroundImage: `url(${imageBackground})`,
     backgroundSize: 'cover',
@@ -9,12 +11,24 @@ export default function VerticalSubtitle({ title, subtitle, imageBackground }) {
     height: 'auto'
   };
 
-  const sectionStyle = imageBackground === 'red' ? {
-    ...baseStyle,
-    backgroundImage: 'url(public/red-papper-background.png)',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'left center'
-  } : baseStyle;
+  if (imageBackground === 'red') {
+    sectionStyle = {
+      ...baseStyle,
+      backgroundImage: 'url(public/red-papper-background.png)',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'left center'
+    };
+  } else if (imageBackground === 'purple') {
+    sectionStyle = {
+      ...baseStyle,
+      backgroundImage: 'url(public/purple-papper-background.png)',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'right center',
+      height: '25rem'
+    };
+  } else {
+    sectionStyle = baseStyle;
+  }
 
   const subtitleStyle = subtitle === 'presidência' ? {
     backgroundImage: 'url(public/subtitle-presidency.svg)',

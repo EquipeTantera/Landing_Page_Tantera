@@ -1,5 +1,4 @@
 import styles from './styles.module.scss';
-import Footer from '../../components/Footer';
 import SmallCard from '../../components/SmallCard';
 
 export default function Home() {
@@ -14,7 +13,6 @@ export default function Home() {
         />
         
       </div>
-      <Footer />
     </>
   );
 }

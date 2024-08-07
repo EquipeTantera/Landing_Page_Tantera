@@ -1,3 +1,4 @@
+import Footer from '../Footer';
 import Header from '../Header';
 import PropType from 'prop-types';
 
@@ -8,6 +9,7 @@ export default function Page({ children, backgroundColorHeader, backgroundMenuHe
       <main>
         {children}
       </main>
+      <Footer />
     </>
   );
 }

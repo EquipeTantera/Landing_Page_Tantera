@@ -6,7 +6,9 @@ export default function SmallCard({ type, title, date, ticket, description, pric
     <div className={styles.container}>
       <div className={styles.container__infos}>
         <h3 className={styles.container__infos__title}>{title}</h3>
-        <img src={image} alt={title} className={styles.container__infos__image} />
+        <div className={styles.container__infos__div}>
+          <img src={image} alt={title} className={styles.container__infos__div__image} />
+        </div>
         {type === 'event' && ( 
           <div className={styles.container__infos__event}>
             <p className={styles.container__infos__event__date}>{date}</p>

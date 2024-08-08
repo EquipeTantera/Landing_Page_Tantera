@@ -1,0 +1,41 @@
+@use "../../styles/_variables" as v;
+
+.section {
+  background: v.$gradient-2;
+  width: 23rem;
+  padding-bottom: 2rem;
+
+  &__title {
+    font-family: v.$DriveCorps3d;
+    font-size: 4rem;
+    text-align: center;
+    color: v.$white-2;
+    letter-spacing: 2px;
+    padding: 2rem 0;
+    font-weight: 300;
+  }
+
+  &__description {
+    color: v.$white-2;
+    font-weight: 200;
+    font-size: 1rem;
+    line-height: 2rem;
+    padding: 0 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-bottom: 1rem;
+
+    &__title {
+      font-size: 2rem;
+      padding: 1rem 0;
+    }
+
+    &__description {
+      font-size: 0.8rem;
+      line-height: 1.5rem;
+      padding: 0 1rem;
+    }
+  }
+}

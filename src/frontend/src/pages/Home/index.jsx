@@ -1,16 +1,14 @@
 import styles from './styles.module.scss';
-import SmallCardProduct from '../../components/SmallProductCard';
+import SmallEventCard from '../../components/SmallEventCard';
 
 export default function Home() {
   return (
     <>
       <div className={styles.container}>
-        <SmallCardProduct
-          type='product'
+        <SmallEventCard
           title='Caneca Tantera'
           date='2021-10-10'
-          price={'20,00'}
-          description={'Caneca de cerâmica com estampa de gato'}
+          ticket={'20,00'}
           image={'photo-small-card.png'}
         />
         

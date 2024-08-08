@@ -1,0 +1,16 @@
+@use "../../styles/_variables" as v;
+
+.button {
+  background: v.$red-2;
+  color: v.$white-1;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+
+  &:hover {
+    background: v.$red-1;
+  }
+}

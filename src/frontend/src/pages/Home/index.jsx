@@ -1,11 +1,11 @@
 import styles from './styles.module.scss';
-import SmallCard from '../../components/SmallCard';
+import SmallCardProduct from '../../components/SmallProductCard';
 
 export default function Home() {
   return (
     <>
       <div className={styles.container}>
-        <SmallCard 
+        <SmallCardProduct
           type='product'
           title='Caneca Tantera'
           date='2021-10-10'

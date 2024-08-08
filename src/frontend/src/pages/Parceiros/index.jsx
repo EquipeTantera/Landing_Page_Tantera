@@ -1,20 +1,13 @@
-import HorizontalSubtitle from '../../components/HorizontalSubtitle';
-import MainTitle from '../../components/MainTitle';
-import VerticalSubtitle from '../../components/VerticalSubtitle';
+
+import SummaryBoardCard from '../../components/SummaryBoardCard';
 
 export default function Parceiros() {
   return (
     <>
-      <MainTitle
-        shadowText="Parceiros"
-        mainText="Parceiros"
+      <SummaryBoardCard 
+        name="Fulano de Tal" 
+        image="summary-board-card-tantech"
       />
-      <VerticalSubtitle 
-        title="Presidência"
-        imageBackground="red"
-        subtitle="presidência"
-      />
-      <HorizontalSubtitle title='teste teste' colorImage='red' tag={false} />
     </>
   );
 }

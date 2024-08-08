@@ -1,18 +1,20 @@
 import HorizontalSubtitle from '../../components/HorizontalSubtitle';
 import MainTitle from '../../components/MainTitle';
-import styles from './styles.module.scss';
+import VerticalSubtitle from '../../components/VerticalSubtitle';
 
 export default function Parceiros() {
   return (
     <>
-    <MainTitle
-    shadowText="Parceiros"
-    mainText="Parceiros"
-    bgColor={styles.container__section}
-    />
+      <MainTitle
+        shadowText="Parceiros"
+        mainText="Parceiros"
+      />
+      <VerticalSubtitle 
+        title="Presidência"
+        imageBackground="red"
+        subtitle="presidência"
+      />
       <HorizontalSubtitle title='teste teste' colorImage='red' tag={false} />
-      <div className={styles.container}>
-      </div>
     </>
   );
 }

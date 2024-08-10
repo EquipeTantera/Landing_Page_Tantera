@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 import Button from '../../components/Button';
-import SmallProductCard from '../../components/SmallProductCard';
+import SmallEventCard from '../../components/SmallEventCard';
 
 export default function Home() {
   return (
@@ -12,14 +12,14 @@ export default function Home() {
             path={"/parceiros"}
           />
 
-          <SmallProductCard 
-            type={"product"}
-            title={"teste"}
-            description={"teste de descrição do produto"}
-            price={"10,00"}
+          <SmallEventCard 
+            title={"teste do componente de evento"}
+            date={"01/01/2022"}
+            ticket={"R$ 100,00"}
+            address={"Rua do Evento, 123"}
             image={"photo-small-card.png"}
-            buttonText={"Saiba mais"}
-            buttonPath={"/"}
+            buttonText={"Saiba Mais"}
+            buttonPath={"/eventos"}
           />
         </section>
       </div>

@@ -2,18 +2,19 @@
 
 .container {
   background-image: url(/background-small-card-2.png);
-  height: 32rem;
+  height: 34rem;
   width: 18rem;
   background-position: initial;
   background-size: cover;
   background-repeat: no-repeat;
+  padding-top: 1rem;
 
   &__infos {
     &__title {
       color: v.$purple-2;
       font-family: v.$DriveCorps;
       letter-spacing: 1.5px;
-      margin-top: 4rem;
+      margin-top: 2rem;
       margin-left: 2rem;
       margin-right: 2rem;
       margin-bottom: 1rem;
@@ -54,6 +55,12 @@
       &__address {
         margin-bottom: .5rem;
       }
+    }
+
+    &__button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

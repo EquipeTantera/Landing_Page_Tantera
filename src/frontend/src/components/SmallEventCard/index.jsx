@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
+import Button from '../Button';
 
-export default function SmallEventCard({ title, date, ticket, address, image }) {
+export default function SmallEventCard({ title, date, ticket, address, image, buttonText, buttonPath }) {
   return (
     <div className={styles.container}>
       <div className={styles.container__infos}>
@@ -20,6 +21,12 @@ export default function SmallEventCard({ title, date, ticket, address, image }) 
             <span className={styles.container__infos__div__ticket__span}>Ingressos a partir: </span>{ticket}
           </p>
         </div>
+        <div className={styles.container__infos__button}>
+          <Button 
+            title={buttonText}
+            path={buttonPath}
+          />
+        </div>
       </div>
     </div>
   )
@@ -31,4 +38,6 @@ SmallEventCard.propTypes = {
   ticket: PropTypes.string,
   address: PropTypes.string,
   image: PropTypes.string.isRequired,
+  buttonText: PropTypes.string,
+  buttonPath: PropTypes.string,
 };

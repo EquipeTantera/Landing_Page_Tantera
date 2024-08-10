@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
+import Button from '../Button';
 
-export default function SmallProductCard({ title, description, price, image }) {
+export default function SmallProductCard({ title, description, price, image, buttonText, buttonPath }) {
   return (
     <div className={styles.container}>
       <div className={styles.container__infos}>
@@ -18,6 +19,12 @@ export default function SmallProductCard({ title, description, price, image }) {
           <p className={styles.container__infos__description}>{description}</p>
         </>
       </div>
+      <div className={styles.container__infos__button}>
+        <Button 
+          title={buttonText}
+          path={buttonPath}
+        />
+      </div>
     </div>
   );
 
@@ -31,4 +38,6 @@ SmallProductCard.propTypes = {
   description: PropTypes.string,
   price: PropTypes.string,
   image: PropTypes.string.isRequired,
+  buttonText: PropTypes.string,
+  buttonPath: PropTypes.string,
 };

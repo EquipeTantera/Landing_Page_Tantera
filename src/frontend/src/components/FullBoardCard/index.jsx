@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
+import Button from '../Button';
 
 export default function FullBoardCard({ nameBoard, description }) {
   return (
@@ -8,6 +9,10 @@ export default function FullBoardCard({ nameBoard, description }) {
         {nameBoard}
       </h2>
       <p className={styles.section__description}>{description}</p>
+      <Button 
+        title="Conhecer a Diretoria"
+        path="/"
+      />
     </section>
   )
 }

@@ -2,8 +2,11 @@
 
 .section {
   background: v.$gradient-2;
-  width: 23rem;
+  width: 18rem;
   padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__title {
     font-family: v.$DriveCorps3d;
@@ -19,8 +22,9 @@
     color: v.$white-2;
     font-weight: 200;
     font-size: 1rem;
-    line-height: 2rem;
-    padding: 0 1.5rem;
+    line-height: 1.5rem;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
   }
 
   @media (max-width: 768px) {

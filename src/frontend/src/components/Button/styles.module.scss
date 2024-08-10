@@ -17,4 +17,9 @@
   &:hover {
     background: v.$red-1;
   }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
 }

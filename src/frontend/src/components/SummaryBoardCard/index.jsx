@@ -1,5 +1,6 @@
 import styles from './styles.module.scss';
 import PropTypes from 'prop-types';
+import Button from '../Button';
 
 export default function SummaryBoardCard({ name, image }) {
   return (
@@ -8,6 +9,10 @@ export default function SummaryBoardCard({ name, image }) {
       <h2 className={styles.section__title}>
         <span className={styles.section__title__span}>Diretor(a): </span>{name}
       </h2>
+      <Button 
+        title='Conhecer a diretoria'
+        path='/'
+      />
     </section>
   )
 }

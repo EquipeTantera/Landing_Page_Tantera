@@ -7,13 +7,14 @@
   background-position: initial;
   background-size: cover;
   background-repeat: no-repeat;
+  padding-top: 1rem;
 
   &__infos {
     &__title {
       color: v.$purple-2;
       font-family: v.$DriveCorps;
       letter-spacing: 1.5px;
-      margin-top: 4rem;
+      margin-top: 2rem;
       margin-left: 2rem;
       margin-right: 2rem;
       margin-bottom: 1rem;
@@ -60,6 +61,13 @@
       text-align: center;
       margin: 0 1rem;
       font-weight: 400;
+    }
+
+    &__button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2rem;
     }
   }
 }

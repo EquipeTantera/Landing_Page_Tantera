@@ -1,20 +1,19 @@
-import HorizontalSubtitle from '../../components/HorizontalSubtitle';
-import MainTitle from '../../components/MainTitle';
-import VerticalSubtitle from '../../components/VerticalSubtitle';
+
+import FullBoardCard from '../../components/FullBoardCard';
+import SummaryBoardCard from '../../components/SummaryBoardCard';
 
 export default function Parceiros() {
   return (
     <>
-      <MainTitle
-        shadowText="Parceiros"
-        mainText="Parceiros"
+      <SummaryBoardCard 
+        name="Fulano de Tal" 
+        image="summary-board-card-tantech"
       />
-      <VerticalSubtitle 
-        title="Presidência"
-        imageBackground="red"
-        subtitle="presidência"
+
+      <FullBoardCard 
+        nameBoard='Tantech'
+        description='Tantech é uma empresa de tecnologia que atua no mercado de desenvolvimento de softwares e aplicativos.'
       />
-      <HorizontalSubtitle title='teste teste' colorImage='red' tag={false} />
     </>
   );
 }

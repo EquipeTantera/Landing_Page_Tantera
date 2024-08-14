@@ -5,7 +5,7 @@ export default function HorizontalSubtitle({ title, colorImage, tag }) {
   return (
     <>
       {tag && <div className={styles.tag}/>}
-      <div className={styles.container} style={{ backgroundImage: `url(../../../public/vertical_subtitle_${colorImage}_desktop.png)` }}>
+      <div className={styles.container} style={{ backgroundImage: `url(vertical_subtitle_${colorImage}_desktop.png)` }}>
         <h2 className={styles.container__title}>
           {title}
         </h2>

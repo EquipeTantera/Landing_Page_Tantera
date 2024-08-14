@@ -45,7 +45,7 @@ export default function Header({ background, backgroundMenu }) {
   return ReactDOM.createPortal(
     <header className={`${styles.header} ${scroll ? styles.scrolled : ''} ${menuOpen ? styles.menuActive : ''}`}>
       <div className={styles.header__container}>
-        <img className={styles.header__container__imagem} src="/logo_header.png"/>
+        <img className={styles.header__container__imagem} src="/logo_header.svg"/>
       </div>
       <input type="checkbox" id="menuToggle" className={styles.header__menu} onChange={toggleMenu}/>
       <label htmlFor="menuToggle" className={styles.header__menu__label}>

@@ -1,25 +1,27 @@
 import styles from './styles.module.scss';
-import Button from '../../components/Button';
-import SmallEventCard from '../../components/SmallEventCard';
+import LargePartnerCard from '../../components/LargePartnerCard';
 
 export default function Home() {
   return (
     <>
       <div className={styles.container}>
         <section className={styles.container__section}>
-          <Button 
-            title={"teste do componente de botão"}
-            path={"/parceiros"}
-          />
-
-          <SmallEventCard 
-            title={"teste do componente de evento"}
-            date={"01/01/2022"}
-            ticket={"R$ 100,00"}
-            address={"Rua do Evento, 123"}
-            image={"photo-small-card.png"}
-            buttonText={"Saiba Mais"}
-            buttonPath={"/eventos"}
+          <LargePartnerCard 
+            name="Furioso"
+            description="A Furioso é uma empresa de tecnologia que atua no mercado de desenvolvimento de software."
+            image='/partner-furioso.png'
+            fullImage='/partner-furioso-full.png'
+            events={[
+              { name: 'Evento 1', date: '01/01/2021' },
+              { name: 'Evento 2', date: '02/02/2021' },
+            ]}
+            impacts={[
+              { name: 'Impacto 1' },
+              { name: 'Impacto 2' },
+              { name: 'Impacto 2' },
+            ]}
+            textButton="Conheça mais"
+            linkButton="/furioso"
           />
         </section>
       </div>

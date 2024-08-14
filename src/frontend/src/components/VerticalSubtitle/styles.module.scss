@@ -1,0 +1,38 @@
+@use "../../styles/_variables" as v;
+
+
+.section {
+  padding: 5rem 0 4rem 2rem;
+  width: 35%;
+
+  &__title {
+    font-family: v.$DriveCorps;
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 5rem;
+    color: v.$white-1;
+    margin-bottom: 4rem;
+    margin-left: 4rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 5rem 0;
+    width: 100%;
+    background-size: 120% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__title {
+      font-size: 3rem;
+      padding: 0;
+      margin-left: 0;
+      margin-bottom: 0rem;
+    }
+
+    &__container {
+      display: none;
+    }
+  }
+
+}

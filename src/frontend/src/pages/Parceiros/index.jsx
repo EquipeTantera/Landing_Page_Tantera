@@ -1,6 +1,6 @@
-
 import FullBoardCard from '../../components/FullBoardCard';
 import SummaryBoardCard from '../../components/SummaryBoardCard';
+import ProfileCard from '../../components/ProfileCard';
 
 export default function Parceiros() {
   return (
@@ -11,8 +11,14 @@ export default function Parceiros() {
       />
 
       <FullBoardCard 
-        nameBoard='Tantech'
-        description='Tantech é uma empresa de tecnologia que atua no mercado de desenvolvimento de softwares e aplicativos.'
+        nameBoard="Tantech"
+        description="Tantech é uma empresa de tecnologia que atua no mercado de desenvolvimento de softwares e aplicativos."
+      />
+
+      <ProfileCard
+        image="/profile-tantech.jpeg"
+        role="Diretor(a)"
+        name="Raphaela"
       />
     </>
   );

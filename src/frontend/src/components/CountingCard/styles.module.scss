@@ -10,29 +10,29 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
 
-.container__text {
-  text-align: center;
-  font-family: "Drive Corps", sans-serif;
-  font-size: 2rem;
-  font-style: normal;
-  font-weight: 400;
-  margin-bottom: 20px;
-  color: v.$purple-2;
-}
+  &__text {
+    text-align: center;
+    font-family: v.$DriveCorps;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 1.25rem;
+    color: v.$purple-2;
+  }
 
-.container__count {
-  text-align: center;
-  font-family: "Drive Corps 3D", sans-serif;
-  font-size: 10rem;
-  font-style: normal;
-  font-weight: 400;
-  color: v.$purple-2;
+  &__count {
+    text-align: center;
+    font-family: v.$DriveCorps3d;
+    font-size: 10rem;
+    font-style: normal;
+    font-weight: 400;
+    color: v.$purple-2;
+  }
 }
 
 @media (max-width: 768px) {
-    .container {
-        width: 300px;
-    }
+  .container {
+    width: 300px;
+  }
 }

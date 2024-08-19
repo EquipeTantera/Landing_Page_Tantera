@@ -1,18 +1,35 @@
 @use "../../styles/_variables" as v;
 
-.container {
-  width: 280px;
-  height: 383px;
+.carousel {
   position: relative;
+  width: 100%;
+  margin: 0 auto;
   overflow: hidden;
-  filter: drop-shadow(4px 0px 4px rgba(0, 0, 0, 0.25));
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    gap: 116px;
+  }
+
+  &__card {
+    width: 280px;
+    height: 383px;
+    filter: drop-shadow(4px 0px 4px rgba(0, 0, 0, 0.25));
+    overflow: hidden;
+  }
 
   &__image {
     width: 100%;
     height: calc(100% - 68px);
     object-fit: cover;
     display: block;
-
   }
 
   &__footer {
@@ -23,30 +40,46 @@
     align-items: center;
     justify-content: center;
     padding: 0 1rem;
+  }
 
-    &__event {
-      font-family: v.$DriveCorps;
-      font-size: 1.5rem;
-      font-style: normal;
-      margin-right: 5px;
+  &__event {
+    font-family: v.$DriveCorps;
+    font-size: 1.5rem;
+    font-style: normal;
+    margin-right: 5px;
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  &__dot {
+    cursor: pointer;
+  }
+
+  &__dotCircle {
+    fill: v.$red-1;
+    transition: fill 0.3s ease-in-out;
+
+    &.active {
+      fill: v.$purple-1;
     }
   }
 
   @media (max-width: 768px) {
-    width: 180px;
-    height: 250px;
+    &__card {
+      width: 180px;
+      height: 250px;
+    }
 
     &__footer {
       height: 50px;
+    }
 
-      &__role {
-        font-size: 1.2rem;
-      }
-
-      &__name {
-        font-size: 1rem;
-      }
+    &__event {
+      font-size: 1.2rem;
     }
   }
-
 }

@@ -5,12 +5,13 @@ import styles from './styles.module.scss';
 export default function CarouselCard({ cards, interval = 4000 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalCards = cards.length;
-  const totalDots = totalCards - 2;
+  const totalDots = totalCards - 4;
+  const numCards = window.innerWidth < 768 ? 1 : 3;
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => {
-        if (prevIndex >= totalCards - 3) {
+        if (prevIndex >= totalCards - numCards) {
           return 0;
         } else {
           return prevIndex + 1;
@@ -19,14 +20,14 @@ export default function CarouselCard({ cards, interval = 4000 }) {
     }, interval);
 
     return () => clearInterval(timer);
-  }, [totalCards, interval]);
+  }, [totalCards, interval, numCards]);
 
   const getVisibleCards = () => {
-    if (totalCards <= 3) return cards;
+    if (totalCards <= numCards) return cards;
 
     const visibleCards = [];
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < numCards; i++) {
       const cardIndex = currentIndex + i;
       if (cardIndex < totalCards) {
         visibleCards.push(cards[cardIndex]);

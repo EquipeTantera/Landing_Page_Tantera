@@ -5,8 +5,8 @@ import styles from './styles.module.scss';
 export default function CarouselCard({ cards, interval = 4000 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalCards = cards.length;
-  const totalDots = totalCards - 4;
   const numCards = window.innerWidth < 768 ? 1 : 3;
+  const totalDots = Math.ceil((totalCards - numCards + 1) / numCards);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -46,7 +46,7 @@ export default function CarouselCard({ cards, interval = 4000 }) {
   };
 
   const handleDotClick = (dotIndex) => {
-    setCurrentIndex(dotIndex);
+    setCurrentIndex(dotIndex * numCards);
   };
 
   return (
@@ -79,7 +79,9 @@ export default function CarouselCard({ cards, interval = 4000 }) {
               cx="15.5"
               cy="18"
               r="4"
-              className={`${styles.carousel__dotCircle} ${currentIndex === index ? styles.active : ''}`}
+              className={`${styles.carousel__dotCircle} ${
+                currentIndex / numCards === index ? styles.active : ''
+              }`}
             />
           </svg>
         ))}

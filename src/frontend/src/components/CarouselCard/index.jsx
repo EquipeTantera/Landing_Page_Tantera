@@ -11,10 +11,18 @@ export default function CarouselCard({ cards, interval = 4000 }) {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => {
-        if (prevIndex >= totalCards - numCards) {
-          return 0;
+        if (window.innerWidth >= 768) {
+          if (prevIndex >= totalCards - numCards) {
+            return 0;
+          } else {
+            return Math.min(prevIndex + numCards, totalCards - numCards);
+          }
         } else {
-          return prevIndex + 1;
+          if (prevIndex >= totalCards - numCards) {
+            return 0;
+          } else {
+            return prevIndex + 1;
+          }
         }
       });
     }, interval);

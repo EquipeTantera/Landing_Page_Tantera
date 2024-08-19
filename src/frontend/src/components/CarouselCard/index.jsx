@@ -10,7 +10,7 @@ export default function CarouselCard({ cards, interval = 4000 }) {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => {
-        if (prevIndex >= totalCards - 1) {
+        if (prevIndex >= totalCards - 3) {
           return 0;
         } else {
           return prevIndex + 1;
@@ -27,7 +27,10 @@ export default function CarouselCard({ cards, interval = 4000 }) {
     const visibleCards = [];
 
     for (let i = 0; i < 3; i++) {
-      visibleCards.push(cards[(currentIndex + i) % totalCards]);
+      const cardIndex = currentIndex + i;
+      if (cardIndex < totalCards) {
+        visibleCards.push(cards[cardIndex]);
+      }
     }
 
     return visibleCards;

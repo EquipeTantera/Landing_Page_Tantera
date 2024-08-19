@@ -5,10 +5,17 @@ import styles from './styles.module.scss';
 export default function CarouselCard({ cards, interval = 4000 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalCards = cards.length;
+  const totalDots = totalCards - 2;
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalCards);
+      setCurrentIndex((prevIndex) => {
+        if (prevIndex >= totalCards - 1) {
+          return 0;
+        } else {
+          return prevIndex + 1;
+        }
+      });
     }, interval);
 
     return () => clearInterval(timer);
@@ -26,6 +33,10 @@ export default function CarouselCard({ cards, interval = 4000 }) {
     return visibleCards;
   };
 
+  const handleDotClick = (dotIndex) => {
+    setCurrentIndex(dotIndex);
+  };
+
   return (
     <div className={styles.carousel}>
       <div className={styles.carousel__container}>
@@ -41,7 +52,7 @@ export default function CarouselCard({ cards, interval = 4000 }) {
         </div>
       </div>
       <div className={styles.carousel__dots}>
-        {cards.map((_, index) => (
+        {Array.from({ length: totalDots }).map((_, index) => (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="31"
@@ -50,7 +61,7 @@ export default function CarouselCard({ cards, interval = 4000 }) {
             fill="none"
             className={styles.carousel__dot}
             key={index}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => handleDotClick(index)}
           >
             <circle
               cx="15.5"

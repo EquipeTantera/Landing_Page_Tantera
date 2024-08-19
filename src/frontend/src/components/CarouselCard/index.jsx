@@ -1,19 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
-export default function CarouselCard({ cards }) {
+export default function CarouselCard({ cards, interval = 4000 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const totalCards = cards.length;
 
-  const handleDotClick = (index) => {
-    setCurrentIndex(index);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalCards);
+    }, interval);
+
+    return () => clearInterval(timer);
+  }, [totalCards, interval]);
+
+  const getVisibleCards = () => {
+    if (totalCards <= 3) return cards;
+
+    const visibleCards = [];
+
+    for (let i = 0; i < 3; i++) {
+      visibleCards.push(cards[(currentIndex + i) % totalCards]);
+    }
+
+    return visibleCards;
   };
 
   return (
     <div className={styles.carousel}>
       <div className={styles.carousel__container}>
         <div className={styles.carousel__track}>
-          {cards.slice(currentIndex, currentIndex + 3).map((card, index) => (
+          {getVisibleCards().map((card, index) => (
             <div key={index} className={styles.carousel__card}>
               <img src={card.image} alt={card.event} className={styles.carousel__image} />
               <div className={styles.carousel__footer}>
@@ -33,7 +50,7 @@ export default function CarouselCard({ cards }) {
             fill="none"
             className={styles.carousel__dot}
             key={index}
-            onClick={() => handleDotClick(index)}
+            onClick={() => setCurrentIndex(index)}
           >
             <circle
               cx="15.5"
@@ -55,4 +72,5 @@ CarouselCard.propTypes = {
       event: PropTypes.string.isRequired,
     })
   ).isRequired,
+  interval: PropTypes.number,
 };

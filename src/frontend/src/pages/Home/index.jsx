@@ -2,8 +2,36 @@ import styles from './styles.module.scss';
 import LargeProductCard from '../../components/LargeProductCard';
 import LargeEventCard from '../../components/LargeEventCard';
 import LargePartnerCard from '../../components/LargePartnerCard';
+import CarouselCard from '../../components/CarouselCard';
 
 export default function Home() {
+  const carouselCards = [
+    {
+      image: '/partner-furioso.png',
+      event: 'Evento 1',
+    },
+    {
+      image: '/profile-tantech.jpeg',
+      event: 'Evento 2',
+    },
+    {
+      image: '/partner-furioso.png',
+      event: 'Evento 3',
+    },
+    {
+      image: '/profile-tantech.jpeg',
+      event: 'Evento 4',
+    },
+    {
+      image: '/partner-furioso.png',
+      event: 'Evento 5',
+    },
+    {
+      image: '/profile-tantech.jpeg',
+      event: 'Evento 6',
+    },
+  ];
+
   return (
     <>
       <div className={styles.container}>
@@ -31,7 +59,7 @@ export default function Home() {
             textButton="Saiba mais"
             linkButton="/comprar"
           />
-
+          <CarouselCard cards={carouselCards} />
           <LargePartnerCard 
             name="Furioso"
             description="Empresa Furioso"

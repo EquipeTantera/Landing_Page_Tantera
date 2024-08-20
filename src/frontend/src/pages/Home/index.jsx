@@ -1,7 +1,7 @@
 import styles from './styles.module.scss';
 import LargeProductCard from '../../components/LargeProductCard';
 import LargeEventCard from '../../components/LargeEventCard';
-import LargePartnerCard from '../../components/LargePartnerCard';
+import SmallCardEvent from '../../components/SmallEventCard';
 
 export default function Home() {
   return (
@@ -32,20 +32,14 @@ export default function Home() {
             linkButton="/comprar"
           />
 
-          <LargePartnerCard 
-            name="Furioso"
-            description="Empresa Furioso"
-            image="/partner-furioso.png"
-            fullImage="/partner-furioso-full.png"
-            events={[
-              { name: 'Evento 1', date: '01/01/2022' },
-              { name: 'Evento 2', date: '02/01/2022' },
-            ]}
-            impacts={[
-              { name: 'Impacto 1' },
-              { name: 'Impacto 2' },
-            ]}
-            textButton="Saiba mais"
+          <SmallCardEvent 
+            title="Evento Furioso"
+            description="Evento da empresa Furioso"
+            image="/partner-furioso-full.png"
+            address='Rua Furiosa, 123'
+            date="10/09/2023"
+            ticket="01/01/01"
+            buttonText="Saiba mais"
             linkButton="/comprar"
           />
         </section>

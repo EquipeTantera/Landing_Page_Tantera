@@ -1,7 +1,7 @@
 import styles from './styles.module.scss';
 import LargeProductCard from '../../components/LargeProductCard';
 import LargeEventCard from '../../components/LargeEventCard';
-import SmallCardEvent from '../../components/SmallEventCard';
+import MediumEventCard from '../../components/MediumEventCard';
 
 export default function Home() {
   return (
@@ -32,7 +32,7 @@ export default function Home() {
             linkButton="/comprar"
           />
 
-          <SmallCardEvent 
+          <MediumEventCard 
             title="Evento Furioso"
             description="Evento da empresa Furioso"
             image="/partner-furioso-full.png"

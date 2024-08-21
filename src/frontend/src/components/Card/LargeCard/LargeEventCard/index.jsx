@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 import Button from '../../../Button';
-import Dates from '../../Date';
+import Dates from '../../Common/Date';
 
 export default function LargeEventCard({ name, description, fullImage, address, dates, textButton, linkButton }) {
   return (

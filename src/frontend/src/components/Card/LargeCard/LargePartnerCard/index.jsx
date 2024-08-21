@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
-import Button from '../Button';
+import Button from '../../../Button';
 
 export default function LargePartnerCard({ name, description, image, fullImage, events, impacts, textButton, linkButton }) {
   return (

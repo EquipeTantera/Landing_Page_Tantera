@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 import PropTypes from 'prop-types';
-import Button from '../Button';
+import Button from '../../../Button';
 
 export default function SummaryBoardCard({ name, image }) {
   return (

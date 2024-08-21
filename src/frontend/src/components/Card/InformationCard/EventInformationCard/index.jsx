@@ -2,30 +2,40 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 import Dates from '../../Common/Date';
 import Content from '../../../Content';
+import TitleCard from '../../Common/TitleCard';
 
 export default function EventInformationCard({ address, dates, observation, image }) {
   return(
     <section className={styles.section}>
       <div className={styles.section__title}>
-        <h2 className={styles.section__title__text}>Informações do evento</h2>
+        <TitleCard 
+          content="Informações do evento"
+          isManagement={false}
+        />
       </div>
       <div className={styles.section__container}>
         <div className={styles["section__container-infos"]}>
-          <div className={styles["section__container-infos__address"]}>
-            <Content 
-              title="Endereço"
-              content={address}
-              titleSize="2rem"
-            />
-          </div>
-          <div className={styles["section__container-infos__div-dates"]}>
-            <Dates 
-              dates={dates}
-            />
+          <div className={styles["section__container-infos__div"]}>
+            <div className={styles["section__container-infos__div__address"]}>
+              <Content 
+                title="Endereço"
+                content={address}
+                titleSize="2rem"
+              />
+            </div>
+            <div className={styles["section__container-infos__dic__div-dates"]}>
+              <Dates 
+                dates={dates}
+              />
+            </div>
           </div>
           {observation && (
             <div className={styles["section__container-infos__div-observation"]}>
-              <p className={styles["section__container-infos__div-observation__text"]}>{observation}</p>
+              <Content 
+                title={"Observações"}
+                content={observation}
+                titleSize="2rem"
+              />
             </div>
           )}
         </div>

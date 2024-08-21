@@ -1,5 +1,4 @@
 import styles from './styles.module.scss';
-import HorizontalSubtitle from '../../components/HorizontalSubtitle';
 import EventInformationCard from '../../components/Card/InformationCard/EventInformationCard';
 import LargeEventCard from '../../components/Card/LargeCard/LargeEventCard';
 
@@ -8,11 +7,6 @@ export default function Home() {
     <>
       <div className={styles.container}>
         <section className={styles.container__section}>
-          <HorizontalSubtitle 
-            title="Produtos"
-            tag={false}
-            colorImage='transparent'
-          />
 
           <EventInformationCard 
             address='Rua dos Bobos, 0'
@@ -28,6 +22,8 @@ export default function Home() {
                 endHour: '12:00',
               },
             ]}
+            observation='Observação do evento'
+            image='/copa-inteli.png'
           />
 
           <LargeEventCard

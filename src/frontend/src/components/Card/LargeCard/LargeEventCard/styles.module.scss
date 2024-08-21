@@ -85,40 +85,6 @@
         }
       }
     }
-
-    &__div-date {
-      &__title {
-        margin-top: 3rem;
-        margin-bottom: 1.5rem;
-        font-size: 2rem;
-        font-family: v.$DriveCorps;
-        text-align: center;
-      }
-
-      &__list {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 0rem;
-
-        &__item {
-          padding: 1rem;
-          border-right: 3px solid v.$black;
-          text-align: center;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          &:not(:last-child) {
-            border-right: 3px solid v.$black;
-          }
-
-          &:last-child {
-            border-right: none;
-          }
-        }
-      }
-    }
   }
 
   &-image {

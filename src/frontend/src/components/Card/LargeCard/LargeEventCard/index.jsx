@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 import Button from '../../../Button';
 import Dates from '../../Common/Date';
+import Content from '../../../Content';
 
 export default function LargeEventCard({ name, description, fullImage, address, dates, textButton, linkButton }) {
   return (
@@ -12,14 +13,18 @@ export default function LargeEventCard({ name, description, fullImage, address, 
         </div>
 
         <div className={styles.container__infos}>
-          <p className={styles.container__infos__title}>Descrição</p>
-          <p className={styles.container__infos__description}>{description}</p>
+          <Content 
+            title="Descrição"
+            content={description}
+          />
         </div>
 
         <div className={styles.container__details}>
           <div className={styles["container__details__div-local"]}>
-            <p className={styles["container__details__div-local__title"]}>Local</p>
-            <p className={styles["container__details__div-local__list__item__name"]}>{address}</p>
+            <Content 
+              title="Local"
+              content={address}
+            />
           </div>
 
           <div className={styles["container__details__div-date"]}>	

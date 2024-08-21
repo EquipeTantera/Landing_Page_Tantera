@@ -44,11 +44,6 @@
     width: 70%;
     margin-left: 2rem;
     margin-top: 2rem;
-
-    &__title {
-      font-family: v.$DriveCorps;
-      font-size: 2rem;
-    }
   }
 
   &__details {
@@ -66,25 +61,6 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
     width: 70%;
-  }
-
-  &__details {
-    &__div-local {
-      &__title {
-        margin-top: 3rem;
-        margin-bottom: 1.5rem;
-        font-size: 2rem;
-        font-family: v.$DriveCorps;
-      }
-
-      &__list {
-        list-style-type: disc;
-
-        &__item {
-          margin-bottom: .5rem;
-        }
-      }
-    }
   }
 
   &-image {
@@ -129,11 +105,6 @@
       gap: 1rem;
       width: 100%;
       margin-left: 0;
-
-      &__description {
-        line-height: 1.5rem;
-        margin-top: 1rem;
-      }
     }
 
     &__details {
@@ -150,19 +121,6 @@
 
     &__details {
       width: 100%;
-
-      &__div-local {
-        &__title {
-          font-size: 1.5rem;
-          text-align: center;
-        } 
-      }
-
-      &__div-date {
-        &__title {
-          font-size: 1.5rem;
-        }
-      }
     }
 
     &-image {

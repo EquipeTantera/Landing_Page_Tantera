@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 import Button from '../../../Button';
+import Content from '../../../Content';
 
 export default function LargeProductCard({ name, description, fullImage, textButton, linkButton, price, sizes, colors }) {
   return (
@@ -11,7 +12,9 @@ export default function LargeProductCard({ name, description, fullImage, textBut
         </div>
 
         <div className={styles.container__infos}>
-          <p className={styles.container__infos__description}>{description}</p>
+          <Content 
+            content={description}
+          />
         </div>
 
         <div className={styles.container__details}>
@@ -75,12 +78,6 @@ LargeProductCard.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   fullImage: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
-  dates: PropTypes.arrayOf(PropTypes.shape({
-    date: PropTypes.string,
-    startHour: PropTypes.string,
-    endHour: PropTypes.string,
-  })).isRequired,
   textButton: PropTypes.string.isRequired,
   linkButton: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,

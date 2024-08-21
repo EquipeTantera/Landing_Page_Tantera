@@ -1,6 +1,7 @@
 import styles from './styles.module.scss';
 import EventInformationCard from '../../components/Card/InformationCard/EventInformationCard';
 import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
+import LargeProductCard from '../../components/Card/LargeCard/LargeProductCard';
 
 export default function Home() {
   return (
@@ -53,6 +54,16 @@ export default function Home() {
             linkButton='/'
           />
 
+          <LargeProductCard 
+            name='Produto 1'
+            description='Descrição do produto 1'
+            fullImage='/product-1-full.png'
+            price={100.00}
+            colors={['Azul', 'Vermelho', 'Verde']}
+            textButton='Comprar'
+            linkButton='/'
+            sizes={['P', 'M', 'G']}
+          />
         </section>
       </div>
     </>

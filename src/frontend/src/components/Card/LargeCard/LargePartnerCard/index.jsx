@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 import Button from '../../../Button';
+import Content from '../../../Content';
 
 export default function LargePartnerCard({ name, description, image, fullImage, events, impacts, textButton, linkButton }) {
   return (
@@ -13,7 +14,11 @@ export default function LargePartnerCard({ name, description, image, fullImage, 
         <div className={styles.container__infos}>
           <img src={image} alt={name} className={styles.container__infos__image} />
 
-          <p className={styles.container__infos__description}>{description}</p>
+          <div className={styles.container__infos__description}>
+            <Content 
+              content={description}
+            />
+          </div>
         </div>
 
         <div className={styles.container__details}>

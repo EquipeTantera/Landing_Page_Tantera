@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 import EventInformationCard from '../../components/Card/InformationCard/EventInformationCard';
-import LargeEventCard from '../../components/Card/LargeCard/LargeEventCard';
+import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
 
 export default function Home() {
   return (
@@ -26,24 +26,30 @@ export default function Home() {
             image='/copa-inteli.png'
           />
 
-          <LargeEventCard 
-            name='Copa Inteli'
-            description='Descrição da copa Inteli'
-            fullImage='/copa-inteli.png'
-            address='Rua dos Bobos, 0'
-            dates={[
+          <LargePartnerCard 
+            name='Fulano de Tal'
+            description='Fulano de Tal é uma empresa de tecnologia que atua no mercado de desenvolvimento de softwares e aplicativos.'
+            fullImage='/partner-furioso-full.png'
+            image='/partner-furioso.png'
+            events={[
               {
+                name: 'Evento 1',
                 date: '01/01/2021',
                 startHour: '08:00',
                 endHour: '12:00',
               },
               {
+                name: 'Evento 2',
                 date: '02/01/2021',
                 startHour: '08:00',
                 endHour: '12:00',
               },
             ]}
-            textButton='Ver mais'
+            impacts={[
+              { name: 'Impacto 1' },
+              { name: 'Impacto 2' },
+            ]}
+            textButton='Conhecer a empresa'
             linkButton='/'
           />
 

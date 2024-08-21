@@ -3,13 +3,18 @@ import styles from './styles.module.scss';
 import Button from '../../../Button';
 import Dates from '../../Common/Date';
 import Content from '../../../Content';
+import HorizontalSubtitle from '../../../HorizontalSubtitle';
 
 export default function LargeEventCard({ name, description, fullImage, address, dates, textButton, linkButton }) {
   return (
     <div className={styles.div}>
       <div className={styles.container}>
         <div className={styles.container__header}>
-          <h3 className={styles.container__header__title}>{name}</h3>
+          <HorizontalSubtitle 
+            title={name}
+            colorImage='purple'
+            titleSize={"3rem"}
+          />
         </div>
 
         <div className={styles.container__infos}>

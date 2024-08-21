@@ -2,13 +2,18 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 import Button from '../../../Button';
 import Content from '../../../Content';
+import HorizontalSubtitle from '../../../HorizontalSubtitle';
 
 export default function LargePartnerCard({ name, description, image, fullImage, events, impacts, textButton, linkButton }) {
   return (
     <div className={styles.div}>
       <div className={styles.container}>
         <div className={styles.container__header}>
-          <h3 className={styles.container__header__title}>{name}</h3>
+          <HorizontalSubtitle 
+            title={name}
+            colorImage='red'
+            titleSize={"3rem"}
+          />
         </div>
 
         <div className={styles.container__infos}>

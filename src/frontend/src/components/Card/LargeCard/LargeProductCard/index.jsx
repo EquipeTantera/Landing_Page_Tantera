@@ -2,14 +2,17 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 import Button from '../../../Button';
 import Content from '../../../Content';
+import HorizontalSubtitle from '../../../HorizontalSubtitle';
 
 export default function LargeProductCard({ name, description, fullImage, textButton, linkButton, price, sizes, colors }) {
   return (
     <div className={styles.div}>
       <div className={styles.container}>
-        <div className={styles.container__header}>
-          <h3 className={styles.container__header__title}>{name}</h3>
-        </div>
+        <HorizontalSubtitle 
+          title={name}
+          colorImage='red'
+          titleSize={"3rem"}
+        />
 
         <div className={styles.container__infos}>
           <Content 

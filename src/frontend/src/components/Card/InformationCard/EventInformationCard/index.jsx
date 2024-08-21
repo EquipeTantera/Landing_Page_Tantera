@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
+import Dates from '../../Common/Date';
+import Content from '../../../Content';
 
 export default function EventInformationCard({ address, dates, observation, image }) {
   return(
@@ -10,10 +12,16 @@ export default function EventInformationCard({ address, dates, observation, imag
       <div className={styles.section__container}>
         <div className={styles["section__container-infos"]}>
           <div className={styles["section__container-infos__address"]}>
-            <p className={styles["section__container-infos__address__text"]}>{address}</p>
+            <Content 
+              title="Endereço"
+              content={address}
+              titleSize="2rem"
+            />
           </div>
           <div className={styles["section__container-infos__div-dates"]}>
-            <p className={styles["section__container-infos__div-dates__text"]}>{dates}</p>
+            <Dates 
+              dates={dates}
+            />
           </div>
           {observation && (
             <div className={styles["section__container-infos__div-observation"]}>

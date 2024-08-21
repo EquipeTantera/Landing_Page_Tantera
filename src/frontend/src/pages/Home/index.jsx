@@ -10,12 +10,24 @@ export default function Home() {
         <section className={styles.container__section}>
           <HorizontalSubtitle 
             title="Produtos"
-            tag="false"
+            tag={false}
             colorImage='transparent'
           />
 
           <EventInformationCard 
             address='Rua dos Bobos, 0'
+            dates={[
+              {
+                date: '01/01/2021',
+                startHour: '08:00',
+                endHour: '12:00',
+              },
+              {
+                date: '02/01/2021',
+                startHour: '08:00',
+                endHour: '12:00',
+              },
+            ]}
           />
 
           <LargeEventCard

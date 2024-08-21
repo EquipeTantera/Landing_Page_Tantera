@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 import Dates from '../../Common/Date';
 import Content from '../../../Content';
-import TitleCard from '../../Common/TitleCard';
+import TitleCard from '../../Common/TitleCardTag';
 
 export default function EventInformationCard({ address, dates, observation, image }) {
   return(

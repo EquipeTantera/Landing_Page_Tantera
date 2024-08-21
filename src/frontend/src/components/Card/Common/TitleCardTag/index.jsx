@@ -1,7 +1,7 @@
 import styles from './styles.module.scss';
 import PropTypes from 'prop-types';
 
-export default function TitleCard({ isManagement, content }) {
+export default function TitleCardTag({ isManagement, content }) {
   return (
     <div className={styles.container}>
       <h2 className={styles.container__title}>
@@ -12,7 +12,7 @@ export default function TitleCard({ isManagement, content }) {
   )
 }
 
-TitleCard.propTypes = {
+TitleCardTag.propTypes = {
   isManagement: PropTypes.bool,
   content: PropTypes.string.isRequired,
 };

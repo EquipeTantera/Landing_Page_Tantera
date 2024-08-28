@@ -3,6 +3,7 @@ import EventInformationCard from '../../components/Card/InformationCard/EventInf
 import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
 import LargeProductCard from '../../components/Card/LargeCard/LargeProductCard';
 import ResultInformationCard from '../../components/Card/InformationCard/ResultInformationCard';
+import ManagementInformationCard from '../../components/Card/InformationCard/ManagementInformationCard';
 
 export default function Home() {
   return (
@@ -74,6 +75,16 @@ export default function Home() {
             ]}
             title='Resultados'
             
+          />
+
+          <ManagementInformationCard 
+            termOfOffice='2021-2024'
+            title='Resultados'
+            results={[
+              { name: 'Resultado 1' },
+              { name: 'Resultado 2' },
+              { name: 'Resultado 3' },
+            ]}
           />
         </section>
       </div>

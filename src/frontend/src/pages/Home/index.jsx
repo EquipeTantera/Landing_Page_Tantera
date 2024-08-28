@@ -2,6 +2,7 @@ import styles from './styles.module.scss';
 import EventInformationCard from '../../components/Card/InformationCard/EventInformationCard';
 import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
 import LargeProductCard from '../../components/Card/LargeCard/LargeProductCard';
+import ResultInformationCard from '../../components/Card/InformationCard/ResultInformationCard';
 
 export default function Home() {
   return (
@@ -63,6 +64,16 @@ export default function Home() {
             textButton='Comprar'
             linkButton='/'
             sizes={['P', 'M', 'G']}
+          />
+
+          <ResultInformationCard 
+            results={[
+              { name: 'Resultado 1' },
+              { name: 'Resultado 2' },
+              { name: 'Resultado 3' },
+            ]}
+            title='Resultados'
+            
           />
         </section>
       </div>

@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 6rem;
+  
+  &__div-results {
+    background-image: url('/background-result-information-card.png');
+    background-size: cover;
+    padding: 6rem 6rem 6rem 13rem;
+    width: 100%;
+
+    &__tag {
+      background-image: url('/background-infos-small-event-card.png');
+      width: 21%;
+      height: 6rem;
+      background-repeat: no-repeat;
+      position: absolute;
+      margin-top: -9rem;
+    }
+  }
+}

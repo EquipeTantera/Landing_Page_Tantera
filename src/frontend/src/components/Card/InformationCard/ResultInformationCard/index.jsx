@@ -12,8 +12,10 @@ export default function ResultInformationCard({ results, title }) {
       />
 
       <div className={styles["container__div-results"]}>
+        <div className={styles["container__div-results__tag"]} />
         <Impacts 
           contents={results}
+          isFull={true}
         />
       </div>
     </div>

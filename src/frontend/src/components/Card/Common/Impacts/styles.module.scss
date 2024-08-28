@@ -17,5 +17,10 @@
     &:last-child {
       border-right: none;
     }
+
+    &__full {
+      padding: 3rem;
+      font-size: 1.5rem;
+    }
   }
 }

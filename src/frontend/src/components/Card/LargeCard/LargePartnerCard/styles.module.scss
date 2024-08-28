@@ -63,36 +63,6 @@
         }
       }
     }
-
-    &__div-impact {
-      &__title {
-        margin-top: 3rem;
-        margin-bottom: 1.5rem;
-        font-size: 2rem;
-        font-family: v.$DriveCorps;
-        text-align: center;
-      }
-
-      &__list {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 0rem;
-
-        &__item {
-          padding: 1rem;
-          border-right: 3px solid v.$black;
-          text-align: center;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          &:last-child {
-            border-right: none;
-          }
-        }
-      }
-    }
   }
 
   &-image {
@@ -151,12 +121,6 @@
         &__title {
           font-size: 1.5rem;
           text-align: center;
-        }
-      }
-
-      &__div-impact {
-        &__title {
-          font-size: 1.5rem;
         }
       }
     }

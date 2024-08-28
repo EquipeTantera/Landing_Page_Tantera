@@ -45,5 +45,39 @@
       padding-top: 4rem;
     }
   }
+}
 
+@media (max-width: 768px) {
+  .container {
+    &__title {
+      width: 100%;
+      background-size: cover;
+      height: 6rem;
+      position: initial;
+      background-position: center;
+    }
+
+    &__infos {
+      background-image: none;
+
+      &__impacts {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin: 0rem 3rem;
+      }
+
+      &__results {
+        background-image: url('/background-result-information-card.png');
+        padding: 3rem;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      &__title {
+        padding-top: 2rem;
+      }
+    }
+  }
 }

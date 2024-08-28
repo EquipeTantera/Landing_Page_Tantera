@@ -24,3 +24,20 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .list {
+    flex-direction: column;
+    margin-left: 0rem;
+
+    &__item {
+      border-right: none;
+      border-bottom: 3px solid v.$black;
+      width: 100%;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}

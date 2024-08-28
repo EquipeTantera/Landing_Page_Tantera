@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "plans",
+  "info": {
+    "singularName": "plan",
+    "pluralName": "plans",
+    "displayName": "Plan",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "advantage_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::advantage.advantage",
+      "inversedBy": "plans_id"
+    },
+    "payment_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::payment.payment",
+      "inversedBy": "plans_id"
+    },
+    "faq_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::faq.faq",
+      "inversedBy": "plans_id"
+    }
+  }
+}

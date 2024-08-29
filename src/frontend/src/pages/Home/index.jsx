@@ -4,13 +4,25 @@ import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
 import LargeProductCard from '../../components/Card/LargeCard/LargeProductCard';
 import ResultInformationCard from '../../components/Card/InformationCard/ResultInformationCard';
 import ManagementInformationCard from '../../components/Card/InformationCard/ManagementInformationCard';
+import Input from '../../components/Input';
 
 export default function Home() {
   return (
     <>
       <div className={styles.container}>
         <section className={styles.container__section}>
-
+          <div style={{ width: '250px', margin: '0 auto' }}>
+            <Input type="text" placeholder="Digite aqui..." />
+            <Input 
+              type="select" 
+              placeholder="Selecione uma opção" 
+              options={[
+                { value: '1', label: 'Opção 1' },
+                { value: '2', label: 'Opção 2' },
+                { value: '3', label: 'Opção 3' }
+              ]}
+            />
+          </div>
           <EventInformationCard 
             address='Rua dos Bobos, 0'
             dates={[
@@ -74,7 +86,6 @@ export default function Home() {
               { name: 'Resultado 3' },
             ]}
             title='Resultados'
-            
           />
 
           <ManagementInformationCard 

@@ -3,6 +3,7 @@ import styles from './styles.module.scss';
 import Button from '../../../Button';
 import Content from '../../../Content';
 import HorizontalSubtitle from '../../../HorizontalSubtitle';
+import Impacts from '../../Common/Impacts';
 
 export default function LargePartnerCard({ name, description, image, fullImage, events, impacts, textButton, linkButton }) {
   return (
@@ -40,13 +41,9 @@ export default function LargePartnerCard({ name, description, image, fullImage, 
 
           <div className={styles["container__details__div-impact"]}>	
             <p className={styles["container__details__div-impact__title"]}>Impactos</p>
-            <ul className={styles["container__details__div-impact__list"]}>
-              {impacts.map((impact) => (
-                <li key={impact.name} className={styles["container__details__div-impact__list__item"]}>
-                  <p className={styles["container__details__div-impact__list__item__name"]}>{impact.name}</p>
-                </li>
-              ))}
-            </ul>
+            <Impacts 
+              contents={impacts}
+            />
           </div>
         </div>
         

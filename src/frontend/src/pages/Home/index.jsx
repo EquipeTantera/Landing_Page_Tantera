@@ -1,59 +1,68 @@
 import styles from './styles.module.scss';
-import LargeProductCard from '../../components/LargeProductCard';
-import LargeEventCard from '../../components/LargeEventCard';
-import LargePartnerCard from '../../components/LargePartnerCard';
-import HorizontalSubtitle from '../../components/HorizontalSubtitle';
+import EventInformationCard from '../../components/Card/InformationCard/EventInformationCard';
+import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
+import LargeProductCard from '../../components/Card/LargeCard/LargeProductCard';
 
 export default function Home() {
   return (
     <>
       <div className={styles.container}>
         <section className={styles.container__section}>
-          <LargeProductCard 
-            name="Camiseta Furioso"
-            description="Camiseta da empresa Furioso"
-            fullImage="/partner-furioso-full.png"
-            sizes={['P', 'M', 'G', 'GG']}
-            colors={['Branca', 'Preta', 'Vermelha']}
-            price="50,00"
-            textButton="Comprar"
-            linkButton="/comprar"
-          />
 
-          <LargeEventCard 
-            name="Evento Furioso"
-            description="Evento da empresa Furioso"
-            fullImage="/partner-furioso-full.png"
-            address='Rua Furiosa, 123'
+          <EventInformationCard 
+            address='Rua dos Bobos, 0'
             dates={[
-              { date: '01/01/2022', startHour: '18:00', endHour: '22:00' },
-              { date: '02/01/2022', startHour: '19:00', endHour: '23:00' },
+              {
+                date: '01/01/2021',
+                startHour: '08:00',
+                endHour: '12:00',
+              },
+              {
+                date: '02/01/2021',
+                startHour: '08:00',
+                endHour: '12:00',
+              },
             ]}
-            textButton="Saiba mais"
-            linkButton="/comprar"
+            observation='Observação do evento'
+            image='/copa-inteli.png'
           />
 
           <LargePartnerCard 
-            name="Furioso"
-            description="Empresa Furioso"
-            image="/partner-furioso.png"
-            fullImage="/partner-furioso-full.png"
+            name='Fulano de Tal'
+            description='Fulano de Tal é uma empresa de tecnologia que atua no mercado de desenvolvimento de softwares e aplicativos.'
+            fullImage='/partner-furioso-full.png'
+            image='/partner-furioso.png'
             events={[
-              { name: 'Evento 1', date: '01/01/2022' },
-              { name: 'Evento 2', date: '02/01/2022' },
+              {
+                name: 'Evento 1',
+                date: '01/01/2021',
+                startHour: '08:00',
+                endHour: '12:00',
+              },
+              {
+                name: 'Evento 2',
+                date: '02/01/2021',
+                startHour: '08:00',
+                endHour: '12:00',
+              },
             ]}
             impacts={[
               { name: 'Impacto 1' },
               { name: 'Impacto 2' },
             ]}
-            textButton="Saiba mais"
-            linkButton="/comprar"
+            textButton='Conhecer a empresa'
+            linkButton='/'
           />
 
-          <HorizontalSubtitle 
-            title="Produtos"
-            tag="false"
-            colorImage='transparent'
+          <LargeProductCard 
+            name='Produto 1'
+            description='Descrição do produto 1'
+            fullImage='/product-1-full.png'
+            price={100.00}
+            colors={['Azul', 'Vermelho', 'Verde']}
+            textButton='Comprar'
+            linkButton='/'
+            sizes={['P', 'M', 'G']}
           />
         </section>
       </div>

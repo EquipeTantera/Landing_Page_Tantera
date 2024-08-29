@@ -25,6 +25,12 @@
     overflow: hidden;
     flex-shrink: 0;
     box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   &__image {
@@ -81,10 +87,10 @@
 
     &__footer {
       height: 50px;
+    }
 
     &__event {
       font-size: 1.2rem;
     }
   }
-}
 }

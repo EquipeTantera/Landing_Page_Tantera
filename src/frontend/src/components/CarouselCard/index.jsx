@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 export default function CarouselCard({ cards, interval = 4000 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalCards = cards.length;
   const numCards = window.innerWidth < 768 ? 1 : 3;
   const totalDots = Math.ceil((totalCards - numCards + 1) / numCards);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -49,12 +51,22 @@ export default function CarouselCard({ cards, interval = 4000 }) {
     setCurrentIndex(dotIndex * numCards);
   };
 
+  const handleCardClick = () => {
+    navigate('/Parceiros');
+  };
+
   return (
     <div className={styles.carousel}>
       <div className={styles.carousel__container}>
         <div className={styles.carousel__track}>
           {getVisibleCards().map((card, index) => (
-            <div key={index} className={styles.carousel__card}>
+            <div
+              key={index}
+              className={styles.carousel__card}
+              onClick={handleCardClick}
+              role="button"
+              tabIndex="0"
+            >
               <img src={card.image} alt={card.event} className={styles.carousel__image} />
               <div className={styles.carousel__footer}>
                 <span className={styles.carousel__event}>{card.event}</span>

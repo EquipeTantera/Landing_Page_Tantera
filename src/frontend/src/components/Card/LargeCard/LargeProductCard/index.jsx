@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
-import Button from '../../../Button';
+import Button from '../../../Buttons/Button';
 import Content from '../../../Content';
 import HorizontalSubtitle from '../../../HorizontalSubtitle';
 

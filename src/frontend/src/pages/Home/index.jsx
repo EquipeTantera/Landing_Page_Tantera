@@ -4,13 +4,14 @@ import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
 import LargeProductCard from '../../components/Card/LargeCard/LargeProductCard';
 import ResultInformationCard from '../../components/Card/InformationCard/ResultInformationCard';
 import ManagementInformationCard from '../../components/Card/InformationCard/ManagementInformationCard';
+import FilterButton from '../../components/Buttons/FilterButton';
 
 export default function Home() {
   return (
     <>
       <div className={styles.container}>
         <section className={styles.container__section}>
-
+          <FilterButton text="Filtrar" />
           <EventInformationCard 
             address='Rua dos Bobos, 0'
             dates={[
@@ -74,7 +75,6 @@ export default function Home() {
               { name: 'Resultado 3' },
             ]}
             title='Resultados'
-            
           />
 
           <ManagementInformationCard 

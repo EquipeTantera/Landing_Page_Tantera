@@ -1,0 +1,44 @@
+@use "../../../../styles/variables" as v;
+
+.container {
+  max-width: 40rem;
+
+  &::before {
+    content: "";
+    display: flex;
+    position: relative;
+    top: 4rem;
+    height: 6rem;
+    background-image: url(/vertical_subtitle_transparent_desktop.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    z-index: 0;
+    width: 40rem;
+  }
+
+  &__title {
+    position: relative;
+    text-align: center;
+    font-family: v.$DriveCorps;
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: v.$purple-1;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+
+    &::before {
+      width: 80%;
+    }
+
+    &__title {
+      font-size: 2rem;
+      width: 80%;
+    }
+  }
+}

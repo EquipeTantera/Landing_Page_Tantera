@@ -8,6 +8,18 @@
   justify-content: center;
   padding-bottom: 2rem;
 
+  &-transparent {
+    width: 48rem;
+    min-height: 9.5rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2rem;
+  }
+
   &__title {
     font-family: 'DriveCorps';
     font-size: 4rem;
@@ -31,11 +43,19 @@
     &__title {
       font-size: 2rem;
     }
+
+    &-transparent {
+      width: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      text-align: center;
+      padding-bottom: 5rem;
+    }
   }
 
   .tag {
     height: 3rem;
-    background-image: url('../../../public/tag.png');
+    background-image: url('/tag.png');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;

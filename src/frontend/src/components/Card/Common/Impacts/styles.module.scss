@@ -1,0 +1,43 @@
+@use "../../../../styles/variables" as v;
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0rem;
+
+  &__item {
+    padding: 1rem;
+    border-right: 3px solid v.$black;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &__full {
+      padding: 3rem;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .list {
+    flex-direction: column;
+    margin-left: 0rem;
+
+    &__item {
+      border-right: none;
+      border-bottom: 3px solid v.$black;
+      width: 100%;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}

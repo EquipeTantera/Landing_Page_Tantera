@@ -2,6 +2,7 @@ import styles from './styles.module.scss';
 import LargeProductCard from '../../components/LargeProductCard';
 import LargeEventCard from '../../components/LargeEventCard';
 import LargePartnerCard from '../../components/LargePartnerCard';
+import HorizontalSubtitle from '../../components/HorizontalSubtitle';
 
 export default function Home() {
   return (
@@ -47,6 +48,12 @@ export default function Home() {
             ]}
             textButton="Saiba mais"
             linkButton="/comprar"
+          />
+
+          <HorizontalSubtitle 
+            title="Produtos"
+            tag="false"
+            colorImage='transparent'
           />
         </section>
       </div>

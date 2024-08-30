@@ -1,0 +1,67 @@
+@use "../../styles/variables" as v;
+
+.container {
+  margin-bottom: 20px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    overflow-x: hidden;
+  }
+
+  &__div {
+    position: relative;
+    width: 100%;
+  
+    @media (max-width: 768px) {
+      overflow-x: hidden;
+    }
+
+    &__input {
+      width: 100%;
+      height: 64px;
+      max-width: 100%;
+      border: 2px solid v.$black;
+      box-shadow: 2px 4px 0px 0px rgba(0, 0, 0, 0.5);
+      background-color: transparent;
+      padding: 0 16px;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+      @media (max-width: 768px) {
+        height: 48px;
+        width: 100%;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: v.$black;
+      }
+    }
+
+    &__icon {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+  }
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: v.$black;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+}
+

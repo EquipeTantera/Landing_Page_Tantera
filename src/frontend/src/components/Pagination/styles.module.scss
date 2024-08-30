@@ -1,0 +1,42 @@
+@use "../../styles/_variables" as v;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Arial', sans-serif;
+}
+
+.pagination__item {
+  display: flex;
+  align-items: center;
+}
+
+.pagination__page {
+  cursor: pointer;
+  padding: 4px;
+  font-weight: normal;
+  color: v.$black;
+
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+.pagination__page--active {
+  font-weight: bold;
+}
+
+.pagination__link {
+  color: v.$black;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.pagination__separator {
+  color: v.$black;
+}

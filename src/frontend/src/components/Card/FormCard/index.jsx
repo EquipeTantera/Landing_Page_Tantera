@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Input from '../../Input';
-import Button from '../../Button';
+import Button from '../../Buttons/Button';
 import styles from './styles.module.scss';
 
 export default function FormCard({ title, inputs, textButton, linkButton }) {

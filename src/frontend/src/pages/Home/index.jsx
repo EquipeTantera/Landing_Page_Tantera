@@ -1,4 +1,5 @@
 import styles from './styles.module.scss';
+import CarouselCard from '../../components/CarouselCard';
 import EventInformationCard from '../../components/Card/InformationCard/EventInformationCard';
 import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
 import LargeProductCard from '../../components/Card/LargeCard/LargeProductCard';
@@ -15,6 +16,33 @@ export default function Home() {
       { value: 'opcao1', label: 'Opção 1' },
       { value: 'opcao2', label: 'Opção 2' },
     ] 
+    },
+  ];
+
+  const carouselCards = [
+    {
+      image: '/partner-furioso.png',
+      event: 'Evento 1',
+    },
+    {
+      image: '/profile-tantech.jpeg',
+      event: 'Evento 2',
+    },
+    {
+      image: '/partner-furioso.png',
+      event: 'Evento 3',
+    },
+    {
+      image: '/profile-tantech.jpeg',
+      event: 'Evento 4',
+    },
+    {
+      image: '/partner-furioso.png',
+      event: 'Evento 5',
+    },
+    {
+      image: '/profile-tantech.jpeg',
+      event: 'Evento 6',
     },
   ];
 
@@ -103,6 +131,7 @@ export default function Home() {
               { name: 'Resultado 3' },
             ]}
           />
+          <CarouselCard cards={carouselCards} />
         </section>
       </div>
     </>

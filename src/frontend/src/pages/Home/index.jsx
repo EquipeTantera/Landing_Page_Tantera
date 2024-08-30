@@ -4,6 +4,7 @@ import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
 import LargeProductCard from '../../components/Card/LargeCard/LargeProductCard';
 import ResultInformationCard from '../../components/Card/InformationCard/ResultInformationCard';
 import ManagementInformationCard from '../../components/Card/InformationCard/ManagementInformationCard';
+import FilterButton from '../../components/Buttons/FilterButton';
 import FormCard from '../../components/Card/FormCard';
 
 export default function Home() {
@@ -21,13 +22,13 @@ export default function Home() {
     <>
       <div className={styles.container}>
         <section className={styles.container__section}>
+          <FilterButton text="Filtrar" />
           <FormCard 
             title="Formulário de Contato" 
             inputs={inputs} 
             textButton="Enviar"
             linkButton="/submit"
           />
-
           <EventInformationCard 
             address='Rua dos Bobos, 0'
             dates={[

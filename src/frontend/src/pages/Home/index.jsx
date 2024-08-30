@@ -4,25 +4,30 @@ import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
 import LargeProductCard from '../../components/Card/LargeCard/LargeProductCard';
 import ResultInformationCard from '../../components/Card/InformationCard/ResultInformationCard';
 import ManagementInformationCard from '../../components/Card/InformationCard/ManagementInformationCard';
-import Input from '../../components/Input';
+import FormCard from '../../components/Card/FormCard';
 
 export default function Home() {
+  const inputs = [
+    { type: 'text', placeholder: 'Seu nome', label: 'Nome' },
+    { type: 'text', placeholder: 'Seu email', label: 'Email' },
+    { type: 'select', placeholder: 'Selecione uma opção', label: 'Selecione', options: [
+      { value: 'opcao1', label: 'Opção 1' },
+      { value: 'opcao2', label: 'Opção 2' },
+    ] 
+    },
+  ];
+
   return (
     <>
       <div className={styles.container}>
         <section className={styles.container__section}>
-          <div style={{ width: '250px', margin: '0 auto' }}>
-            <Input type="text" placeholder="Digite aqui..." />
-            <Input 
-              type="select" 
-              placeholder="Selecione uma opção" 
-              options={[
-                { value: '1', label: 'Opção 1' },
-                { value: '2', label: 'Opção 2' },
-                { value: '3', label: 'Opção 3' }
-              ]}
-            />
-          </div>
+          <FormCard 
+            title="Formulário de Contato" 
+            inputs={inputs} 
+            textButton="Enviar"
+            linkButton="/submit"
+          />
+
           <EventInformationCard 
             address='Rua dos Bobos, 0'
             dates={[

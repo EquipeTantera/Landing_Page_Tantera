@@ -5,11 +5,34 @@
   align-items: center;
   gap: 8px;
   font-family: 'Arial', sans-serif;
-}
 
-.pagination__item {
-  display: flex;
-  align-items: center;
+  .pagination__numbers,
+  .pagination__links {
+    display: flex;
+    align-items: center;
+  }
+
+  .pagination__numbers {
+    gap: 8px;
+  }
+
+  .pagination__links {
+    gap: 8px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    .pagination__separator1 {
+      display: none;
+    }
+
+    .pagination__numbers,
+    .pagination__links {
+      width: 100%;
+      margin-bottom: 8px;
+      justify-content: flex-start;
+  }
 }
 
 .pagination__page {
@@ -36,7 +59,4 @@
     text-decoration: underline;
   }
 }
-
-.pagination__separator {
-  color: v.$black;
 }

@@ -3,11 +3,11 @@ import styles from './styles.module.scss';
 
 export default function Input({ type, placeholder, options, label }) {
   return (
-    <div className={styles.inputWrapper}>
+    <div className={styles.container}>
       {label && <label className={styles.label}>{label}</label>}
       {type === 'select' ? (
-        <div className={styles.inputContainer}>
-          <select className={styles.input} defaultValue="">
+        <div className={styles.container__div}>
+          <select className={styles.container__div__input} defaultValue="">
             <option value="" disabled>{placeholder}</option>
             {options.map((option, index) => (
               <option key={index} value={option.value}>
@@ -15,7 +15,7 @@ export default function Input({ type, placeholder, options, label }) {
               </option>
             ))}
           </select>
-          <div className={styles.icon}>
+          <div className={styles.container__div__icon}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="34"
@@ -30,7 +30,7 @@ export default function Input({ type, placeholder, options, label }) {
       ) : (
         <input
           type={type}
-          className={styles.input}
+          className={styles.container__div__input}
           placeholder={placeholder}
         />
       )}

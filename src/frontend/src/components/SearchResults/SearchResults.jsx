@@ -9,7 +9,7 @@ export default function SearchResults({ totalProducts, totalPages }) {
       </p>
     </div>
   );
-};
+}
 
 SearchResults.propTypes = {
   totalProducts: PropTypes.number.isRequired,

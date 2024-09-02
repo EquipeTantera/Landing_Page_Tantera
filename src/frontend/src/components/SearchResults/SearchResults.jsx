@@ -1,8 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SearchResults.module.scss';
 
-const SearchResults = ({ totalProducts, totalPages }) => {
+export default function SearchResults({ totalProducts, totalPages }) {
   return (
     <div className={styles.results}>
       <p className={styles.text}>
@@ -15,6 +14,4 @@ const SearchResults = ({ totalProducts, totalPages }) => {
 SearchResults.propTypes = {
   totalProducts: PropTypes.number.isRequired,
   totalPages: PropTypes.number.isRequired,
-};
-
-export default SearchResults;
+}; 

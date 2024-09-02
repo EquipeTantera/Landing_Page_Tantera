@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styles from './styles.module.scss';
 import CarouselCard from '../../components/CarouselCard';
 import EventInformationCard from '../../components/Card/InformationCard/EventInformationCard';
@@ -7,6 +8,7 @@ import ResultInformationCard from '../../components/Card/InformationCard/ResultI
 import ManagementInformationCard from '../../components/Card/InformationCard/ManagementInformationCard';
 import FilterButton from '../../components/Buttons/FilterButton';
 import FormCard from '../../components/Card/FormCard';
+import Pagination from '../../components/Pagination';
 
 export default function Home() {
   const inputs = [
@@ -45,6 +47,9 @@ export default function Home() {
       event: 'Evento 6',
     },
   ];
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 4;
 
   return (
     <>
@@ -130,6 +135,11 @@ export default function Home() {
               { name: 'Resultado 2' },
               { name: 'Resultado 3' },
             ]}
+          />
+          <Pagination
+            totalPages={totalPages}
+            currentPage={currentPage}
+            onPageChange={setCurrentPage}
           />
           <CarouselCard cards={carouselCards} />
         </section>

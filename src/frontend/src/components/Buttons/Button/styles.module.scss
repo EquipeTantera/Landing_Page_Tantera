@@ -1,0 +1,26 @@
+@use "../../../styles/variables" as v;
+
+.button {
+  background: v.$red-2;
+  color: v.$white-1;
+  font-family: v.$DriveCorps;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 1.25rem;
+  transition: all 0.3s;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  font-weight: 300;
+;
+
+  &:hover {
+    background: v.$red-1;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}

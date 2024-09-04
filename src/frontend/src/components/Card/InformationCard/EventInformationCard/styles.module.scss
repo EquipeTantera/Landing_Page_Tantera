@@ -1,0 +1,82 @@
+@use "../../../../styles/variables" as v;
+
+.section {
+  margin-left: 6rem;
+  margin-right: 6rem;
+
+  &__container {
+    background-image: url(/background-event-information-card.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 25rem;
+
+    &-infos {
+      width: 100%;
+      margin: 3rem 3rem;
+
+      &__div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+      }
+    }
+
+    &-image {
+      width: 35%;
+      height: 100%;
+      margin-right: 4rem;
+  
+      &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    &__container {
+      flex-direction: column;
+      align-items: center;
+      max-height: none;
+      background-size: cover;
+
+      &-infos {
+        width: 100%;
+        margin: 3rem 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__div {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      &-image {
+        order: -1;
+        width: 35%;
+        height: 100%;
+        margin-top: 4rem;
+        margin-right: 0rem;
+    
+        &__image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; 
+        }
+      }
+    }
+  }
+}

@@ -833,6 +833,42 @@ export interface ApiAboutUsAboutUs extends Schema.CollectionType {
   };
 }
 
+export interface ApiAdvantageAdvantage extends Schema.CollectionType {
+  collectionName: 'advantages';
+  info: {
+    singularName: 'advantage';
+    pluralName: 'advantages';
+    displayName: 'Advantage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    description: Attribute.String;
+    plans_id: Attribute.Relation<
+      'api::advantage.advantage',
+      'oneToMany',
+      'api::plan.plan'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::advantage.advantage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::advantage.advantage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBannerBanner extends Schema.CollectionType {
   collectionName: 'banners';
   info: {
@@ -1224,6 +1260,30 @@ export interface ApiEventRegistrarionCardEventRegistrarionCard
   };
 }
 
+export interface ApiFaqFaq extends Schema.CollectionType {
+  collectionName: 'faqs';
+  info: {
+    singularName: 'faq';
+    pluralName: 'faqs';
+    displayName: 'Faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    question: Attribute.String;
+    answer: Attribute.String;
+    plans_id: Attribute.Relation<'api::faq.faq', 'oneToMany', 'api::plan.plan'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMemberMember extends Schema.CollectionType {
   collectionName: 'members';
   info: {
@@ -1310,6 +1370,42 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
   };
 }
 
+export interface ApiPaymentPayment extends Schema.CollectionType {
+  collectionName: 'payments';
+  info: {
+    singularName: 'payment';
+    pluralName: 'payments';
+    displayName: 'Payment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    description: Attribute.String;
+    plans_id: Attribute.Relation<
+      'api::payment.payment',
+      'oneToMany',
+      'api::plan.plan'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::payment.payment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::payment.payment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPhotoPhoto extends Schema.CollectionType {
   collectionName: 'photos';
   info: {
@@ -1375,6 +1471,41 @@ export interface ApiPhotoProductPhotoProduct extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPlanPlan extends Schema.CollectionType {
+  collectionName: 'plans';
+  info: {
+    singularName: 'plan';
+    pluralName: 'plans';
+    displayName: 'Plan';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    price: Attribute.Decimal;
+    advantage_id: Attribute.Relation<
+      'api::plan.plan',
+      'manyToOne',
+      'api::advantage.advantage'
+    >;
+    payment_id: Attribute.Relation<
+      'api::plan.plan',
+      'manyToOne',
+      'api::payment.payment'
+    >;
+    faq_id: Attribute.Relation<'api::plan.plan', 'manyToOne', 'api::faq.faq'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::plan.plan', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::plan.plan', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1684,6 +1815,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::advantage.advantage': ApiAdvantageAdvantage;
       'api::banner.banner': ApiBannerBanner;
       'api::board.board': ApiBoardBoard;
       'api::category.category': ApiCategoryCategory;
@@ -1693,10 +1825,13 @@ declare module '@strapi/types' {
       'api::event.event': ApiEventEvent;
       'api::event-form.event-form': ApiEventFormEventForm;
       'api::event-registrarion-card.event-registrarion-card': ApiEventRegistrarionCardEventRegistrarionCard;
+      'api::faq.faq': ApiFaqFaq;
       'api::member.member': ApiMemberMember;
       'api::partner.partner': ApiPartnerPartner;
+      'api::payment.payment': ApiPaymentPayment;
       'api::photo.photo': ApiPhotoPhoto;
       'api::photo-product.photo-product': ApiPhotoProductPhotoProduct;
+      'api::plan.plan': ApiPlanPlan;
       'api::planning.planning': ApiPlanningPlanning;
       'api::product.product': ApiProductProduct;
       'api::purpose.purpose': ApiPurposePurpose;

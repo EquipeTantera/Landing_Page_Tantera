@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
-export default function HorizontalSubtitle({ title, colorImage, tag }) {
+export default function HorizontalSubtitle({ title, colorImage, tag, titleSize }) {
   return (
     <>
-      {tag && <div className={styles.tag}/>}
-      <div className={styles.container} style={{ backgroundImage: `url(vertical_subtitle_${colorImage}_desktop.png)` }}>
-        <h2 className={styles.container__title}>
+      {tag === true ? <div className={styles.tag}/> : null}
+      <div className={colorImage == "transparent" ? styles["container-transparent"] : styles.container} style={{ backgroundImage: `url(vertical_subtitle_${colorImage}_desktop.png)` }} >
+        <h2 style={colorImage === "transparent" ? { color: "#180733", fontSize: titleSize } : { fontSize: titleSize } } className={styles.container__title}>
           {title}
         </h2>
       </div>
@@ -16,6 +16,7 @@ export default function HorizontalSubtitle({ title, colorImage, tag }) {
 
 HorizontalSubtitle.propTypes = {
   title: PropTypes.string.isRequired,
-  colorImage: PropTypes.oneOf(['purple', 'red']).isRequired,
+  colorImage: PropTypes.oneOf(['purple', 'red', 'transparent']).isRequired,
   tag: PropTypes.bool,
+  titleSize: PropTypes.string
 };

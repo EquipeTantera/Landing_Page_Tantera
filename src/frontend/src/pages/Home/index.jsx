@@ -116,6 +116,7 @@ export default function Home() {
             textButton='Comprar'
             linkButton='/'
             sizes={['P', 'M', 'G']}
+            isAvailable={false}
           />
 
           <ResultInformationCard 

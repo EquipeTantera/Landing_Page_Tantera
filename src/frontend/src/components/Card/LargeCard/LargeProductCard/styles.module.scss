@@ -75,6 +75,17 @@
           letter-spacing: 1.5px;
         }
       }
+
+      &--unavailable {
+        background-image: url("/background-sould-out.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 3rem;
+        width: 10rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
 
     &__div-sizes {

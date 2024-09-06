@@ -2,11 +2,12 @@
 
 .container {
   background: url("/purple-background-planning-card.png");
-  background-size: cover;
+  background-size: 100%;
   padding: 2rem 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 80rem;
 
   &__div {
     
@@ -50,6 +51,31 @@
             margin-bottom: 2rem;
             align-items: center;
             justify-content: center;
+
+            &__checkbox {
+              appearance: none;
+              width: 1.5rem;
+              height: 1.5rem;
+              border: 2px solid v.$white-1; 
+              border-radius: 4px;
+              background-color: transparent;
+              cursor: pointer;
+              position: relative;
+
+              &:checked {
+                background-color: v.$white-1;
+                border-color: v.$white-1;
+              }
+
+              &:checked::after {
+                content: '✔'; 
+                color: v.$purple-1; 
+                font-size: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+            }
 
             &__paragraph {
               font-size: 1.5rem;

@@ -12,7 +12,12 @@ const products = [
     price: 100.0,
     colors: ["Azul", "Vermelho", "Verde"],
     sizes: ["P", "M", "G"],
-    link: "https://wa.me/SeuNumeroDeTelefone" 
+    link: "https://wa.me/SeuNumeroDeTelefone",
+    images : [
+      "/copa-inteli.png",
+      "/partner-furioso.png",
+      "/photo-small-card.png",
+    ]
   },
   {
     id: 2,
@@ -22,7 +27,12 @@ const products = [
     price: 150.0,
     colors: ["Amarelo", "Preto", "Branco"],
     sizes: ["P", "M", "G", "GG"],
-    link: "https://wa.me/SeuNumeroDeTelefone" 
+    link: "https://wa.me/SeuNumeroDeTelefone",
+    images : [
+      "/copa-inteli.png",
+      "/partner-furioso.png",
+      "/photo-small-card.png",
+    ]
   },
 ];
 
@@ -50,6 +60,7 @@ export default function Product() {
           textButton={"Comprar"}
           linkButton={product.link}
           sizes={product.sizes}
+          images={product.images}
         />
       </PaperBackground>
     </>

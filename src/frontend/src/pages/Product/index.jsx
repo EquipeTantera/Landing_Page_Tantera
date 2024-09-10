@@ -12,7 +12,7 @@ const products = [
     price: 100.0,
     colors: ["Azul", "Vermelho", "Verde"],
     sizes: ["P", "M", "G"],
-    link: "https://wa.me/SeuNumeroDeTelefone" // Link para o WhatsApp
+    link: "https://wa.me/SeuNumeroDeTelefone" 
   },
   {
     id: 2,

@@ -59,12 +59,17 @@ export default function Home() {
           <LargeProductCard 
             name='Produto 1'
             description='Descrição do produto 1'
-            fullImage='/product-1-full.png'
+            fullImage='/partner-furioso-full.png'
             price={100.00}
             colors={['Azul', 'Vermelho', 'Verde']}
             textButton='Comprar'
             linkButton='/'
             sizes={['P', 'M', 'G']}
+            images={[
+              '/copa-inteli.png',
+              '/partner-furioso.png',
+              '/photo-small-card.png',
+            ]}
           />
           
           <FormCard 

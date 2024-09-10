@@ -56,6 +56,17 @@ export default function Home() {
       <div className={styles.container}>
         <section className={styles.container__section}>
           <FilterButton text="Filtrar" />
+          <LargeProductCard 
+            name='Produto 1'
+            description='Descrição do produto 1'
+            fullImage='/product-1-full.png'
+            price={100.00}
+            colors={['Azul', 'Vermelho', 'Verde']}
+            textButton='Comprar'
+            linkButton='/'
+            sizes={['P', 'M', 'G']}
+          />
+          
           <FormCard 
             title="Formulário de Contato" 
             inputs={inputs} 
@@ -105,17 +116,6 @@ export default function Home() {
             ]}
             textButton='Conhecer a empresa'
             linkButton='/'
-          />
-
-          <LargeProductCard 
-            name='Produto 1'
-            description='Descrição do produto 1'
-            fullImage='/product-1-full.png'
-            price={100.00}
-            colors={['Azul', 'Vermelho', 'Verde']}
-            textButton='Comprar'
-            linkButton='/'
-            sizes={['P', 'M', 'G']}
           />
 
           <ResultInformationCard 

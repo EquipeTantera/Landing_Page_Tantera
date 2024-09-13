@@ -83,19 +83,22 @@ export default function FilterModal({ isOpen, onClose }) {
 
           <div className={styles.modal__content__filter}>
             <h3 className={styles.modal__content__filter__title}>Tamanhos:</h3>
-            {['PP', 'P', 'M', 'G', 'GG'].map((size) => (
-              <label className={styles.modal__content__filter__label} key={size}>
-                <input
-                  type="checkbox"
-                  value={size}
-                  checked={selectedSizes.includes(size)}
-                  onChange={() => handleSizeChange(size)}
-                  className={styles.modal__content__filter__input}
-                />
-                {size}
-              </label>
-            ))}
+            <div className={styles.modal__content__filter__sizes}>
+              {['PP', 'P', 'M', 'G', 'GG'].map((size) => (
+                <label className={`${styles.modal__content__filter__size} ${selectedSizes.includes(size) ? styles.selected : ''}`} key={size}>
+                  <input
+                    type="checkbox"
+                    value={size}
+                    checked={selectedSizes.includes(size)}
+                    onChange={() => handleSizeChange(size)}
+                    className={styles.modal__content__filter__size__input}
+                  />
+                  {size}
+                </label>
+              ))}
+            </div>
           </div>
+
 
           <div className={styles.modal__content__filter}>
             <h3 className={styles.modal__content__filter__title}>Cor:</h3>

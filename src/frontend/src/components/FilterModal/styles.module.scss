@@ -148,5 +148,24 @@
       font-weight: lighter;
     }
   }
+}
 
+@media (max-width: 768px) {
+  .modal {
+    width: 100%;
+
+    &__image {
+      background: none;
+      position: initial;
+      width: 0px;
+
+      &__text {
+        display: none;
+      }
+
+      &__button {
+        color: v.$red-1;
+      }
+    }
+  }
 }

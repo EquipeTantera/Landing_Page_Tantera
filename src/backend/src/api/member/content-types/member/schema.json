@@ -30,7 +30,7 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::board.board",
-      "inversedBy": "members"
+      "inversedBy": "members_id"
     },
     "specific_board_id": {
       "type": "relation",

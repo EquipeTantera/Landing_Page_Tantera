@@ -20,11 +20,11 @@
       "type": "string",
       "required": true
     },
-    "plans_id": {
+    "plans": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::plan.plan",
-      "mappedBy": "payment_id"
+      "mappedBy": "payment"
     }
   }
 }

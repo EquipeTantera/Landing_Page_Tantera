@@ -34,28 +34,27 @@
       "required": true,
       "unique": true
     },
-    "specific_board": {
+    "specific_board_id": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::specific-board.specific-board",
       "mappedBy": "board"
     },
-    "members": {
+    "members_id": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::member.member"
     },
-    "results": {
+    "result_id": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::result.result",
-      "inversedBy": "management"
+      "inversedBy": "board_id"
     },
     "plannings": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::planning.planning",
-      "inversedBy": "board"
+      "relation": "oneToMany",
+      "target": "api::planning.planning"
     }
   }
 }

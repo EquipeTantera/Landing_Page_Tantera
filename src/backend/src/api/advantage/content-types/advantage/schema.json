@@ -20,11 +20,11 @@
       "type": "string",
       "required": true
     },
-    "plans_id": {
+    "plan": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::plan.plan",
-      "mappedBy": "advantage_id"
+      "inversedBy": "advantages"
     }
   }
 }

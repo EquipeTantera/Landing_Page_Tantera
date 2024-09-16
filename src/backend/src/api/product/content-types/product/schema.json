@@ -53,7 +53,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::category.category",
-      "inversedBy": "product_id"
+      "mappedBy": "product_id"
     },
     "photo_product_id": {
       "type": "relation",

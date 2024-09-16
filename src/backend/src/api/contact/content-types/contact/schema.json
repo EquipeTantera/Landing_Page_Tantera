@@ -21,7 +21,7 @@
       "required": true
     },
     "telephone": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "message": {

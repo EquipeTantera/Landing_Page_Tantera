@@ -119,7 +119,7 @@ link do diagrama realizado: [diagrama](https://lucid.app/lucidchart/ee39349f-901
 | `purpose_id` | foreign key  | chave estrangeira, relação com a coluna `purpose` | -              |
 | `name`       | varchar      | nome da pessoa                                    | -              |
 | `email`      | varchar      | email da pessoa                                   | -              |
-| `telephone`  | integer      | telefone da pessoa                                | -              |
+| `telephone`  | text      | telefone da pessoa                                | -              |
 | `message`    | varchar      | mensagem                                          | -              |
 
 ### Entidade: purpose

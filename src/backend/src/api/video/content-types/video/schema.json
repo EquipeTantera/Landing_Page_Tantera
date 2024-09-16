@@ -5,7 +5,7 @@
     "singularName": "video",
     "pluralName": "videos",
     "displayName": "video",
-    "description": ""
+    "description": "Modelo para armazenar informações sobre vídeos na plataforma da atlética Tantera."
   },
   "options": {
     "draftAndPublish": true
@@ -16,12 +16,7 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["videos"]
     }
   }
 }

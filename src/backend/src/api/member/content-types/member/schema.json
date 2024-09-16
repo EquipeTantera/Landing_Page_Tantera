@@ -5,7 +5,7 @@
     "singularName": "member",
     "pluralName": "members",
     "displayName": "member",
-    "description": ""
+    "description": "Modelo para armazenar informações sobre os membros da atlética Tantera."
   },
   "options": {
     "draftAndPublish": true
@@ -20,20 +20,17 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images"]
     },
     "role": {
       "type": "string",
       "required": true
     },
     "board": {
-      "type": "string",
-      "required": true
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::board.board",
+      "inversedBy": "members_id"
     },
     "specific_board_id": {
       "type": "relation",

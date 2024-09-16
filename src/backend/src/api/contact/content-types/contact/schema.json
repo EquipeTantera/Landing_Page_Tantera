@@ -5,7 +5,7 @@
     "singularName": "contact",
     "pluralName": "contacts",
     "displayName": "contact",
-    "description": ""
+    "description": "Armazena informações de contato enviadas pelos usuários, incluindo nome, email, telefone, mensagem e propósito do contato."
   },
   "options": {
     "draftAndPublish": true
@@ -25,12 +25,12 @@
       "required": true
     },
     "message": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "purpose_id": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::purpose.purpose",
       "inversedBy": "contact_id"
     }

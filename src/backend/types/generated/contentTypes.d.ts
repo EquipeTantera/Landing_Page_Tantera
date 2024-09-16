@@ -590,6 +590,53 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 50;
+        },
+        number
+      >;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUsersPermissionsPermission
   extends Schema.CollectionType {
   collectionName: 'up_permissions';
@@ -741,60 +788,13 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
-  info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-          max: 50;
-        },
-        number
-      >;
-    code: Attribute.String & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiAboutUsAboutUs extends Schema.CollectionType {
   collectionName: 'about_uses';
   info: {
     singularName: 'about-us';
     pluralName: 'about-uses';
     displayName: 'About_us';
-    description: '';
+    description: "Armazena informa\u00E7\u00F5es sobre a se\u00E7\u00E3o 'Sobre N\u00F3s' da atl\u00E9tica, incluindo prop\u00F3sito, funda\u00E7\u00E3o, mascote, contatos e diretoria.";
   };
   options: {
     draftAndPublish: true;
@@ -802,9 +802,8 @@ export interface ApiAboutUsAboutUs extends Schema.CollectionType {
   attributes: {
     purpose: Attribute.String & Attribute.Required;
     foundation: Attribute.String & Attribute.Required;
-    mascot_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Attribute.Required;
-    mascot_description: Attribute.String & Attribute.Required;
+    mascot_image: Attribute.Media<'images'> & Attribute.Required;
+    mascot_description: Attribute.Text & Attribute.Required;
     contact_id: Attribute.Relation<
       'api::about-us.about-us',
       'oneToOne',
@@ -839,16 +838,17 @@ export interface ApiAdvantageAdvantage extends Schema.CollectionType {
     singularName: 'advantage';
     pluralName: 'advantages';
     displayName: 'Advantage';
+    description: 'Armazena vantagens oferecidas pelos planos de s\u00F3cios.';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    description: Attribute.String;
-    plans_id: Attribute.Relation<
+    name: Attribute.String & Attribute.Required;
+    description: Attribute.String & Attribute.Required;
+    plan: Attribute.Relation<
       'api::advantage.advantage',
-      'oneToMany',
+      'manyToOne',
       'api::plan.plan'
     >;
     createdAt: Attribute.DateTime;
@@ -875,17 +875,13 @@ export interface ApiBannerBanner extends Schema.CollectionType {
     singularName: 'banner';
     pluralName: 'banners';
     displayName: 'Banner';
-    description: '';
+    description: 'Armazena informa\u00E7\u00F5es sobre banners exibidos na plataforma, incluindo imagens e suas associa\u00E7\u00F5es com fotos.';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    banner_png: Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Attribute.Required;
+    image: Attribute.Media<'images', true> & Attribute.Required;
     photo_id: Attribute.Relation<
       'api::banner.banner',
       'manyToOne',
@@ -914,24 +910,24 @@ export interface ApiBoardBoard extends Schema.CollectionType {
   info: {
     singularName: 'board';
     pluralName: 'boards';
-    displayName: 'board';
-    description: '';
+    displayName: 'Board';
+    description: 'Modelo para armazenar informa\u00E7\u00F5es sobre gest\u00F5es espec\u00EDficas da atl\u00E9tica.';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     description: Attribute.String & Attribute.Required;
-    year: Attribute.Integer & Attribute.Required;
+    year: Attribute.String & Attribute.Required;
     start_date: Attribute.Date & Attribute.Required;
     end_date: Attribute.Date & Attribute.Required;
-    current: Attribute.Boolean & Attribute.Required;
+    current: Attribute.Boolean & Attribute.Required & Attribute.Unique;
     specific_board_id: Attribute.Relation<
       'api::board.board',
       'oneToOne',
       'api::specific-board.specific-board'
     >;
-    member_id: Attribute.Relation<
+    members_id: Attribute.Relation<
       'api::board.board',
       'oneToMany',
       'api::member.member'
@@ -941,9 +937,9 @@ export interface ApiBoardBoard extends Schema.CollectionType {
       'manyToOne',
       'api::result.result'
     >;
-    planning_id: Attribute.Relation<
+    plannings: Attribute.Relation<
       'api::board.board',
-      'manyToOne',
+      'oneToMany',
       'api::planning.planning'
     >;
     createdAt: Attribute.DateTime;
@@ -970,7 +966,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     singularName: 'category';
     pluralName: 'categories';
     displayName: 'category';
-    description: '';
+    description: 'Armazena categorias de produtos dispon\u00EDveis na plataforma.';
   };
   options: {
     draftAndPublish: true;
@@ -1042,7 +1038,7 @@ export interface ApiContactContact extends Schema.CollectionType {
     singularName: 'contact';
     pluralName: 'contacts';
     displayName: 'contact';
-    description: '';
+    description: 'Armazena informa\u00E7\u00F5es de contato enviadas pelos usu\u00E1rios, incluindo nome, email, telefone, mensagem e prop\u00F3sito do contato.';
   };
   options: {
     draftAndPublish: true;
@@ -1054,7 +1050,7 @@ export interface ApiContactContact extends Schema.CollectionType {
     message: Attribute.String & Attribute.Required;
     purpose_id: Attribute.Relation<
       'api::contact.contact',
-      'oneToOne',
+      'manyToOne',
       'api::purpose.purpose'
     >;
     createdAt: Attribute.DateTime;
@@ -1266,14 +1262,15 @@ export interface ApiFaqFaq extends Schema.CollectionType {
     singularName: 'faq';
     pluralName: 'faqs';
     displayName: 'Faq';
+    description: 'Armazena perguntas frequentes relacionadas aos planos de s\u00F3cios.';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    question: Attribute.String;
-    answer: Attribute.String;
-    plans_id: Attribute.Relation<'api::faq.faq', 'oneToMany', 'api::plan.plan'>;
+    question: Attribute.String & Attribute.Required;
+    answer: Attribute.String & Attribute.Required;
+    plan: Attribute.Relation<'api::faq.faq', 'manyToOne', 'api::plan.plan'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1290,17 +1287,20 @@ export interface ApiMemberMember extends Schema.CollectionType {
     singularName: 'member';
     pluralName: 'members';
     displayName: 'member';
-    description: '';
+    description: 'Modelo para armazenar informa\u00E7\u00F5es sobre os membros da atl\u00E9tica Tantera.';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Attribute.Required;
+    image: Attribute.Media<'images'> & Attribute.Required;
     role: Attribute.String & Attribute.Required;
-    board: Attribute.String & Attribute.Required;
+    board: Attribute.Relation<
+      'api::member.member',
+      'manyToOne',
+      'api::board.board'
+    >;
     specific_board_id: Attribute.Relation<
       'api::member.member',
       'manyToOne',
@@ -1330,7 +1330,7 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
     singularName: 'partner';
     pluralName: 'partners';
     displayName: 'partner';
-    description: '';
+    description: 'Armazena informa\u00E7\u00F5es sobre parceiros da atl\u00E9tica, incluindo t\u00EDtulo, slogan, \u00EDcones e associa\u00E7\u00F5es com eventos e resultados.';
   };
   options: {
     draftAndPublish: true;
@@ -1338,10 +1338,8 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
   attributes: {
     title: Attribute.String & Attribute.Required;
     slogan: Attribute.String & Attribute.Required;
-    icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Attribute.Required;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
-      Attribute.Required;
+    icon: Attribute.Media<'images'> & Attribute.Required;
+    image: Attribute.Media<'images', true> & Attribute.Required;
     result_id: Attribute.Relation<
       'api::partner.partner',
       'oneToMany',
@@ -1376,14 +1374,15 @@ export interface ApiPaymentPayment extends Schema.CollectionType {
     singularName: 'payment';
     pluralName: 'payments';
     displayName: 'Payment';
+    description: 'Armazena m\u00E9todos de pagamento dispon\u00EDveis para os planos de s\u00F3cios.';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    description: Attribute.String;
-    plans_id: Attribute.Relation<
+    name: Attribute.String & Attribute.Required;
+    description: Attribute.String & Attribute.Required;
+    plans: Attribute.Relation<
       'api::payment.payment',
       'oneToMany',
       'api::plan.plan'
@@ -1449,14 +1448,13 @@ export interface ApiPhotoProductPhotoProduct extends Schema.CollectionType {
     singularName: 'photo-product';
     pluralName: 'photo-products';
     displayName: 'photo_product';
-    description: '';
+    description: 'Armazena fotos associadas aos produtos na plataforma.';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
-      Attribute.Required;
+    image: Attribute.Media<'images', true> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1481,25 +1479,25 @@ export interface ApiPlanPlan extends Schema.CollectionType {
     singularName: 'plan';
     pluralName: 'plans';
     displayName: 'Plan';
-    description: '';
+    description: 'Armazena informa\u00E7\u00F5es sobre os planos de s\u00F3cios da atl\u00E9tica.';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    price: Attribute.Decimal;
-    advantage_id: Attribute.Relation<
+    name: Attribute.String & Attribute.Required;
+    price: Attribute.Decimal & Attribute.Required;
+    advantages: Attribute.Relation<
       'api::plan.plan',
-      'manyToOne',
+      'oneToMany',
       'api::advantage.advantage'
     >;
-    payment_id: Attribute.Relation<
+    payment: Attribute.Relation<
       'api::plan.plan',
       'manyToOne',
       'api::payment.payment'
     >;
-    faq_id: Attribute.Relation<'api::plan.plan', 'manyToOne', 'api::faq.faq'>;
+    faqs: Attribute.Relation<'api::plan.plan', 'oneToMany', 'api::faq.faq'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1526,7 +1524,7 @@ export interface ApiPlanningPlanning extends Schema.CollectionType {
     completed: Attribute.Boolean & Attribute.Required;
     board_id: Attribute.Relation<
       'api::planning.planning',
-      'oneToMany',
+      'manyToOne',
       'api::board.board'
     >;
     specific_board_id: Attribute.Relation<
@@ -1558,21 +1556,25 @@ export interface ApiProductProduct extends Schema.CollectionType {
     singularName: 'product';
     pluralName: 'products';
     displayName: 'product';
-    description: '';
+    description: 'Modelo para armazenar informa\u00E7\u00F5es sobre produtos dispon\u00EDveis na plataforma da atl\u00E9tica Tantera.';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
-      Attribute.Required;
+    image: Attribute.Media<'images', true> & Attribute.Required;
     price: Attribute.Decimal & Attribute.Required;
-    description: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
     sold_out: Attribute.Boolean & Attribute.Required;
-    size: Attribute.String & Attribute.Required;
-    genre: Attribute.String & Attribute.Required;
-    color: Attribute.String & Attribute.Required;
+    size: Attribute.Enumeration<['PP', 'P', 'M', 'G', 'GG', 'GGG']> &
+      Attribute.Required;
+    genre: Attribute.Enumeration<['masculino', 'feminino', 'unissex']> &
+      Attribute.Required;
+    color: Attribute.Enumeration<
+      ['vermelho', 'azul', 'verde', 'amarelo', 'preto', 'branco']
+    > &
+      Attribute.Required;
     category_id: Attribute.Relation<
       'api::product.product',
       'manyToMany',
@@ -1616,7 +1618,7 @@ export interface ApiPurposePurpose extends Schema.CollectionType {
     purpose_name: Attribute.String & Attribute.Required;
     contact_id: Attribute.Relation<
       'api::purpose.purpose',
-      'oneToOne',
+      'oneToMany',
       'api::contact.contact'
     >;
     createdAt: Attribute.DateTime;
@@ -1742,14 +1744,13 @@ export interface ApiVideoVideo extends Schema.CollectionType {
     singularName: 'video';
     pluralName: 'videos';
     displayName: 'video';
-    description: '';
+    description: 'Modelo para armazenar informa\u00E7\u00F5es sobre v\u00EDdeos na plataforma da atl\u00E9tica Tantera.';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    video: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Attribute.Required;
+    video: Attribute.Media<'videos'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1810,10 +1811,10 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::i18n.locale': PluginI18NLocale;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::advantage.advantage': ApiAdvantageAdvantage;
       'api::banner.banner': ApiBannerBanner;

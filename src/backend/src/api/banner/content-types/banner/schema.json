@@ -5,23 +5,18 @@
     "singularName": "banner",
     "pluralName": "banners",
     "displayName": "Banner",
-    "description": ""
+    "description": "Armazena informações sobre banners exibidos na plataforma, incluindo imagens e suas associações com fotos."
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "banner_png": {
+    "image": {
       "type": "media",
       "multiple": true,
       "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images"]
     },
     "photo_id": {
       "type": "relation",

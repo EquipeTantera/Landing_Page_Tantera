@@ -1,0 +1,10 @@
+@use "../../styles/_variables" as v; 
+
+.paperBackground {
+  background: url("/background-main.png");
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  top: -6rem;
+  padding-top: 12rem;
+}

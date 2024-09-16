@@ -1,14 +1,12 @@
 import { useState } from 'react';
 import styles from './styles.module.scss';
 import CarouselCard from '../../components/CarouselCard';
-import EventInformationCard from '../../components/Card/InformationCard/EventInformationCard';
-import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
-import LargeProductCard from '../../components/Card/LargeCard/LargeProductCard';
 import ResultInformationCard from '../../components/Card/InformationCard/ResultInformationCard';
 import ManagementInformationCard from '../../components/Card/InformationCard/ManagementInformationCard';
 import FilterButton from '../../components/Buttons/FilterButton';
 import FormCard from '../../components/Card/FormCard';
 import Pagination from '../../components/Pagination';
+import PlanningCard from '../../components/Card/PlanningCard';
 
 export default function Home() {
   const inputs = [
@@ -123,6 +121,17 @@ export default function Home() {
             linkButton='/'
           />
 
+          <LargeProductCard 
+            name='Produto 1'
+            description='Descrição do produto 1'
+            fullImage='/product-1-full.png'
+            price={100.00}
+            colors={['Azul', 'Vermelho', 'Verde']}
+            textButton='Comprar'
+            linkButton='/'
+            sizes={['P', 'M', 'G']}
+            isAvailable={false}
+          />
           <ResultInformationCard 
             results={[
               { name: 'Resultado 1' },
@@ -147,6 +156,22 @@ export default function Home() {
             onPageChange={setCurrentPage}
           />
           <CarouselCard cards={carouselCards} />
+          <PlanningCard 
+            activities={[
+              { name: 'Atividade 1', completed: true },
+              { name: 'Atividade 2', completed: false },
+              { name: 'Atividade 3', completed: true },
+              { name: 'Atividade 4', completed: false },
+              { name: 'Atividade 5', completed: true },
+              { name: 'Atividade 6', completed: false },
+              {  name: 'Atividade 7', completed: true },
+              { name: 'Atividade 8', completed: false },
+              { name: 'Atividade 9', completed: true },
+              { name: 'Atividade 10', completed: false }
+            ]}
+            boardImage='/summary-board-card-tantech.png'
+            title='Planejamento'
+          />
         </section>
       </div>
     </>

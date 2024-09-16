@@ -44,8 +44,12 @@ export default function LargeProductCard({ name, description, fullImage, textBut
             </div>
           </div>
           
-          <div className={styles["container__details__div-price"]}>
-            <p className={styles["container__details__div-price__paragraph"]}>R$ <span className={styles["container__details__div-price__paragraph__span"]}>{price}</span>
+          <div className={`${styles["container__details__div-price"]} ${!isAvailable ? styles["container__details__div-price--unavailable"] : ''}`}>
+            <p className={styles["container__details__div-price__paragraph"]}> 
+              {isAvailable ? 'R$ ' : ''}
+              <span className={styles["container__details__div-price__paragraph__span"]}>
+                {isAvailable ? price : 'Esgotado'}
+              </span>
             </p>
           </div>
         </div>

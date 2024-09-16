@@ -4,7 +4,7 @@ import Button from '../../../Buttons/Button';
 import Content from '../../../Content';
 import HorizontalSubtitle from '../../../HorizontalSubtitle';
 
-export default function LargeProductCard({ name, description, fullImage, textButton, linkButton, price, sizes, colors }) {
+export default function LargeProductCard({ name, description, fullImage, textButton, linkButton, price, sizes, colors, isAvailable }) {
   return (
     <div className={styles.div}>
       <div className={styles.container}>
@@ -44,8 +44,12 @@ export default function LargeProductCard({ name, description, fullImage, textBut
             </div>
           </div>
           
-          <div className={styles["container__details__div-price"]}>
-            <p className={styles["container__details__div-price__paragraph"]}>R$ <span className={styles["container__details__div-price__paragraph__span"]}>{price}</span>
+          <div className={`${styles["container__details__div-price"]} ${!isAvailable ? styles["container__details__div-price--unavailable"] : ''}`}>
+            <p className={styles["container__details__div-price__paragraph"]}> 
+              {isAvailable ? 'R$ ' : ''}
+              <span className={styles["container__details__div-price__paragraph__span"]}>
+                {isAvailable ? price : 'Esgotado'}
+              </span>
             </p>
           </div>
         </div>
@@ -86,4 +90,5 @@ LargeProductCard.propTypes = {
   price: PropTypes.number.isRequired,
   sizes: PropTypes.arrayOf(PropTypes.string).isRequired,
   colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  isAvailable: PropTypes.bool.isRequired, 
 };

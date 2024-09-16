@@ -21,7 +21,7 @@
       "required": true
     },
     "telephone": {
-      "type": "biginteger",
+      "type": "text",
       "required": true
     },
     "message": {

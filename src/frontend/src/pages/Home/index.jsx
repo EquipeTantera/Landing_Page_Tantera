@@ -54,6 +54,22 @@ export default function Home() {
       <div className={styles.container}>
         <section className={styles.container__section}>
           <FilterButton text="Filtrar" />
+          <LargeProductCard 
+            name='Produto 1'
+            description='Descrição do produto 1'
+            fullImage='/partner-furioso-full.png'
+            price={100.00}
+            colors={['Azul', 'Vermelho', 'Verde']}
+            textButton='Comprar'
+            linkButton='/'
+            sizes={['P', 'M', 'G']}
+            images={[
+              '/copa-inteli.png',
+              '/partner-furioso.png',
+              '/photo-small-card.png',
+            ]}
+          />
+          
           <FormCard 
             title="Formulário de Contato" 
             inputs={inputs} 

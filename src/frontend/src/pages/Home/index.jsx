@@ -6,6 +6,7 @@ import ManagementInformationCard from '../../components/Card/InformationCard/Man
 import FilterButton from '../../components/Buttons/FilterButton';
 import FormCard from '../../components/Card/FormCard';
 import Pagination from '../../components/Pagination';
+import FilterModal from '../../components/FilterModal';
 import PlanningCard from '../../components/Card/PlanningCard';
 
 export default function Home() {
@@ -49,10 +50,24 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 4;
 
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
   return (
     <>
       <div className={styles.container}>
         <section className={styles.container__section}>
+          <FilterButton text="Filtrar" onClick={handleOpenModal}/>
+          <div className={styles.teste}>
+            <FilterModal isOpen={isModalOpen} onClose={handleCloseModal} />
+          </div>
           <FilterButton text="Filtrar" />
           <LargeProductCard 
             name='Produto 1'
@@ -69,7 +84,6 @@ export default function Home() {
               '/photo-small-card.png',
             ]}
           />
-          
           <FormCard 
             title="Formulário de Contato" 
             inputs={inputs} 

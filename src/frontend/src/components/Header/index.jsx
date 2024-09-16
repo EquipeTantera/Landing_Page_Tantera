@@ -66,7 +66,7 @@ export default function Header({ background, backgroundMenu }) {
             <a className={styles.header__nav__list__item__link} style={{ color: background }} href="/">Gestão</a>
           </li>
           <li className={styles.header__nav__list__item}>
-            <a className={styles.header__nav__list__item__link} style={{ color: background }} href="/">Parceiros</a>
+            <a className={styles.header__nav__list__item__link} style={{ color: background }} href="/parceiros">Parceiros</a>
           </li>
         </ul>
       </nav>

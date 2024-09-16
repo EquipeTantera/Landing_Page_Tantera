@@ -5,7 +5,7 @@
     "singularName": "about-us",
     "pluralName": "about-uses",
     "displayName": "About_us",
-    "description": ""
+    "description": "Armazena informações sobre a seção 'Sobre Nós' da atlética, incluindo propósito, fundação, mascote, contatos e diretoria."
   },
   "options": {
     "draftAndPublish": true
@@ -24,15 +24,10 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images"]
     },
     "mascot_description": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "contact_id": {

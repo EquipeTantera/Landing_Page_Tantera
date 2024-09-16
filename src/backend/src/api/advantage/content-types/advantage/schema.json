@@ -4,7 +4,8 @@
   "info": {
     "singularName": "advantage",
     "pluralName": "advantages",
-    "displayName": "Advantage"
+    "displayName": "Advantage",
+    "description": "Armazena vantagens oferecidas pelos planos de sócios."
   },
   "options": {
     "draftAndPublish": true
@@ -12,10 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "plans_id": {
       "type": "relation",

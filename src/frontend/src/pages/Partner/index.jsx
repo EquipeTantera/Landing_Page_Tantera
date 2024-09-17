@@ -11,42 +11,48 @@ export default function Partner() {
     const fetchPartnerData = async () => {
       try {
         const response = await axios.get("http://localhost:1337/api/partners?populate=*");
+        console.log(response.data); // Verificar a estrutura da resposta da API
         const data = response.data.data[0];
 
-        // Manipular URLs de imagem para garantir que sejam absolutas
-        const baseUrl = "http://localhost:1337"; // Adicione a URL base do Strapi
+        const baseUrl = "http://localhost:1337"; 
 
-        const iconUrl = data.attributes.icon.data.attributes.url
+        // Obtenção segura da URL do ícone
+        const iconUrl = data?.attributes?.icon?.data?.attributes?.url
           ? `${baseUrl}${data.attributes.icon.data.attributes.url}`
           : "";
 
-        const imageUrl = data.attributes.image.data[0].attributes.url
+        // Obtenção segura da URL da imagem
+        const imageUrl = data?.attributes?.image?.data?.[0]?.attributes?.url
           ? `${baseUrl}${data.attributes.image.data[0].attributes.url}`
           : "";
 
-        const events = data.attributes.event_id && Array.isArray(data.attributes.event_id.data)
+        // Manipulação correta dos eventos associados (manyToOne)
+        const events = data?.attributes?.event_id?.data && Array.isArray(data.attributes.event_id.data) 
           ? data.attributes.event_id.data.map((event) => ({
-            name: event.attributes.name,
-            date: event.attributes.date,
+            name: event.attributes.name || "Desconhecido",
+            date: new Date(event.attributes.date).toLocaleDateString("pt-BR") || "Data não disponível",
           }))
-          : data.attributes.event_id
+          : data?.attributes?.event_id?.data?.attributes 
             ? [{
-              name: data.attributes.event_id.data.attributes.name,
-              date: data.attributes.event_id.data.attributes.date,
+              name: data.attributes.event_id.data.attributes.name || "Desconhecido",
+              date: new Date(data.attributes.event_id.data.attributes.date).toLocaleDateString("pt-BR") || "Data não disponível",
             }]
-            : [];
+            : []; // Se não houver eventos, retorna array vazio
 
-        const impacts = data.attributes.result_id && Array.isArray(data.attributes.result_id.data)
+        console.log(events);
+
+        // Manipulação correta dos resultados associados (oneToMany)
+        const impacts = data?.attributes?.result_id?.data && Array.isArray(data.attributes.result_id.data)
           ? data.attributes.result_id.data.map((result) => ({
-            name: result.attributes.name || "Resultado Desconhecido", // Fornecendo um valor padrão
+            name: result?.attributes?.name || " ", 
           }))
           : [];
-          
+
         const formattedData = {
-          name: data.attributes.title,
-          description: data.attributes.slogan,
-          image: iconUrl, // URL ajustada da imagem
-          fullImage: imageUrl, // URL ajustada da imagem principal
+          name: data?.attributes?.title || "Nome indisponível",
+          description: data?.attributes?.slogan || "Descrição indisponível",
+          image: iconUrl,
+          fullImage: imageUrl, 
           events,
           impacts,
           textButton: "Conheça Mais",

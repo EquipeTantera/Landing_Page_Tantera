@@ -1047,7 +1047,7 @@ export interface ApiContactContact extends Schema.CollectionType {
     name: Attribute.String & Attribute.Required;
     email: Attribute.Email & Attribute.Required;
     telephone: Attribute.Text & Attribute.Required;
-    message: Attribute.String & Attribute.Required;
+    message: Attribute.Text & Attribute.Required;
     purpose_id: Attribute.Relation<
       'api::contact.contact',
       'manyToOne',

@@ -29,12 +29,12 @@ export default function Partner() {
         // Manipulação correta dos eventos associados (manyToOne)
         const events = data?.attributes?.event_id?.data && Array.isArray(data.attributes.event_id.data) 
           ? data.attributes.event_id.data.map((event) => ({
-            name: event.attributes.name || "Desconhecido",
+            title: event.attributes.title || "Desconhecido",
             date: new Date(event.attributes.date).toLocaleDateString("pt-BR") || "Data não disponível",
           }))
           : data?.attributes?.event_id?.data?.attributes 
             ? [{
-              name: data.attributes.event_id.data.attributes.name || "Desconhecido",
+              title: data.attributes.event_id.data.attributes.title || "Desconhecido",
               date: new Date(data.attributes.event_id.data.attributes.date).toLocaleDateString("pt-BR") || "Data não disponível",
             }]
             : []; // Se não houver eventos, retorna array vazio

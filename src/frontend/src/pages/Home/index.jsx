@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import styles from './styles.module.scss';
-import CarouselCard from '../../components/CarouselCard';
+import CarouselCard from '../../components/Carousels/CarouselCard';
 import ResultInformationCard from '../../components/Card/InformationCard/ResultInformationCard';
 import ManagementInformationCard from '../../components/Card/InformationCard/ManagementInformationCard';
 import FormCard from '../../components/Card/FormCard';
 import Pagination from '../../components/Pagination';
+import CarouselLargePartner from '../../components/Carousels/CarouselLargePartnerCard';
 
 
 export default function Home() {
@@ -15,6 +16,29 @@ export default function Home() {
       { value: 'opcao1', label: 'Opção 1' },
       { value: 'opcao2', label: 'Opção 2' },
     ] 
+    },
+  ];
+
+  const partnersData = [
+    {
+      name: 'Parceiro 1',
+      description: 'Descrição do Parceiro 1',
+      image: 'https://example.com/image1.jpg',
+      fullImage: 'https://example.com/fullImage1.jpg',
+      events: [{ name: 'Evento 1', date: '2024-09-17' }],
+      impacts: [{ name: 'Impacto 1' }],
+      textButton: 'Saiba Mais',
+      linkButton: '/parceiro1',
+    },
+    {
+      name: 'Parceiro 2',
+      description: 'Descrição do Parceiro 2',
+      image: 'https://example.com/image2.jpg',
+      fullImage: 'https://example.com/fullImage2.jpg',
+      events: [{ name: 'Evento 2', date: '2024-09-18' }],
+      impacts: [{ name: 'Impacto 2' }],
+      textButton: 'Saiba Mais',
+      linkButton: '/parceiro2',
     },
   ];
 
@@ -83,6 +107,8 @@ export default function Home() {
             onPageChange={setCurrentPage}
           />
           <CarouselCard cards={carouselCards} />
+
+          <CarouselLargePartner partners={partnersData} />
           
         </section>
       </div>

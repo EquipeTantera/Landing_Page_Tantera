@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
-export default function Impacts({ contents, isFull }) {
+export default function Impacts({ contents, isFull = false }) {
   return (
     <ul className={styles.list}>
       {contents.map((content) => (
@@ -21,8 +21,4 @@ Impacts.propTypes = {
     name: PropTypes.string.isRequired,
   })).isRequired,
   isFull: PropTypes.bool, 
-};
-
-Impacts.defaultProps = {
-  isFull: false, 
 };

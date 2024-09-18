@@ -1,0 +1,19 @@
+.container {
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 3rem;
+  }
+
+  &-products {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 6rem;  
+  }
+}
+
+.section {
+  margin-bottom: 10rem;
+}

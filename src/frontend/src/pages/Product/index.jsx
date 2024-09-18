@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import LargeProductCard from "../../components/Card/LargeCard/LargeProductCard";
 import MainTitle from "../../components/MainTitle";
 import PaperBackground from "../../components/PaperBackground";
+import styles from "./styles.module.scss";
 
 const products = [
   {
@@ -51,17 +52,20 @@ export default function Product() {
         mainText={product.name}
       />
       <PaperBackground>
-        <LargeProductCard 
-          name={product.name}
-          description={product.description}
-          fullImage={product.fullImage}
-          price={product.price}
-          colors={product.colors}
-          textButton={"Comprar"}
-          linkButton={product.link}
-          sizes={product.sizes}
-          images={product.images}
-        />
+        <div className={styles.container}>
+          <LargeProductCard 
+            name={product.name}
+            description={product.description}
+            fullImage={product.fullImage}
+            price={product.price}
+            colors={product.colors}
+            textButton={"Comprar"}
+            linkButton={product.link}
+            sizes={product.sizes}
+            images={product.images}
+            isAvailable={true}
+          />
+        </div>
       </PaperBackground>
     </>
   );

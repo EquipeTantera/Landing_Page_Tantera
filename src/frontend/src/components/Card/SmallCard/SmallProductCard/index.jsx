@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
-import Button from '../../../Button';
+import Button from '../../../Buttons/Button';
 
 export default function SmallProductCard({ title, description, price, image, buttonText, buttonPath }) {
   return (

@@ -2,9 +2,10 @@
 
 .paperBackground {
   background: url("/background-main.png");
-  background-size: cover;
+  background-size: 100%;
   position: relative;
   z-index: 1;
   top: -6rem;
   padding-top: 12rem;
+  background-repeat: no-repeat;
 }

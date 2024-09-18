@@ -9,6 +9,9 @@ import { useState } from "react";
 
 export default function Products() {
   const [isModalOpen, setModalOpen] = useState(false);
+  const [showMoreFesta, setShowMoreFesta] = useState(false);
+  const [showMoreUniformes, setShowMoreUniformes] = useState(false);
+  const [showMoreColecoes, setShowMoreColecoes] = useState(false);
 
   const handleOpenModal = () => {
     setModalOpen(true);
@@ -73,6 +76,23 @@ export default function Products() {
               buttonText="Ver Produto"
               buttonPath="/produto/1"
             />
+            {showMoreFesta && (
+              <SmallProductCard
+                title="Caneca Tanterada"
+                price="35.00"
+                image="/photo-small-card.png"
+                description="Caneca de porcelana com estampa de alta qualidade."
+                buttonText="Ver Produto"
+                buttonPath="/produto/1"
+              />
+            )}
+
+            <button
+              onClick={() => setShowMoreFesta((prev) => !prev)}
+              className={styles.showMoreButton}
+            >
+              {showMoreFesta ? "Ocultar" : "Mostrar mais"}
+            </button>
           </div>
         </section>
 
@@ -111,8 +131,26 @@ export default function Products() {
               buttonText="Ver Produto"
               buttonPath="/produto/1"
             />
-          </div>
 
+            {showMoreUniformes && (
+              <SmallProductCard
+                title="Caneca Tanterada"
+                price="35.00"
+                image="/photo-small-card.png"
+                description="Caneca de porcelana com estampa de alta qualidade."
+                buttonText="Ver Produto"
+                buttonPath="/produto/1"
+              />
+            )}
+
+            <button
+              onClick={() => setShowMoreUniformes((prev) => !prev)}
+              className={styles.showMoreButton}
+            >
+              {showMoreUniformes ? "Ocultar" : "Mostrar mais"}
+            </button>
+
+          </div>
         </section>
 
         <section className={styles.section}>
@@ -150,8 +188,25 @@ export default function Products() {
               buttonText="Ver Produto"
               buttonPath="/produto/1"
             />
-          </div>
 
+            {showMoreColecoes && (
+              <SmallProductCard
+                title="Caneca Tanterada"
+                price="35.00"
+                image="/photo-small-card.png"
+                description="Caneca de porcelana com estampa de alta qualidade."
+                buttonText="Ver Produto"
+                buttonPath="/produto/1"
+              />
+            )}
+
+            <button
+              onClick={() => setShowMoreColecoes((prev) => !prev)}
+              className={styles.showMoreButton}
+            >
+              {showMoreColecoes ? "Ocultar" : "Mostrar mais"}
+            </button>
+          </div>
         </section>
       </PaperBackground>
     </>

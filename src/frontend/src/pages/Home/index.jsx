@@ -5,7 +5,7 @@ import ResultInformationCard from '../../components/Card/InformationCard/ResultI
 import ManagementInformationCard from '../../components/Card/InformationCard/ManagementInformationCard';
 import FormCard from '../../components/Card/FormCard';
 import Pagination from '../../components/Pagination';
-import CarouselLargePartner from '../../components/Carousels/CarouselLargePartner';
+import CarouselLargePartner from '../../components/Carousels/CarouselLargePartnerCard';
 
 
 export default function Home() {

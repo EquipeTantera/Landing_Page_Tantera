@@ -31,7 +31,6 @@ export default function SmallProductCard({ title, description, price, image, but
 }
 
 SmallProductCard.propTypes = {
-  type: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   date: PropTypes.string,
   ticket: PropTypes.string,

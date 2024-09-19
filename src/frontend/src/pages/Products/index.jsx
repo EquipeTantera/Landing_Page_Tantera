@@ -76,7 +76,10 @@ export default function Products() {
               buttonText="Ver Produto"
               buttonPath="/produto/1"
             />
-            {showMoreFesta && (
+          </div>
+
+          {showMoreFesta && (
+            <div className={styles["container-products"]}>
               <SmallProductCard
                 title="Caneca Tanterada"
                 price="35.00"
@@ -85,15 +88,15 @@ export default function Products() {
                 buttonText="Ver Produto"
                 buttonPath="/produto/1"
               />
-            )}
+            </div>
+          )}
 
-            <button
-              onClick={() => setShowMoreFesta((prev) => !prev)}
-              className={styles.showMoreButton}
-            >
-              {showMoreFesta ? "Ocultar" : "Mostrar mais"}
-            </button>
-          </div>
+          <button
+            onClick={() => setShowMoreFesta((prev) => !prev)}
+            className={styles["container-products__button"]}
+          >
+            {showMoreFesta ? <p className={styles["container-products__button__paragraph"]}>Ocultar produtos</p> : <p className={styles["container-products__button__paragraph"]}>Ver mais produtos de <span className={styles["container-products__button__paragraph__span"]}>acessórios de festa</span></p>}
+          </button>
         </section>
 
         <section className={styles.section}>
@@ -131,8 +134,10 @@ export default function Products() {
               buttonText="Ver Produto"
               buttonPath="/produto/1"
             />
+          </div>
 
-            {showMoreUniformes && (
+          {showMoreUniformes && (
+            <div className={styles["container-products"]}>
               <SmallProductCard
                 title="Caneca Tanterada"
                 price="35.00"
@@ -141,16 +146,16 @@ export default function Products() {
                 buttonText="Ver Produto"
                 buttonPath="/produto/1"
               />
-            )}
+            </div>
+          )}
 
-            <button
-              onClick={() => setShowMoreUniformes((prev) => !prev)}
-              className={styles.showMoreButton}
-            >
-              {showMoreUniformes ? "Ocultar" : "Mostrar mais"}
-            </button>
+          <button
+            onClick={() => setShowMoreUniformes((prev) => !prev)}
+            className={styles["container-products__button"]}
+          >
+            {showMoreUniformes ? <p className={styles["container-products__button__paragraph"]}>Ocultar produtos</p> : <p className={styles["container-products__button__paragraph"]}>Ver mais produtos de <span className={styles["container-products__button__paragraph__span"]}>Uniformes</span></p>}
+          </button>
 
-          </div>
         </section>
 
         <section className={styles.section}>
@@ -188,8 +193,10 @@ export default function Products() {
               buttonText="Ver Produto"
               buttonPath="/produto/1"
             />
+          </div>
 
-            {showMoreColecoes && (
+          {showMoreColecoes && (
+            <div className={styles["container-products"]}>
               <SmallProductCard
                 title="Caneca Tanterada"
                 price="35.00"
@@ -198,15 +205,15 @@ export default function Products() {
                 buttonText="Ver Produto"
                 buttonPath="/produto/1"
               />
-            )}
+            </div>
+          )}
 
-            <button
-              onClick={() => setShowMoreColecoes((prev) => !prev)}
-              className={styles.showMoreButton}
-            >
-              {showMoreColecoes ? "Ocultar" : "Mostrar mais"}
-            </button>
-          </div>
+          <button
+            onClick={() => setShowMoreColecoes((prev) => !prev)}
+            className={styles["container-products__button"]}
+          >
+            {showMoreColecoes ? <p className={styles["container-products__button__paragraph"]}>Ocultar produtos</p> : <p className={styles["container-products__button__paragraph"]}>Ver mais produtos de <span className={styles["container-products__button__paragraph__span"]}>Coleções</span></p>}
+          </button>
         </section>
       </PaperBackground>
     </>

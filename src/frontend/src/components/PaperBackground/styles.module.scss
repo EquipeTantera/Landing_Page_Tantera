@@ -9,3 +9,11 @@
   padding-top: 12rem;
   background-repeat: no-repeat;
 }
+
+@media (max-width: 768px) {
+  .paperBackground {
+    background-size: 100%;
+    top: -3rem;
+    padding-top: 4rem;
+  }
+}

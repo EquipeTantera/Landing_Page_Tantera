@@ -41,3 +41,25 @@
 .section {
   margin-bottom: 5rem;
 }
+
+@media (max-width: 768px) {
+  .container {
+
+    &-header {
+      align-items: end;
+      gap: 4rem;
+      flex-direction: column-reverse;
+    }
+
+    &-products {
+      flex-direction: column;
+      margin: -3rem 0;
+
+      &__button {
+        margin-top: 6rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+    }
+  }
+}

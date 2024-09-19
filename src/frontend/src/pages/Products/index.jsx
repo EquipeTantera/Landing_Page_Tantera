@@ -35,7 +35,6 @@ export default function Products() {
               title="Acessórios de Festa"
               colorImage="transparent"
               tag={false}
-              titleSize={"2.5rem"}
             />
 
             <FilterButton 

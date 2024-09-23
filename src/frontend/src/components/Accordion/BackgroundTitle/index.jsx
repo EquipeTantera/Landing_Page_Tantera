@@ -1,7 +1,6 @@
 import styles from './styles.module.scss';
 import PropTypes from 'prop-types';
 
-
 export default function BackgroundTitle({ colorImage, children }) {
     return (
         <div className={styles.container}>

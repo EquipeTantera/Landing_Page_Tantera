@@ -14,3 +14,5 @@ export const get = async (endpoint, params) => {
     throw error;
   }
 };
+
+module.exports = { get };

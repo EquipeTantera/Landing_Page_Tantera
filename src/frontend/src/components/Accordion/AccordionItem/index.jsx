@@ -12,7 +12,9 @@ export default function AccordionItem({ buttonText, panelText, colorImage }) {
                     <>
                         <BackGroundTitle colorImage={colorImage}>
                             <DisclosureButton className={styles.container__button}>
-                                {buttonText}
+                                <div className={styles.container__text}>
+                                    {buttonText}
+                                </div>
                                 {open ? (
                                     <FaChevronUp className={styles.container__arrow} />
                                 ) : (

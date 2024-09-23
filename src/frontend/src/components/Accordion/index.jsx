@@ -10,6 +10,7 @@ export default function Accordion({ items }) {
                 colorImage='transparent'
                 tag={true}
                 titleSize="36px"
+                className={styles.container__subtitle}
             />
             <div className={styles.container__accordions}>
                 {items.map((item, index) => (

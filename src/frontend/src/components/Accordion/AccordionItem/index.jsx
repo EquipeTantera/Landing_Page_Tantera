@@ -6,7 +6,7 @@ import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 export default function AccordionItem({ buttonText, panelText, colorImage }) {
     return (
-        <div className={styles.container__divs}>
+        <div className={styles.container}>
             <Disclosure>
                 {({ open }) => (
                     <>

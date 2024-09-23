@@ -1,4 +1,3 @@
-// Accordion.jsx
 import styles from './styles.module.scss';
 import HorizontalSubtitle from '../HorizontalSubtitle';
 import AccordionItem from './AccordionItem';

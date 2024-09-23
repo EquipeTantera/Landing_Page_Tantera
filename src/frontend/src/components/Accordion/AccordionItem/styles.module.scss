@@ -1,41 +1,41 @@
 @use "../../../../src/styles/variables" as v;
 $spacing-unit: 1rem;
 
-.container__divs {
+.container {
     padding-bottom: 20px;
 
     &:last-child {
         padding-bottom: 0px;
     }
-}
 
-.container__button {
-    all: unset;
-    border: none;
-    background-color: transparent;
-    font-family: v.$DriveCorps;
-    color: v.$white-3;
-    font-weight: 400;
-    font-size: 32px;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    text-transform: uppercase;
-    padding-left: 24px;
-    position: relative;
-}
+    &__button {
+        all: unset;
+        border: none;
+        background-color: transparent;
+        font-family: v.$DriveCorps;
+        color: v.$white-3;
+        font-weight: 400;
+        font-size: 32px;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        text-transform: uppercase;
+        padding-left: 24px;
+        position: relative;
+    }
 
-.container__arrow {
-    position: absolute;
-    right: 8 * $spacing-unit;
-}
+    &__arrow {
+        position: absolute;
+        right: 8 * $spacing-unit;
+    }
 
-.container__content {
-    background-color: v.$white-2;
-    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.15);
-    display: flex;
-    align-items: center;
-    text-align: start;
-    height: 130px;
-    padding-left: 24px;
+    &__content {
+        background-color: v.$white-2;
+        box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.15);
+        display: flex;
+        align-items: center;
+        text-align: start;
+        height: 130px;
+        padding-left: 24px;
+    }
 }

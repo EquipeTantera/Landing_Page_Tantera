@@ -10,14 +10,18 @@ import FilterButton from '../../components/Buttons/FilterButton';
 import FormCard from '../../components/Card/FormCard';
 import Pagination from '../../components/Pagination';
 
+//apagar depois
+import Accordion from '../../components/Accordion';
+
 export default function Home() {
   const inputs = [
     { type: 'text', placeholder: 'Seu nome', label: 'Nome' },
     { type: 'text', placeholder: 'Seu email', label: 'Email' },
-    { type: 'select', placeholder: 'Selecione uma opção', label: 'Selecione', options: [
-      { value: 'opcao1', label: 'Opção 1' },
-      { value: 'opcao2', label: 'Opção 2' },
-    ] 
+    {
+      type: 'select', placeholder: 'Selecione uma opção', label: 'Selecione', options: [
+        { value: 'opcao1', label: 'Opção 1' },
+        { value: 'opcao2', label: 'Opção 2' },
+      ]
     },
   ];
 
@@ -55,14 +59,23 @@ export default function Home() {
     <>
       <div className={styles.container}>
         <section className={styles.container__section}>
+
+
+
+          {/* apagar depois!!! */}
+          <div className={styles.container__teste}>
+            <Accordion />
+          </div>
+
+
           <FilterButton text="Filtrar" />
-          <FormCard 
-            title="Formulário de Contato" 
-            inputs={inputs} 
+          <FormCard
+            title="Formulário de Contato"
+            inputs={inputs}
             textButton="Enviar"
             linkButton="/submit"
           />
-          <EventInformationCard 
+          <EventInformationCard
             address='Rua dos Bobos, 0'
             dates={[
               {
@@ -80,7 +93,7 @@ export default function Home() {
             image='/copa-inteli.png'
           />
 
-          <LargePartnerCard 
+          <LargePartnerCard
             name='Fulano de Tal'
             description='Fulano de Tal é uma empresa de tecnologia que atua no mercado de desenvolvimento de softwares e aplicativos.'
             fullImage='/partner-furioso-full.png'
@@ -107,7 +120,7 @@ export default function Home() {
             linkButton='/'
           />
 
-          <LargeProductCard 
+          <LargeProductCard
             name='Produto 1'
             description='Descrição do produto 1'
             fullImage='/product-1-full.png'
@@ -118,7 +131,7 @@ export default function Home() {
             sizes={['P', 'M', 'G']}
           />
 
-          <ResultInformationCard 
+          <ResultInformationCard
             results={[
               { name: 'Resultado 1' },
               { name: 'Resultado 2' },
@@ -127,7 +140,7 @@ export default function Home() {
             title='Resultados'
           />
 
-          <ManagementInformationCard 
+          <ManagementInformationCard
             termOfOffice='2021-2024'
             title='Resultados'
             results={[

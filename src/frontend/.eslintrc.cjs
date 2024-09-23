@@ -26,6 +26,6 @@ module.exports = {
     "no-empty": "warn",
     "no-extra-semi": "warn",
     "object-curly-spacing": ["error", "always"],
-    indent: ["error", 2],
+    indent: ["error", tab],
   },
 };

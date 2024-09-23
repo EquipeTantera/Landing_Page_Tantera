@@ -15,4 +15,14 @@
     
 }
 
+@media screen and (max-width: 768px) {
+    .container {
+        &__subtitle {
+            height: 100%;
+        }
 
+        &__accordions {
+            width: 90%;
+        }
+    }
+}

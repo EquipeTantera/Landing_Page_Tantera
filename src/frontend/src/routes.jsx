@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Partner from "./pages/Partner";
 import Page from "./components/page";
 import Product from "./pages/Product";
+import Products from "./pages/Products";
 
 export default function AppRoutes() {
   return (
@@ -10,7 +11,8 @@ export default function AppRoutes() {
       <Routes>
         <Route path="/" element={<Page backgroundColorHeader={'#D80101'} backgroundMenuHeader={'purple'}><Home /></Page>} />
         <Route path="/parceiros" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><Partner /></Page>} />
-        <Route path="/produto/:id" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><Product /></Page>} />
+        <Route path="/produtos/:id" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><Product /></Page>} />
+        <Route path="/produtos" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><Products /></Page>} />
       </Routes>
     </Router>
   );

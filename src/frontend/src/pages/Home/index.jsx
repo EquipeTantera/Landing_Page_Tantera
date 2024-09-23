@@ -5,17 +5,20 @@ import ResultInformationCard from '../../components/Card/InformationCard/ResultI
 import ManagementInformationCard from '../../components/Card/InformationCard/ManagementInformationCard';
 import FormCard from '../../components/Card/FormCard';
 import Pagination from '../../components/Pagination';
+import Accordion from '../../components/Accordion';
 import CarouselLargePartner from '../../components/Carousels/CarouselLargePartnerCard';
+import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
 
 
 export default function Home() {
   const inputs = [
     { type: 'text', placeholder: 'Seu nome', label: 'Nome' },
     { type: 'text', placeholder: 'Seu email', label: 'Email' },
-    { type: 'select', placeholder: 'Selecione uma opção', label: 'Selecione', options: [
-      { value: 'opcao1', label: 'Opção 1' },
-      { value: 'opcao2', label: 'Opção 2' },
-    ] 
+    {
+      type: 'select', placeholder: 'Selecione uma opção', label: 'Selecione', options: [
+        { value: 'opcao1', label: 'Opção 1' },
+        { value: 'opcao2', label: 'Opção 2' },
+      ]
     },
   ];
 
@@ -69,6 +72,24 @@ export default function Home() {
     },
   ];
 
+  const faqItems = [
+    {
+      buttonText: "Por que eu deveria assinar o plano de sócios?",
+      panelText: "Porque sim, pateta! A Atlética Tantera é muito mais do que uma simples associação estudantil.",
+      colorImage: "black"
+    },
+    {
+      buttonText: "O plano de sócio atleta tem alguma carência ou contrato mínimo?",
+      panelText: "Porque sim, pateta! A Atlética Tantera é muito mais do que uma simples associação estudantil.",
+      colorImage: "red"
+    },
+    {
+      buttonText: "Os treinos de futebol são para todos os níveis?",
+      panelText: "Porque sim, pateta! A Atlética Tantera é muito mais do que uma simples associação estudantil.",
+      colorImage: "black"
+    },
+  ];
+
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 4;
 
@@ -76,14 +97,46 @@ export default function Home() {
     <>
       <div className={styles.container}>
         <section className={styles.container__section}>
-          <FormCard 
-            title="Formulário de Contato" 
-            inputs={inputs} 
+
+          <div className={styles.container__teste}>
+            <Accordion items={faqItems} />
+          </div>
+
+          <FormCard
+            title="Formulário de Contato"
+            inputs={inputs}
             textButton="Enviar"
             linkButton="/submit"
           />
           
-          <ResultInformationCard 
+          <LargePartnerCard
+            name='Fulano de Tal'
+            description='Fulano de Tal é uma empresa de tecnologia que atua no mercado de desenvolvimento de softwares e aplicativos.'
+            fullImage='/partner-furioso-full.png'
+            image='/partner-furioso.png'
+            events={[
+              {
+                name: 'Evento 1',
+                date: '01/01/2021',
+                startHour: '08:00',
+                endHour: '12:00',
+              },
+              {
+                name: 'Evento 2',
+                date: '02/01/2021',
+                startHour: '08:00',
+                endHour: '12:00',
+              },
+            ]}
+            impacts={[
+              { name: 'Impacto 1' },
+              { name: 'Impacto 2' },
+            ]}
+            textButton='Conhecer a empresa'
+            linkButton='/'
+          />
+
+          <ResultInformationCard
             results={[
               { name: 'Resultado 1' },
               { name: 'Resultado 2' },
@@ -92,7 +145,7 @@ export default function Home() {
             title='Resultados'
           />
 
-          <ManagementInformationCard 
+          <ManagementInformationCard
             termOfOffice='2021-2024'
             title='Resultados'
             results={[

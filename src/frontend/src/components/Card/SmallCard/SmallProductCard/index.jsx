@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
-import Button from '../../../Button';
+import Button from '../../../Buttons/Button';
 
 export default function SmallProductCard({ title, description, price, image, buttonText, buttonPath }) {
   return (
@@ -31,7 +31,6 @@ export default function SmallProductCard({ title, description, price, image, but
 }
 
 SmallProductCard.propTypes = {
-  type: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   date: PropTypes.string,
   ticket: PropTypes.string,

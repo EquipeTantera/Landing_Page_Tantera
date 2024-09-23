@@ -32,6 +32,10 @@
       "required": true,
       "allowedTypes": ["images"]
     },
+    "url": {
+      "type": "string",
+      "required": true
+    },
     "result_id": {
       "type": "relation",
       "relation": "oneToMany",

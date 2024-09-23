@@ -5,13 +5,13 @@ import Content from '../../../Content';
 import HorizontalSubtitle from '../../../HorizontalSubtitle';
 import Impacts from '../../Common/Impacts';
 
-export default function LargePartnerCard({ title, description, image, fullImage, events, impacts, textButton, linkButton, name }) {
+export default function LargePartnerCard({ title, description, image, fullImage, events, impacts, textButton, linkButton }) {
   return (
     <div className={styles.div}>
       <div className={styles.container}>
         <div className={styles.container__header}>
           <HorizontalSubtitle 
-            title={name}
+            title={title}
             colorImage='red'
             titleSize={"3rem"}
           />
@@ -64,7 +64,6 @@ export default function LargePartnerCard({ title, description, image, fullImage,
 
 LargePartnerCard.propTypes = {
   title: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   fullImage: PropTypes.string.isRequired,

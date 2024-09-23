@@ -50,7 +50,7 @@ export default function Partner() {
 
           // Retorno dos dados do parceiro integrado
           return {
-            name: partner?.attributes?.title || "",
+            title: partner?.attributes?.title || "",
             description: partner?.attributes?.slogan || "",
             image: iconUrl,
             fullImage: imageUrl,

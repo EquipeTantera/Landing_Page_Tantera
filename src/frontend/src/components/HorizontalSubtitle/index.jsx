@@ -20,5 +20,4 @@ HorizontalSubtitle.propTypes = {
   colorImage: PropTypes.oneOf(['purple', 'red', 'transparent']).isRequired,
   tag: PropTypes.bool,
   titleSize: PropTypes.string,
-  className: PropTypes.string
 };

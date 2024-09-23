@@ -5,7 +5,8 @@ module.exports = [
   {
     name: "strapi::cors",
     config: {
-      origin: ["http://localhost:3000"],
+      origin:
+        process.env.NODE_ENV === "production"["https://tantera-frontend.com"],
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
       headers: ["Content-Type", "Authorization"],
     },

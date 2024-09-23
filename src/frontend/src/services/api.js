@@ -1,19 +1,26 @@
 import axios from "axios";
 
-// Configuração base do Axios para conectar com o backend Strapi
 const api = axios.create({
-  baseURL: "http://localhost:1337/api", // Substitua pela URL correta do seu backend Strapi
+  baseURL: "https://tantera-back.onrender.com/api/",
+  timeout: 5000,
 });
 
-// Função para buscar todos os parceiros
-export const getPartners = async () => {
+export const get = async (endpoint, params) => {
   try {
-    const response = await api.get("/partners?populate=*"); 
+    const response = await api.get(endpoint, { params });
     return response.data;
   } catch (error) {
-    console.error("Erro ao buscar parceiros:", error);
+    console.error("Erro na solicitação GET:", error);
     throw error;
   }
 };
 
-export default api;
+export const post = async (endpoint, data) => {
+  try {
+    const response = await api.post(endpoint, data);
+    return response.data;
+  } catch (error) {
+    console.error("Erro na solicitação POST:", error);
+    throw error;
+  }
+};

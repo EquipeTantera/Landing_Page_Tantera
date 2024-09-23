@@ -15,4 +15,12 @@ export const get = async (endpoint, params) => {
   }
 };
 
-module.exports = { get };
+export const post = async (endpoint, data) => {
+  try {
+    const response = await api.post(endpoint, data);
+    return response.data;
+  } catch (error) {
+    console.error("Erro na solicitação POST:", error);
+    throw error;
+  }
+};

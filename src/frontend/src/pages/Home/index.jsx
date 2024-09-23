@@ -1,17 +1,14 @@
 import { useState } from 'react';
 import styles from './styles.module.scss';
-import CarouselCard from '../../components/CarouselCard';
-import EventInformationCard from '../../components/Card/InformationCard/EventInformationCard';
-import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
-import LargeProductCard from '../../components/Card/LargeCard/LargeProductCard';
+import CarouselCard from '../../components/Carousels/CarouselCard';
 import ResultInformationCard from '../../components/Card/InformationCard/ResultInformationCard';
 import ManagementInformationCard from '../../components/Card/InformationCard/ManagementInformationCard';
-import FilterButton from '../../components/Buttons/FilterButton';
 import FormCard from '../../components/Card/FormCard';
 import Pagination from '../../components/Pagination';
-
-//apagar depois
 import Accordion from '../../components/Accordion';
+import CarouselLargePartner from '../../components/Carousels/CarouselLargePartnerCard';
+import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
+
 
 export default function Home() {
   const inputs = [
@@ -22,6 +19,29 @@ export default function Home() {
         { value: 'opcao1', label: 'Opção 1' },
         { value: 'opcao2', label: 'Opção 2' },
       ]
+    },
+  ];
+
+  const partnersData = [
+    {
+      name: 'Parceiro 1',
+      description: 'Descrição do Parceiro 1',
+      image: 'https://example.com/image1.jpg',
+      fullImage: 'https://example.com/fullImage1.jpg',
+      events: [{ name: 'Evento 1', date: '2024-09-17' }],
+      impacts: [{ name: 'Impacto 1' }],
+      textButton: 'Saiba Mais',
+      linkButton: '/parceiro1',
+    },
+    {
+      name: 'Parceiro 2',
+      description: 'Descrição do Parceiro 2',
+      image: 'https://example.com/image2.jpg',
+      fullImage: 'https://example.com/fullImage2.jpg',
+      events: [{ name: 'Evento 2', date: '2024-09-18' }],
+      impacts: [{ name: 'Impacto 2' }],
+      textButton: 'Saiba Mais',
+      linkButton: '/parceiro2',
     },
   ];
 
@@ -52,7 +72,6 @@ export default function Home() {
     },
   ];
 
-  //Accordion (apagar depois!)
   const faqItems = [
     {
       buttonText: "Por que eu deveria assinar o plano de sócios?",
@@ -79,39 +98,17 @@ export default function Home() {
       <div className={styles.container}>
         <section className={styles.container__section}>
 
-
-
-          {/* apagar depois!!! */}
           <div className={styles.container__teste}>
             <Accordion items={faqItems} />
           </div>
 
-
-          <FilterButton text="Filtrar" />
           <FormCard
             title="Formulário de Contato"
             inputs={inputs}
             textButton="Enviar"
             linkButton="/submit"
           />
-          <EventInformationCard
-            address='Rua dos Bobos, 0'
-            dates={[
-              {
-                date: '01/01/2021',
-                startHour: '08:00',
-                endHour: '12:00',
-              },
-              {
-                date: '02/01/2021',
-                startHour: '08:00',
-                endHour: '12:00',
-              },
-            ]}
-            observation='Observação do evento'
-            image='/copa-inteli.png'
-          />
-
+          
           <LargePartnerCard
             name='Fulano de Tal'
             description='Fulano de Tal é uma empresa de tecnologia que atua no mercado de desenvolvimento de softwares e aplicativos.'
@@ -139,17 +136,6 @@ export default function Home() {
             linkButton='/'
           />
 
-          <LargeProductCard
-            name='Produto 1'
-            description='Descrição do produto 1'
-            fullImage='/product-1-full.png'
-            price={100.00}
-            colors={['Azul', 'Vermelho', 'Verde']}
-            textButton='Comprar'
-            linkButton='/'
-            sizes={['P', 'M', 'G']}
-          />
-
           <ResultInformationCard
             results={[
               { name: 'Resultado 1' },
@@ -174,6 +160,9 @@ export default function Home() {
             onPageChange={setCurrentPage}
           />
           <CarouselCard cards={carouselCards} />
+
+          <CarouselLargePartner partners={partnersData} />
+          
         </section>
       </div>
     </>

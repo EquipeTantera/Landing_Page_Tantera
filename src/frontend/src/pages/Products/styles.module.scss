@@ -1,0 +1,65 @@
+@use "../../styles/variables" as v;
+
+.container {
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 3rem;
+  }
+
+  &-products {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 6rem;  
+
+    &__button {
+      border: none;
+      background: transparent;
+      outline: none;
+      margin: 3rem 6rem;
+      transition: all 0.3s;
+
+      &__paragraph {
+        text-decoration: underline;
+        font-size: 1rem;
+        
+        &__span {
+          font-weight: bold;
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: v.$purple-2;
+      }
+    }
+  }
+}
+
+.section {
+  margin-bottom: 5rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+
+    &-header {
+      align-items: end;
+      gap: 4rem;
+      flex-direction: column-reverse;
+    }
+
+    &-products {
+      flex-direction: column;
+      margin: -3rem 0;
+
+      &__button {
+        margin-top: 6rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+    }
+  }
+}

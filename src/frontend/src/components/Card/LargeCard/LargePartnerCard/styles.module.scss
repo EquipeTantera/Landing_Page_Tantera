@@ -32,8 +32,8 @@
   &__details {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 65%;
+    align-items: baseline;
+    width: 67%;
     margin-left: 2rem;
   }
 
@@ -47,6 +47,16 @@
   }
 
   &__details {
+    &__div-impact {
+      &__title {
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        font-family: v.$DriveCorps;
+        text-align: center;
+      }
+    }
+
     &__div-event {
       &__title {
         margin-top: 3rem;

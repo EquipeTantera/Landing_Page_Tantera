@@ -1,0 +1,45 @@
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &__button {
+    background: none;
+    border: none;
+    font-size: 5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:first-of-type {
+      left: 180px;
+    }
+
+    &:last-of-type {
+      right: 180px;
+    }
+  }
+
+  &__card {
+    width: 80%; 
+    margin: 0 20px; 
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    &__button {
+      font-size: 5rem;
+
+      &:first-of-type {
+        left: 1.5rem;
+      }
+
+      &:last-of-type {
+        right: 1.5rem;
+      }
+    }
+  }
+}

@@ -52,6 +52,25 @@ export default function Home() {
     },
   ];
 
+  //Accordion (apagar depois!)
+  const faqItems = [
+    {
+      buttonText: "Por que eu deveria assinar o plano de sócios?",
+      panelText: "Porque sim, pateta! A Atlética Tantera é muito mais do que uma simples associação estudantil.",
+      colorImage: "black"
+    },
+    {
+      buttonText: "O plano de sócio atleta tem alguma carência ou contrato mínimo?",
+      panelText: "Porque sim, pateta! A Atlética Tantera é muito mais do que uma simples associação estudantil.",
+      colorImage: "red"
+    },
+    {
+      buttonText: "Os treinos de futebol são para todos os níveis?",
+      panelText: "Porque sim, pateta! A Atlética Tantera é muito mais do que uma simples associação estudantil.",
+      colorImage: "black"
+    },
+  ];
+
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 4;
 
@@ -64,7 +83,7 @@ export default function Home() {
 
           {/* apagar depois!!! */}
           <div className={styles.container__teste}>
-            <Accordion />
+            <Accordion items={faqItems} />
           </div>
 
 

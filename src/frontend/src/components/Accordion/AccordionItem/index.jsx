@@ -20,7 +20,9 @@ export default function AccordionItem({ buttonText, panelText, colorImage }) {
                                 )}
                             </DisclosureButton>
                         </BackGroundTitle>
-                        <DisclosurePanel className={styles.container__content}>
+                        <DisclosurePanel
+                            className={`${styles.container__content} ${open ? styles.open : ''}`}
+                        >
                             {panelText}
                         </DisclosurePanel>
                     </>

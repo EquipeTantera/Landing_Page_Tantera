@@ -5,7 +5,7 @@
     "singularName": "plan",
     "pluralName": "plans",
     "displayName": "Plan",
-    "description": ""
+    "description": "Armazena informações sobre os planos de sócios da atlética."
   },
   "options": {
     "draftAndPublish": true
@@ -13,28 +13,30 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "price": {
-      "type": "decimal"
+      "type": "decimal",
+      "required": true
     },
-    "advantage_id": {
+    "advantages": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::advantage.advantage",
-      "inversedBy": "plans_id"
+      "mappedBy": "plan"
     },
-    "payment_id": {
+    "payment": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::payment.payment",
-      "inversedBy": "plans_id"
+      "inversedBy": "plans"
     },
-    "faq_id": {
+    "faqs": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::faq.faq",
-      "inversedBy": "plans_id"
+      "mappedBy": "plan"
     }
   }
 }

@@ -16,12 +16,12 @@ export default function Partner() {
 
         const formattedPartners = partners.map((partner) => {
           const iconUrl = partner?.attributes?.icon?.data?.attributes?.url
-            ? `${BASE_URL}${partner.attributes.icon.data.attributes.url}`
+            ? partner.attributes.icon.data.attributes.url
             : "";
 
           const imageUrl = partner?.attributes?.image?.data?.[0]?.attributes
             ?.url
-            ? `${BASE_URL}${partner.attributes.image.data[0].attributes.url}`
+            ? partner.attributes.image.data[0].attributes.url
             : "";
 
           const urlPartner = partner?.attributes?.url
@@ -52,8 +52,12 @@ export default function Partner() {
           return {
             title: partner?.attributes?.title || "",
             description: partner?.attributes?.slogan || "",
-            image: iconUrl,
-            fullImage: imageUrl,
+            image: iconUrl.startsWith("http")
+              ? iconUrl
+              : `${BASE_URL}${iconUrl}`,
+            fullImage: imageUrl.startsWith("http")
+              ? imageUrl
+              : `${BASE_URL}${imageUrl}`,
             events,
             impacts,
             textButton: "Conheça Mais",
@@ -61,7 +65,7 @@ export default function Partner() {
           };
         });
 
-        setPartnersData(formattedPartners); 
+        setPartnersData(formattedPartners);
       } catch (error) {
         console.error("Erro ao buscar dados dos parceiros:", error);
       }
@@ -75,7 +79,6 @@ export default function Partner() {
       <MainTitle shadowText="Parceiros" mainText="Parceiros" />
       <PaperBackground>
         {partnersData.length > 0 ? (
-
           partnersData.map((partner, index) => (
             <LargePartnerCard key={index} {...partner} />
           ))

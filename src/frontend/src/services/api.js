@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://tantera-back.onrender.com/api/",
+  baseURL: "http://54.145.177.228:1337/api/",
   timeout: 5000,
 });
 

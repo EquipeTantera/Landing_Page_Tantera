@@ -11,7 +11,12 @@ import FormCard from '../../components/Card/FormCard';
 import Pagination from '../../components/Pagination';
 
 //apagar depois
-import Accordion from '../../components/Accordion';
+import CarouselProfileCard from '../../components/CarouselProfileCard';
+const directorsData = [
+  { name: 'Chefe querida', photo: '/profile-tantech.jpeg' },
+  { name: 'Raissa doida de bala', photo: 'photo-small-card.png' },
+  { name: 'Sdds Copa', photo: 'copa-inteli.png' },
+];
 
 export default function Home() {
   const inputs = [
@@ -52,25 +57,6 @@ export default function Home() {
     },
   ];
 
-  //Accordion (apagar depois!)
-  const faqItems = [
-    {
-      buttonText: "Por que eu deveria assinar o plano de sócios?",
-      panelText: "Porque sim, pateta! A Atlética Tantera é muito mais do que uma simples associação estudantil.",
-      colorImage: "black"
-    },
-    {
-      buttonText: "O plano de sócio atleta tem alguma carência ou contrato mínimo?",
-      panelText: "Porque sim, pateta! A Atlética Tantera é muito mais do que uma simples associação estudantil.",
-      colorImage: "red"
-    },
-    {
-      buttonText: "Os treinos de futebol são para todos os níveis?",
-      panelText: "Porque sim, pateta! A Atlética Tantera é muito mais do que uma simples associação estudantil.",
-      colorImage: "black"
-    },
-  ];
-
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 4;
 
@@ -80,12 +66,10 @@ export default function Home() {
         <section className={styles.container__section}>
 
 
-
           {/* apagar depois!!! */}
           <div className={styles.container__teste}>
-            <Accordion items={faqItems} />
+            <CarouselProfileCard directors={directorsData} />
           </div>
-
 
 
           <FilterButton text="Filtrar" />

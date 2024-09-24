@@ -5,10 +5,10 @@ import ResultInformationCard from '../../components/Card/InformationCard/ResultI
 import ManagementInformationCard from '../../components/Card/InformationCard/ManagementInformationCard';
 import FormCard from '../../components/Card/FormCard';
 import Pagination from '../../components/Pagination';
+import MediumEventCard from '../../components/Card/MediumEventCard';
 import Accordion from '../../components/Accordion';
 import CarouselLargePartner from '../../components/Carousels/CarouselLargePartnerCard';
 import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
-
 
 export default function Home() {
   const inputs = [
@@ -161,8 +161,19 @@ export default function Home() {
           />
           <CarouselCard cards={carouselCards} />
 
+          <MediumEventCard 
+            title="Evento Furioso"
+            description="Evento da empresa Furioso"
+            image="/partner-furioso-full.png"
+            address='Rua Furiosa, 123'
+            date="10/09/2023"
+            ticket="01/01/01"
+            buttonText="Saiba mais"
+            linkButton="/comprar"
+          />
+
           <CarouselLargePartner partners={partnersData} />
-          
+
         </section>
       </div>
     </>

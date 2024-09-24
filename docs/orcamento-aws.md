@@ -2,6 +2,7 @@
 Abaixo será explicado o uso de cada serviço, bem como o seu custo para a atlética. Todos os custos foram pensando na maior escalabilidade do site, mas também nas ferramentas que tem o melhor custo benefício. 
 
 ## Orçamento EC2
+A EC2 irá armazenar o backend da aplicação web para a tantera.
 
 **Locação: Instância Compartilhada**
 
@@ -28,8 +29,53 @@ O Compute Savings Plan oferece até 66% de desconto em comparação com o preço
 Um Elastic IP é um endereço IP estático e público que pode ser atribuído à instância EC2. Ele permite que a instância tenha um IP fixo, mesmo que seja interrompida e reiniciada. Isso facilita o gerenciamento de servidores web e outros serviços que precisam de um endereço público consistente.
 
 
-### Custos totais
+### Custos totais - EC2
 - *Custo inicial total:* 85,41 USD (pagamento adiantado para o Compute Savings Plan).
 
 - *Custo mensal total:* 2,37 USD (graças ao plano de pagamento adiantado e economias do Savings Plan).
 
+---
+
+## Orçamento RDS e EC2
+Tendo em vista os custos da EC2 para o backend, precisamos armazenar o banco de dados e para isso a Tantech optou por continuar utilizando os serviços AWS.
+
+**Especificações**
+- *Tipo de Banco de Dados:* PostgreSQL 16.3-R2
+- *Modelo de Preço:* Reserved (3 anos, Partial UpFront)
+- *Armazenamento:* 100 GiB SSD com IOPS provisionado (io2)
+- *IOPS:* 3000
+- *Implantação:* Single-AZ (Zona única)
+- *RDS Proxy:* Habilitado
+- *Insights de Performance:* 7 dias (nível gratuito)
+- *Backups Automáticos:* 7 dias
+
+**PostgreSQL:**
+
+O PostgreSQL foi escolhido como o banco de dados relacional, conhecido por sua robustez e capacidade de lidar com grandes volumes de dados. Ele é ideal para o backend do Strapi, que precisa de uma base de dados consistente e eficiente para armazenar os dados da atlética.
+
+**Multi-AZ:** 
+
+Embora o Multi-AZ proporcione alta disponibilidade, a escolha foi feita para uma implantação Single-AZ, uma vez que o site está em fase de desenvolvimento, onde o custo é um fator mais importante que a redundância.
+
+**IOPS Provisionado (io2):**
+
+O uso de armazenamento SSD com IOPS provisionado foi essencial para garantir alto desempenho do banco de dados, com latência baixa. 3000 IOPS são mais que suficientes para manter a agilidade nas consultas ao banco, o que impacta diretamente na velocidade de carregamento de dados no site.
+
+**RDS Proxy:**
+
+Habilitar o RDS Proxy foi uma decisão estratégica para melhorar o gerenciamento de conexões com o banco de dados, especialmente em ambientes de alta concorrência. Isso é importante para evitar gargalos no acesso ao banco de dados quando há múltiplos usuários acessando o site simultaneamente.
+
+**Backups Automáticos:**
+
+A retenção de backups por 7 dias garante que, em caso de falhas, o banco de dados possa ser restaurado a um ponto anterior recente, proporcionando resiliência.
+
+### Custos totais - RDS e EC2
+
+- *Custo Inicial Total (Partial UpFront):* 114,00 USD
+- *Custo Mensal Total:* 137,54 USD
+
+
+## Custos Totais
+- *Custo Inicial Total (EC2 + RDS):* 199,41 USD
+- *Custo Mensal Total (EC2 + RDS):* 139,91 USD
+- *Custo Total em 12 Meses:* 1.878,33 USD (incluindo custos iniciais)

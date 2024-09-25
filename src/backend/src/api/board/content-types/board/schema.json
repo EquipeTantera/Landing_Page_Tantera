@@ -4,8 +4,8 @@
   "info": {
     "singularName": "board",
     "pluralName": "boards",
-    "displayName": "board",
-    "description": ""
+    "displayName": "Board",
+    "description": "Modelo para armazenar informações sobre gestões específicas da atlética."
   },
   "options": {
     "draftAndPublish": true
@@ -17,7 +17,7 @@
       "required": true
     },
     "year": {
-      "type": "integer",
+      "type": "string",
       "required": true
     },
     "start_date": {
@@ -26,19 +26,21 @@
     },
     "end_date": {
       "type": "date",
-      "required": true
+      "required": true,
+      "customValidator": "function (value, context) { return value > context.data.start_date; }"
     },
     "current": {
       "type": "boolean",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "specific_board_id": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::specific-board.specific-board",
-      "mappedBy": "board_id"
+      "mappedBy": "board"
     },
-    "member_id": {
+    "members_id": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::member.member"
@@ -47,13 +49,12 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::result.result",
-      "inversedBy": "management_id"
-    },
-    "planning_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::planning.planning",
       "inversedBy": "board_id"
+    },
+    "plannings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::planning.planning"
     }
   }
 }

@@ -38,8 +38,3 @@ FormCard.propTypes = {
   textButton: PropTypes.string,
   linkButton: PropTypes.string, 
 };
-
-FormCard.defaultProps = {
-  textButton: null,
-  linkButton: null,
-};

@@ -5,7 +5,7 @@
     "singularName": "product",
     "pluralName": "products",
     "displayName": "product",
-    "description": ""
+    "description": "Modelo para armazenar informações sobre produtos disponíveis na plataforma da atlética Tantera."
   },
   "options": {
     "draftAndPublish": true
@@ -20,19 +20,14 @@
       "type": "media",
       "multiple": true,
       "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images"]
     },
     "price": {
       "type": "decimal",
       "required": true
     },
     "description": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "sold_out": {
@@ -40,22 +35,25 @@
       "required": true
     },
     "size": {
-      "type": "string",
+      "type": "enumeration",
+      "enum": ["PP", "P", "M", "G", "GG", "GGG"],
       "required": true
     },
     "genre": {
-      "type": "string",
+      "type": "enumeration",
+      "enum": ["masculino", "feminino", "unissex"],
       "required": true
     },
     "color": {
-      "type": "string",
+      "type": "enumeration", 
+      "enum": ["vermelho", "azul", "verde", "amarelo", "preto", "branco"], 
       "required": true
     },
     "category_id": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::category.category",
-      "inversedBy": "product_id"
+      "mappedBy": "product_id"
     },
     "photo_product_id": {
       "type": "relation",

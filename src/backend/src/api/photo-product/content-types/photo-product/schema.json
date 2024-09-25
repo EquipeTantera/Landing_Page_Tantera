@@ -5,7 +5,7 @@
     "singularName": "photo-product",
     "pluralName": "photo-products",
     "displayName": "photo_product",
-    "description": ""
+    "description": "Armazena fotos associadas aos produtos na plataforma."
   },
   "options": {
     "draftAndPublish": true
@@ -16,12 +16,13 @@
       "type": "media",
       "multiple": true,
       "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images"]
     }
+  },
+  "product": {
+    "type": "relation",
+    "relation": "manyToOne",
+    "target": "api::product.product",
+    "inversedBy": "photos"
   }
 }

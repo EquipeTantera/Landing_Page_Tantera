@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
-export default function Input({ type, placeholder, options, label }) {
+export default function Input({ type, placeholder = "", options = [], label = "" }) {
   return (
     <div className={styles.container}>
       {label && <label className={styles.label}>{label}</label>}
@@ -48,10 +48,4 @@ Input.propTypes = {
     })
   ),
   label: PropTypes.string,
-};
-
-Input.defaultProps = {
-  placeholder: '',
-  options: [],
-  label: '', 
 };

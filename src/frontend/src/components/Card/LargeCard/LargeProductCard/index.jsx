@@ -4,7 +4,7 @@ import Button from '../../../Buttons/Button';
 import Content from '../../../Content';
 import HorizontalSubtitle from '../../../HorizontalSubtitle';
 
-export default function LargeProductCard({ name, description, fullImage, textButton, linkButton, price, sizes, colors, images, }) {
+export default function LargeProductCard({ name, description, fullImage, textButton, linkButton, price, sizes, colors, images, isAvailable }) {
   return (
     <div className={styles.div}>
       <div className={styles.container}>
@@ -86,5 +86,6 @@ LargeProductCard.propTypes = {
   price: PropTypes.number.isRequired,
   sizes: PropTypes.arrayOf(PropTypes.string).isRequired,
   colors: PropTypes.arrayOf(PropTypes.string).isRequired,
-  images: PropTypes.arrayOf(PropTypes.string).isRequired
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  isAvailable: PropTypes.bool.isRequired,
 };

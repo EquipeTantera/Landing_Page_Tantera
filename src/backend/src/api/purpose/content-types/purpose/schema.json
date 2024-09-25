@@ -18,7 +18,7 @@
     },
     "contact_id": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::contact.contact",
       "mappedBy": "purpose_id"
     }

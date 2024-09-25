@@ -1,7 +1,11 @@
-@use "../../styles/_variables" as v; 
+@use "../../styles/_variables" as v;
 
 .container {
   margin-top: 10rem;
+
+   &__teste {
+  
+   }
 }
 
 @media (max-width: 768px) {

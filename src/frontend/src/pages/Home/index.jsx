@@ -5,7 +5,7 @@ import ResultInformationCard from '../../components/Card/InformationCard/ResultI
 import ManagementInformationCard from '../../components/Card/InformationCard/ManagementInformationCard';
 import FormCard from '../../components/Card/FormCard';
 import Pagination from '../../components/Pagination';
-import CarouselProfileCard from '../../components/CarouselProfileCard';
+import CarouselProfileCard from '../../components/Carousels/CarouselProfileCard';
 import MediumEventCard from '../../components/Card/MediumEventCard';
 import Accordion from '../../components/Accordion';
 import CarouselLargePartner from '../../components/Carousels/CarouselLargePartnerCard';

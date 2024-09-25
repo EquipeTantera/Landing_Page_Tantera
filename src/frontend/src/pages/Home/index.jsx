@@ -309,6 +309,7 @@ export default function Home() {
           />
 
           <div className={styles.container__contact__content}>
+          <div className={styles.container__contact__tag} />
             <Form 
               title="Entre em Contato"
               inputs={formInputs}

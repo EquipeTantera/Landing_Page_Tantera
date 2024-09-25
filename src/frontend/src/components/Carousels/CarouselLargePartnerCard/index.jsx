@@ -21,7 +21,7 @@ export default function CarouselLargePartner({ partners }) {
       </button>
 
       <div className={styles.carousel__card}>
-        <LargePartnerCard {...partners[currentIndex]} />
+        <LargePartnerCard key={partners[currentIndex].title} {...partners[currentIndex]} />
       </div>
 
       <button onClick={handleNext} className={styles.carousel__button}>
@@ -34,7 +34,7 @@ export default function CarouselLargePartner({ partners }) {
 CarouselLargePartner.propTypes = {
   partners: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
       fullImage: PropTypes.string.isRequired,

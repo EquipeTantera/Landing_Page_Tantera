@@ -27,6 +27,11 @@ export default function Input({ type, placeholder = "", options = [], label = ""
             </svg>
           </div>
         </div>
+      ) : type === 'textarea' ? ( 
+        <textarea
+          className={styles.container__div__textarea}
+          placeholder={placeholder}
+        />
       ) : (
         <input
           type={type}
@@ -39,7 +44,7 @@ export default function Input({ type, placeholder = "", options = [], label = ""
 }
 
 Input.propTypes = {
-  type: PropTypes.oneOf(['text', 'select']).isRequired,
+  type: PropTypes.oneOf(['text', 'select', 'textarea']).isRequired, 
   placeholder: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({

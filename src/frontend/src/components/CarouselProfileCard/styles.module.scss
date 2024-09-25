@@ -1,12 +1,12 @@
 @use "../../../../frontend/src/styles/variables" as v;
 
 .container {
-    margin: 160px;
-    width: 278px;
+    margin: 10rem;
+    width: 17.37rem;
     box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.4);
 
     &__slides {
-        height: 383px;
+        height: 24rem;
         background-color: v.$grey-2;
         background-position: cover;
         color: black;
@@ -25,7 +25,7 @@
 
     &__content {
         display: flex;
-        height: 68px;
+        height: 4rem;
         align-items: center;
         justify-content: center;
         background-color: v.$white-2;
@@ -40,13 +40,13 @@
 
     &__position {
         font-family: v.$DriveCorps;
-        font-size: 24px;
+        font-size: 1.5rem;
         text-transform: uppercase;
         text-align: center;
     }
 
     &__name {
-        font-size: 18px;
+        font-size: 1.125rem;
         text-transform: capitalize;
         text-align: center;
     }

@@ -5,12 +5,19 @@ import ResultInformationCard from '../../components/Card/InformationCard/ResultI
 import ManagementInformationCard from '../../components/Card/InformationCard/ManagementInformationCard';
 import FormCard from '../../components/Card/FormCard';
 import Pagination from '../../components/Pagination';
+import CarouselProfileCard from '../../components/Carousels/CarouselProfileCard';
 import MediumEventCard from '../../components/Card/MediumEventCard';
 import Accordion from '../../components/Accordion';
 import CarouselLargePartner from '../../components/Carousels/CarouselLargePartnerCard';
 import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
 
 export default function Home() {
+  const directorsData = [
+    { name: 'Chefe querida', photo: '/profile-tantech.jpeg' },
+    { name: 'Raissa doida de bala', photo: 'photo-small-card.png' },
+    { name: 'Sdds Copa', photo: 'copa-inteli.png' },
+  ];
+
   const inputs = [
     { type: 'text', placeholder: 'Seu nome', label: 'Nome' },
     { type: 'text', placeholder: 'Seu email', label: 'Email' },
@@ -98,8 +105,9 @@ export default function Home() {
       <div className={styles.container}>
         <section className={styles.container__section}>
 
+
           <div className={styles.container__teste}>
-            <Accordion items={faqItems} />
+            <CarouselProfileCard directors={directorsData} />
           </div>
 
           <FormCard
@@ -173,6 +181,8 @@ export default function Home() {
           />
 
           <CarouselLargePartner partners={partnersData} />
+
+          <Accordion items={faqItems} />
 
         </section>
       </div>

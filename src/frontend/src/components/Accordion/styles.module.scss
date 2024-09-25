@@ -23,6 +23,15 @@
 
         &__accordions {
             width: 90%;
+            margin-top: -60px;
+        }
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .container {
+        &__accordions {
+            width: 80%;
         }
     }
 }

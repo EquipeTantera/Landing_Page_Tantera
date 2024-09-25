@@ -4,7 +4,7 @@ import Button from '../../../Buttons/Button';
 import Content from '../../../Content';
 import HorizontalSubtitle from '../../../HorizontalSubtitle';
 
-export default function LargeProductCard({ name, description, fullImage, textButton, linkButton, price, sizes, colors, images }) {
+export default function LargeProductCard({ name, description, fullImage, textButton, linkButton, price, sizes, colors, images, }) {
   return (
     <div className={styles.div}>
       <div className={styles.container}>

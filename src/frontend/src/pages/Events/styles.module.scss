@@ -5,9 +5,25 @@
   .nextPartyText {
     color: var(--Roxo-2, #33116D);
     font-family: "Drive Corps";
-    font-size: 48px;
+    font-size: 2rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
   }
+  
+  .eventCardContainer {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .spacer {
+    margin-bottom: 30px;
+  }
+
+  .smallEventCards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
   

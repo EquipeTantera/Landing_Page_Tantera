@@ -51,3 +51,14 @@
         text-align: center;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 70%;
+        margin: 0 auto;
+
+        &__slides {
+            height: 16rem;
+        }
+    }
+}

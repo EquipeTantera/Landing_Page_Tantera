@@ -9,7 +9,9 @@ export default function FormCard({ title, inputs, textButton, linkButton }) {
       <h2 className={styles.formCard__title}>{title}</h2>
       <div className={styles.formCard__content}>
         {inputs.map((inputProps, index) => (
-          <Input key={index} {...inputProps} />
+          <div key={index} className={styles.formCard__input}>
+            <Input {...inputProps} />
+          </div>
         ))}
       </div>
       {textButton && linkButton && (
@@ -26,6 +28,7 @@ FormCard.propTypes = {
   inputs: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.oneOf(['text', 'select']).isRequired,
+      label: PropTypes.string, // Adicionando suporte ao label
       placeholder: PropTypes.string,
       options: PropTypes.arrayOf(
         PropTypes.shape({
@@ -36,5 +39,5 @@ FormCard.propTypes = {
     })
   ).isRequired,
   textButton: PropTypes.string,
-  linkButton: PropTypes.string, 
+  linkButton: PropTypes.string,
 };

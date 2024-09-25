@@ -15,7 +15,7 @@
   &__secundary,
   &__primary {
     text-align: center;
-    font-family: "Drive Corps";
+    font-family: v.$DriveCorps;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -31,6 +31,8 @@
     -webkit-text-stroke-color: rgba(254, 254, 254, 0.30);
     font-size: 20rem;
     z-index: 1;
+    letter-spacing: 2px;
+    font-weight: 200;
   }
 
   &__primary {

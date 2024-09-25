@@ -5,7 +5,7 @@
     "singularName": "category",
     "pluralName": "categories",
     "displayName": "category",
-    "description": ""
+    "description": "Armazena categorias de produtos disponíveis na plataforma."
   },
   "options": {
     "draftAndPublish": true
@@ -20,7 +20,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::product.product",
-      "mappedBy": "category_id"
+      "inversedBy": "category_id"
     }
   }
 }

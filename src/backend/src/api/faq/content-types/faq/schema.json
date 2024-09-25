@@ -4,7 +4,8 @@
   "info": {
     "singularName": "faq",
     "pluralName": "faqs",
-    "displayName": "Faq"
+    "displayName": "Faq",
+    "description": "Armazena perguntas frequentes relacionadas aos planos de sócios."
   },
   "options": {
     "draftAndPublish": true
@@ -12,16 +13,18 @@
   "pluginOptions": {},
   "attributes": {
     "question": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "answer": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
-    "plans_id": {
+    "plan": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::plan.plan",
-      "mappedBy": "faq_id"
+      "inversedBy": "faqs"
     }
   }
 }

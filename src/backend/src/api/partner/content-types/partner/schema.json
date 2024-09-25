@@ -5,7 +5,7 @@
     "singularName": "partner",
     "pluralName": "partners",
     "displayName": "partner",
-    "description": ""
+    "description": "Armazena informações sobre parceiros da atlética, incluindo título, slogan, ícones e associações com eventos e resultados."
   },
   "options": {
     "draftAndPublish": true
@@ -24,23 +24,17 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images"]
     },
     "image": {
       "type": "media",
       "multiple": true,
       "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images"]
+    },
+    "url": {
+      "type": "string",
+      "required": true
     },
     "result_id": {
       "type": "relation",

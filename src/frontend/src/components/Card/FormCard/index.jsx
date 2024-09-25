@@ -27,8 +27,8 @@ FormCard.propTypes = {
   title: PropTypes.string.isRequired,
   inputs: PropTypes.arrayOf(
     PropTypes.shape({
-      type: PropTypes.oneOf(['text', 'select']).isRequired,
-      label: PropTypes.string, // Adicionando suporte ao label
+      type: PropTypes.oneOf(['text', 'select', 'textarea']).isRequired, 
+      label: PropTypes.string,
       placeholder: PropTypes.string,
       options: PropTypes.arrayOf(
         PropTypes.shape({

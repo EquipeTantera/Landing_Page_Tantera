@@ -218,7 +218,7 @@ export default function Home() {
       label: 'Motivo'
     },
     {
-      type: 'text',
+      type: 'textarea',
       placeholder: 'Digite sua mensagem',
       label: 'Mensagem'
     },

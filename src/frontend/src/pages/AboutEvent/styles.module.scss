@@ -1,39 +1,76 @@
 .overlayContent {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    width: 100%;
-    margin-top: -70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  margin-top: -70px;
 
-  }
-  
-  .contentContainer {
-    flex: 0 0 55%;
-    display: flex;
+  @media (max-width: 768px) {
     flex-direction: column;
+    align-items: center;
   }
-  
-  .content {
+}
+
+.contentContainer {
+  flex: 0 0 55%;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    text-align: center;
     width: 100%;
-    text-align: left;
   }
-  
-  .eventInfoContainer {
+}
+
+.content {
+  width: 100%;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+
+.buttonContainer button {
+  margin-right: 20px;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+}
+
+.eventInfoContainer {
+  width: 100%;
+  margin-top: -65px;
+  margin-bottom: 40px;
+}
+
+.verticalSubtitle {
+  margin-top: -50px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.horizontalSubtitle {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
     width: 100%;
-    margin-top: -65px;
-    margin-bottom: 40px;
   }
-  
-  .buttonContainer {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .buttonContainer button {
-    margin-right: 20px;
-  }
-  
-  .verticalSubtitle{
-    margin-top: -50px;
-  }
+}

@@ -16,6 +16,12 @@
     margin-top: 3rem;
   }
 
+  @media (max-width: 768px) {
+    .content {
+        margin: 0rem 1rem;
+    }
+  }
+
 .tag {
     height: 3rem;
     background-image: url('/tag.png');

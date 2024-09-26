@@ -226,7 +226,13 @@ export default function Home() {
 
   return (
     <>
-      <PaperBackground>
+      <div className={styles.container__gif}>
+        <img 
+          src="./src/assets/gif/gif-tela-inicial.gif" 
+          alt="GIF Tela Inicial"
+          className={styles.container__gif__img} 
+        />
+      </div>
         <section className={styles.container__impacts}>
           <HorizontalSubtitle 
             title="Impactos da Atlética"
@@ -281,7 +287,7 @@ export default function Home() {
             </div>
 
             <div className={styles.container__management__content__image}>
-              <img src="/spider-back.png" alt="gestao-atual" />
+              <img src="/spider-back.png" alt="gestao-atual" width={"100%"}/>
             </div>
 
             <Button 
@@ -318,7 +324,6 @@ export default function Home() {
             />
           </div>
         </section>
-      </PaperBackground>
     </>
   );
 }

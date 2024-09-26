@@ -29,7 +29,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .fullBoardCardContainer {
@@ -43,4 +42,31 @@
 .fullBoardCard {
   flex: 1 1 30%;
   min-width: 200px;
+}
+
+.mascotContainer {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.mascotImage {
+  width: 600px;
+  height: 400px;
+}
+
+.centeredContentContainer {
+  justify-content: center;
+  margin: 20px 0;
+  padding: 0px 90px;
+}
+
+.centeredContent {
+  text-align: center;
+}
+
+.centeredContentForm{
+  justify-content: center;
+  margin: 60px 0;
+  padding: 0px 90px;
 }

@@ -181,6 +181,7 @@ export default function Events() {
           <CarouselSmallEventCard events={pastOthers} interval={3000} />
         </div>
       </section>
+
     </>
   );
 }

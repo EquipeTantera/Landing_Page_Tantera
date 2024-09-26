@@ -8,7 +8,6 @@ import Button from '../../components/Buttons/Button';
 import CarouselLargePartnerCard from '../../components/Carousels/CarouselLargePartnerCard';
 import Form from '../../components/Card/FormCard';
 
-
 export default function Home() {
 
   const events = [

@@ -22,6 +22,7 @@
   .contentContainer {
     flex: 0 0 55%;
     display: flex;
+    flex-direction: column;
   }
   
   .content {
@@ -33,5 +34,14 @@
     width: 100%;
     margin-top: -70px;
     margin-bottom: 70px;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .buttonContainer button {
+    margin-right: 20px;
   }
   

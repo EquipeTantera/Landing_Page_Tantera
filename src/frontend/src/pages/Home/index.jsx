@@ -7,6 +7,7 @@ import Content from '../../components/Content';
 import Button from '../../components/Buttons/Button';
 import CarouselLargePartnerCard from '../../components/Carousels/CarouselLargePartnerCard';
 import Form from '../../components/Card/FormCard';
+import SmallManagementCard from '../../components/Card/SmallCard/SmallManagementCard';
 
 
 export default function Home() {
@@ -323,6 +324,11 @@ export default function Home() {
               linkButton="/contato" 
             />
           </div>
+
+          <SmallManagementCard 
+            nameManagement="Gestão 2021"
+            buttonPath="/gestao-atual"
+          />
         </section>
     </>
   );

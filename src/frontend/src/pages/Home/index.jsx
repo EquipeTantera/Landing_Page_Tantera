@@ -287,7 +287,7 @@ export default function Home() {
             </div>
 
             <div className={styles.container__management__content__image}>
-              <img src="/spider-back.png" alt="gestao-atual" />
+              <img src="/spider-back.png" alt="gestao-atual" width={"100%"}/>
             </div>
 
             <Button 

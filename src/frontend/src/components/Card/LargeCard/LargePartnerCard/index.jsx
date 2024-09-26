@@ -32,7 +32,9 @@ export default function LargePartnerCard({ title, description, image, fullImage,
             <p className={styles["container__details__div-event__title"]}>Eventos</p>
             <ul className={styles["container__details__div-event__list"]}>
               {events.map((event) => (
-                <li key={event.title} className={styles["container__details__div-event__list__item"]}>
+                <li 
+                key={event.title}
+                className={styles["container__details__div-event__list__item"]}>
                   <p className={styles["container__details__div-event__list__item__name"]}>{event.title} - {event.date}</p>
                 </li>
               ))}

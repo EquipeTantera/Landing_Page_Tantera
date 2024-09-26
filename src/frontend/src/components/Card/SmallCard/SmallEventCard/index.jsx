@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
-import Button from '../../../Button';
+import Button from '../../../Buttons/Button';
 
 export default function SmallEventCard({ title, date, ticket, address, image, buttonText, buttonPath }) {
   return (

@@ -67,7 +67,7 @@ export default function FilterModal({ isOpen, onClose }) {
 
           <div className={styles.modal__content__filter}>
             <h3 className={styles.modal__content__filter__title}>Categorias:</h3>
-            {['Acessórios de festa', 'Uniformes', 'Coleção'].map((category) => (
+            {['Acessórios de Festa', 'Uniformes', 'Coleção'].map((category) => (
               <label key={category}  className={styles.modal__content__filter__label}>
                 <input
                   type="checkbox"

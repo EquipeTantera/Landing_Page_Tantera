@@ -18,9 +18,7 @@ export default function Events() {
         const events = response.data.data;
 
         const formattedEvents = events.map((event) => {
-          const imageUrl = event?.attributes?.image?.data?.attributes?.url
-            ? event.attributes.image.data.attributes.url
-            : "";
+          const imageUrl = event?.attributes?.image?.data?.[0]?.attributes?.url || "";
 
           return {
             title: event?.attributes?.title || "",
@@ -30,31 +28,53 @@ export default function Events() {
             date: new Date(event?.attributes?.date).toLocaleDateString("pt-BR"),
             startTime: event?.attributes?.start_time || "",
             endTime: event?.attributes?.end_time || "",
-            ticket: event?.attributes?.price || "",
+            ticket: String(event?.attributes?.price || ""),
             buttonText: "Saiba mais",
             buttonPath: `/event/${event.id}`,
-            eventType: event?.attributes?.event_type || "Outros", 
+            eventType: event?.attributes?.event_type?.data?.attributes?.type || "Outros", 
           };
         });
 
         setEventsData(formattedEvents);
       } catch (error) {
         console.error("Erro ao buscar dados dos eventos:", error);
-      } finally {
-        setLoading(false);
       }
     };
 
     fetchEventsData();
   }, []);
 
-  if (loading) {
-    return <p>Carregando...</p>;
-  }
+  // Data atual para comparar com as datas dos eventos
+  const currentDate = new Date();
 
-  // Separar eventos por tipo
-  const fests = eventsData.filter((event) => event.eventType === "Festa");
-  const championships = eventsData.filter((event) => event.eventType === "Campeonato");
+  // filtrar eventos pelo tipo (categoria)
+  const filterEventsByType = (eventType) => {
+    return eventsData.filter((event) => event.eventType === eventType);
+  };
+
+  // filtrar eventos futuros (próximos) e passados (anteriores)
+  const filterUpcomingEvents = (events) => {
+    return events.filter((event) => new Date(event.startTime) > currentDate);
+  };
+
+  const filterPastEvents = (events) => {
+    return events.filter((event) => new Date(event.endTime) < currentDate);
+  };
+
+  // Eventos filtrados por tipo
+  const fests = filterEventsByType("Festas");
+  const championships = filterEventsByType("Campeonatos");
+  const others = filterEventsByType("Outros");
+
+  // Separar eventos futuros e passados
+  const upcomingFests = filterUpcomingEvents(fests);
+  const pastFests = filterPastEvents(fests);
+
+  const upcomingChampionships = filterUpcomingEvents(championships);
+  const pastChampionships = filterPastEvents(championships);
+
+  const upcomingOthers = filterUpcomingEvents(others);
+  const pastOthers = filterPastEvents(others);
 
   return (
     <>
@@ -62,79 +82,103 @@ export default function Events() {
 
       {/* Seção de Festas */}
       <section className={styles.container__fests}>
-        <HorizontalSubtitle title="Festas" colorImage="purple" titleSize="3rem" />
-        
+        <HorizontalSubtitle
+          title="Festas"
+          colorImage="purple"
+          titleSize="3rem"
+        />
+
         <div className={styles.container__fests__nextParty}>
-          <p className={styles.container__fests__nextParty__text}>Próxima festa</p>
+          <p className={styles.container__fests__nextParty__text}>
+            Próxima festa
+          </p>
         </div>
 
-        {/* Renderizar a próxima festa */}
         <div className={styles.container__fests__cards}>
-          {fests.length > 0 ? (
-            <MediumEventCard {...fests[0]} />
+          {upcomingFests.length > 0 ? (
+            <MediumEventCard {...upcomingFests[0]} />
           ) : (
-            <p>Sem eventos de festas no momento</p>
+            <p>Sem festas no momento</p>
           )}
         </div>
 
         <div className={styles.container__fests__nextParty}>
-          <p className={styles["container__fests__nextParty__text--second"]}>Festas anteriores</p>
+          <p className={styles["container__fests__nextParty__text--second"]}>
+            Festas anteriores
+          </p>
         </div>
 
         <div className={styles.container__fests__carousel}>
-          <CarouselSmallEventCard events={fests.slice(1)} interval={3000} />
+          <CarouselSmallEventCard events={pastFests} interval={3000} />
         </div>
       </section>
 
       {/* Seção de Campeonatos */}
       <section className={styles.container__championships}>
-        <HorizontalSubtitle title="Campeonatos" colorImage="red" titleSize="3rem" />
-        
+        <HorizontalSubtitle
+          title="Campeonatos"
+          colorImage="red"
+          titleSize="3rem"
+        />
+
         <div className={styles.container__championships__nextParty}>
-          <p className={styles.container__fests__nextParty__text}>Próximo campeonato</p>
+          <p className={styles.container__fests__nextParty__text}>
+            Próximo campeonato
+          </p>
         </div>
 
-        {/* Renderizar o próximo campeonato */}
         <div className={styles.container__championships__cards}>
-          {championships.length > 0 ? (
-            <MediumEventCard {...championships[0]} />
+          {upcomingChampionships.length > 0 ? (
+            <MediumEventCard {...upcomingChampionships[0]} />
           ) : (
             <p>Sem campeonatos no momento</p>
           )}
         </div>
 
         <div className={styles.container__championships__nextParty}>
-          <p className={styles["container__championships__nextParty__text--second"]}>Campeonatos Anteriores</p>
+          <p
+            className={
+              styles["container__championships__nextParty__text--second"]
+            }
+          >
+            Campeonatos Anteriores
+          </p>
         </div>
 
         <div className={styles.container__championships__carousel}>
-          <CarouselSmallEventCard events={championships.slice(1)} interval={3000} />
+          <CarouselSmallEventCard events={pastChampionships} interval={3000} />
         </div>
       </section>
 
-      {/* Seção de Campeonatos */}
+      {/* Seção de Outros */}
       <section className={styles.container__championships}>
-        <HorizontalSubtitle title="Outros" colorImage="purple" titleSize="3rem" />
-        
+        <HorizontalSubtitle
+          title="Outros"
+          colorImage="purple"
+          titleSize="3rem"
+        />
         <div className={styles.container__championships__nextParty}>
-          <p className={styles.container__fests__nextParty__text}>Próximo evento</p>
+          <p className={styles.container__championships__nextParty__text}>
+            Próximos eventos
+          </p>
         </div>
 
-        {/* Renderizar o próximo campeonato */}
         <div className={styles.container__championships__cards}>
-          {championships.length > 0 ? (
-            <MediumEventCard {...championships[0]} />
+          {upcomingOthers.length > 0 ? (
+            <MediumEventCard {...upcomingOthers[0]} />
           ) : (
-            <p>Sem eventos no momento</p>
+            <p>Sem outros eventos no momento</p>
           )}
         </div>
 
         <div className={styles.container__championships__nextParty}>
-          <p className={styles["container__championships__nextParty__text--second"]}>Eventos Anteriores</p>
+          <p className={styles["container__championships__nextParty__text--second"]}>
+            Eventos Anteriores
+          </p>
         </div>
 
         <div className={styles.container__championships__carousel}>
-          <CarouselSmallEventCard events={championships.slice(1)} interval={3000} />
+          <CarouselSmallEventCard events={pastOthers} interval={3000} />
         </div>
       </section>
     </>

@@ -94,6 +94,34 @@ export default function Events() {
           <CarouselSmallEventCard events={pastEvents} interval={3000} />
         </div>
       </section>  
+
+      <section className={styles.container__championships}>  
+        <HorizontalSubtitle title="Outros" colorImage="purple" titleSize="3rem" />
+        <div className={styles.container__championships__nextParty}>
+          <p className={styles.container__fests__nextParty__text}>Próximos eventos</p>
+        </div>
+      
+        <div className={styles.container__championships__cards}>
+          <MediumEventCard 
+            title="Campeonato de basquete"
+            description="Novo campeonato de basquete"
+            image="/partner-furioso-full.png"
+            address="Rua Furiosa, 123"
+            date="10/09/2023"
+            ticket="01/01/01"
+            buttonText="Saiba mais"
+            linkButton="/comprar"
+          />
+        </div>
+
+        <div className={styles.container__championships__nextParty}>
+          <p className={styles["container__championships__nextParty__text--second"]}>Eventos Anteriores</p>
+        </div>
+
+        <div className={styles.container__championships__carousel}>
+          <CarouselSmallEventCard events={pastEvents} interval={3000} />
+        </div>
+      </section>  
     </>
   );
 }

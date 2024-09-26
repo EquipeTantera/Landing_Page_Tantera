@@ -1,0 +1,12 @@
+.backgroundContainer {
+    background-image: url('/background-main.png');
+    background-size: cover;
+    background-position: inherit;
+    background-repeat: no-repeat;
+    margin-top: -65px;
+    width: 100%;
+    height: calc(100vh - 100px);
+    position: relative;
+    z-index: 1;
+  }
+  

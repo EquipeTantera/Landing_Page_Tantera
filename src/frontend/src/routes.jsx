@@ -5,6 +5,7 @@ import Page from "./components/page";
 import Product from "./pages/Product";
 import Products from "./pages/Products";
 import Events from "./pages/Events";
+import AboutEvent from "./pages/AboutEvent";
 
 export default function AppRoutes() {
   return (
@@ -16,6 +17,7 @@ export default function AppRoutes() {
         <Route path="/produtos" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><Products /></Page>} />
         <Route path="/produto/:id" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><Product /></Page>} />
         <Route path="/eventos" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><Events /></Page>} />
+        <Route path="/evento" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><AboutEvent /></Page>} />
       </Routes>
     </Router>
   );

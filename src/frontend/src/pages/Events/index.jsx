@@ -82,7 +82,7 @@ export default function Events() {
             date="10/09/2023"
             ticket="01/01/01"
             buttonText="Saiba mais"
-            linkButton="/comprar"
+            linkButton="/evento"
           />
         </div>
 

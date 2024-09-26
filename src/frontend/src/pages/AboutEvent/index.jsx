@@ -4,12 +4,13 @@ import Content from "../../components/Content";
 import EventInformationCard from "../../components/Card/InformationCard/EventInformationCard"; // Importando o EventInformationCard
 import Button from "../../components/Buttons/Button";
 import styles from "./styles.module.scss";
+import PaperBackground from "../../components/PaperBackground";
 
 export default function AboutEvents() {
   return (
     <>
       <MainTitle shadowText="Evento" mainText="Copa Inteli" />
-      <div className={styles.backgroundContainer}>
+      <PaperBackground>
         <div className={styles.overlayContent}>
           <VerticalSubtitle 
             title="Sobre o evento"
@@ -22,11 +23,10 @@ export default function AboutEvents() {
               className={styles.content}
             />
             <div className={styles.buttonContainer}>
-              <Button title='Participar' path='/' />
+              <Button title='Participar' path='/inscricao' />
             </div>
           </div>
         </div>
-      </div>
       <div className={styles.eventInfoContainer}>
         <EventInformationCard 
           address='Rua dos Bobos, 0'
@@ -46,6 +46,7 @@ export default function AboutEvents() {
           image='/copa-inteli.png'
         />
       </div>
+        </PaperBackground>
     </>
   );
 }

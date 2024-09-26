@@ -1,22 +1,11 @@
-.backgroundContainer {
-    background-image: url('/background-main.png');
-    background-size: cover;
-    background-position: inherit;
-    background-repeat: no-repeat;
-    margin-top: -40px;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-  }
-  
-  .overlayContent {
+.overlayContent {
     display: flex;
     align-items: center;
     justify-content: space-between;
     max-width: 1200px;
     width: 100%;
+    margin-top: -70px;
+
   }
   
   .contentContainer {
@@ -32,8 +21,8 @@
   
   .eventInfoContainer {
     width: 100%;
-    margin-top: -70px;
-    margin-bottom: 70px;
+    margin-top: -65px;
+    margin-bottom: 40px;
   }
   
   .buttonContainer {
@@ -45,3 +34,6 @@
     margin-right: 20px;
   }
   
+  .verticalSubtitle{
+    margin-top: -50px;
+  }

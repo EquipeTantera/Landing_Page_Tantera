@@ -1,0 +1,46 @@
+.aboutUsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-items: center;
+}
+
+.verticalSubtitle {
+  flex: 0 0 300px;
+  margin-right: 20px;
+}
+
+.content {
+  max-width: 500px;
+}
+
+.imageContainer {
+  margin-top: -20px;
+  display: flex;
+  justify-content: center;
+  z-index: -1;
+}
+
+.aboutUsImage {
+  width: 100%;
+}
+
+.directorSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.fullBoardCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-left: 20px;
+  justify-content: center;
+}
+
+.fullBoardCard {
+  flex: 1 1 30%;
+  min-width: 200px;
+}

@@ -93,6 +93,10 @@
           left: 0;
         }
       }
+
+      &__label {
+        text-transform: capitalize;
+      }
     }
 
     &__button {

@@ -35,15 +35,15 @@ export default function Products() {
           const imageUrl = product?.attributes?.image?.data?.[0]?.attributes?.url || "";
 
           const colors = Array.isArray(product?.attributes?.colors_id?.data)
-          ? product.attributes.colors_id.data.map((color) => color.attributes.name)
-          : [];
+            ? product.attributes.colors_id.data.map((color) => color.attributes.value)
+            : [];
 
           const sizes = Array.isArray(product?.attributes?.sizes_id?.data)
-          ? product.attributes.sizes_id.data.map((size) => size.attributes.name)
-          : [];
+            ? product.attributes.sizes_id.data.map((size) => size.attributes.value)
+            : [];
 
           const genres = Array.isArray(product?.attributes?.genres_id?.data)
-          ? product.attributes.genres_id.data.map((genre) => genre.attributes.name)
+          ? product.attributes.genres_id.data.map((genre) => genre.attributes.value)
           : [];
 
           const categories = Array.isArray(product?.attributes?.categories_ids?.data)
@@ -118,7 +118,7 @@ export default function Products() {
     // Filtrar por gênero
     if (filters.gender) {
       filteredProducts = filteredProducts.filter((product) =>
-        product.genres.includes(filters.gender)
+        product.genres.some((genre) => genre === filters.gender)
       );
     }
   
@@ -128,15 +128,14 @@ export default function Products() {
     } else if (filters.sort === 'maior') {
       filteredProducts.sort((a, b) => b.price - a.price); 
     }
-
-    console.log('Produtos ordenados:', filteredProducts);
+  
+    console.log('Produtos ordenados e filtrados:', filteredProducts);
     return filteredProducts;
   };
   
   
-
   const filteredProducts = getFilteredProducts();
-  const hasFiltersApplied = filters.price != 0 || filters.categories.length > 0 || filters.sizes.length > 0 || filters.colors.length > 0 || filters.gender;
+  const hasFiltersApplied = filters.price != 0 || filters.categories.length > 0 || filters.sizes.length > 0 || filters.colors.length > 0 || filters.gender != '';
 
   // Função para filtrar produtos pela categoria
   const filterProductsByCategory = (categoryName) => {

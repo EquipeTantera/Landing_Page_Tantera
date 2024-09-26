@@ -99,7 +99,7 @@ export default function FilterModal({ isOpen, onClose, onApplyFilters }) {
           <div className={styles.modal__content__filter}>
             <h3 className={styles.modal__content__filter__title}>Tamanhos:</h3>
             <div className={styles.modal__content__filter__sizes}>
-              {['PP', 'P', 'M', 'G', 'GG'].map((size) => (
+              {["PP", "P", "M", "G", "GG"].map((size) => (
                 <label className={`${styles.modal__content__filter__size} ${selectedSizes.includes(size) ? styles.selected : ''}`} key={size}>
                   <input
                     type="checkbox"
@@ -117,7 +117,7 @@ export default function FilterModal({ isOpen, onClose, onApplyFilters }) {
           {/* Cores */}
           <div className={styles.modal__content__filter}>
             <h3 className={styles.modal__content__filter__title}>Cor:</h3>
-            {['Preto', 'Roxo', 'Branco', 'Vermelho'].map((color) => (
+            {['preto', 'roxo', 'branco', 'vermelho'].map((color) => (
               <label key={color} className={styles.modal__content__filter__label}>
                 <input
                   type="checkbox"
@@ -134,7 +134,7 @@ export default function FilterModal({ isOpen, onClose, onApplyFilters }) {
           {/* Gênero */}
           <div className={styles.modal__content__filter}>
             <h3 className={styles.modal__content__filter__title}>Gênero:</h3>
-            {['Feminino', 'Masculino', 'Unissex'].map((gender) => (
+            {['feminino', 'masculino', 'unissex'].map((gender) => (
               <label key={gender} className={styles.modal__content__filter__label}>
                 <input
                   type="radio"

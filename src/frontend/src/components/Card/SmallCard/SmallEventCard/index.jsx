@@ -18,7 +18,7 @@ export default function SmallEventCard({ title, date, ticket, address, image, bu
             </p>
           }
           <p className={styles.container__infos__div__ticket}>
-            <span className={styles.container__infos__div__ticket__span}>Ingressos a partir: </span>{ticket}
+            <span className={styles.container__infos__div__ticket__span}>Ingressos a partir: </span>{date}
           </p>
         </div>
         <div className={styles.container__infos__button}>

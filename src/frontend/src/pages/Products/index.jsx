@@ -17,6 +17,7 @@ export default function Products() {
   const [showMoreColecoes, setShowMoreColecoes] = useState(false);
   const [filters, setFilters] = useState({
     sort: '',
+    price: 0,
     categories: [],
     sizes: [],
     colors: [],
@@ -53,7 +54,7 @@ export default function Products() {
 
           return {
             title: product?.attributes?.title || "",
-            price: product?.attributes?.price ? product.attributes.price.toFixed(2) : "0.00",
+            price: product?.attributes?.price || 0,
             image: imageUrl.startsWith("http") ? imageUrl : `${BASE_URL}${imageUrl}`,
             description: product?.attributes?.description || "",
             sold_out,
@@ -84,13 +85,15 @@ export default function Products() {
   };
 
   const handleApplyFilters = (appliedFilters) => {
+    console.log('Filtros aplicados:', appliedFilters); 
     setFilters(appliedFilters);
+    setProductsData([...productsData]);
   };
 
   // Função para filtrar os produtos
   const getFilteredProducts = () => {
-    let filteredProducts = productsData;
-  
+    let filteredProducts = [...productsData]; 
+    
     // Filtrar por categorias
     if (filters.categories.length > 0) {
       filteredProducts = filteredProducts.filter((product) =>
@@ -121,17 +124,19 @@ export default function Products() {
   
     // Ordenar por preço
     if (filters.sort === 'menor') {
-      filteredProducts = filteredProducts.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+      filteredProducts.sort((a, b) => a.price - b.price);
     } else if (filters.sort === 'maior') {
-      filteredProducts = filteredProducts.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+      filteredProducts.sort((a, b) => b.price - a.price); 
     }
-  
+
+    console.log('Produtos ordenados:', filteredProducts);
     return filteredProducts;
   };
   
+  
 
   const filteredProducts = getFilteredProducts();
-  const hasFiltersApplied = filters.categories.length > 0 || filters.sizes.length > 0 || filters.colors.length > 0 || filters.gender;
+  const hasFiltersApplied = filters.price != 0 || filters.categories.length > 0 || filters.sizes.length > 0 || filters.colors.length > 0 || filters.gender;
 
   // Função para filtrar produtos pela categoria
   const filterProductsByCategory = (categoryName) => {
@@ -185,7 +190,7 @@ export default function Products() {
                   <SmallProductCard
                     key={index}
                     title={product.title}
-                    price={product.price}
+                    price={product.price} 
                     image={product.image}
                     description={product.description}
                     buttonText={product.buttonText}

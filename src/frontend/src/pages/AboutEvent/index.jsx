@@ -89,7 +89,7 @@ export default function AboutEvent() {
           <div className={styles.contentContainer}>
             <Content content={event.description} className={styles.content} />
             <div className={styles.buttonContainer}>
-              <Button title='Participar' path='/inscricao' />
+              <Button title='Participar' path={`/eventos/${event.id}/inscricao`} />
             </div>
           </div>
         </div>

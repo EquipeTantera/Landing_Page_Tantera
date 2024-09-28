@@ -14,7 +14,7 @@ export default function Events() {
       address: "Rua Alegria, 456",
       image: "/partner-furioso.png",
       buttonText: "Saiba mais",
-      buttonPath: "/evento/1",
+      buttonPath: "/eventos/1",
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ export default function Events() {
       address: "Rua Diversão, 789",
       image: "/partner-furioso.png",
       buttonText: "Saiba mais",
-      buttonPath: "/evento/2",
+      buttonPath: "/eventos/2",
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ export default function Events() {
       address: "Rua Festa, 101",
       image: "/partner-furioso.png",
       buttonText: "Saiba mais",
-      buttonPath: "/evento/3",
+      buttonPath: "/eventos/3",
     },
   ];
 
@@ -57,7 +57,7 @@ export default function Events() {
             date="10/09/2023"
             ticket="01/01/01"
             buttonText="Saiba mais"
-            linkButton="/evento/4" // Ajustado para navegar para o ID 4
+            linkButton="/eventos/4" 
           />
         </div>
 

@@ -95,15 +95,15 @@ export default function EventRegistration() {
           textButton="Saiba mais"
           linkButton={`/eventos/${event.id}`}
         />
-        <div className={styles.content}>
+        <section className={styles.form}>
           <div className={styles.tag} />
-            <Form 
-              title="Entre em Contato"
-              inputs={formInputs}
-              textButton="Enviar"
-              linkButton="/contato" 
-            />
-          </div>
+          <Form 
+            title="Entre em Contato"
+            inputs={formInputs}
+            textButton="Enviar"
+            linkButton="/contato" 
+          />
+        </section>
       </PaperBackground>
     </>
   );

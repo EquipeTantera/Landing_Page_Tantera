@@ -73,29 +73,29 @@ export default function AboutEvent() {
     <>
       <MainTitle shadowText="Evento" mainText={event.name} />
       <PaperBackground>
-        <div className={styles.overlayContent}>
+        <section className={styles["container--title"]}>
           <VerticalSubtitle
             title="Sobre o evento"
             imageBackground="purple"
-            className={`${styles.verticalSubtitle} verticalSubtitle`}
+            className={`${styles["container--title__vertical-subtitle"]}`}
           />
           <HorizontalSubtitle
             title="Sobre o evento"
             colorImage="purple"
             titleSize="3rem"
-            className={styles.horizontalSubtitle} 
+            className={styles["container--title__horizontal-subtitle"]} 
           />
 
-          <div className={styles.contentContainer}>
-            <Content content={event.description} className={styles.content} />
-            <div className={styles.buttonContainer}>
+          <div className={styles["container--event"]}>
+            <Content content={event.description} />
+            <div className={styles["container--button"]}>
               <Button title='Participar' path={`/eventos/${event.id}/inscricao`} />
             </div>
           </div>
-        </div>
-        <div className={styles.eventInfoContainer}>
+        </section>
+        <section className={styles["container--infos"]}>
           <EventInformationCard address={event.address} dates={[{ date: event.date, startHour: '08:00', endHour: '12:00' }]} observation={event.observation} image={event.fullImage} />
-        </div>
+        </section>
       </PaperBackground>
     </>
   );

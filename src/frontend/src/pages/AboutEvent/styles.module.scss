@@ -1,76 +1,83 @@
-.overlayContent {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  width: 100%;
-  margin-top: -70px;
+.container {
 
-  @media (max-width: 768px) {
-    flex-direction: column;
+  &--title {
+    display: flex;
     align-items: center;
-  }
-}
-
-.contentContainer {
-  flex: 0 0 55%;
-  display: flex;
-  flex-direction: column;
-
-  @media (max-width: 768px) {
-    align-items: center;
-    text-align: center;
+    justify-content: space-between;
+    max-width: 1200px;
     width: 100%;
+    margin-top: -70px;
+  
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__horizontal-subtitle {
+      display: none;
+
+      @media (max-width: 768px) {
+        display: flex;
+        width: 100%;
+      }
+    }
+
+    &__vertical-subtitle {
+      margin-top: -50px;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
   }
+
+  &--event {
+    flex: 0 0 55%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    
+    @media (max-width: 768px) {
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  &--button {
+    display: flex;
+    justify-content: flex-end;
+  
+    @media (max-width: 768px) {
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    button {
+      margin-right: 20px;
+
+      @media (max-width: 768px) {
+        margin-right: 0;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &--infos {
+    width: 100%;
+    margin-top: -65px;
+    margin-bottom: 40px;
+  }
+  
 }
 
 .content {
   width: 100%;
   text-align: left;
+  margin-bottom: 2rem;
 
   @media (max-width: 768px) {
     text-align: center;
   }
 }
 
-.buttonContainer {
-  display: flex;
-  justify-content: flex-end;
-
-  @media (max-width: 768px) {
-    justify-content: center;
-    margin-top: 1rem;
-  }
-}
-
-.buttonContainer button {
-  margin-right: 20px;
-
-  @media (max-width: 768px) {
-    margin-right: 0;
-    margin-bottom: 30px;
-  }
-}
-
-.eventInfoContainer {
-  width: 100%;
-  margin-top: -65px;
-  margin-bottom: 40px;
-}
-
-.verticalSubtitle {
-  margin-top: -50px;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-}
-
-.horizontalSubtitle {
-  display: none;
-
-  @media (max-width: 768px) {
-    display: flex;
-    width: 100%;
-  }
-}

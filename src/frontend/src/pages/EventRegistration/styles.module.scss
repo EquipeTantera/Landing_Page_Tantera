@@ -1,34 +1,21 @@
-.backgroundContainer {
-    background-image: url('/background-main.png');
-    background-size: cover;
-    background-position: inherit;
-    background-repeat: no-repeat;
-    margin-top: -40px;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-  }
-  
-.content {
-    margin: 0rem 6rem;
-    margin-top: 3rem;
-  }
-
-  @media (max-width: 768px) {
-    .content {
-        margin: 0rem 1rem;
-    }
-  }
+.form {
+  margin: 0rem 6rem;
+  margin-top: 3rem;
+}
 
 .tag {
-    height: 3rem;
-    background-image: url('/tag.png');
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: relative;
-    top: 1rem;
-    z-index: 0;
+  height: 3rem;
+  background-image: url('/tag.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  top: 1rem;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .form {
+    margin: 0rem 1rem;
   }
+}

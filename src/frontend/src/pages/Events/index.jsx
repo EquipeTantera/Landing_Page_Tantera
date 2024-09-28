@@ -7,31 +7,34 @@ import styles from "./styles.module.scss";
 export default function Events() {
   const pastEvents = [
     {
+      id: 1,
       title: "Festa Anterior 1",
       date: "01/01/2023",
       ticket: "R$ 50",
       address: "Rua Alegria, 456",
       image: "/partner-furioso.png",
       buttonText: "Saiba mais",
-      buttonPath: "/comprar",
+      buttonPath: "/evento/1",
     },
     {
+      id: 2,
       title: "Festa Anterior 2",
       date: "02/02/2023",
       ticket: "R$ 60",
       address: "Rua Diversão, 789",
       image: "/partner-furioso.png",
       buttonText: "Saiba mais",
-      buttonPath: "/comprar",
+      buttonPath: "/evento/2",
     },
     {
+      id: 3,
       title: "Festa Anterior 3",
       date: "03/03/2023",
       ticket: "R$ 70",
       address: "Rua Festa, 101",
       image: "/partner-furioso.png",
       buttonText: "Saiba mais",
-      buttonPath: "/comprar",
+      buttonPath: "/evento/3",
     },
   ];
 
@@ -54,7 +57,7 @@ export default function Events() {
             date="10/09/2023"
             ticket="01/01/01"
             buttonText="Saiba mais"
-            linkButton="/comprar"
+            linkButton="/evento/4" // Ajustado para navegar para o ID 4
           />
         </div>
 
@@ -82,7 +85,7 @@ export default function Events() {
             date="10/09/2023"
             ticket="01/01/01"
             buttonText="Saiba mais"
-            linkButton="/evento"
+            linkButton="/evento/5"
           />
         </div>
 

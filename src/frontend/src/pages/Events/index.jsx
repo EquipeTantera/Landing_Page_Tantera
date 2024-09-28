@@ -30,7 +30,7 @@ export default function Events() {
             endTime: event?.attributes?.end_time || "",
             ticket: String(event?.attributes?.price || ""),
             buttonText: "Saiba mais",
-            buttonPath: `/event/${event.id}`,
+            buttonPath: `/eventos/${event.id}`,
             eventType: event?.attributes?.event_type?.data?.attributes?.type || "Outros", 
           };
         });

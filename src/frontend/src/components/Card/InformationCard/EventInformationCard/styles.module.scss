@@ -1,12 +1,10 @@
 @use "../../../../styles/variables" as v;
 
 .section {
-  margin-left: 6rem;
-  margin-right: 6rem;
 
   &__container {
     background-image: url(/background-event-information-card.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     width: 100%;

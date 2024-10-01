@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
-export default function FilterModal({ isOpen, onClose }) {
+export default function FilterModal({ isOpen, onClose, onApplyFilters }) {
   const [selectedSort, setSelectedSort] = useState('');
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedSizes, setSelectedSizes] = useState([]);
@@ -33,12 +33,25 @@ export default function FilterModal({ isOpen, onClose }) {
     );
   };
 
+  const handleApplyFilters = () => {
+    onApplyFilters({
+      sort: selectedSort,
+      categories: selectedCategories,
+      sizes: selectedSizes,
+      colors: selectedColors,
+      gender: selectedGender,
+    });
+    onClose();
+  };
+  
+
   if (!isOpen) return null; 
 
   return (
     <div className={styles.container}>
       <div className={styles.modal}>
         <div className={styles.modal__content}>
+          {/* Classificação */}
           <div className={styles.modal__content__filter}>
             <h3 className={styles.modal__content__filter__title}>Classificar por:</h3>
             <label className={styles.modal__content__filter__label}>
@@ -65,10 +78,11 @@ export default function FilterModal({ isOpen, onClose }) {
             </label>
           </div>
 
+          {/* Categorias */}
           <div className={styles.modal__content__filter}>
             <h3 className={styles.modal__content__filter__title}>Categorias:</h3>
-            {['Acessórios de festa', 'Uniformes', 'Coleção'].map((category) => (
-              <label key={category}  className={styles.modal__content__filter__label}>
+            {['Acessórios de Festa', 'Uniformes', 'Coleção'].map((category) => (
+              <label key={category} className={styles.modal__content__filter__label}>
                 <input
                   type="checkbox"
                   value={category}
@@ -81,10 +95,11 @@ export default function FilterModal({ isOpen, onClose }) {
             ))}
           </div>
 
+          {/* Tamanhos */}
           <div className={styles.modal__content__filter}>
             <h3 className={styles.modal__content__filter__title}>Tamanhos:</h3>
             <div className={styles.modal__content__filter__sizes}>
-              {['PP', 'P', 'M', 'G', 'GG'].map((size) => (
+              {["PP", "P", "M", "G", "GG"].map((size) => (
                 <label className={`${styles.modal__content__filter__size} ${selectedSizes.includes(size) ? styles.selected : ''}`} key={size}>
                   <input
                     type="checkbox"
@@ -99,10 +114,10 @@ export default function FilterModal({ isOpen, onClose }) {
             </div>
           </div>
 
-
+          {/* Cores */}
           <div className={styles.modal__content__filter}>
             <h3 className={styles.modal__content__filter__title}>Cor:</h3>
-            {['Preto', 'Roxo', 'Branco', 'Vermelho'].map((color) => (
+            {['preto', 'roxo', 'branco', 'vermelho'].map((color) => (
               <label key={color} className={styles.modal__content__filter__label}>
                 <input
                   type="checkbox"
@@ -116,9 +131,10 @@ export default function FilterModal({ isOpen, onClose }) {
             ))}
           </div>
 
+          {/* Gênero */}
           <div className={styles.modal__content__filter}>
             <h3 className={styles.modal__content__filter__title}>Gênero:</h3>
-            {['Feminino', 'Masculino', 'Unissex'].map((gender) => (
+            {['feminino', 'masculino', 'unissex'].map((gender) => (
               <label key={gender} className={styles.modal__content__filter__label}>
                 <input
                   type="radio"
@@ -133,7 +149,7 @@ export default function FilterModal({ isOpen, onClose }) {
             ))}
           </div>
 
-          <button className={styles.modal__content__button} onClick={onClose}>
+          <button className={styles.modal__content__button} onClick={handleApplyFilters}>
             Aplicar Filtros
           </button>
         </div>
@@ -150,4 +166,5 @@ export default function FilterModal({ isOpen, onClose }) {
 FilterModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  onApplyFilters: PropTypes.func.isRequired, 
 };

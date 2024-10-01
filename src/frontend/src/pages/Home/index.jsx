@@ -1,181 +1,328 @@
-import { useState } from 'react';
 import styles from './styles.module.scss';
-import CarouselCard from '../../components/Carousels/CarouselCard';
-import ResultInformationCard from '../../components/Card/InformationCard/ResultInformationCard';
-import ManagementInformationCard from '../../components/Card/InformationCard/ManagementInformationCard';
-import FormCard from '../../components/Card/FormCard';
-import Pagination from '../../components/Pagination';
-import MediumEventCard from '../../components/Card/MediumEventCard';
-import Accordion from '../../components/Accordion';
-import CarouselLargePartner from '../../components/Carousels/CarouselLargePartnerCard';
-import LargePartnerCard from '../../components/Card/LargeCard/LargePartnerCard';
+import PaperBackground from '../../components/PaperBackground';
+import HorizontalSubtitle from '../../components/HorizontalSubtitle';
+import CountingCard from '../../components/Card/CountingCard';
+import CarouselSmallProductCard from '../../components/Carousels/CarouselSmallProductCard';
+import Content from '../../components/Content';
+import Button from '../../components/Buttons/Button';
+import CarouselLargePartnerCard from '../../components/Carousels/CarouselLargePartnerCard';
+import Form from '../../components/Card/FormCard';
 
 export default function Home() {
-  const inputs = [
-    { type: 'text', placeholder: 'Seu nome', label: 'Nome' },
-    { type: 'text', placeholder: 'Seu email', label: 'Email' },
+
+  const events = [
     {
-      type: 'select', placeholder: 'Selecione uma opção', label: 'Selecione', options: [
-        { value: 'opcao1', label: 'Opção 1' },
-        { value: 'opcao2', label: 'Opção 2' },
-      ]
+      title: 'Evento 1',
+      description: 'Descrição do evento 1',
+      price: "10.00",
+      image: 'copa-inteli.png',
+      buttonText: 'Saiba mais',
+      buttonPath: '/produtos'
+    }, 
+    {
+      title: 'Evento 2',
+      description: 'Descrição do evento 2',
+      price: "10.00",
+      image: 'copa-inteli.png',
+      buttonText: 'Saiba mais',
+      buttonPath: '/produtos'
+    }, 
+    {
+      title: 'Evento 3',
+      description: 'Descrição do evento 3',
+      price: "10.00",
+      image: 'copa-inteli.png',
+      buttonText: 'Saiba mais',
+      buttonPath: '/produtos'
+    }, 
+    {
+      title: 'Evento 4',
+      description: 'Descrição do evento 4',
+      price: "10.00",
+      image: 'copa-inteli.png',
+      buttonText: 'Saiba mais',
+      buttonPath: '/produtos'
+    }, 
+    {
+      title: 'Evento 5',
+      description: 'Descrição do evento 5',
+      price: "10.00",
+      image: 'copa-inteli.png',
+      buttonText: 'Saiba mais',
+      buttonPath: '/produtos'
+    }, 
+    {
+      title: 'Evento 6',
+      description: 'Descrição do evento 6',
+      price: "10.00",
+      image: 'copa-inteli.png',
+      buttonText: 'Saiba mais',
+      buttonPath: '/produtos'
+    }, 
+    {
+      title: 'Evento 7',
+      description: 'Descrição do evento 7',
+      price: "10.00",
+      image: 'copa-inteli.png',
+      buttonText: 'Saiba mais',
+      buttonPath: '/produtos'
+    }, 
+    {
+      title: 'Evento 8',
+      description: 'Descrição do evento 8',
+      price: "10.00",
+      image: 'copa-inteli.png',
+      buttonText: 'Saiba mais',
+      buttonPath: '/produtos'
+    }, 
+    {
+      title: 'Evento 9',
+      description: 'Descrição do evento 9',
+      price: "10.00",
+      image: 'copa-inteli.png',
+      buttonText: 'Saiba mais',
+      buttonPath: '/produtos'
+    }, 
+    {
+      title: 'Evento 10',
+      description: 'Descrição do evento 10',
+      price: "10.00",
+      image: 'copa-inteli.png',
+      buttonText: 'Saiba mais',
+      buttonPath: '/produtos'
+    }
+  ]
+
+  const partners =[
+    {
+      title: 'Parceiro 1',
+      description: 'Descrição do parceiro 1',
+      image: 'partner-furioso.png',
+      fullImage: 'partner-furioso-full.png',
+      events: [
+        {
+          name: 'Evento 1',
+          date: '01/01/2021'
+        },
+        {
+          name: 'Evento 2',
+          date: '02/01/2021'
+        },
+        {
+          name: 'Evento 3',
+          date: '03/01/2021'
+        }
+      ],
+      impacts: [
+        {
+          name: 'Impacto 1'
+        },
+        {
+          name: 'Impacto 2'
+        },
+        {
+          name: 'Impacto 3'
+        }
+      ],
+      textButton: 'Saiba mais',
+      linkButton: '/produtos'
+    },
+    {
+      title: 'Parceiro 2',
+      description: 'Descrição do parceiro 2',
+      image: 'partner-furioso.png',
+      fullImage: 'partner-furioso-full.png',
+      events: [
+        {
+          name: 'Evento 1',
+          date: '01/01/2021'
+        },
+        {
+          name: 'Evento 2',
+          date: '02/01/2021'
+        },
+        {
+          name: 'Evento 3',
+          date: '03/01/2021'
+        }
+      ],
+      impacts: [
+        {
+          name: 'Impacto 1'
+        },
+        {
+          name: 'Impacto 2'
+        },
+        {
+          name: 'Impacto 3'
+        }
+      ],
+      textButton: 'Saiba mais',
+      linkButton: '/produtos'
+    },
+    {
+      title: 'Parceiro 3',
+      description: 'Descrição do parceiro 3',
+      image: 'partner-furioso.png',
+      fullImage: 'partner-furioso-full.png',
+      events: [
+        {
+          name: 'Evento 1',
+          date: '01/01/2021'
+        },
+        {
+          name: 'Evento 2',
+          date: '02/01/2021'
+        },
+        {
+          name: 'Evento 3',
+          date: '03/01/2021'
+        }
+      ],
+      impacts: [
+        {
+          name: 'Impacto 1'
+        },
+        {
+          name: 'Impacto 2'
+        },
+        {
+          name: 'Impacto 3'
+        }
+      ],
+      textButton: 'Saiba mais',
+      linkButton: '/produtos'
+    }
+  ]
+
+  const formInputs = [
+    {
+      type: 'text',
+      placeholder: 'Digite seu nome',
+      label: 'Nome'
+    },
+    {
+      type: 'text',
+      placeholder: 'Digite seu e-mail',
+      label: 'E-mail'
+    },
+    {
+      type: 'select',
+      placeholder: 'Selecione seu motivo de contato',
+      options: [
+        { value: 'motivo1', label: 'Motivo 1' },
+        { value: 'motivo2', label: 'Motivo 2' },
+        { value: 'motivo3', label: 'Motivo 3' },
+      ],
+      label: 'Motivo'
+    },
+    {
+      type: 'textarea',
+      placeholder: 'Digite sua mensagem',
+      label: 'Mensagem'
     },
   ];
-
-  const partnersData = [
-    {
-      name: 'Parceiro 1',
-      description: 'Descrição do Parceiro 1',
-      image: 'https://example.com/image1.jpg',
-      fullImage: 'https://example.com/fullImage1.jpg',
-      events: [{ name: 'Evento 1', date: '2024-09-17' }],
-      impacts: [{ name: 'Impacto 1' }],
-      textButton: 'Saiba Mais',
-      linkButton: '/parceiro1',
-    },
-    {
-      name: 'Parceiro 2',
-      description: 'Descrição do Parceiro 2',
-      image: 'https://example.com/image2.jpg',
-      fullImage: 'https://example.com/fullImage2.jpg',
-      events: [{ name: 'Evento 2', date: '2024-09-18' }],
-      impacts: [{ name: 'Impacto 2' }],
-      textButton: 'Saiba Mais',
-      linkButton: '/parceiro2',
-    },
-  ];
-
-  const carouselCards = [
-    {
-      image: '/partner-furioso.png',
-      event: 'Evento 1',
-    },
-    {
-      image: '/profile-tantech.jpeg',
-      event: 'Evento 2',
-    },
-    {
-      image: '/partner-furioso.png',
-      event: 'Evento 3',
-    },
-    {
-      image: '/profile-tantech.jpeg',
-      event: 'Evento 4',
-    },
-    {
-      image: '/partner-furioso.png',
-      event: 'Evento 5',
-    },
-    {
-      image: '/profile-tantech.jpeg',
-      event: 'Evento 6',
-    },
-  ];
-
-  const faqItems = [
-    {
-      buttonText: "Por que eu deveria assinar o plano de sócios?",
-      panelText: "Porque sim, pateta! A Atlética Tantera é muito mais do que uma simples associação estudantil.",
-      colorImage: "black"
-    },
-    {
-      buttonText: "O plano de sócio atleta tem alguma carência ou contrato mínimo?",
-      panelText: "Porque sim, pateta! A Atlética Tantera é muito mais do que uma simples associação estudantil.",
-      colorImage: "red"
-    },
-    {
-      buttonText: "Os treinos de futebol são para todos os níveis?",
-      panelText: "Porque sim, pateta! A Atlética Tantera é muito mais do que uma simples associação estudantil.",
-      colorImage: "black"
-    },
-  ];
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 4;
 
   return (
     <>
-      <div className={styles.container}>
-        <section className={styles.container__section}>
-
-          <div className={styles.container__teste}>
-            <Accordion items={faqItems} />
-          </div>
-
-          <FormCard
-            title="Formulário de Contato"
-            inputs={inputs}
-            textButton="Enviar"
-            linkButton="/submit"
-          />
-          
-          <LargePartnerCard
-            name='Fulano de Tal'
-            description='Fulano de Tal é uma empresa de tecnologia que atua no mercado de desenvolvimento de softwares e aplicativos.'
-            fullImage='/partner-furioso-full.png'
-            image='/partner-furioso.png'
-            events={[
-              {
-                name: 'Evento 1',
-                date: '01/01/2021',
-                startHour: '08:00',
-                endHour: '12:00',
-              },
-              {
-                name: 'Evento 2',
-                date: '02/01/2021',
-                startHour: '08:00',
-                endHour: '12:00',
-              },
-            ]}
-            impacts={[
-              { name: 'Impacto 1' },
-              { name: 'Impacto 2' },
-            ]}
-            textButton='Conhecer a empresa'
-            linkButton='/'
-          />
-
-          <ResultInformationCard
-            results={[
-              { name: 'Resultado 1' },
-              { name: 'Resultado 2' },
-              { name: 'Resultado 3' },
-            ]}
-            title='Resultados'
-          />
-
-          <ManagementInformationCard
-            termOfOffice='2021-2024'
-            title='Resultados'
-            results={[
-              { name: 'Resultado 1' },
-              { name: 'Resultado 2' },
-              { name: 'Resultado 3' },
-            ]}
-          />
-          <Pagination
-            totalPages={totalPages}
-            currentPage={currentPage}
-            onPageChange={setCurrentPage}
-          />
-          <CarouselCard cards={carouselCards} />
-
-          <MediumEventCard 
-            title="Evento Furioso"
-            description="Evento da empresa Furioso"
-            image="/partner-furioso-full.png"
-            address='Rua Furiosa, 123'
-            date="10/09/2023"
-            ticket="01/01/01"
-            buttonText="Saiba mais"
-            linkButton="/comprar"
-          />
-
-          <CarouselLargePartner partners={partnersData} />
-
-        </section>
+      <div className={styles.container__gif}>
+        <img 
+          src="./src/assets/gif/gif-tela-inicial.gif" 
+          alt="GIF Tela Inicial"
+          className={styles.container__gif__img} 
+        />
       </div>
+        <section className={styles.container__impacts}>
+          <HorizontalSubtitle 
+            title="Impactos da Atlética"
+            colorImage='red'
+          />
+
+          <div className={styles.container__impacts__content}>
+            <CountingCard 
+              text='Eventos realizados'
+              count={10}
+            />
+
+            <CountingCard 
+              text='Campeonatos'
+              count={9}
+            />
+
+            <CountingCard 
+              text='Quantidade de Jogadores'
+              count={100}
+            />
+          </div>
+        </section>
+
+        <section className={styles.container__events}>
+          <HorizontalSubtitle 
+            title="Próximos Eventos"
+            colorImage='purple'
+          />
+
+          <div className={styles.container__events__content}>
+            <CarouselSmallProductCard 
+              cards={events}
+            />
+          </div>
+        </section>
+
+        <section className={styles.container__management}>
+          <HorizontalSubtitle 
+            title="Gestão Atual"
+            colorImage='red'
+          />
+
+          <div className={styles.container__management__content}>
+            <div className={styles.container__management__content__text}>
+              <Content 
+                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec aliquet sem. Morbi volutpat neque sed auctor elementum. Donec justo magna, porttitor in sagittis id, malesuada ac est. Aenean congue metus sed mauris pretium, vitae hendrerit nunc tincidunt."
+              />
+              <Content 
+                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec aliquet sem. Morbi volutpat neque sed auctor elementum. Donec justo magna, porttitor in sagittis id, malesuada ac est. Aenean congue metus sed mauris pretium, vitae hendrerit nunc tincidunt."
+              />
+            </div>
+
+            <div className={styles.container__management__content__image}>
+              <img src="/spider-back.png" alt="gestao-atual" width={"100%"}/>
+            </div>
+
+            <Button 
+              title="Conheça mais detalhes da gestão atual"
+              path="/gestao-atual"
+            />
+          </div>
+        </section>
+
+        <section className={styles.container__partners}>
+          <HorizontalSubtitle 
+            title="Parceiros"
+            colorImage='transparent'
+          />
+
+          <div className={styles.container__partners__content}>
+            <CarouselLargePartnerCard partners={partners}/>
+          </div>
+        </section>
+
+        <section className={styles.container__contact}>
+          <HorizontalSubtitle 
+            title="Contato"
+            colorImage='purple'
+          />
+
+          <div className={styles.container__contact__content}>
+          <div className={styles.container__contact__tag} />
+            <Form 
+              title="Entre em Contato"
+              inputs={formInputs}
+              textButton="Enviar"
+              linkButton="/contato" 
+            />
+          </div>
+        </section>
     </>
   );
 }

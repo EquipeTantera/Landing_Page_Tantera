@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
-import Button from '../../../Button';
+import Button from '../../../Buttons/Button';
 
 export default function SmallEventCard({ title, date, ticket, address, image, buttonText, buttonPath }) {
   return (
@@ -18,7 +18,7 @@ export default function SmallEventCard({ title, date, ticket, address, image, bu
             </p>
           }
           <p className={styles.container__infos__div__ticket}>
-            <span className={styles.container__infos__div__ticket__span}>Ingressos a partir: </span>{ticket}
+            <span className={styles.container__infos__div__ticket__span}>Ingressos a partir: </span>{date}
           </p>
         </div>
         <div className={styles.container__infos__button}>

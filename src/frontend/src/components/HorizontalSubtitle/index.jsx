@@ -6,7 +6,7 @@ export default function HorizontalSubtitle({ title, colorImage, tag, titleSize, 
     <>
       {tag === true ? <div className={styles.tag} /> : null}
       <div className={`${colorImage === "transparent" ? styles["container-transparent"] : styles.container} ${className || ''}`}
-        style={{ backgroundImage: `url(vertical_subtitle_${colorImage}_desktop.png)` }} >
+        style={{ backgroundImage: `url("/vertical_subtitle_${colorImage}_desktop.png")` }} >
         <h2 style={colorImage === "transparent" ? { color: "#180733", fontSize: titleSize } : { fontSize: titleSize }} className={styles.container__title}>
           {title}
         </h2>
@@ -20,5 +20,4 @@ HorizontalSubtitle.propTypes = {
   colorImage: PropTypes.oneOf(['purple', 'red', 'transparent']).isRequired,
   tag: PropTypes.bool,
   titleSize: PropTypes.string,
-  className: PropTypes.string
 };

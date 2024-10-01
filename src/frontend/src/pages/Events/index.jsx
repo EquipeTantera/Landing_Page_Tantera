@@ -98,7 +98,7 @@ export default function Events() {
           {upcomingFests.length > 0 ? (
             <MediumEventCard {...upcomingFests[0]} />
           ) : (
-            <p>Sem festas no momento</p>
+            <p className={styles.container__fests__cards__paragraph}>Estamos planejando as próximas festas! Acompanhe nosso Instagram <span aria-hidden="true">🕷️</span></p>
           )}
         </div>
 
@@ -131,16 +131,12 @@ export default function Events() {
           {upcomingChampionships.length > 0 ? (
             <MediumEventCard {...upcomingChampionships[0]} />
           ) : (
-            <p>Sem campeonatos no momento</p>
+            <p className={styles.container__championships__cards__parahraph}>Estamos planejando o próximo campeonato! <span aria-hidden="true">🕷️</span></p>
           )}
         </div>
 
         <div className={styles.container__championships__nextParty}>
-          <p
-            className={
-              styles["container__championships__nextParty__text--second"]
-            }
-          >
+          <p className={styles["container__championships__nextParty__text--second"]}>
             Campeonatos Anteriores
           </p>
         </div>
@@ -151,33 +147,33 @@ export default function Events() {
       </section>
 
       {/* Seção de Outros */}
-      <section className={styles.container__championships}>
+      <section className={styles.container__others}>
         <HorizontalSubtitle
           title="Outros"
           colorImage="purple"
           titleSize="3rem"
         />
-        <div className={styles.container__championships__nextParty}>
-          <p className={styles.container__championships__nextParty__text}>
+        <div className={styles.container__others__nextParty}>
+          <p className={styles.container__others__nextParty__text}>
             Próximos eventos
           </p>
         </div>
 
-        <div className={styles.container__championships__cards}>
+        <div className={styles.container__others__cards}>
           {upcomingOthers.length > 0 ? (
             <MediumEventCard {...upcomingOthers[0]} />
           ) : (
-            <p>Sem outros eventos no momento</p>
+            <p className={styles.container__others__cards__paragraph}>Estamos planejando eventos diferentes! Acompanhe nosso Instagram <span aria-hidden="true">🕷️</span></p>
           )}
         </div>
 
-        <div className={styles.container__championships__nextParty}>
-          <p className={styles["container__championships__nextParty__text--second"]}>
+        <div className={styles.container__others__nextParty}>
+          <p className={styles["container__others__nextParty__text--second"]}>
             Eventos Anteriores
           </p>
         </div>
 
-        <div className={styles.container__championships__carousel}>
+        <div className={styles.container__others__carousel}>
           <CarouselSmallEventCard events={pastOthers} interval={3000} />
         </div>
       </section>

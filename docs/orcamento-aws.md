@@ -26,9 +26,9 @@ A instância t3.medium é ideal para aplicações com uso constante e exigência
 
 O EBS (Elastic Block Store) foi configurado com um volume de 20 GiB e taxa de throughput de 100 MBps. Esse armazenamento é ideal para garantir a velocidade de leitura e gravação necessária para o backend sem incorrer em altos custos. O uso de gp3 permite maior flexibilidade e melhor controle sobre a performance do volume.
 
-**Opções de Pagamento: Compute Savings Plans (3 anos, pagamento adiantado parcial)**
+**Opções de Pagamento: Compute Savings Plans (3 anos)**
 
-O Compute Savings Plan oferece descontos de até 66% em comparação com o preço sob demanda, aplicando-se automaticamente ao uso de EC2, Fargate e Lambda. No caso de um compromisso de 3 anos com pagamento adiantado parcial, o custo inicial é menor do que o pagamento adiantado integral, proporcionando um bom custo-benefício para serviços de uso constante.
+Plano aplicado automaticamente para toda instância EC2. As modificações ocorreram apenas para prolongar o uso para 3 anos.
 
 **Associação com Elastic IP**
 
@@ -36,8 +36,7 @@ Um Elastic IP é um endereço IP estático e público que pode ser atribuído à
 
 ### Custos Totais - EC2
 
-- **Custo Inicial Total:** 7.81 USD (pagamento adiantado parcial para o Compute Savings Plan de 3 anos).
-- **Custo Mensal Total:** 9.41 USD (graças ao plano de pagamento adiantado parcial e economias do Savings Plan).
+- **Custo Mensal Total:** 18.32 USD (graças ao plano de pagamento adiantado parcial e economias do Savings Plan).
 
 ---
 
@@ -49,7 +48,7 @@ Tendo em vista os custos do EC2 para o backend, precisamos armazenar o banco de 
 
 - **Tipo de Instância:** t3.micro
 - **Sistema Operacional:** Ubuntu
-- **Modelo de Preço:** Compute Savings Plan (3 anos, Partial UpFront)
+- **Modelo de Preço:** Compute Savings Plan (3 anos)
 - **Armazenamento:** SSD (gp3), 20 GiB, 100 MBps
 - **Implantação:** Single-AZ (Zona única)
 - **Backup:** Não há snapshots configurados.
@@ -68,13 +67,13 @@ O armazenamento foi provisionado em 20 GiB com a opção gp3, que oferece uma bo
 
 ### Custos Totais - EC2 para Banco de Dados
 
-- **Custo Inicial Total:** 2.41 USD (pagamento adiantado parcial para o Compute Savings Plan de 3 anos).
-- **Custo Mensal Total:** 4.01 USD (graças ao plano de pagamento adiantado parcial e economias do Savings Plan).
+- **Custo Mensal Total:** 7.00 USD (graças ao plano de pagamento adiantado parcial e economias do Savings Plan).
 
 ---
 
 ## Custos Totais
 
-- **Custo Inicial Total (EC2 Backend + EC2 Banco de Dados):** 367,92 USD 
-- **Custo Mensal Total (EC2 Backend + EC2 Banco de Dados):** 13,42 USD
-- **Custo Total em 12 Meses:** 528,96 USD (incluindo custos iniciais).
+- **Custo Inicial Total (EC2 Backend + EC2 Banco de Dados):** 0 USD 
+- **Custo Mensal Total (EC2 Backend + EC2 Banco de Dados):** 25.32 USD
+- **Custo Total em 12 Meses:** 303,84 USD 
+

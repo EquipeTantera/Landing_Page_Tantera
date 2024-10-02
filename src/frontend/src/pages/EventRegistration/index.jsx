@@ -5,25 +5,8 @@ import LargeEventCard from "../../components/Card/LargeCard/LargeEventCard";
 import PaperBackground from "../../components/PaperBackground";
 import Form from "../../components/Card/FormCard";
 import { useState, useEffect } from "react";
-import { API_BASE_URL, BASE_URL } from "../../services/config";
+import { API_BASE_URL } from "../../services/config";
 import axios from "axios";
-
-const courses = [
-  { id: 1, name: "Engenharia" },
-  { id: 2, name: "Medicina" },
-  { id: 3, name: "Direito" },
-];
-
-const classes = [
-  { id: 1, name: "Turma A" },
-  { id: 2, name: "Turma B" },
-];
-
-const years = [
-  { id: 1, year: "2020" },
-  { id: 2, year: "2021" },
-  { id: 3, year: "2022" },
-];
 
 export default function EventRegistration() {
   const { id } = useParams();
@@ -34,6 +17,7 @@ export default function EventRegistration() {
   const [participantType, setParticipantType] = useState('');
   const [loading, setLoading] = useState(true);
   const [dropdownLoading, setDropdownLoading] = useState(true);
+  const [formData, setFormData] = useState({ name: "", number: "", email: "", participant: "", class_id: "", year_id: "", course_id: "" });
 
   // Função para buscar os dados do evento no backend
   useEffect(() => {
@@ -80,18 +64,18 @@ export default function EventRegistration() {
         ]);
 
         const formattedClasses = classesResponse.data.data.map((classItem) => ({
-          value: classItem.id,
-          label: classItem.attributes.class_course,
+          value: String(classItem.id), 
+          label: String(classItem.attributes.class_course),
         }));
 
         const formattedYears = yearsResponse.data.data.map((yearItem) => ({
-          value: yearItem.id,
-          label: yearItem.attributes.year,
+          value: String(yearItem.id),
+          label: String(yearItem.attributes.year),
         }));
 
         const formattedCourses = coursesResponse.data.data.map((courseItem) => ({
-          value: courseItem.id,
-          label: courseItem.attributes.course_name,
+          value: String(courseItem.id),
+          label: String(courseItem.attributes.course_name),
         }));
 
         setClasses(formattedClasses);
@@ -107,18 +91,47 @@ export default function EventRegistration() {
     fetchDropdownData();
   }, []);
 
-  if (loading) {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async () => {
+    const payload = {
+      data: {
+        name: formData.name,
+        number: parseInt(formData.number, 10),
+        email: formData.email,
+        participant: participantType === "Jogador" ? true : false,
+        event_id: parseInt(id, 10), 
+        class_id: formData.class_id ? parseInt(formData.class_id, 10) : null,
+        year_id: formData.year_id ? parseInt(formData.year_id, 10) : null,
+        course_id: formData.course_id ? parseInt(formData.course_id, 10) : null,
+      },
+    };
+
+    try {
+      await axios.post(`${API_BASE_URL}/event-forms`, payload);
+      alert("Inscrição enviada com sucesso!");
+    } catch (error) {
+      console.error("Erro ao enviar a inscrição:", error);
+      console.log("Payload:", payload);
+      alert("Erro ao enviar a inscrição. Tente novamente.");
+    }
+  };
+
+  if (loading || dropdownLoading) {
     return <p>Carregando...</p>;
   }
+
   if (!event) {
     return <p>Evento não encontrado.</p>;
   }
 
   const formInputs = [
-    { type: 'text', placeholder: 'Digite seu nome', label: 'Nome' },
-    { type: 'number', placeholder: 'Digite seu número de telefone', label: 'Número de Telefone' },
-    { type: 'email', placeholder: 'Digite seu e-mail', label: 'E-mail' },
-    ...(event.type === 'Campeonato' ? [
+    { type: 'text', placeholder: 'Digite seu nome', label: 'Nome', name: 'name', onChange: handleChange, value: formData.name },
+    { type: 'number', placeholder: 'Digite seu número de telefone', label: 'Número de Telefone', name: 'number', onChange: handleChange, value: formData.number },
+    { type: 'email', placeholder: 'Digite seu e-mail', label: 'E-mail', name: 'email', onChange: handleChange, value: formData.email },
+    ...(event.eventType === 'Campeonato' ? [
       { 
         type: 'select', 
         label: 'Você é Jogador(a) ou Espectador(a)?', 
@@ -130,26 +143,34 @@ export default function EventRegistration() {
         onChange: (e) => setParticipantType(e.target.value),
       }
     ] : []),
-    
     { 
       type: 'select',
       label: 'Curso',
       placeholder: 'Selecione seu Curso',
+      name: 'course_id',
       options: courses, 
+      onChange: handleChange,
+      value: formData.course_id,
     },
     { 
       type: 'select',
       label: 'Turma',
       placeholder: 'Selecione sua Turma',
+      name: 'class_id',
       options: classes, 
+      onChange: handleChange,
+      value: formData.class_id,
     },
     { 
       type: 'select',
       label: 'Ano de Entrada',
       placeholder: 'Selecione o ano em que você entrou no Inteli',
+      name: 'year_id',
       options: years, 
+      onChange: handleChange,
+      value: formData.year_id,
     },
-  ];
+  ];  
 
   return (
     <>
@@ -170,7 +191,8 @@ export default function EventRegistration() {
             title="Formulário de Inscrição"
             inputs={formInputs}
             textButton="Enviar Inscrição"
-            linkButton="#"
+            onSubmit={handleSubmit}
+            isContact={false}
           />
         </section>
       </PaperBackground>

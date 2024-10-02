@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
-export default function Input({
-  type,
-  placeholder = '',
-  options = [],
-  label = ''
-}) {
+export default function Input({ type, placeholder = '', options = [], label = '', name = '', value = '', onChange}) {
   return (
     <div className={styles.container}>
       {label && <label className={styles.label}>{label}</label>}
       {type === 'select' ? (
         <div className={styles.container__div}>
-          <select className={styles.container__div__input} defaultValue=''>
+          <select
+            className={styles.container__div__input}
+            defaultValue={value || ''}
+            name={name} 
+            onChange={onChange}
+          >
             <option value='' disabled>
               {placeholder}
             </option>
@@ -38,12 +38,18 @@ export default function Input({
         <textarea
           className={styles.container__div__textarea}
           placeholder={placeholder}
+          name={name}
+          value={value}
+          onChange={onChange}
         />
       ) : (
         <input
           type={type}
           className={styles.container__div__input}
           placeholder={placeholder}
+          name={name}
+          value={value}
+          onChange={onChange}
         />
       )}
     </div>
@@ -51,7 +57,7 @@ export default function Input({
 }
 
 Input.propTypes = {
-  type: PropTypes.oneOf(['text', 'select', 'textarea', 'number', 'email']).isRequired, // Adicionados 'number' e 'email'
+  type: PropTypes.oneOf(['text', 'select', 'textarea', 'number', 'email']).isRequired,
   placeholder: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -60,4 +66,7 @@ Input.propTypes = {
     })
   ),
   label: PropTypes.string,
+  name: PropTypes.string, 
+  value: PropTypes.string, 
+  onChange: PropTypes.func,
 };

@@ -1,3 +1,6 @@
+
+@use "../../styles/variables" as v;
+
 .aboutUsContainer {
   display: flex;
   justify-content: space-between;
@@ -23,6 +26,36 @@
 
 .aboutUsImage {
   width: 100%;
+}
+
+.textContainer {
+  text-align: left;
+  margin: 20px auto;
+  width: 80%;
+}
+
+.normalText {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  margin: 10px 0;
+  color: v.$white-3;
+}
+
+.highlightText {
+  font-family: v.$DriveCorps3d;
+  font-size: 2.4rem;
+  color: v.$white-3;
+}
+
+.tag {
+  height: 3rem;
+  background-image: url('/tag.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  top: 1rem;
+  z-index: 0;
 }
 
 .directorSection {

@@ -2,8 +2,6 @@
 
 .aboutUsContainer {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   align-items: center;
 
   @media (max-width: 768px) {
@@ -27,9 +25,18 @@
 }
 
 .content {
+  width: 600px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
 
   @media (max-width: 768px) {
     font-size: 1rem;
+    margin-left: 0;
+    width: 100%;
+    padding: 0 1rem;
+    margin-top: -50px;
+    margin-bottom: 20px;
   }
 }
 
@@ -56,29 +63,37 @@
 
 .textOverlay {
   position: absolute;
-  top: 35%;
-  left: 50%;
+  top: 40%;
+  left: 45%;
   transform: translate(-50%, -35%);
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
-  text-align: left;
   color: v.$white-3;
   width: 80%;
   z-index: 1;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    top: 10%;
+    transform: translate(-50%, 0);
+  }
 }
 
 .purposeTitle {
   font-family: v.$DriveCorps;
   font-size: 4rem;
-  margin-right: 40px;
   color: v.$white-3;
-  margin-top: 150px;
+  margin-top: 140px;
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    order: 1;
   }
-
 }
 
 .textContainer {
@@ -86,9 +101,16 @@
   margin: 20px auto;
   width: 80%;
 
+
   @media (max-width: 768px) {
     width: 100%;
-    left: 45%;
+    margin-top: 10px;
+    order: 2;
+  }
+
+  @media (min-width: 769px) {
+    width: 60%;
+
   }
 }
 
@@ -155,6 +177,7 @@
   @media (max-width: 768px) {
     width: 300px;
     height: 200px;
+    margin-top: -50px;
   }
 }
 .centeredContentContainer {
@@ -180,5 +203,6 @@
   @media (max-width: 768px) {
     margin: 0rem 1rem;
     padding: 0px;
+    margin-bottom: 20px;
   }
 }

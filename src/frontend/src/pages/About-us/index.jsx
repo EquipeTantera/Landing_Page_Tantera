@@ -35,10 +35,11 @@ export default function AboutUs() {
           imageBackground="purple"
           className={styles.verticalSubtitle}
         />
+        <div className={styles.content}>
           <Content 
             content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec aliquet sem. Morbi volutpat neque sed auctor elementum. Donec justo magna, porttitor in sagittis id, malesuada ac est. Aenean congue metus sed mauris pretium, vitae hendrerit nunc tincidunt."
-            className={styles.content}
           />
+        </div>
       </div>
       <div className={styles.imageContainer}>
         <img 
@@ -68,6 +69,7 @@ export default function AboutUs() {
 
         </div>
       </div>
+
       <HorizontalSubtitle
           title="Diretorias"
           colorImage="red"
@@ -93,6 +95,7 @@ export default function AboutUs() {
       </div>
       <HorizontalSubtitle 
         title="Mascote"
+        titleSize="3rem"
         colorImage="purple"
       />
       <div className={styles.mascotContainer}>

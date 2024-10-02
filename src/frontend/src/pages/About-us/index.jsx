@@ -43,21 +43,25 @@ export default function AboutUs() {
           className={styles.aboutUsImage}
         />
         <div className={styles.textOverlay}>
-          <p className={styles.normalText}>
-            Estabelecer <span className={styles.highlightText}>identidade</span> e <span className={styles.highlightText}>tradição</span>;
-          </p>
-          <p className={styles.normalText}>
-            Cultivar valores de <span className={styles.highlightText}>união</span> e <span className={styles.highlightText}>colaboração</span>;
-          </p>
-          <p className={styles.normalText}>
-            Fomentar o <span className={styles.highlightText}>espírito</span> <span className={styles.highlightText}>esportivo</span>;
-          </p>
-          <p className={styles.normalText}>
-            Incentivar a <span className={styles.highlightText}>vivência</span> <span className={styles.highlightText}>universitária</span>;
-          </p>
-          <p className={styles.normalText}>
-            Gerar aprendizado sobre <span className={styles.highlightText}>gestão</span> e <span className={styles.highlightText}>trabalho</span> em equipe.
-          </p>
+          <div className={styles.textContainer}>
+            <p className={styles.normalText}>
+              Estabelecer <span className={styles.highlightText}>identidade</span> e <span className={styles.highlightText}>tradição</span>;
+            </p>
+            <p className={styles.normalText}>
+              Cultivar valores de <span className={styles.highlightText}>união</span> e <span className={styles.highlightText}>colaboração</span>;
+            </p>
+            <p className={styles.normalText}>
+              Fomentar o <span className={styles.highlightText}>espírito</span> <span className={styles.highlightText}>esportivo</span>;
+            </p>
+            <p className={styles.normalText}>
+              Incentivar a <span className={styles.highlightText}>vivência</span> <span className={styles.highlightText}>universitária</span>;
+            </p>
+            <p className={styles.normalText}>
+              Gerar aprendizado sobre <span className={styles.highlightText}>gestão</span> e <span className={styles.highlightText}>trabalho</span> em equipe.
+            </p>
+          </div>
+          <div className={styles.purposeTitle}>Propósito</div>
+
         </div>
       </div>
 

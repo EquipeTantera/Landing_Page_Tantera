@@ -9,6 +9,7 @@
 
 .verticalSubtitle {
   flex: 0 0 300px;
+  margin-right: 20px;
 }
 
 .content {
@@ -31,11 +32,23 @@
   position: absolute;
   top: 35%;
   left: 50%;
-  transform: translate(-50%, -20%);
+  transform: translate(-50%, -35%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   text-align: left;
   color: v.$white-3;
   width: 80%;
   z-index: 1;
+}
+
+.purposeTitle {
+  font-family: v.$DriveCorps;
+  font-size: 4rem;
+  margin-right: 40px;
+  color: v.$white-3;
+  margin-top: 150px;
+
 }
 
 .textContainer {

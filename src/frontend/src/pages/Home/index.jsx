@@ -20,7 +20,7 @@ export default function Home() {
 
   const [impactsNames, setImpactsNames] = useState({
     participants: [],
-    energyDrinks: [],
+    champions: [],
     events: [],
   });
 
@@ -246,25 +246,25 @@ export default function Home() {
         const extractTitle = (description) => description.replace(/\d+/g, '').trim();
 
         const eventsQty = impactData.find(item => item.attributes.description.includes('Eventos'));
-        const energyDrinksQty = impactData.find(item => item.attributes.description.includes('Energéticos'));
-        const participantsQty = impactData.find(item => item.attributes.description.includes('Participantes'));
+        const championsQty = impactData.find(item => item.attributes.description.includes('Campeonatos'));
+        const participantsQty = impactData.find(item => item.attributes.description.includes('Quantidade de Impactados'));
 
-        const participants = impactData.filter(item => item.attributes.description.includes('Participantes'))
+        const participants = impactData.filter(item => item.attributes.description.includes('Quantidade de Impactados'))
                                         .map(item => extractTitle(item.attributes.description));
-        const energyDrinks = impactData.filter(item => item.attributes.description.includes('Energéticos'))
+        const champions = impactData.filter(item => item.attributes.description.includes('Campeonatos'))
                                         .map(item => extractTitle(item.attributes.description));
         const events = impactData.filter(item => item.attributes.description.includes('Eventos'))
                                  .map(item => extractTitle(item.attributes.description));
         
         setImpactCounts({
           eventsQty: eventsQty ? parseInt(eventsQty.attributes.description) || 0 : 0,
-          energyDrinksQty: energyDrinksQty ? parseInt(energyDrinksQty.attributes.description) || 0 : 0,
+          championsQty: championsQty ? parseInt(championsQty.attributes.description) || 0 : 0,
           participantsQty: participantsQty ? parseInt(participantsQty.attributes.description) || 0 : 0,
         });
 
         setImpactsNames({
           participants,
-          energyDrinks,
+          champions,
           events,
         });
       } catch (error) {
@@ -296,11 +296,11 @@ export default function Home() {
               count={impactCounts.eventsQty}
             />
             <CountingCard 
-              text={impactsNames.energyDrinks[0] || 'Energéticos Consumidos'}
-              count={impactCounts.energyDrinksQty}
+              text={impactsNames.champions[0] || 'Campeonatos Realizados'}
+              count={impactCounts.championsQty}
             />
             <CountingCard 
-              text={impactsNames.participants[0] || 'Participantes'}
+              text={impactsNames.participants[0] || 'Impactados'}
               count={impactCounts.participantsQty}
             />
           </div>

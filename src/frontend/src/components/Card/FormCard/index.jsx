@@ -16,12 +16,10 @@ export default function FormCard({ title, inputs, textButton, onSubmit, isContac
         {textButton && (
           <div className={styles["container--button"]}>
             {isContact ? (
-              <a href="mailto:atleticainteli@inteli.edu.br" className={styles["container--button__button"]}>
-                <Button 
-                  title={textButton}
-                  path={null}
-                />
-              </a>
+              <Button 
+                title={textButton}
+                path={"mailto:atleticainteli@inteli.edu.br"}
+              />
             ) : (
               <button type="submit" className={styles["container--button__button"]}>
                 {textButton}

@@ -319,7 +319,8 @@ export default function Home() {
               title="Entre em Contato"
               inputs={formInputs}
               textButton="Enviar"
-              linkButton="/contato" 
+              isContact={true}
+              onSubmit={() => {}}
             />
           </div>
         </section>

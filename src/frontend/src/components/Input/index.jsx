@@ -1,14 +1,21 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
-export default function Input({ type, placeholder = "", options = [], label = "" }) {
+export default function Input({
+  type,
+  placeholder = '',
+  options = [],
+  label = ''
+}) {
   return (
     <div className={styles.container}>
       {label && <label className={styles.label}>{label}</label>}
       {type === 'select' ? (
         <div className={styles.container__div}>
-          <select className={styles.container__div__input} defaultValue="">
-            <option value="" disabled>{placeholder}</option>
+          <select className={styles.container__div__input} defaultValue=''>
+            <option value='' disabled>
+              {placeholder}
+            </option>
             {options.map((option, index) => (
               <option key={index} value={option.value}>
                 {option.label}
@@ -17,17 +24,17 @@ export default function Input({ type, placeholder = "", options = [], label = ""
           </select>
           <div className={styles.container__div__icon}>
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="34"
-              height="16"
-              viewBox="0 0 34 16"
-              fill="none"
+              xmlns='http://www.w3.org/2000/svg'
+              width='34'
+              height='16'
+              viewBox='0 0 34 16'
+              fill='none'
             >
-              <path d="M1 1L17 14.5L33 1" stroke="black" strokeWidth="2" />
+              <path d='M1 1L17 14.5L33 1' stroke='black' strokeWidth='2' />
             </svg>
           </div>
         </div>
-      ) : type === 'textarea' ? ( 
+      ) : type === 'textarea' ? (
         <textarea
           className={styles.container__div__textarea}
           placeholder={placeholder}
@@ -44,7 +51,7 @@ export default function Input({ type, placeholder = "", options = [], label = ""
 }
 
 Input.propTypes = {
-  type: PropTypes.oneOf(['text', 'select', 'textarea']).isRequired, 
+  type: PropTypes.oneOf(['text', 'select', 'textarea', 'number', 'email']).isRequired, // Adicionados 'number' e 'email'
   placeholder: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({

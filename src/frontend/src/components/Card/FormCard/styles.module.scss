@@ -37,10 +37,18 @@
     margin-top: 30px;
     display: flex;
     justify-content: center;
-    width: 100%; 
+    width: 100%;
 
     @media (max-width: 768px) {
       margin-top: 20px;
     }
+  }
+
+  &--white {
+    background-image: url('/background-form.svg');
+  }
+
+  &--purple {
+    background-image: url('/background-form-purple.png');
   }
 }

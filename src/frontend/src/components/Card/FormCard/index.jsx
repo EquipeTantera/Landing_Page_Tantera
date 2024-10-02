@@ -3,9 +3,11 @@ import Input from '../../Input';
 import Button from '../../Buttons/Button';
 import styles from './styles.module.scss';
 
-export default function FormCard({ title, inputs, textButton, linkButton }) {
+export default function FormCard({ title, inputs, textButton, linkButton, backgroundType }) {
+  const backgroundClass = backgroundType === 'purple' ? styles['formCard--purple'] : styles['formCard--white'];
+
   return (
-    <div className={styles.formCard}>
+    <div className={`${styles.formCard} ${backgroundClass}`}>
       <h2 className={styles.formCard__title}>{title}</h2>
       <div className={styles.formCard__content}>
         {inputs.map((inputProps, index) => (
@@ -36,5 +38,6 @@ FormCard.propTypes = {
     })
   ).isRequired,
   textButton: PropTypes.string,
-  linkButton: PropTypes.string, 
+  linkButton: PropTypes.string,
+  backgroundType: PropTypes.oneOf(['white', 'purple']),
 };

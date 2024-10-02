@@ -85,6 +85,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec aliquet sem. Mor
             inputs={inputs} 
             textButton="Enviar"
             linkButton="/submit"
+            backgroundType="purple"
           />
       </div>
     </>

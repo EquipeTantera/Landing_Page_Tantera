@@ -17,7 +17,7 @@ export default function EventRegistration() {
   const [participantType, setParticipantType] = useState('');
   const [loading, setLoading] = useState(true);
   const [dropdownLoading, setDropdownLoading] = useState(true);
-  const [formData, setFormData] = useState({ name: "", number: "", email: "", participant: "", class_id: "", year_id: "", course_id: "" });
+  const [formData, setFormData] = useState({ name: "", phone_number: "", email: "", participant: "", class_id: "", year_id: "", course_id: "" });
 
   // Função para buscar os dados do evento no backend
   useEffect(() => {
@@ -99,7 +99,7 @@ export default function EventRegistration() {
     const payload = {
       data: {
         name: formData.name,
-        number: parseInt(formData.number, 10),
+        phone_number: formData.phone_number,
         email: formData.email,
         participant: participantType === "Jogador" ? true : false,
         event_id: parseInt(id, 10), 
@@ -129,7 +129,7 @@ export default function EventRegistration() {
 
   const formInputs = [
     { type: 'text', placeholder: 'Digite seu nome', label: 'Nome', name: 'name', onChange: handleChange, value: formData.name },
-    { type: 'number', placeholder: 'Digite seu número de telefone', label: 'Número de Telefone', name: 'number', onChange: handleChange, value: formData.number },
+    { type: 'text', placeholder: 'Digite seu número de telefone', label: 'Número de Telefone', name: 'phone_number', onChange: handleChange, value: formData.phone_number },
     { type: 'email', placeholder: 'Digite seu e-mail', label: 'E-mail', name: 'email', onChange: handleChange, value: formData.email },
     ...(event.eventType === 'Campeonato' ? [
       { 

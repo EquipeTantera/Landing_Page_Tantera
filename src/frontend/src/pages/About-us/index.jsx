@@ -24,17 +24,21 @@ export default function AboutUs() {
         mainText="Sobre nós"
       />
       <div className={styles.aboutUsContainer}>
+      <HorizontalSubtitle
+          title="Fundação"
+          colorImage="purple"
+          titleSize="3rem"
+          className={styles.horizontalSubtitle}
+        />
         <VerticalSubtitle 
           title="Fundação"
           imageBackground="purple"
           className={styles.verticalSubtitle}
         />
-        <div style={{ width: '600px', margin: '0 auto' }}>
           <Content 
             content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec aliquet sem. Morbi volutpat neque sed auctor elementum. Donec justo magna, porttitor in sagittis id, malesuada ac est. Aenean congue metus sed mauris pretium, vitae hendrerit nunc tincidunt."
             className={styles.content}
           />
-        </div>
       </div>
       <div className={styles.imageContainer}>
         <img 
@@ -64,7 +68,12 @@ export default function AboutUs() {
 
         </div>
       </div>
-
+      <HorizontalSubtitle
+          title="Diretorias"
+          colorImage="red"
+          titleSize="3rem"
+          className={styles.horizontalSubtitle}
+        />
       <div className={styles.directorSection}>
         <VerticalSubtitle 
           title="Diretoria"

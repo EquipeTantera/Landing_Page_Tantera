@@ -5,6 +5,11 @@
   justify-content: space-between;
   align-items: flex-start;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .verticalSubtitle {
@@ -12,8 +17,20 @@
   margin-right: 20px;
 }
 
+.horizontalSubtitle {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    width: 100%;
+  }
+}
+
 .content {
-  max-width: 500px;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 }
 
 .imageContainer {
@@ -22,10 +39,19 @@
   display: flex;
   justify-content: center;
   z-index: -1;
+
+  @media (max-width: 768px) {
+  margin-top: 0;
+  }
 }
 
 .aboutUsImage {
   width: 100%;
+
+  @media (max-width: 768px) {
+    width: -webkit-fill-available;
+    height: 90vh;
+  }
 }
 
 .textOverlay {
@@ -49,12 +75,21 @@
   color: v.$white-3;
   margin-top: 150px;
 
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
 }
 
 .textContainer {
   text-align: left;
   margin: 20px auto;
   width: 80%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    left: 45%;
+  }
 }
 
 .normalText {
@@ -62,11 +97,15 @@
   font-size: 1.4rem;
   margin: 30px 0;
   color: v.$white-3;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 }
 
 .highlightText {
   font-family: v.$DriveCorps3d;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   color: v.$white-3;
 }
 
@@ -91,8 +130,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
-  margin-left: 20px;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 }
 
 .fullBoardCard {
@@ -109,12 +151,21 @@
 .mascotImage {
   width: 600px;
   height: 400px;
-}
 
+  @media (max-width: 768px) {
+    width: 300px;
+    height: 200px;
+  }
+}
 .centeredContentContainer {
   justify-content: center;
   margin: 20px 0;
   padding: 0px 90px;
+
+  @media (max-width: 768px) {
+    margin: 0rem 1rem;
+    padding: 0px;
+  }
 }
 
 .centeredContent {
@@ -125,4 +176,9 @@
   justify-content: center;
   margin: 60px 0;
   padding: 0px 90px;
+
+  @media (max-width: 768px) {
+    margin: 0rem 1rem;
+    padding: 0px;
+  }
 }

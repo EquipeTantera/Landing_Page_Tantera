@@ -1,3 +1,5 @@
+@use "../../../styles/_variables" as v;
+
 .carousel {
   display: flex;
   align-items: center;
@@ -26,19 +28,40 @@
     width: 80%; 
     margin: 0 20px; 
   }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  &__dot {
+    cursor: pointer;
+  }
+
+  &__dotCircle {
+    fill: v.$red-1;
+    transition: fill 0.3s ease-in-out;
+
+    &.active {
+      fill: v.$purple-1;
+    }
+  }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .carousel {
+    flex-direction: column;
+    
     &__button {
-      font-size: 5rem;
+      font-size: 3rem;
 
       &:first-of-type {
-        left: 1.5rem;
+        left: 100px;
       }
 
       &:last-of-type {
-        right: 1.5rem;
+        right: 100px;
       }
     }
   }

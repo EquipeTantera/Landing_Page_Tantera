@@ -1,0 +1,67 @@
+@use "../../styles/_variables" as v;
+
+
+.container {
+  &__championships {
+    margin-top: 6rem;
+
+    &__carousel {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__fests, &__championships {
+    &__nextParty {
+      margin-left: 64px;
+      
+      &__text, &__text--second {
+        color: v.$purple-2;
+        font-family: v.$DriveCorps;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      
+      }
+      
+      &__text {
+        margin-top: 1rem;
+      
+        &--second {
+          margin-top: 6rem;
+        }
+      }
+    }
+
+    &__cards {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    &__fests, &__championships {
+      &__nextParty {
+        margin: 0rem 1.5rem;
+      
+        &__text, &__text--second {
+          font-size: 1.5rem;
+        }
+      
+        &__text {
+          margin-top: 0rem;
+      
+          &--second {
+            margin-top: 5rem;
+          }
+        }
+      }
+
+      &__cards {
+        margin: 0rem 1rem;
+      }
+    }
+  }
+}

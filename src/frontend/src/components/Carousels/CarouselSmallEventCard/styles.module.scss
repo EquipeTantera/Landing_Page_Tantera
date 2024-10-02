@@ -1,0 +1,58 @@
+@use "../../../styles/variables" as v;
+
+.carousel {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__track {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+    gap: 53px;
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  &__dot {
+    cursor: pointer;
+  }
+
+  &__dotCircle {
+    fill: v.$red-1;
+    transition: fill 0.3s ease-in-out;
+
+    &.active {
+      fill: v.$purple-1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__track {
+      gap: 70px;
+    }
+
+    &__card {
+      width: 298px;
+      height: 383px;
+    }
+
+    &__footer {
+      height: 50px;
+    }
+
+    &__event {
+      font-size: 1.2rem;
+    }
+  }
+}

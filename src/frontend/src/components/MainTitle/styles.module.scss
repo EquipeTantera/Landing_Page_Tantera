@@ -46,7 +46,7 @@
     height: 20rem;
 
     &__secundary {
-      font-size: 18.75rem;
+      font-size: 20rem;
     }
 
     &__primary {
@@ -56,11 +56,11 @@
 
   @media screen and (max-width: 768px) {
     &__secundary {
-      font-size: 21vw;
+      font-size: 30vw;
     }
 
     &__primary {
-      font-size: 8vw;
+      font-size: 15vw;
     }
   }
 }

@@ -25,7 +25,7 @@
     font-weight: 400;
     font-family: v.$DriveCorps;
 
-    &--purple {
+    &--white {
       color: v.$white-1;
     }
   }
@@ -54,12 +54,5 @@
 
   &--purple {
     background-image: url('/background-form-purple.png');
-
-    .input--purple {
-      border-color: v.$white-1;
-      &::placeholder {
-        color: v.$white-1;
-      }
-    }
   }
 }

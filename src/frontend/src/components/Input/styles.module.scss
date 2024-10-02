@@ -28,6 +28,7 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
+      color: v.$black;
 
       @media (max-width: 768px) {
         height: 48px;
@@ -42,11 +43,21 @@
         color: v.$black;
       }
 
-      &.input--purple {
-        border-color: v.$white-1;
+      &.input--white {
+        border: 2px solid v.$grey-2;
+        color: v.$grey-2;
 
         &::placeholder {
-          color: v.$white-1;
+          color: v.$grey-2;
+        }
+      }
+
+      &.input--black {
+        border: 2px solid v.$black;
+        color: v.$black;
+
+        &::placeholder {
+          color: v.$black;
         }
       }
     }
@@ -72,7 +83,11 @@
     font-size: 1.2rem;
   }
 
-  &.label--purple {
-    color: v.$white-1;
+  &.label--white {
+    color: v.$grey-2;
+  }
+
+  &.label--black {
+    color: v.$black;
   }
 }

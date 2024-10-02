@@ -3,16 +3,16 @@ import Input from '../../Input';
 import Button from '../../Buttons/Button';
 import styles from './styles.module.scss';
 
-export default function FormCard({ title, inputs, textButton, linkButton, backgroundType }) {
+export default function FormCard({ title, inputs, textButton, linkButton, backgroundType, inputStyle }) {
   const backgroundClass = backgroundType === 'purple' ? styles['formCard--purple'] : styles['formCard--white'];
-  const titleClass = backgroundType === 'purple' ? styles['formCard__title--purple'] : '';
-  
+  const titleClass = inputStyle === 'white' ? styles['formCard__title--white'] : '';
+
   return (
     <div className={`${styles.formCard} ${backgroundClass}`}>
       <h2 className={`${styles.formCard__title} ${titleClass}`}>{title}</h2>
       <div className={styles.formCard__content}>
         {inputs.map((inputProps, index) => (
-          <Input key={index} {...inputProps} backgroundType={backgroundType} />
+          <Input key={index} {...inputProps} backgroundType={backgroundType} inputStyle={inputStyle} />
         ))}
       </div>
       {textButton && linkButton && (
@@ -41,4 +41,5 @@ FormCard.propTypes = {
   textButton: PropTypes.string,
   linkButton: PropTypes.string,
   backgroundType: PropTypes.oneOf(['white', 'purple']),
+  inputStyle: PropTypes.oneOf(['white', 'black']),
 };

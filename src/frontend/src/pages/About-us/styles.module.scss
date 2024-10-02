@@ -1,4 +1,3 @@
-
 @use "../../styles/variables" as v;
 
 .aboutUsContainer {
@@ -10,7 +9,6 @@
 
 .verticalSubtitle {
   flex: 0 0 300px;
-  margin-right: 20px;
 }
 
 .content {
@@ -18,6 +16,7 @@
 }
 
 .imageContainer {
+  position: relative;
   margin-top: -20px;
   display: flex;
   justify-content: center;
@@ -28,6 +27,17 @@
   width: 100%;
 }
 
+.textOverlay {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  text-align: left;
+  color: v.$white-3;
+  width: 80%;
+  z-index: 1;
+}
+
 .textContainer {
   text-align: left;
   margin: 20px auto;
@@ -36,14 +46,14 @@
 
 .normalText {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.6rem;
-  margin: 10px 0;
+  font-size: 1.4rem;
+  margin: 30px 0;
   color: v.$white-3;
 }
 
 .highlightText {
   font-family: v.$DriveCorps3d;
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   color: v.$white-3;
 }
 

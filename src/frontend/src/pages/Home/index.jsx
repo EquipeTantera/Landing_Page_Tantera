@@ -2,7 +2,6 @@ import styles from './styles.module.scss';
 import PaperBackground from '../../components/PaperBackground';
 import HorizontalSubtitle from '../../components/HorizontalSubtitle';
 import CountingCard from '../../components/Card/CountingCard';
-import CarouselSmallProductCard from '../../components/Carousels/CarouselSmallProductCard';
 import Content from '../../components/Content';
 import Button from '../../components/Buttons/Button';
 import CarouselLargePartnerCard from '../../components/Carousels/CarouselLargePartnerCard';
@@ -10,6 +9,7 @@ import Form from '../../components/Card/FormCard';
 import { API_BASE_URL } from "../../services/config";
 import axios from "axios";
 import { useEffect, useState } from 'react';
+import CarouselSmallEventCard from '../../components/Carousels/CarouselSmallEventCard'; 
 
 export default function Home() {
   const [impactCounts, setImpactCounts] = useState({
@@ -17,95 +17,13 @@ export default function Home() {
     campeonatos: 0,
     quantidadeJogadores: 0,
   });
-
   const [impactsNames, setImpactsNames] = useState({
     participants: [],
     champions: [],
     events: [],
   });
-
-  const events = [
-    {
-      title: 'Evento 1',
-      description: 'Descrição do evento 1',
-      price: "10.00",
-      image: 'copa-inteli.png',
-      buttonText: 'Saiba mais',
-      buttonPath: '/produtos'
-    }, 
-    {
-      title: 'Evento 2',
-      description: 'Descrição do evento 2',
-      price: "10.00",
-      image: 'copa-inteli.png',
-      buttonText: 'Saiba mais',
-      buttonPath: '/produtos'
-    }, 
-    {
-      title: 'Evento 3',
-      description: 'Descrição do evento 3',
-      price: "10.00",
-      image: 'copa-inteli.png',
-      buttonText: 'Saiba mais',
-      buttonPath: '/produtos'
-    }, 
-    {
-      title: 'Evento 4',
-      description: 'Descrição do evento 4',
-      price: "10.00",
-      image: 'copa-inteli.png',
-      buttonText: 'Saiba mais',
-      buttonPath: '/produtos'
-    }, 
-    {
-      title: 'Evento 5',
-      description: 'Descrição do evento 5',
-      price: "10.00",
-      image: 'copa-inteli.png',
-      buttonText: 'Saiba mais',
-      buttonPath: '/produtos'
-    }, 
-    {
-      title: 'Evento 6',
-      description: 'Descrição do evento 6',
-      price: "10.00",
-      image: 'copa-inteli.png',
-      buttonText: 'Saiba mais',
-      buttonPath: '/produtos'
-    }, 
-    {
-      title: 'Evento 7',
-      description: 'Descrição do evento 7',
-      price: "10.00",
-      image: 'copa-inteli.png',
-      buttonText: 'Saiba mais',
-      buttonPath: '/produtos'
-    }, 
-    {
-      title: 'Evento 8',
-      description: 'Descrição do evento 8',
-      price: "10.00",
-      image: 'copa-inteli.png',
-      buttonText: 'Saiba mais',
-      buttonPath: '/produtos'
-    }, 
-    {
-      title: 'Evento 9',
-      description: 'Descrição do evento 9',
-      price: "10.00",
-      image: 'copa-inteli.png',
-      buttonText: 'Saiba mais',
-      buttonPath: '/produtos'
-    }, 
-    {
-      title: 'Evento 10',
-      description: 'Descrição do evento 10',
-      price: "10.00",
-      image: 'copa-inteli.png',
-      buttonText: 'Saiba mais',
-      buttonPath: '/produtos'
-    }
-  ]
+  const [eventsData, setEventsData] = useState([]);
+  const currentDate = new Date();
 
   const partners =[
     {
@@ -275,6 +193,49 @@ export default function Home() {
     fetchImpactData();
   }, []);
 
+  // Função para buscar os dados de eventos do backend
+  useEffect(() => {
+    const fetchEventsData = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/events?populate=*`);
+        const events = response.data.data;
+
+        const formattedEvents = events.map((event) => {
+          const imageUrl = event?.attributes?.image?.data?.[0]?.attributes?.url || "";
+
+          return {
+            title: event?.attributes?.title || "",
+            description: event?.attributes?.description || "",
+            image: imageUrl.startsWith("http") ? imageUrl : `${BASE_URL}${imageUrl}`,
+            address: `${event?.attributes?.street || ""}, ${event?.attributes?.number || ""}, ${event?.attributes?.postal_code || ""}`,
+            date: new Date(event?.attributes?.date).toLocaleDateString("pt-BR"),
+            startTime: event?.attributes?.start_time ? new Date(event.attributes.start_time) : null,
+            endTime: event?.attributes?.end_time ? new Date(event.attributes.end_time) : null,
+            ticket: String(event?.attributes?.price || ""),
+            buttonText: "Saiba mais",
+            buttonPath: `/eventos/${event.id}`,
+            eventType: event?.attributes?.event_type?.data?.attributes?.type || "Outros", 
+          };
+        });
+
+        setEventsData(formattedEvents);
+        console.log("Dados dos eventos:", formattedEvents);
+      } catch (error) {
+        console.error("Erro ao buscar dados dos eventos:", error);
+      }
+    };
+
+    fetchEventsData();
+  }, []);
+
+  // Filtrar eventos futuros (próximos)
+  const filterUpcomingEvents = (events) => {
+    return events.filter((event) => event.startTime && event.startTime > currentDate);
+  };
+
+  // armazenar os eventos futuros
+  const upcomingEvents = filterUpcomingEvents(eventsData);
+  
   return (
     <>
       <div className={styles.container__gif}>
@@ -313,8 +274,8 @@ export default function Home() {
           />
 
           <div className={styles.container__events__content}>
-            <CarouselSmallProductCard 
-              cards={events}
+            <CarouselSmallEventCard
+              events={upcomingEvents}
             />
           </div>
         </section>

@@ -24,108 +24,7 @@ export default function Home() {
   });
   const [eventsData, setEventsData] = useState([]);
   const currentDate = new Date();
-
-  const partners =[
-    {
-      title: 'Parceiro 1',
-      description: 'Descrição do parceiro 1',
-      image: 'partner-furioso.png',
-      fullImage: 'partner-furioso-full.png',
-      events: [
-        {
-          name: 'Evento 1',
-          date: '01/01/2021'
-        },
-        {
-          name: 'Evento 2',
-          date: '02/01/2021'
-        },
-        {
-          name: 'Evento 3',
-          date: '03/01/2021'
-        }
-      ],
-      impacts: [
-        {
-          name: 'Impacto 1'
-        },
-        {
-          name: 'Impacto 2'
-        },
-        {
-          name: 'Impacto 3'
-        }
-      ],
-      textButton: 'Saiba mais',
-      linkButton: '/produtos'
-    },
-    {
-      title: 'Parceiro 2',
-      description: 'Descrição do parceiro 2',
-      image: 'partner-furioso.png',
-      fullImage: 'partner-furioso-full.png',
-      events: [
-        {
-          name: 'Evento 1',
-          date: '01/01/2021'
-        },
-        {
-          name: 'Evento 2',
-          date: '02/01/2021'
-        },
-        {
-          name: 'Evento 3',
-          date: '03/01/2021'
-        }
-      ],
-      impacts: [
-        {
-          name: 'Impacto 1'
-        },
-        {
-          name: 'Impacto 2'
-        },
-        {
-          name: 'Impacto 3'
-        }
-      ],
-      textButton: 'Saiba mais',
-      linkButton: '/produtos'
-    },
-    {
-      title: 'Parceiro 3',
-      description: 'Descrição do parceiro 3',
-      image: 'partner-furioso.png',
-      fullImage: 'partner-furioso-full.png',
-      events: [
-        {
-          name: 'Evento 1',
-          date: '01/01/2021'
-        },
-        {
-          name: 'Evento 2',
-          date: '02/01/2021'
-        },
-        {
-          name: 'Evento 3',
-          date: '03/01/2021'
-        }
-      ],
-      impacts: [
-        {
-          name: 'Impacto 1'
-        },
-        {
-          name: 'Impacto 2'
-        },
-        {
-          name: 'Impacto 3'
-        }
-      ],
-      textButton: 'Saiba mais',
-      linkButton: '/produtos'
-    }
-  ]
+  const [partners, setPartners] = useState([]);
 
   const formInputs = [
     {
@@ -227,6 +126,45 @@ export default function Home() {
 
     fetchEventsData();
   }, []);
+
+  // Função para buscar os dados de parceiros do backend
+  useEffect(() => {
+    const fetchPartnersData = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/partners?populate=*`);
+        const partners = response.data.data;
+
+        const formattedPartners = partners.map((partner) => {
+          const imageUrl = partner?.attributes?.image?.data?.[0]?.attributes?.url || "";
+          const iconUrl = partner?.attributes?.icon?.data?.attributes?.url || "";
+
+          return {
+            title: partner?.attributes?.title || "Título não disponível",
+            description: partner?.attributes?.slogan || "Descrição não disponível",
+            image: imageUrl.startsWith("http") ? imageUrl : `${BASE_URL}${imageUrl}`,
+            fullImage: iconUrl.startsWith("http") ? iconUrl : `${BASE_URL}${iconUrl}`,
+            events: partner?.attributes?.event_id?.data?.map((event) => ({
+              title: event?.attributes?.title || "Evento não especificado",
+              date: new Date(event?.attributes?.date).toLocaleDateString("pt-BR"),
+            })) || [],
+            impacts: partner?.attributes?.result_id?.data?.map((impact) => ({
+              name: impact?.attributes?.name || "Impacto não especificado",
+            })) || [],
+            textButton: "Saiba mais",
+            linkButton: `/parceiros`,
+          };
+        });
+
+        setPartners(formattedPartners);
+        console.log("Dados dos parceiros formatados:", formattedPartners);
+      } catch (error) {
+        console.error("Erro ao buscar dados dos parceiros:", error);
+      }
+    };
+
+    fetchPartnersData();
+  }, []);
+
 
   // Filtrar eventos futuros (próximos)
   const filterUpcomingEvents = (events) => {

@@ -4,6 +4,7 @@ import styles from './styles.module.scss';
 export default function Input({ type, placeholder = "", options = [], label = "", inputStyle }) {
   const inputClass = inputStyle === 'white' ? styles['input--white'] : styles['input--black'];
   const labelClass = inputStyle === 'white' ? styles['label--white'] : styles['label--black'];
+  const svgColor = inputStyle === 'white' ? '#D9D9D9' : '#000000';
 
   return (
     <div className={styles.container}>
@@ -26,7 +27,7 @@ export default function Input({ type, placeholder = "", options = [], label = ""
               viewBox="0 0 34 16"
               fill="none"
             >
-              <path d="M1 1L17 14.5L33 1" stroke="black" strokeWidth="2" />
+              <path d="M1 1L17 14.5L33 1" stroke={svgColor} strokeWidth="2" />
             </svg>
           </div>
         </div>

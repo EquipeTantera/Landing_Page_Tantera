@@ -11,7 +11,7 @@
   &__div {
     position: relative;
     width: 100%;
-  
+
     @media (max-width: 768px) {
       overflow-x: hidden;
     }
@@ -41,6 +41,14 @@
       &::placeholder {
         color: v.$black;
       }
+
+      &.input--purple {
+        border-color: v.$white-1;
+
+        &::placeholder {
+          color: v.$white-1;
+        }
+      }
     }
 
     &__icon {
@@ -63,5 +71,8 @@
   @media (max-width: 768px) {
     font-size: 1.2rem;
   }
-}
 
+  &.label--purple {
+    color: v.$white-1;
+  }
+}

@@ -1,13 +1,16 @@
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
-export default function Input({ type, placeholder = "", options = [], label = "" }) {
+export default function Input({ type, placeholder = "", options = [], label = "", backgroundType }) {
+  const inputClass = backgroundType === 'purple' ? styles['container__div__input'] + ' input--purple' : '';
+  const labelClass = backgroundType === 'purple' ? 'label--purple' : '';
+
   return (
     <div className={styles.container}>
-      {label && <label className={styles.label}>{label}</label>}
+      {label && <label className={`${styles.label} ${styles[labelClass]}`}>{label}</label>}
       {type === 'select' ? (
         <div className={styles.container__div}>
-          <select className={styles.container__div__input} defaultValue="">
+          <select className={`${styles.container__div__input} ${inputClass}`} defaultValue="">
             <option value="" disabled>{placeholder}</option>
             {options.map((option, index) => (
               <option key={index} value={option.value}>
@@ -30,7 +33,7 @@ export default function Input({ type, placeholder = "", options = [], label = ""
       ) : (
         <input
           type={type}
-          className={styles.container__div__input}
+          className={`${styles.container__div__input} ${inputClass}`}
           placeholder={placeholder}
         />
       )}
@@ -48,4 +51,5 @@ Input.propTypes = {
     })
   ),
   label: PropTypes.string,
+  backgroundType: PropTypes.oneOf(['white', 'purple']),
 };

@@ -5,13 +5,14 @@ import styles from './styles.module.scss';
 
 export default function FormCard({ title, inputs, textButton, linkButton, backgroundType }) {
   const backgroundClass = backgroundType === 'purple' ? styles['formCard--purple'] : styles['formCard--white'];
-
+  const titleClass = backgroundType === 'purple' ? styles['formCard__title--purple'] : '';
+  
   return (
     <div className={`${styles.formCard} ${backgroundClass}`}>
-      <h2 className={styles.formCard__title}>{title}</h2>
+      <h2 className={`${styles.formCard__title} ${titleClass}`}>{title}</h2>
       <div className={styles.formCard__content}>
         {inputs.map((inputProps, index) => (
-          <Input key={index} {...inputProps} />
+          <Input key={index} {...inputProps} backgroundType={backgroundType} />
         ))}
       </div>
       {textButton && linkButton && (

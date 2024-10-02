@@ -3,6 +3,7 @@ import MainTitle from "../../components/MainTitle";
 import PaperBackground from "../../components/PaperBackground";
 import LargeMembershipPlanCard from "../../components/Card/LargeCard/LargeMembershipPlanCard";
 import Accordion from "../../components/Accordion";
+import styles from "./styles.module.scss";
 
 export default function MembershipPlan() {
   return (
@@ -32,7 +33,7 @@ export default function MembershipPlan() {
           />
         </section>
 
-        <section>
+        <section className={styles["section--faq"]}>
           <Accordion 
             items={[
               {

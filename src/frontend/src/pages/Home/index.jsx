@@ -7,8 +7,22 @@ import Content from '../../components/Content';
 import Button from '../../components/Buttons/Button';
 import CarouselLargePartnerCard from '../../components/Carousels/CarouselLargePartnerCard';
 import Form from '../../components/Card/FormCard';
+import { API_BASE_URL } from "../../services/config";
+import axios from "axios";
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [impactCounts, setImpactCounts] = useState({
+    eventosRealizados: 0,
+    campeonatos: 0,
+    quantidadeJogadores: 0,
+  });
+
+  const [impactsNames, setImpactsNames] = useState({
+    participants: [],
+    energyDrinks: [],
+    events: [],
+  });
 
   const events = [
     {
@@ -223,6 +237,44 @@ export default function Home() {
     },
   ];
 
+  // Função para buscar os dados de contagem do backend
+  useEffect(() => {
+    const fetchImpactData = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/results?populate=*`);
+        const impactData = response.data.data;
+        const extractTitle = (description) => description.replace(/\d+/g, '').trim();
+
+        const eventsQty = impactData.find(item => item.attributes.description.includes('Eventos'));
+        const energyDrinksQty = impactData.find(item => item.attributes.description.includes('Energéticos'));
+        const participantsQty = impactData.find(item => item.attributes.description.includes('Participantes'));
+
+        const participants = impactData.filter(item => item.attributes.description.includes('Participantes'))
+                                        .map(item => extractTitle(item.attributes.description));
+        const energyDrinks = impactData.filter(item => item.attributes.description.includes('Energéticos'))
+                                        .map(item => extractTitle(item.attributes.description));
+        const events = impactData.filter(item => item.attributes.description.includes('Eventos'))
+                                 .map(item => extractTitle(item.attributes.description));
+        
+        setImpactCounts({
+          eventsQty: eventsQty ? parseInt(eventsQty.attributes.description) || 0 : 0,
+          energyDrinksQty: energyDrinksQty ? parseInt(energyDrinksQty.attributes.description) || 0 : 0,
+          participantsQty: participantsQty ? parseInt(participantsQty.attributes.description) || 0 : 0,
+        });
+
+        setImpactsNames({
+          participants,
+          energyDrinks,
+          events,
+        });
+      } catch (error) {
+        console.error('Erro ao buscar dados dos impactos:', error);
+      }
+    };
+
+    fetchImpactData();
+  }, []);
+
   return (
     <>
       <div className={styles.container__gif}>
@@ -240,18 +292,16 @@ export default function Home() {
 
           <div className={styles.container__impacts__content}>
             <CountingCard 
-              text='Eventos realizados'
-              count={10}
+              text={impactsNames.events[0] || 'Eventos Realizados'}
+              count={impactCounts.eventsQty}
             />
-
             <CountingCard 
-              text='Campeonatos'
-              count={9}
+              text={impactsNames.energyDrinks[0] || 'Energéticos Consumidos'}
+              count={impactCounts.energyDrinksQty}
             />
-
             <CountingCard 
-              text='Quantidade de Jogadores'
-              count={100}
+              text={impactsNames.participants[0] || 'Participantes'}
+              count={impactCounts.participantsQty}
             />
           </div>
         </section>

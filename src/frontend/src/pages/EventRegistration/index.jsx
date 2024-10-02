@@ -8,64 +8,6 @@ import { useState, useEffect } from "react";
 import { API_BASE_URL, BASE_URL } from "../../services/config";
 import axios from "axios";
 
-const events = [
-  {
-    id: 1,
-    name: "Festa Anterior 1",
-    type: "Festa",
-    description: "Descrição completa da Festa Anterior 1",
-    fullImage: "/partner-furioso.png",
-    address: "Rua Alegria, 456",
-    dates: [
-      { date: '01/01/2022', startHour: '18:00', endHour: '22:00' },
-    ],
-  },
-  {
-    id: 2,
-    name: "Festa Anterior 2",
-    type: "Festa",
-    description: "Descrição completa da Festa Anterior 2",
-    fullImage: "/partner-furioso.png",
-    address: "Rua Diversão, 789",
-    dates: [
-      { date: '02/02/2022', startHour: '19:00', endHour: '23:00' },
-    ],
-  },
-  {
-    id: 3,
-    name: "Festa Anterior 3",
-    type: "Outros",
-    description: "Descrição completa da Festa Anterior 3",
-    fullImage: "/partner-furioso.png",
-    address: "Rua Festa, 101",
-    dates: [
-      { date: '03/03/2023', startHour: '20:00', endHour: '00:00' },
-    ],
-  },
-  {
-    id: 4,
-    name: "O Covil",
-    type: "Festa",
-    description: "Nova festa da Tan Tan",
-    fullImage: "/partner-furioso-full.png",
-    address: "Rua Furiosa, 123",
-    dates: [
-      { date: '10/09/2023', startHour: '18:00', endHour: '22:00' },
-    ],
-  },
-  {
-    id: 5,
-    name: "Campeonato de basquete",
-    type: "Campeonato",
-    description: "Novo campeonato de basquete",
-    fullImage: "/partner-furioso-full.png",
-    address: "Rua Furiosa, 123",
-    dates: [
-      { date: '10/09/2023', startHour: '09:00', endHour: '18:00' },
-    ],
-  },
-];
-
 const courses = [
   { id: 1, name: "Engenharia" },
   { id: 2, name: "Medicina" },
@@ -86,8 +28,12 @@ const years = [
 export default function EventRegistration() {
   const { id } = useParams();
   const [event, setEvent] = useState(null);
+  const [classes, setClasses] = useState([]);
+  const [years, setYears] = useState([]);
+  const [courses, setCourses] = useState([]);
   const [participantType, setParticipantType] = useState('');
   const [loading, setLoading] = useState(true);
+  const [dropdownLoading, setDropdownLoading] = useState(true);
 
   // Função para buscar os dados do evento no backend
   useEffect(() => {
@@ -108,11 +54,11 @@ export default function EventRegistration() {
               endHour: new Date(eventData.attributes.end_time).toLocaleTimeString(),
             },
           ],
-          fullImage: eventData.attributes.image?.data?.[0]?.attributes?.url || "", // Busca a imagem principal
-          eventType: eventData.attributes.event_type?.data?.attributes?.type || "Desconhecido", // Tipo de evento
+          fullImage: eventData.attributes.image?.data?.[0]?.attributes?.url || "", 
+          eventType: eventData.attributes.event_type?.data?.attributes?.type || "Desconhecido", 
         };
 
-        setEvent(formattedEvent); // Define o evento formatado no estado
+        setEvent(formattedEvent); 
         setLoading(false);
       } catch (error) {
         console.error("Erro ao buscar dados do evento:", error);
@@ -122,6 +68,44 @@ export default function EventRegistration() {
 
     fetchEventData();
   }, [id]);
+
+  // Função para buscar dados de classes, cursos e anos
+  useEffect(() => {
+    const fetchDropdownData = async () => {
+      try {
+        const [classesResponse, yearsResponse, coursesResponse] = await Promise.all([
+          axios.get(`${API_BASE_URL}/classes?populate=*`),
+          axios.get(`${API_BASE_URL}/years?populate=*`),
+          axios.get(`${API_BASE_URL}/courses?populate=*`),
+        ]);
+
+        const formattedClasses = classesResponse.data.data.map((classItem) => ({
+          value: classItem.id,
+          label: classItem.attributes.class_course,
+        }));
+
+        const formattedYears = yearsResponse.data.data.map((yearItem) => ({
+          value: yearItem.id,
+          label: yearItem.attributes.year,
+        }));
+
+        const formattedCourses = coursesResponse.data.data.map((courseItem) => ({
+          value: courseItem.id,
+          label: courseItem.attributes.course_name,
+        }));
+
+        setClasses(formattedClasses);
+        setYears(formattedYears);
+        setCourses(formattedCourses);
+        setDropdownLoading(false); 
+      } catch (error) {
+        console.error("Erro ao buscar dados dos dropdowns:", error);
+        setDropdownLoading(false);
+      }
+    };
+
+    fetchDropdownData();
+  }, []);
 
   if (loading) {
     return <p>Carregando...</p>;
@@ -150,20 +134,20 @@ export default function EventRegistration() {
     { 
       type: 'select',
       label: 'Curso',
-      placeholder: 'Selecione o Curso',
-      options: courses.map(course => ({ value: String(course.id), label: course.name })), 
+      placeholder: 'Selecione seu Curso',
+      options: courses, 
     },
     { 
       type: 'select',
       label: 'Turma',
-      placeholder: 'Selecione a Turma',
-      options: classes.map(classItem => ({ value: String(classItem.id), label: classItem.name })), 
+      placeholder: 'Selecione sua Turma',
+      options: classes, 
     },
     { 
       type: 'select',
       label: 'Ano de Entrada',
-      placeholder: 'Selecione o Ano de Entrada',
-      options: years.map(year => ({ value: String(year.id), label: year.year })), 
+      placeholder: 'Selecione o ano em que você entrou no Inteli',
+      options: years, 
     },
   ];
 

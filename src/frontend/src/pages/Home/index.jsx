@@ -171,11 +171,11 @@ export default function Home() {
   useEffect(() => {
     const fetchManagementPhoto = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/photos?populate=*`);
+        const response = await axios.get(`${API_BASE_URL}/boards?current=true&populate=*`);
         const managementData = response.data.data;
-
+  
         if (managementData.length > 0) {
-          const photoData = managementData[0]?.attributes?.photo?.data?.[0]?.attributes;
+          const photoData = managementData[0]?.attributes?.imagem?.data?.attributes;
           const photoUrl = photoData?.formats?.medium?.url || photoData?.url || "";
           setManagementPhotoUrl(photoUrl); 
         }
@@ -183,9 +183,10 @@ export default function Home() {
         console.error("Erro ao buscar foto da gestão:", error);
       }
     };
-
+  
     fetchManagementPhoto();
   }, []);
+  
   
   // Função para buscar os dados de gestão atual do backend
   useEffect(() => {

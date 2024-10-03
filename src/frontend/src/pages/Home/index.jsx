@@ -26,6 +26,7 @@ export default function Home() {
   const currentDate = new Date();
   const [partners, setPartners] = useState([]);
   const [managementPhotoUrl, setManagementPhotoUrl] = useState('');
+  const [managementDescription, setManagementDescription] = useState([]);
 
   const formInputs = [
     {
@@ -186,6 +187,25 @@ export default function Home() {
     fetchManagementPhoto();
   }, []);
   
+  // Função para buscar os dados de gestão atual do backend
+  useEffect(() => {
+    const fetchManagementCurrent = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/boards?current=true`);
+        const managementData = response.data.data;
+
+        if (managementData.length > 0) {
+          const management = managementData[0].attributes.description;
+          console.log("Dados da gestão atual:", management);
+          setManagementDescription(management);
+        }
+      } catch (error) {
+        console.error("Erro ao buscar dados da gestão atual:", error);
+      }
+    };
+
+    fetchManagementCurrent();
+  }, []);
 
   // Filtrar eventos futuros (próximos)
   const filterUpcomingEvents = (events) => {
@@ -248,10 +268,7 @@ export default function Home() {
           <div className={styles.container__management__content}>
             <div className={styles.container__management__content__text}>
               <Content 
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec aliquet sem. Morbi volutpat neque sed auctor elementum. Donec justo magna, porttitor in sagittis id, malesuada ac est. Aenean congue metus sed mauris pretium, vitae hendrerit nunc tincidunt."
-              />
-              <Content 
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec aliquet sem. Morbi volutpat neque sed auctor elementum. Donec justo magna, porttitor in sagittis id, malesuada ac est. Aenean congue metus sed mauris pretium, vitae hendrerit nunc tincidunt."
+                content={managementDescription}
               />
             </div>
 

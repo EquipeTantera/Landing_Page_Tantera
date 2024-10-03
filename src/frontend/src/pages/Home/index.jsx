@@ -25,6 +25,7 @@ export default function Home() {
   const [eventsData, setEventsData] = useState([]);
   const currentDate = new Date();
   const [partners, setPartners] = useState([]);
+  const [managementPhotoUrl, setManagementPhotoUrl] = useState('');
 
   const formInputs = [
     {
@@ -165,6 +166,26 @@ export default function Home() {
     fetchPartnersData();
   }, []);
 
+  // Fetch para buscar os dados da gestão atual e obter a URL da foto
+  useEffect(() => {
+    const fetchManagementPhoto = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/photos?populate=*`);
+        const managementData = response.data.data;
+
+        if (managementData.length > 0) {
+          const photoData = managementData[0]?.attributes?.photo?.data?.[0]?.attributes;
+          const photoUrl = photoData?.formats?.medium?.url || photoData?.url || "";
+          setManagementPhotoUrl(photoUrl); 
+        }
+      } catch (error) {
+        console.error("Erro ao buscar foto da gestão:", error);
+      }
+    };
+
+    fetchManagementPhoto();
+  }, []);
+  
 
   // Filtrar eventos futuros (próximos)
   const filterUpcomingEvents = (events) => {
@@ -235,7 +256,7 @@ export default function Home() {
             </div>
 
             <div className={styles.container__management__content__image}>
-              <img src="/spider-back.png" alt="gestao-atual" width={"100%"}/>
+              <img src={managementPhotoUrl} alt="gestao-atual" width={"100%"}/>
             </div>
 
             <Button 

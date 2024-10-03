@@ -4,90 +4,180 @@ import styles from "./styles.module.scss";
 import LargeEventCard from "../../components/Card/LargeCard/LargeEventCard";
 import PaperBackground from "../../components/PaperBackground";
 import Form from "../../components/Card/FormCard";
-
-const events = [
-  {
-    id: 1,
-    name: "Festa Anterior 1",
-    description: "Descrição completa da Festa Anterior 1",
-    fullImage: "/partner-furioso.png",
-    address: "Rua Alegria, 456",
-    dates: [
-      { date: '01/01/2022', startHour: '18:00', endHour: '22:00' },
-    ],
-  },
-  {
-    id: 2,
-    name: "Festa Anterior 2",
-    description: "Descrição completa da Festa Anterior 2",
-    fullImage: "/partner-furioso.png",
-    address: "Rua Diversão, 789",
-    dates: [
-      { date: '02/02/2022', startHour: '19:00', endHour: '23:00' },
-    ],
-  },
-  {
-    id: 3,
-    name: "Festa Anterior 3",
-    description: "Descrição completa da Festa Anterior 3",
-    fullImage: "/partner-furioso.png",
-    address: "Rua Festa, 101",
-    dates: [
-      { date: '03/03/2023', startHour: '20:00', endHour: '00:00' },
-    ],
-  },
-  {
-    id: 4,
-    name: "O Covil",
-    description: "Nova festa da Tan Tan",
-    fullImage: "/partner-furioso-full.png",
-    address: "Rua Furiosa, 123",
-    dates: [
-      { date: '10/09/2023', startHour: '18:00', endHour: '22:00' },
-    ],
-  },
-  {
-    id: 5,
-    name: "Campeonato de basquete",
-    description: "Novo campeonato de basquete",
-    fullImage: "/partner-furioso-full.png",
-    address: "Rua Furiosa, 123",
-    dates: [
-      { date: '10/09/2023', startHour: '09:00', endHour: '18:00' },
-    ],
-  },
-];
+import { useState, useEffect } from "react";
+import { API_BASE_URL } from "../../services/config";
+import axios from "axios";
 
 export default function EventRegistration() {
   const { id } = useParams();
-  const event = events.find(event => event.id === parseInt(id));
+  const [event, setEvent] = useState(null);
+  const [classes, setClasses] = useState([]);
+  const [years, setYears] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [participantType, setParticipantType] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [dropdownLoading, setDropdownLoading] = useState(true);
+  const [formData, setFormData] = useState({ name: "", phone_number: "", email: "", participant: "", class_id: "", year_id: "", course_id: "" });
+
+  // Função para buscar os dados do evento no backend
+  useEffect(() => {
+    const fetchEventData = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/events/${id}?populate=*`);
+        const eventData = response.data.data;
+
+        const formattedEvent = {
+          id: eventData.id,
+          title: eventData.attributes.title || "Evento",
+          description: eventData.attributes.description || "Sem descrição disponível",
+          address: `${eventData.attributes.street || ''}, Nº ${eventData.attributes.number || ''}, CEP: ${eventData.attributes.postal_code || ''}`,
+          dates: [
+            {
+              date: new Date(eventData.attributes.date).toLocaleDateString(),
+              startHour: new Date(eventData.attributes.start_time).toLocaleTimeString(),
+              endHour: new Date(eventData.attributes.end_time).toLocaleTimeString(),
+            },
+          ],
+          fullImage: eventData.attributes.image?.data?.[0]?.attributes?.url || "", 
+          eventType: eventData.attributes.event_type?.data?.attributes?.type || "Desconhecido", 
+        };
+
+        setEvent(formattedEvent); 
+        setLoading(false);
+      } catch (error) {
+        console.error("Erro ao buscar dados do evento:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchEventData();
+  }, [id]);
+
+  // Função para buscar dados de classes, cursos e anos
+  useEffect(() => {
+    const fetchDropdownData = async () => {
+      try {
+        const [classesResponse, yearsResponse, coursesResponse] = await Promise.all([
+          axios.get(`${API_BASE_URL}/classes?populate=*`),
+          axios.get(`${API_BASE_URL}/years?populate=*`),
+          axios.get(`${API_BASE_URL}/courses?populate=*`),
+        ]);
+
+        const formattedClasses = classesResponse.data.data.map((classItem) => ({
+          value: String(classItem.id), 
+          label: String(classItem.attributes.class_course),
+        }));
+
+        const formattedYears = yearsResponse.data.data.map((yearItem) => ({
+          value: String(yearItem.id),
+          label: String(yearItem.attributes.year),
+        }));
+
+        const formattedCourses = coursesResponse.data.data.map((courseItem) => ({
+          value: String(courseItem.id),
+          label: String(courseItem.attributes.course_name),
+        }));
+
+        setClasses(formattedClasses);
+        setYears(formattedYears);
+        setCourses(formattedCourses);
+        setDropdownLoading(false); 
+      } catch (error) {
+        console.error("Erro ao buscar dados dos dropdowns:", error);
+        setDropdownLoading(false);
+      }
+    };
+
+    fetchDropdownData();
+  }, []);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async () => {
+    const payload = {
+      data: {
+        name: formData.name,
+        phone_number: formData.phone_number,
+        email: formData.email,
+        participant: participantType === "Jogador" ? true : false,
+        event_id: parseInt(id, 10), 
+        class_id: formData.class_id ? parseInt(formData.class_id, 10) : null,
+        year_id: formData.year_id ? parseInt(formData.year_id, 10) : null,
+        course_id: formData.course_id ? parseInt(formData.course_id, 10) : null,
+      },
+    };
+
+    try {
+      await axios.post(`${API_BASE_URL}/event-forms`, payload);
+      alert("Inscrição enviada com sucesso!");
+    } catch (error) {
+      console.error("Erro ao enviar a inscrição:", error);
+      console.log("Payload:", payload);
+      alert("Erro ao enviar a inscrição. Tente novamente.");
+    }
+  };
+
+  if (loading || dropdownLoading) {
+    return <p>Carregando...</p>;
+  }
 
   if (!event) {
     return <p>Evento não encontrado.</p>;
   }
 
   const formInputs = [
-    { type: 'text', placeholder: 'Digite seu nome', label: 'Nome' },
-    { type: 'text', placeholder: 'Digite seu e-mail', label: 'E-mail' },
+    { type: 'text', placeholder: 'Digite seu nome', label: 'Nome', name: 'name', onChange: handleChange, value: formData.name },
+    { type: 'text', placeholder: 'Digite seu número de telefone', label: 'Número de Telefone', name: 'phone_number', onChange: handleChange, value: formData.phone_number },
+    { type: 'email', placeholder: 'Digite seu e-mail', label: 'E-mail', name: 'email', onChange: handleChange, value: formData.email },
+    ...(event.eventType === 'Campeonato' ? [
+      { 
+        type: 'select', 
+        label: 'Você é Jogador(a) ou Espectador(a)?', 
+        placeholder: 'Selecione...', 
+        options: [
+          { value: 'Jogador', label: 'Jogador(a)' },
+          { value: 'Espectador', label: 'Espectador(a)' },
+        ],
+        onChange: (e) => setParticipantType(e.target.value),
+      }
+    ] : []),
     { 
-      type: 'select', 
-      placeholder: 'Selecione seu motivo de contato', 
-      options: [
-        { value: 'motivo1', label: 'Motivo 1' },
-        { value: 'motivo2', label: 'Motivo 2' },
-        { value: 'motivo3', label: 'Motivo 3' },
-      ], 
-      label: 'Motivo' 
+      type: 'select',
+      label: 'Curso',
+      placeholder: 'Selecione seu Curso',
+      name: 'course_id',
+      options: courses, 
+      onChange: handleChange,
+      value: formData.course_id,
     },
-    { type: 'textarea', placeholder: 'Digite sua mensagem', label: 'Mensagem' },
-  ];
-      
+    { 
+      type: 'select',
+      label: 'Turma',
+      placeholder: 'Selecione sua Turma',
+      name: 'class_id',
+      options: classes, 
+      onChange: handleChange,
+      value: formData.class_id,
+    },
+    { 
+      type: 'select',
+      label: 'Ano de Entrada',
+      placeholder: 'Selecione o ano em que você entrou no Inteli',
+      name: 'year_id',
+      options: years, 
+      onChange: handleChange,
+      value: formData.year_id,
+    },
+  ];  
+
   return (
     <>
-      <MainTitle shadowText="Inscrição" mainText={`${event.name} - Inscrição`} />
+      <MainTitle shadowText="Inscrição" mainText={`${event.title} - Inscrição`} />
       <PaperBackground>
         <LargeEventCard 
-          name={event.name}
+          name={event.title}
           description={event.description}
           fullImage={event.fullImage}
           address={event.address}
@@ -98,10 +188,11 @@ export default function EventRegistration() {
         <section className={styles.form}>
           <div className={styles.tag} />
           <Form 
-            title="Entre em Contato"
+            title="Formulário de Inscrição"
             inputs={formInputs}
-            textButton="Enviar"
-            linkButton="/contato" 
+            textButton="Enviar Inscrição"
+            onSubmit={handleSubmit}
+            isContact={false}
           />
         </section>
       </PaperBackground>

@@ -7,7 +7,7 @@ import Products from "./pages/Products";
 import Events from "./pages/Events";
 import AboutEvent from "./pages/AboutEvent";
 import EventRegistration from "./pages/EventRegistration";
-import AboutUs from "./pages/About-us";
+import AboutUs from "./pages/AboutUs";
 
 export default function AppRoutes() {
   return (

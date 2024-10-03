@@ -86,17 +86,6 @@
   }
 
   .container {
-    &__infos {
-      flex-direction: column;
-      gap: 1rem;
-      width: 100%;
-      margin-left: 0;
-      align-items: center;
-    }
-
-    &__advantages, &__paymentTypes {
-      margin-left: 4rem;
-    }
 
     &__paymentTypes {
       flex-direction: column;

@@ -70,23 +70,25 @@
     &__infos {
       flex-direction: column;
       gap: 1rem;
-      width: 100%;
-      margin-left: 0;
+      width: 85%;
+      margin-left: 2rem;
     }
 
     &__details {
       flex-direction: column;
       gap: 1rem;
-      width: 100%;
-      margin-left: 0rem;
+      width: 85%;
       align-items: unset;
+      margin-left: 2rem;
+
+      &__div {
+        &-local {
+          margin-top: 2rem;
+        }
+      }
     }
 
     &__div {
-      width: 100%;
-    }
-
-    &__details {
       width: 100%;
     }
 

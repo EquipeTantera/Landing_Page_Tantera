@@ -27,32 +27,41 @@ export default function Home() {
   const [partners, setPartners] = useState([]);
   const [managementPhotoUrl, setManagementPhotoUrl] = useState('');
   const [managementDescription, setManagementDescription] = useState([]);
+  const [contactPurposes, setContactPurposes] = useState([]);
 
   const formInputs = [
     {
       type: 'text',
       placeholder: 'Digite seu nome',
-      label: 'Nome'
+      label: 'Nome',
+      name: 'name', 
+    },
+    {
+      type: 'email',
+      placeholder: 'Digite seu e-mail',
+      label: 'E-mail',
+      name: 'email', 
     },
     {
       type: 'text',
-      placeholder: 'Digite seu e-mail',
-      label: 'E-mail'
+      placeholder: 'Digite seu número de WhatsApp',
+      label: 'WhatsApp',
+      name: 'whatsapp', 
     },
     {
       type: 'select',
       placeholder: 'Selecione seu motivo de contato',
+      label: 'Motivo',
+      name: 'purpose', 
       options: [
-        { value: 'motivo1', label: 'Motivo 1' },
-        { value: 'motivo2', label: 'Motivo 2' },
-        { value: 'motivo3', label: 'Motivo 3' },
+        ...contactPurposes,
       ],
-      label: 'Motivo'
     },
     {
       type: 'textarea',
       placeholder: 'Digite sua mensagem',
-      label: 'Mensagem'
+      label: 'Mensagem',
+      name: 'message', 
     },
   ];
 
@@ -208,6 +217,28 @@ export default function Home() {
     fetchManagementCurrent();
   }, []);
 
+  // Função para buscar os motivos de contato do backend
+  useEffect(() => {
+    const fetchContactPurposes = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/purposes`);
+        const contactPurposes = response.data.data;
+
+        const formattedPurposes = contactPurposes.map((purpose) => ({
+          value: purpose.attributes.purpose_name,
+          label: purpose.attributes.purpose_name,
+        }));
+
+        setContactPurposes(formattedPurposes);
+        console.log("Motivos de contato:", formattedPurposes);
+      } catch (error) {
+        console.error("Erro ao buscar motivos de contato:", error);
+      }
+    };
+
+    fetchContactPurposes();
+  }, []);
+
   // Filtrar eventos futuros (próximos)
   const filterUpcomingEvents = (events) => {
     return events.filter((event) => event.startTime && event.startTime > currentDate);
@@ -307,7 +338,7 @@ export default function Home() {
               title="Entre em Contato"
               inputs={formInputs}
               textButton="Enviar"
-              isContact={true}
+              isContact={true} 
               onSubmit={() => {}}
             />
           </div>

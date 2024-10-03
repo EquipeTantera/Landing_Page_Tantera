@@ -88,6 +88,7 @@ export default function AboutUs() {
               key={index} 
               nameBoard={`Nome ${index + 1}`} 
               description="Integer ultrices elementum mauris nec tincidunt. Mauris et lectus vel nulla condimentum dapibus. Praesent " 
+              linkButton={`/diretoria/${index + 1}`}
               className={styles.fullBoardCard}
             />
           ))}

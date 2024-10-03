@@ -29,6 +29,10 @@
   &__advantages, &__paymentTypes {
     &__list, &__div__list {
       list-style-type: disc !important;
+
+      &__item {
+        margin-bottom: 1rem;
+      }
     }
   }
 
@@ -40,24 +44,35 @@
     align-items: baseline;
 
     &__div {
-      &-price__paragraph {
-        background-image: url("/background-info-product-small-card.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 3rem;
-        width: 10rem;
+      &-price {
         display: flex;
         align-items: center;
         justify-content: center;
-        color: v.$white-1;
-        font-size: 1.5rem;
-        font-weight: 300;
+        width: 100%;
 
-        &__span {
-          font-family: v.$DriveCorps;
-          letter-spacing: 1.5px;
-          margin-right: .2rem;
+        &__paragraph {
+          background-image: url("/background-info-product-small-card.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          height: 3rem;
+          width: 10rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: v.$white-1;
+          font-size: 1.5rem;
+          font-weight: 300;
+  
+          &__span {
+            font-family: v.$DriveCorps;
+            letter-spacing: 1.5px;
+            margin-right: .2rem;
+          }
         }
+      }
+
+      &__list {
+        margin-top: 1.5rem;
       }
     }
   }
@@ -86,7 +101,9 @@
   }
 
   .container {
-
+    &__infos, &__advantages, &__paymentTypes {
+      width: 85%;
+    }
     &__paymentTypes {
       flex-direction: column;
 

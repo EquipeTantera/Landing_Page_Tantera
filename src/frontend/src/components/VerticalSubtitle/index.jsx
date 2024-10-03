@@ -14,24 +14,26 @@ export default function VerticalSubtitle({ title, subtitle, imageBackground }) {
   if (imageBackground === 'red') {
     sectionStyle = {
       ...baseStyle,
-      backgroundImage: 'url(/red-papper-background.png)',
+      backgroundImage: 'url("/red-papper-background.png")',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'left center'
     };
   } else if (imageBackground === 'purple') {
     sectionStyle = {
       ...baseStyle,
-      backgroundImage: 'url(/purple-papper-background.png)',
+      backgroundImage: 'url("/purple-papper-background.png")',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'right center',
-      height: '25rem'
+      height: '25rem',
+      display: 'flex',
+      alignItems: 'center',
     };
   } else {
     sectionStyle = baseStyle;
   }
 
   const subtitleStyle = subtitle === 'presidência' ? {
-    backgroundImage: 'url(/subtitle-presidency.svg)',
+    backgroundImage: 'url("/subtitle-presidency.svg")',
     backgroundRepeat: 'repeat',
     backgroundPosition: 'left bottom',
     minHeight: '56rem'

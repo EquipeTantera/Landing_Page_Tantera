@@ -1,18 +1,197 @@
 @use "../../styles/variables" as v;
 
-.aboutUsContainer {
-  display: flex;
-  align-items: center;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
+.container {
+  &-about-us {
+    display: flex;
     align-items: center;
+
+    &__content {
+      width: 37rem;
+      justify-content: center;
+      align-items: center;
+      margin-left: 6rem;
+    }
+  }
+
+  &-purpose {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-image: url("/background_purple_events.png");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    &__div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: v.$white-3;
+      width: 100%;
+
+      &__div-text {
+        text-align: center;
+        margin: 0 auto;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+
+        &__title {
+          text-align: center;
+          font-family: v.$DriveCorps;
+          font-size: 5rem;
+          font-weight: 300;
+        }
+
+        &__paragraph {
+          font-family: 'Poppins', sans-serif;
+          font-size: 1.4rem;
+          margin: 1.25rem 0;
+          color: v.$white-3;
+          text-align: left;
+
+          &__span {
+            font-family: v.$DriveCorps3d;
+            font-size: 1.2rem;
+            color: v.$white-3;
+          }
+        }
+      }
+    }
+  }
+
+  &-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+  }
+
+  &-mascot {
+    display: flex;
+    justify-content: center;
+    margin: 2.5rem 0;
+
+    &__image {
+      width: 37rem;
+      height: 25rem;
+    }
+
+    &__content {
+      justify-content: center;
+      margin: 1.25rem 6rem;
+    }
+  }
+
+  &-form {
+    justify-content: center;
+    margin: 3rem 0;
+    padding: 0px 5rem;
+
+    &__tag {
+      height: 3rem;
+      background-image: url('/tag.png');
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: relative;
+      top: 1rem;
+      z-index: 0;
+    }
   }
 }
 
-.verticalSubtitle {
-  flex: 0 0 300px;
-  margin-right: 20px;
+
+.section-purpose {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    &-about-us {
+      flex-direction: column;
+      align-items: center;
+
+      &__content {
+        font-size: 1rem;
+        margin-left: 0;
+        width: 100%;
+        padding: 0 1rem;
+        margin-top: -3rem;
+        margin-bottom: 1.25rem;
+      }
+    }
+
+    &-purpose {
+      &__div {
+        &__div-text {
+          width: 100%;
+          margin-top: 0.6rem;
+          text-align: start;
+          flex-direction: column;
+
+          &__title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+          }
+
+          &__paragraph {
+            font-size: 1rem;
+            margin-left: 2rem;
+          }
+        }
+      }
+    }
+    
+    &-board {
+      &__div {
+        padding: 1.25rem;
+        margin-top: -1rem;
+        padding-bottom: 4rem;
+      }
+    }
+
+    &-mascot {
+      &__image {
+        width: 18rem;
+        height: 12rem;
+        margin-top: -3rem;
+      }
+
+      &__content {
+        margin: 0rem 1rem;
+        padding: 0rem 0rem;
+      }
+    }
+
+    &-form {
+      margin: 2rem 1rem;
+      padding: 0px;
+      margin-bottom: 1.25rem;
+
+      &__tag {
+        top: 0.5rem;
+      }
+    }
+  }
 }
 
 .horizontalSubtitle {
@@ -21,188 +200,5 @@
   @media (max-width: 768px) {
     display: flex;
     width: 100%;
-  }
-}
-
-.content {
-  width: 600px;
-  justify-content: center;
-  align-items: center;
-  margin-left: 100px;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    margin-left: 0;
-    width: 100%;
-    padding: 0 1rem;
-    margin-top: -50px;
-    margin-bottom: 20px;
-  }
-}
-
-.imageContainer {
-  position: relative;
-  margin-top: -20px;
-  display: flex;
-  justify-content: center;
-  z-index: -1;
-
-  @media (max-width: 768px) {
-  margin-top: 0;
-  }
-}
-
-.aboutUsImage {
-  width: 100%;
-
-  @media (max-width: 768px) {
-    width: -webkit-fill-available;
-    height: 90vh;
-  }
-}
-
-.textOverlay {
-  position: absolute;
-  top: 40%;
-  left: 45%;
-  transform: translate(-50%, -35%);
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  color: v.$white-3;
-  width: 80%;
-  z-index: 1;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    top: 10%;
-    transform: translate(-50%, 0);
-  }
-}
-
-.purposeTitle {
-  font-family: v.$DriveCorps;
-  font-size: 4rem;
-  color: v.$white-3;
-  margin-top: 140px;
-
-  @media (max-width: 768px) {
-    font-size: 2.5rem;
-    margin-top: 0;
-    margin-bottom: 20px;
-    order: 1;
-  }
-}
-
-.textContainer {
-  text-align: left;
-  margin: 20px auto;
-  width: 80%;
-
-
-  @media (max-width: 768px) {
-    width: 100%;
-    margin-top: 10px;
-    order: 2;
-  }
-
-  @media (min-width: 769px) {
-    width: 60%;
-
-  }
-}
-
-.normalText {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.4rem;
-  margin: 30px 0;
-  color: v.$white-3;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-}
-
-.highlightText {
-  font-family: v.$DriveCorps3d;
-  font-size: 1.2rem;
-  color: v.$white-3;
-}
-
-.tag {
-  height: 3rem;
-  background-image: url('/tag.png');
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: relative;
-  top: 1rem;
-  z-index: 0;
-}
-
-.directorSection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.fullBoardCardContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-  justify-content: center;
-
-  @media (max-width: 768px) {
-    padding: 20px;
-  }
-}
-
-.fullBoardCard {
-  flex: 1 1 30%;
-  min-width: 200px;
-}
-
-.mascotContainer {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-}
-
-.mascotImage {
-  width: 600px;
-  height: 400px;
-
-  @media (max-width: 768px) {
-    width: 300px;
-    height: 200px;
-    margin-top: -50px;
-  }
-}
-.centeredContentContainer {
-  justify-content: center;
-  margin: 20px 0;
-  padding: 0px 90px;
-
-  @media (max-width: 768px) {
-    margin: 0rem 1rem;
-    padding: 0px;
-  }
-}
-
-.centeredContent {
-  text-align: center;
-}
-
-.centeredContentForm{
-  justify-content: center;
-  margin: 60px 0;
-  padding: 0px 90px;
-
-  @media (max-width: 768px) {
-    margin: 0rem 1rem;
-    padding: 0px;
-    margin-bottom: 20px;
   }
 }

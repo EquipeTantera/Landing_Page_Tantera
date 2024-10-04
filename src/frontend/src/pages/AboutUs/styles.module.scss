@@ -68,13 +68,14 @@
   &-board {
     display: flex;
     justify-content: center;
-    align-items: center;
 
     &__div {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
       justify-content: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
     }
   }
 

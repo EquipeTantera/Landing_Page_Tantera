@@ -89,6 +89,7 @@ export default function AboutUs() {
           <VerticalSubtitle 
             title="Diretoria"
             imageBackground="red"
+            verticalText="Presidência"
             subtitle="presidência"
           />
           <div className={styles["container-board__div"]}>

@@ -12,5 +12,5 @@ export default function Button({ title, path }) {
 
 Button.propTypes = {
   title: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
+  path: PropTypes.string,
 };

@@ -33,12 +33,15 @@
     z-index: 1;
     letter-spacing: 2px;
     font-weight: 200;
+    white-space: nowrap;
   }
 
   &__primary {
     color: v.$white-1;
     font-size: 6rem;
     z-index: 2;
+    white-space: nowrap;
+
   }
 
   @media screen and (max-width: 1200px) {
@@ -55,7 +58,7 @@
 
   @media screen and (max-width: 768px) {
     &__secundary {
-      font-size: 30vw;
+      font-size: 26vw;
     }
 
     &__primary {

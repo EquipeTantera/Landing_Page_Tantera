@@ -43,7 +43,7 @@
         color: v.$black;
       }
 
-      &.input--white {
+      &--white {
         border: 2px solid v.$grey-2;
         color: v.$grey-2;
 
@@ -52,7 +52,7 @@
         }
       }
 
-      &.input--black {
+      &--black {
         border: 2px solid v.$black;
         color: v.$black;
 
@@ -90,11 +90,11 @@
     font-size: 1.2rem;
   }
 
-  &.label--white {
+  &--white {
     color: v.$grey-2;
   }
 
-  &.label--black {
+  &--black {
     color: v.$black;
   }
 }

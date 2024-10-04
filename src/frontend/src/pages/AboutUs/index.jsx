@@ -3,20 +3,73 @@ import VerticalSubtitle from "../../components/VerticalSubtitle";
 import FullBoardCard from "../../components/Card/BoardCard/FullBoardCard";
 import HorizontalSubtitle from "../../components/HorizontalSubtitle";
 import Content from "../../components/Content";
-import FormCard from "../../components/Card/FormCard";
+import Form from "../../components/Card/FormCard";
 import styles from "./styles.module.scss";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { API_BASE_URL } from "../../services/config";
 
 export default function AboutUs() {
+  const [contactPurposes, setContactPurposes] = useState([]);
 
-  const inputs = [
-    { type: 'text', placeholder: 'Seu nome', label: 'Nome' },
-    { type: 'text', placeholder: 'Seu email', label: 'Email' },
-    { type: 'select', placeholder: 'Selecione uma opção', label: 'Selecione', options: [
-      { value: 'opcao1', label: 'Opção 1' },
-      { value: 'opcao2', label: 'Opção 2' },
-    ] 
+  const formInputs = [
+    {
+      type: 'text',
+      placeholder: 'Digite seu nome',
+      label: 'Nome',
+      name: 'name', 
+    },
+    {
+      type: 'email',
+      placeholder: 'Digite seu e-mail',
+      label: 'E-mail',
+      name: 'email', 
+    },
+    {
+      type: 'text',
+      placeholder: 'Digite seu número de WhatsApp',
+      label: 'WhatsApp',
+      name: 'whatsapp', 
+    },
+    {
+      type: 'select',
+      placeholder: 'Selecione seu motivo de contato',
+      label: 'Motivo',
+      name: 'purpose', 
+      options: [
+        ...contactPurposes,
+      ],
+    },
+    {
+      type: 'textarea',
+      placeholder: 'Digite sua mensagem',
+      label: 'Mensagem',
+      name: 'message', 
     },
   ];
+
+  // Função para buscar os motivos de contato do backend
+  useEffect(() => {
+    const fetchContactPurposes = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/purposes`);
+        const contactPurposes = response.data.data;
+
+        const formattedPurposes = contactPurposes.map((purpose) => ({
+          value: purpose.attributes.purpose_name,
+          label: purpose.attributes.purpose_name,
+        }));
+
+        setContactPurposes(formattedPurposes);
+        console.log("Motivos de contato:", formattedPurposes);
+      } catch (error) {
+        console.error("Erro ao buscar motivos de contato:", error);
+      }
+    };
+
+    fetchContactPurposes();
+  }, []);
+
   return (
     <>
       <MainTitle 
@@ -129,11 +182,12 @@ export default function AboutUs() {
       <section className={styles.section}>
         <div className={styles["container-form"]}>
           <div className={styles["container-form__tag"]} />
-          <FormCard 
-            title="Entre em Contato" 
-            inputs={inputs} 
+          <Form 
+            title="Entre em Contato"
+            inputs={formInputs}
             textButton="Enviar"
-            linkButton="/submit"
+            isContact={true} 
+            onSubmit={() => {}}
             backgroundType="purple"
             inputStyle="white"
           />

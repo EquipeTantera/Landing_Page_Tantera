@@ -1,6 +1,6 @@
 @use "../../../styles/variables" as v;
 
-.formCard {
+.container {
   background-image: url('/background-form.svg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -10,6 +10,14 @@
   align-items: center;
   justify-content: center;
   border-radius: 8px;
+
+  &--white {
+    background-image: url('/background-form.svg');
+  }
+
+  &--purple {
+    background-image: url('/background-form-purple.png');
+  }
 
   @media (max-width: 768px) {
     padding: 16px 40px;
@@ -37,22 +45,38 @@
     gap: 16px;
   }
 
-  &__button {
-    margin-top: 30px;
+  &--button {
     display: flex;
+    align-items: center;
     justify-content: center;
-    width: 100%;
 
-    @media (max-width: 768px) {
-      margin-top: 20px;
+    &__button {
+      background: v.$red-2;
+      color: v.$white-1;
+      font-family: v.$DriveCorps;
+      padding: 1rem;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      border-radius: 1.25rem;
+      transition: all 0.3s;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      font-weight: 300;
+      width: 100%;
+
+      &:hover {
+        background: v.$red-1;
+      }
+      
+      @media (max-width: 768px) {
+        font-size: 1rem;
+        padding: 0.8rem;
+      }
+
+      @media (max-width: 768px) {
+        margin-top: 20px;
+      }
     }
-  }
-
-  &--white {
-    background-image: url('/background-form.svg');
-  }
-
-  &--purple {
-    background-image: url('/background-form-purple.png');
   }
 }

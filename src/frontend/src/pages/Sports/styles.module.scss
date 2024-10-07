@@ -1,0 +1,97 @@
+@use "../../styles/variables" as v;
+
+.container {
+    &__about {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: -11.25rem;
+    }
+
+    &__text {
+        h1 {
+            font-family: v.$DriveCorps;
+            font-size: 3rem;
+            text-align: center;
+            padding-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 1.5rem;
+            font-weight: lighter;
+            width: 36rem;
+        }
+    }
+
+    &__events {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        margin-top: -5.62rem;
+
+        h2 {
+            font-family: v.$DriveCorps;
+            font-size: 3rem;
+            padding-bottom: 1.5rem;
+            font-weight: 400;
+        }
+    }
+
+    &__results {
+        margin-top: 7.5rem;
+    }
+
+    &__planningCard {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 4.37rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        &__about {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 0;
+        }
+
+        &__text {
+            h1 {
+                font-size: 2rem;
+                text-align: center;
+                padding-bottom: 1rem;
+            }
+
+            p {
+                font-size: 1rem;
+                width: 21.25rem;
+                padding-bottom: 2rem;
+            }
+        }
+
+        &__events {
+            margin-top: 4rem;
+    
+            h2 {
+                font-family: v.$DriveCorps;
+                font-size: 2rem;
+                padding-bottom: 1.5rem;
+                font-weight: 400;
+            }
+        }
+    
+        &__results {
+            margin-top: 4rem;
+        }
+    
+        &__planningCard {
+            padding-top: 4rem;
+        }
+    }
+}

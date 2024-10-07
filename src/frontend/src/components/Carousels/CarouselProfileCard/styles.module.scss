@@ -2,11 +2,11 @@
 
 .container {
     margin: 10rem;
-    width: 17.37rem;
-    box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.4);
+    width: 16rem;
+    box-shadow: 1px 5px 5px 5px rgba(0, 0, 0, 0.228);
 
     &__slides {
-        height: 24rem;
+        height: 20rem;
         background-color: v.$grey-2;
         background-position: cover;
         color: black;
@@ -54,11 +54,19 @@
 
 @media screen and (max-width: 768px) {
     .container {
-        width: 70%;
+        width: 200px;
         margin: 0 auto;
 
         &__slides {
-            height: 16rem;
+            height: 14rem;
+        }
+
+        &__position {
+            font-size: 1.1rem;
+        }
+
+        &__name {
+            font-size: 0.8rem;
         }
     }
 }

@@ -11,7 +11,7 @@
   &__div {
     position: relative;
     width: 100%;
-  
+
     @media (max-width: 768px) {
       overflow-x: hidden;
     }
@@ -28,6 +28,7 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
+      color: v.$black;
 
       @media (max-width: 768px) {
         height: 48px;
@@ -40,6 +41,24 @@
 
       &::placeholder {
         color: v.$black;
+      }
+
+      &--white {
+        border: 2px solid v.$grey-2;
+        color: v.$grey-2;
+
+        &::placeholder {
+          color: v.$grey-2;
+        }
+      }
+
+      &--black {
+        border: 2px solid v.$black;
+        color: v.$black;
+
+        &::placeholder {
+          color: v.$black;
+        }
       }
     }
 
@@ -70,5 +89,12 @@
   @media (max-width: 768px) {
     font-size: 1.2rem;
   }
-}
 
+  &--white {
+    color: v.$grey-2;
+  }
+
+  &--black {
+    color: v.$black;
+  }
+}

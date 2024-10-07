@@ -5,7 +5,7 @@ import Content from '../../../Content';
 import HorizontalSubtitle from '../../../HorizontalSubtitle';
 import Impacts from '../../Common/Impacts';
 
-export default function LargePartnerCard({ title, description, image, fullImage, events, impacts, textButton, linkButton }) {
+export default function LargePartnerCard({ title, description, image, fullImage, events = [], impacts = [], textButton, linkButton }) {
   return (
     <div className={styles.div}>
       <div className={styles.container}>
@@ -18,12 +18,10 @@ export default function LargePartnerCard({ title, description, image, fullImage,
         </div>
 
         <div className={styles.container__infos}>
-          <img src={image} alt={name} className={styles.container__infos__image} />
+          <img src={image} alt={title} className={styles.container__infos__image} />
 
           <div className={styles.container__infos__description}>
-            <Content 
-              content={description}
-            />
+            <Content content={description} />
           </div>
         </div>
 
@@ -31,29 +29,28 @@ export default function LargePartnerCard({ title, description, image, fullImage,
           <div className={styles["container__details__div-event"]}>
             <p className={styles["container__details__div-event__title"]}>Eventos</p>
             <ul className={styles["container__details__div-event__list"]}>
-              {events.map((event) => (
-                <li 
-                key={event.title}
-                className={styles["container__details__div-event__list__item"]}>
-                  <p className={styles["container__details__div-event__list__item__name"]}>{event.title} - {event.date}</p>
-                </li>
-              ))}
+              {events.length > 0 ? (
+                events.map((event, index) => (
+                  <li key={index} className={styles["container__details__div-event__list__item"]}>
+                    <p className={styles["container__details__div-event__list__item__name"]}>
+                      {event.title} - {event.date}
+                    </p>
+                  </li>
+                ))
+              ) : (
+                <li className={styles["container__details__div-event__list__item"]}>Nenhum evento encontrado</li>
+              )}
             </ul>
           </div>
 
-          <div className={styles["container__details__div-impact"]}>	
+          <div className={styles["container__details__div-impact"]}>
             <p className={styles["container__details__div-impact__title"]}>Impactos</p>
-            <Impacts 
-              contents={impacts}
-            />
+            <Impacts contents={impacts.length > 0 ? impacts : [{ name: "Nenhum impacto disponível" }]} />
           </div>
         </div>
-        
+
         <div className={styles.container__div}>
-          <Button 
-            title={textButton}
-            path={linkButton}
-          />
+          <Button title={textButton} path={linkButton} />
         </div>
       </div>
 
@@ -63,6 +60,7 @@ export default function LargePartnerCard({ title, description, image, fullImage,
     </div>
   );
 }
+
 
 LargePartnerCard.propTypes = {
   title: PropTypes.string.isRequired,

@@ -39,7 +39,9 @@ export default function CarouselLargePartner({ partners }) {
       )}
 
       <div className={styles.carousel__card}>
-        <LargePartnerCard key={partners[currentIndex].title} {...partners[currentIndex]} />
+        {partners.length > 0 && (
+          <LargePartnerCard key={partners[currentIndex].title} {...partners[currentIndex]} />
+        )}      
       </div>
 
       {!isMobile && (

@@ -1,0 +1,205 @@
+@use "../../styles/variables" as v;
+
+.container {
+  &-about-us {
+    display: flex;
+    align-items: center;
+
+    &__content {
+      width: 37rem;
+      justify-content: center;
+      align-items: center;
+      margin-left: 6rem;
+    }
+  }
+
+  &-purpose {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-image: url("/background_purple_events.png");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    &__div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: v.$white-3;
+      width: 100%;
+
+      &__div-text {
+        text-align: center;
+        margin: 0 auto;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+
+        &__title {
+          text-align: center;
+          font-family: v.$DriveCorps;
+          font-size: 5rem;
+          font-weight: 300;
+        }
+
+        &__paragraph {
+          font-family: 'Poppins', sans-serif;
+          font-size: 1.4rem;
+          margin: 1.25rem 0;
+          color: v.$white-3;
+          text-align: left;
+
+          &__span {
+            font-family: v.$DriveCorps3d;
+            font-size: 1.2rem;
+            color: v.$white-3;
+          }
+        }
+      }
+    }
+  }
+
+  &-board {
+    display: flex;
+    justify-content: center;
+
+    &__div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &-mascot {
+    display: flex;
+    justify-content: center;
+    margin: 2.5rem 0;
+
+    &__image {
+      width: 37rem;
+      height: 25rem;
+    }
+
+    &__content {
+      justify-content: center;
+      margin: 1.25rem 6rem;
+    }
+  }
+
+  &-form {
+    justify-content: center;
+    margin: 3rem 0;
+    padding: 0px 5rem;
+
+    &__tag {
+      height: 3rem;
+      background-image: url('/tag.png');
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: relative;
+      top: 1rem;
+      z-index: 0;
+    }
+  }
+}
+
+
+.section-purpose {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    &-about-us {
+      flex-direction: column;
+      align-items: center;
+
+      &__content {
+        font-size: 1rem;
+        margin-left: 0;
+        width: 100%;
+        padding: 0 1rem;
+        margin-top: -3rem;
+        margin-bottom: 1.25rem;
+      }
+    }
+
+    &-purpose {
+      &__div {
+        &__div-text {
+          width: 100%;
+          margin-top: 0.6rem;
+          text-align: start;
+          flex-direction: column;
+
+          &__title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+          }
+
+          &__paragraph {
+            font-size: 1rem;
+            margin-left: 2rem;
+          }
+        }
+      }
+    }
+    
+    &-board {
+      &__div {
+        padding: 1.25rem;
+        margin-top: -1rem;
+        padding-bottom: 4rem;
+      }
+    }
+
+    &-mascot {
+      &__image {
+        width: 18rem;
+        height: 12rem;
+        margin-top: -3rem;
+      }
+
+      &__content {
+        margin: 0rem 1rem;
+        padding: 0rem 0rem;
+      }
+    }
+
+    &-form {
+      margin: 2rem 1rem;
+      padding: 0px;
+      margin-bottom: 1.25rem;
+
+      &__tag {
+        top: 0.5rem;
+      }
+    }
+  }
+}
+
+.horizontalSubtitle {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    width: 100%;
+  }
+}

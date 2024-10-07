@@ -259,18 +259,6 @@ export default function Home() {
         />
       </div>
 
-      {/*apagar depois!!!! */}
-      <div className={styles.container__teste}>
-        <Gallery
-          buttonPath="https://github.com/orgs/EquipeTantera/projects/27/views/1?pane=issue&itemId=78324301"
-          slides={[
-            { imageUrl: "profile-tantech.jpeg" },
-            { imageUrl: "photo-small-card.png" },
-            { imageUrl: "copa-inteli.png" }
-        ]}
-        />
-      </div>
-
       <section className={styles.container__impacts}>
         <HorizontalSubtitle
           title="Impactos da Atlética"

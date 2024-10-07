@@ -5,6 +5,7 @@ import CarouselProfileCard from "../../components/Carousels/CarouselProfileCard"
 import CarouselCard from "../../components/Carousels/CarouselCard";
 import ResultInformationCard from "../../components/Card/InformationCard/ResultInformationCard";
 import PlanningCards from "../../components/Card/PlanningCard";
+import Content from "../../components/Content";
 
 const directors = [
     {
@@ -66,11 +67,14 @@ export default function Sports() {
                 mainText="Esportes"
             />
             <PaperBackground>
-                <div className={styles.container}>
+                <section className={styles.container}>
                     <div className={styles.container__about}>
                         <div className={styles.container__text}>
-                            <h1>SOBRE</h1>
-                            <p>Integer ultrices elementum mauris nec tincidunt. Mauris et lectus vel nulla condimentum dapibus. Praesent consequat felis lectus. Mauris pharetra neque at eros dictum, vitae faucibus leo molestie. Sed accumsan cursus volutpat. Cras volutpat odio at lacus bibendum, eget cursus </p>
+                            <Content 
+                                title={"SOBRE"}
+                                content={"Integer ultrices elementum mauris nec tincidunt. Mauris et lectus vel nulla condimentum dapibus. Praesent consequat felis lectus. Mauris pharetra neque at eros dictum, vitae faucibus leo molestie. Sed accumsan cursus volutpat. Cras volutpat odio at lacus bibendum, eget cursus"}
+                                alignTitle={"center"}
+                            />
                         </div>
                         <div className={styles.container__carousel}>
                             <CarouselProfileCard
@@ -79,7 +83,7 @@ export default function Sports() {
                         </div>
                     </div>
                     <div className={styles.container__events}>
-                        <h2 className="">PROJETOS</h2>
+                        <h2>PROJETOS</h2>
                         <CarouselCard cards={cards} />
                     </div>
                     <div className={styles.container__results}>
@@ -92,7 +96,7 @@ export default function Sports() {
                             title={title}
                         />
                     </div>
-                </div>
+                </section>
             </PaperBackground>
         </div>
     );

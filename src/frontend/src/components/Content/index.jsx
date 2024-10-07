@@ -1,10 +1,11 @@
 import styles from './styles.module.scss';
 import PropType from 'prop-types';
 
-export default function Content({ title, content, titleSize, contetSize, titleColor }) {
+export default function Content({ title, content, titleSize, contetSize, titleColor, alignTitle }) {
   const titleStyle = {
     fontSize: titleSize,
     color: titleColor === 'white' ? '#FFFFFF' : titleColor,
+    textAlign: alignTitle === 'center' ? 'center' : 'left',
   };
 
   return (
@@ -27,4 +28,5 @@ Content.propTypes = {
   titleSize: PropType.string,
   contetSize: PropType.string,
   titleColor: PropType.string,
+  alignTitle: PropType.string,
 };

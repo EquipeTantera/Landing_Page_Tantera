@@ -40,15 +40,19 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 60%;
     align-items: baseline;
 
     &__div {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
       &-price {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 100%;
+        flex-direction: column;
 
         &__paragraph {
           background-image: url("/background-info-product-small-card.png");
@@ -61,7 +65,8 @@
           justify-content: center;
           color: v.$white-1;
           font-size: 1.5rem;
-          font-weight: 300;
+          font-weight: 300;          
+          margin-top: 1rem;
   
           &__span {
             font-family: v.$DriveCorps;

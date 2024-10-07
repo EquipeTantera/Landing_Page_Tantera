@@ -24,6 +24,8 @@ export default function Products() {
     gender: '',
   });
 
+  
+
   // Carregar dados dos produtos
   useEffect(() => {
     const fetchProductsData = async () => {
@@ -63,7 +65,7 @@ export default function Products() {
             genres,
             categories,
             buttonText: "Ver Produto",
-            buttonPath: `/produto/${product.id}`,
+            buttonPath: `/produtos/${product.id}`,
           };
         });
 

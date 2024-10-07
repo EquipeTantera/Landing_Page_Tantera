@@ -59,7 +59,7 @@ const activities = [
 const boardImage = 'esportes.png';
 const title = 'PLANEJAMENTO';
 
-export default function Sports() {
+export default function Board() {
     return (
         <div className={styles.container}>
             <MainTitle

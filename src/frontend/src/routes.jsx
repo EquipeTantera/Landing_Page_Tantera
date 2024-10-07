@@ -8,7 +8,7 @@ import Events from "./pages/Events";
 import AboutEvent from "./pages/AboutEvent";
 import EventRegistration from "./pages/EventRegistration";
 import AboutUs from "./pages/AboutUs";
-import Sports from "./pages/Sports";
+import Board from "./pages/Board";
 
 export default function AppRoutes() {
   return (
@@ -22,7 +22,7 @@ export default function AppRoutes() {
         <Route path="/eventos/:id" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><AboutEvent /></Page>} />
         <Route path="/eventos/:id/inscricao" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><EventRegistration /></Page>} />
         <Route path="/sobre-nos" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><AboutUs /></Page>} />
-        <Route path="/diretorias" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><Sports /></Page>} />
+        <Route path="/diretorias" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><Board /></Page>} />
       </Routes>
     </Router>
   );

@@ -16,6 +16,8 @@ export default function MembershipPlan() {
   const [classes, setClasses] = useState([]);
   const [years, setYears] = useState([]);
   const [courses, setCourses] = useState([]);
+  const [FAQLoading, setFAQLoading] = useState(true);
+  const [FAQ, setFAQ] = useState([]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -49,14 +51,34 @@ export default function MembershipPlan() {
         setClasses(formattedClasses);
         setYears(formattedYears);
         setCourses(formattedCourses);
-        setDropdownLoading(false); 
       } catch (error) {
         console.error("Erro ao buscar dados dos dropdowns:", error);
-        setDropdownLoading(false);
       }
     };
 
     fetchDropdownData();
+  }, []);
+
+  // Função para buscar as perguntas e respostas do FAQ
+  useEffect(() => {
+    const fetchFAQData = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/faqs`);
+        const formattedFAQ = response.data.data.map((faqItem) => ({
+          buttonText: faqItem.attributes.question,
+          panelText: faqItem.attributes.answer,
+          colorImage: "purple",
+        }));
+
+        setFAQ(formattedFAQ);
+        setFAQLoading(false);
+      } catch (error) {
+        console.error("Erro ao buscar dados do FAQ:", error);
+        setFAQLoading(false);
+      }
+    };
+
+    fetchFAQData();
   }, []);
 
   const handleSubmit = async () => {
@@ -166,24 +188,9 @@ export default function MembershipPlan() {
         </section>
 
         <section className={styles["section--faq"]}>
+          {FAQLoading && <p>Carregando...</p>}
           <Accordion 
-            items={[
-              {
-                buttonText: "Pergunta 1",
-                panelText: "Resposta 1",
-                colorImage: "purple",
-              },
-              {
-                buttonText: "Pergunta 2",
-                panelText: "Resposta 2",
-                colorImage: "red",
-              },
-              {
-                buttonText: "Pergunta 3",
-                panelText: "Resposta 3",
-                colorImage: "purple",
-              },
-            ]}
+            items={FAQ}
           />
         </section>
       </PaperBackground>

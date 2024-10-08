@@ -18,7 +18,7 @@ export default function MembershipPlan() {
     class_id: "",
     year_id: "",
     course_id: "",
-    plan_ids: "", // Novo campo para armazenar o ID do plano selecionado
+    plan_ids: "",
   });  
   const [sent, setSent] = useState(false);
   const [classes, setClasses] = useState([]);

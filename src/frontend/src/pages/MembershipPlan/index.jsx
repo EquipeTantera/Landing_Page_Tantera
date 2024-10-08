@@ -18,6 +18,7 @@ export default function MembershipPlan() {
   const [courses, setCourses] = useState([]);
   const [FAQLoading, setFAQLoading] = useState(true);
   const [FAQ, setFAQ] = useState([]);
+  const [plansData, setPlansData] = useState([]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -80,6 +81,40 @@ export default function MembershipPlan() {
 
     fetchFAQData();
   }, []);
+
+  // Função para buscar os dados dos planos de sócio
+  useEffect(() => {
+    const fetchMembershipPlanData = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/plans?populate=*`);
+
+        // Formatação de todos os planos de sócio
+        const formattedPlansData = response.data.data.map((planItem) => ({
+          id: planItem.id,
+          name: planItem.attributes.name,
+          price: planItem.attributes.price,
+          description: planItem.attributes.description || "Descrição não disponível",
+          fullImage: planItem.attributes.image?.data?.attributes?.formats?.small?.url || "default-image-url",
+          advantages: planItem.attributes.advantage_id?.data?.map(
+            (advantage) => advantage.attributes.description
+          ) || [],
+          paymentTypes: [planItem.attributes.payment?.data?.attributes?.name || "N/A"], 
+          participants: planItem.attributes.event_forms?.data?.map(
+            (form) => form.attributes.name
+          ) || [],
+        }));
+
+        setPlansData(formattedPlansData); 
+        console.log("Plans Data:", formattedPlansData);
+      } catch (error) {
+        console.error("Erro ao buscar dados dos planos de sócio:", error);
+      }
+    };
+
+    fetchMembershipPlanData();
+  }, []);
+
+
 
   const handleSubmit = async () => {
     const payload = {
@@ -151,22 +186,18 @@ export default function MembershipPlan() {
 
       <PaperBackground>
         <section>
+        {plansData.map((plan) => (
           <LargeMembershipPlanCard 
-            name="Plano de Sócio"
-            description="Descrição do plano de sócio"
-            fullImage="https://via.placeholder.com/150"
-            advantages={[
-              "Vantagem 1",
-              "Vantagem 2",
-              "Vantagem 3",
-            ]}
-            paymentTypes={[
-              "Tipo de pagamento 1",
-              "Tipo de pagamento 2",
-              "Tipo de pagamento 3",
-            ]}
-            price="100,00"
+            key={plan.id}
+            name={plan.name}
+            description={plan.description} // Certifique-se de passar a descrição
+            fullImage={plan.fullImage}     // Certifique-se de passar a imagem correta
+            price={plan.price}
+            advantages={plan.advantages}
+            paymentTypes={plan.paymentTypes} // Corrigir para `paymentTypes`
           />
+        ))}
+          
         </section>
 
         <section className={styles["section--register"]}>

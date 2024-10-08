@@ -11,7 +11,15 @@ import axios from "axios";
 import HorizontalSubtitle from "../../components/HorizontalSubtitle";
 
 export default function MembershipPlan() {
-  const [formData, setFormData] = useState({ name: "", phone_number: "", email: "", class_id: "", year_id: "", course_id: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    phone_number: "",
+    email: "",
+    class_id: "",
+    year_id: "",
+    course_id: "",
+    plan_ids: "", // Novo campo para armazenar o ID do plano selecionado
+  });  
   const [sent, setSent] = useState(false);
   const [classes, setClasses] = useState([]);
   const [years, setYears] = useState([]);
@@ -114,40 +122,46 @@ export default function MembershipPlan() {
     fetchMembershipPlanData();
   }, []);
 
-
-
   const handleSubmit = async () => {
+    // Formatar o payload conforme necessário
     const payload = {
       data: {
         name: formData.name,
         phone_number: formData.phone_number,
         email: formData.email,
-        participant: participantType === "Jogador" ? true : false,
-        event_id: parseInt(id, 10), 
+        participant: true, 
+        plan_ids: formData.plan_ids ? parseInt(formData.plan_ids, 10) : null, 
         class_id: formData.class_id ? parseInt(formData.class_id, 10) : null,
         year_id: formData.year_id ? parseInt(formData.year_id, 10) : null,
         course_id: formData.course_id ? parseInt(formData.course_id, 10) : null,
       },
     };
-
-    setSending(true);
-
+  
     try {
-      await axios.post(`${API_BASE_URL}/event-forms`, payload);
+      const response = await axios.post(`${API_BASE_URL}/event-forms`, payload);
       setSent(true);
-      setSending(false);
+      console.log("Inscrição realizada com sucesso:", response.data);
     } catch (error) {
-      console.error("Erro ao enviar a inscrição:", error);
-      console.log("Payload:", payload);
-      alert("Erro ao enviar a inscrição. Tente novamente.");
-      setSending(false);
+      console.error("Erro ao enviar a inscrição:", error.response?.data || error.message);
+      console.log("Erro detalhado:", error.response?.data?.error || error.message);
+      alert(`Erro ao enviar a inscrição: ${error.response?.data?.error?.message || error.message}`);
     }
   };
+  
 
   const formInputs = [
-    {type: "text", name: "name", label: "Nome", required: true},
-    {type: "email", name: "email", label: "E-mail", required: true},
-    {type: "tel", name: "phone_number", label: "Telefone", required: true},
+    {type: "text", placeholder: 'Digite seu nome completo', name: "name", label: "Nome", onChange: handleChange, value: formData.name},
+    {type: 'email', placeholder: 'Digite seu e-mail', label: 'E-mail', name: 'email', onChange: handleChange, value: formData.email},
+    {type: "tel", placeholder:'Digite seu telefone', name: "phone_number", label: "Telefone", onChange: handleChange, value: formData.phone_number},
+    {
+      type: "select",
+      label: "Plano de Sócio",
+      placeholder: "Selecione o Plano de Sócio",
+      name: "plan_ids",
+      options: plansData.map((plan) => ({ value: plan.id, label: plan.name })),
+      onChange: handleChange,
+      value: formData.plan_ids,
+    },
     { 
       type: 'select',
       label: 'Curso',

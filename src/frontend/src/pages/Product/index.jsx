@@ -54,7 +54,7 @@ export default function Product() {
         <PaperBackground>
           <div className={styles.container}>
             <LargeProductCard
-              title={productData.title}
+              name={productData.title}
               description={productData.description}
               fullImage={productData.fullImage}
               price={productData.price}

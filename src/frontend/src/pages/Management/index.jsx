@@ -24,6 +24,12 @@ export default function Management() {
             subtitle="Presidência"
             verticalText="Presidiência"
           />
+
+          <HorizontalSubtitle 
+            title="Presidência"
+            colorImage="red"
+            className={styles["container--presidency__subtitle__horizontal"]}
+          />
         </div>
 
         <div className={styles["container--presidency__infos"]}>

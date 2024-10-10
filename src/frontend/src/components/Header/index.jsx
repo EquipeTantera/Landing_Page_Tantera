@@ -9,7 +9,6 @@ export default function Header({ background, backgroundMenu }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Detectar rolagem da página
   const handleScroll = () => {
     const offset = window.scrollY;
     if (offset > 50) {
@@ -19,7 +18,6 @@ export default function Header({ background, backgroundMenu }) {
     }
   };
 
-  // Adiciona e remove o evento de scroll
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -27,12 +25,10 @@ export default function Header({ background, backgroundMenu }) {
     };
   }, []);
 
-  // Alterna o estado do menu
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  // Retorna a imagem correta do menu com base no estado
   const getMenuImage = () => {
     if (menuOpen) {
       return "/close.svg";
@@ -51,22 +47,18 @@ export default function Header({ background, backgroundMenu }) {
   return ReactDOM.createPortal(
     <header className={`${styles.header} ${scroll ? styles.scrolled : ''} ${menuOpen ? styles.menuActive : ''}`}>
       <div className={styles.header__container}>
-        {/* Tornar a logo clicável e redirecionar para a página inicial */}
         <Link to="/" className={styles.header__container__link}>
           <img className={styles.header__container__imagem} src="/logo_header.svg" alt="Logo Atlética" />
         </Link>
       </div>
 
-      {/* Checkbox e Label para controlar o menu */}
       <input type="checkbox" id="menuToggle" className={styles.header__menu} onChange={toggleMenu} checked={menuOpen} />
       <label htmlFor="menuToggle" className={styles.header__menu__label}>
         <img src={getMenuImage()} alt={menuOpen ? 'Close' : 'Menu'} className={menuOpen ? styles.header__menu__label__close : styles.header__menu__label__open} />
       </label>
 
-      {/* Menu de navegação */}
       <nav className={styles.header__nav}>
         <ul className={styles.header__nav__list}>
-          {/* Mostrar "Início" somente quando não estiver na página principal */}
           {location.pathname !== "/" && (
             <li className={styles.header__nav__list__item}>
               <Link className={styles.header__nav__list__item__link} style={{ color: background }} to="/">Início</Link>

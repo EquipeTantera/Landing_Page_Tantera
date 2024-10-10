@@ -83,3 +83,8 @@ h6 {
 .slick-prev::before {
   content: none;
 }
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  content: none;
+}

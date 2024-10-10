@@ -1,6 +1,7 @@
 import styles from './styles.module.scss';
 import HorizontalSubtitle from '../HorizontalSubtitle';
 import AccordionItem from './AccordionItem';
+import PropTypes from 'prop-types';
 
 export default function Accordion({ items }) {
     return (
@@ -24,3 +25,13 @@ export default function Accordion({ items }) {
         </div>
     );
 }
+
+Accordion.propTypes = {
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            buttonText: PropTypes.string,
+            panelText: PropTypes.string,
+            colorImage: PropTypes.string,
+        })
+    ).isRequired,
+};

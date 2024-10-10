@@ -24,7 +24,7 @@ export default function AppRoutes() {
         <Route path="/eventos/:id/inscricao" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><EventRegistration /></Page>} />
         <Route path="/planos-de-socio" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><MembershipPlan /></Page>} />
         <Route path="/sobre-nos" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><AboutUs /></Page>} />
-        <Route path="/gestao/atual" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><Management /></Page>} />
+        <Route path="/gestao/:ano" element={<Page backgroundColorHeader={'#fff'} backgroundMenuHeader={'purple'}><Management /></Page>} />
       </Routes>
     </Router>
   );

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom"; 
+import { useParams } from "react-router-dom"; 
 import MainTitle from "../../components/MainTitle";
 import VerticalSubtitle from "../../components/VerticalSubtitle";
 import ProfileCard from "../../components/Card/ProfileCard";
@@ -8,7 +8,7 @@ import ManagementInformationCard from "../../components/Card/InformationCard/Man
 import HorizontalSubtitle from "../../components/HorizontalSubtitle";
 import SummaryBoardCard from "../../components/Card/BoardCard/SummaryBoardCard";
 import SmallManagementCard from "../../components/Card/SmallCard/SmallManagementCard";
-import { API_BASE_URL, BASE_URL } from "../../services/config";
+import { API_BASE_URL } from "../../services/config";
 import axios from "axios";
 import styles from './styles.module.scss';
 
@@ -17,8 +17,11 @@ export default function Management() {
   const [managementData, setManagementData] = useState(null);
   const [presidencyImage, setPresidencyImage] = useState(null);
   const [presidencyName, setPresidencyName] = useState("");
+  const [vicePresidencyImage, setVicePresidencyImage] = useState(null); // Estado para o Vice-presidente
+  const [vicePresidencyName, setVicePresidencyName] = useState(""); // Estado para o Vice-presidente
   const [presidencyResults, setPresidencyResults] = useState([]);
   const [managementDescription, setManagementDescription] = useState("");
+  const [boardData, setBoardData] = useState([]);
 
   const formatDate = (dateString) => {
     const [year, month] = dateString.split("-"); 
@@ -27,8 +30,6 @@ export default function Management() {
     return `${monthName} de ${year}`;
   };
 
-
-  // Função para pegar os dados gerais da presidência
   useEffect(() => {
     const fetchManagementData = async () => {
       try {
@@ -37,12 +38,21 @@ export default function Management() {
 
         if (management) {
           setManagementData(management.attributes);
+
+          // Encontra o presidente
           const president = management.attributes.members_id?.data.find(member => member.attributes.role === "Presidente");
-          setPresidencyImage(president.attributes.image.data.attributes.url);
-          setPresidencyName(president.attributes.name);
+          setPresidencyImage(president?.attributes?.image?.data?.attributes?.url || null);
+          setPresidencyName(president?.attributes?.name || "Presidente não encontrado");
+
+          // Encontra o vice-presidente (se houver)
+          const vicePresident = management.attributes.members_id?.data.find(member => member.attributes.role === "Vice-Presidente");
+          if (vicePresident) {
+            setVicePresidencyImage(vicePresident?.attributes?.image?.data?.attributes?.url || null);
+            setVicePresidencyName(vicePresident?.attributes?.name || "Vice-presidente não encontrado");
+          }
+
           setManagementDescription(management.attributes.description);
 
-          console.log(management.attributes);
         } else {
           console.log("Gestão não encontrada");
         }
@@ -50,7 +60,7 @@ export default function Management() {
       } catch (error) {
         console.error("Erro ao buscar os dados:", error);
       };
-    }
+    };
 
     const fetchManagementGeneral = async () => {
       try {
@@ -64,12 +74,47 @@ export default function Management() {
       } catch (error) {
         console.error("Erro ao buscar os dados:", error);
       }
-    };        
-
+    };   
+    
+    const fetchManagementBoard = async () => {
+      try {
+        const response = await axios.get(
+          `${API_BASE_URL}/boards?populate[imagem]=*&populate[specific_board_id][populate][img]=*&populate[specific_board_id][populate][director_ids][populate]=image`
+        );
+        const board = response.data.data.find((board) => board.attributes.year === ano);
+    
+        if (board) {
+          const boardDetails = board.attributes.specific_board_id.data.map((boardItem) => {
+            const directors = boardItem.attributes.director_ids?.data.filter(
+              (member) => member.attributes.role.toLowerCase().includes("diretor")
+            ).map((director) => ({
+              name: director.attributes.name, 
+              role: director.attributes.role,
+              image: director.attributes.image?.data?.attributes?.url || ""
+            })) || [];
+    
+            const directorName = directors.length > 0 ? directors[0].name : "Nenhum Diretor Encontrado";
+    
+            return {
+              name: directorName, 
+              boardName: boardItem.attributes.name, 
+              image: boardItem.attributes.img?.data?.attributes?.url || "", 
+              directors 
+            };
+          });
+    
+          setBoardData(boardDetails); 
+        } else {
+          console.log("Gestão não encontrada");
+        }
+      } catch (error) {
+        console.error("Erro ao buscar os dados:", error);
+      }
+    };
 
     fetchManagementData();
     fetchManagementGeneral();
-
+    fetchManagementBoard();
   }, [ano]);
 
   if (!managementData) {
@@ -104,11 +149,19 @@ export default function Management() {
 
         <div className={styles["container--presidency__infos"]}>
           <div className={styles["container--presidency__infos__profile"]}>
-          <ProfileCard 
+            <ProfileCard 
               image={presidencyImage} 
               role="Presidente"
               name={presidencyName}
             />
+            
+            {vicePresidencyName && vicePresidencyImage && (
+              <ProfileCard 
+                image={vicePresidencyImage} 
+                role="Vice"
+                name={vicePresidencyName}
+              />
+            )}
           </div>
 
           <div className={styles["container--presidency__infos__content"]}>
@@ -134,16 +187,18 @@ export default function Management() {
         />
 
         <div className={styles["container--boards__content"]}>
-          <SummaryBoardCard 
-            name="Tantech"
-            image="/summary-board-card-tantech"
-            buttonPath="/"
-          />
+          {boardData.map((board, index) => (
+            <SummaryBoardCard 
+              key={index}
+              name={board.name}
+              image={board.image}
+              buttonPath={`/diretorias/${board.boardName}`} 
+            />
+          ))}
         </div>
       </section>
 
-      {/* Exibir as gestões anteriores apenas se não for a gestão atual */}
-      {!managementData.current && (
+      {managementData.current && (
         <section className={styles["container--previous-management"]}>
           <HorizontalSubtitle 
             title="Gestões Anteriores"

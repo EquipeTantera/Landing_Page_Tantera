@@ -18,8 +18,8 @@ export default function ResultInformationCard({ results, title }) {
 
   return (
     <div className={styles.container}>
-      <Content 
-        title={title} 
+      <Content
+        title={title}
       />
       <div className={styles['container__div']}>
         {isMobile ? (

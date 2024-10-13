@@ -20,5 +20,5 @@ Impacts.propTypes = {
   contents: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
   })).isRequired,
-  isFull: PropTypes.bool, 
+  isFull: PropTypes.bool,
 };

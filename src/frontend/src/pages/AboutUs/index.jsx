@@ -145,19 +145,19 @@ export default function AboutUs() {
 
       <section className={styles.section}>
         <HorizontalSubtitle
-          title="Diretorias"
-          colorImage="red"
-          titleSize="3rem"
-          className={styles.horizontalSubtitle}
-        />
-        <div className={styles.containerBoard}>
-          <VerticalSubtitle
+            title="Diretorias"
+            colorImage="red"
+            titleSize="3rem"
+            className={styles.horizontalSubtitle}
+          />
+        <div className={styles["container-board"]}>
+          <VerticalSubtitle 
             title="Diretoria"
             imageBackground="red"
             verticalText="Presidência"
             subtitle="presidência"
           />
-          <div className={styles.boardDiv}>
+          <div className={styles["container-board__div"]}>
             {directories.map((directory) => (
               <FullBoardCard
                 key={directory.id}
@@ -169,6 +169,7 @@ export default function AboutUs() {
           </div>
         </div>
       </section>
+
 
 
       <section className={styles.section}>

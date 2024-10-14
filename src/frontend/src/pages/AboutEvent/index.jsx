@@ -26,14 +26,17 @@ export default function AboutEvent() {
 
         const eventData = response.data.data;
 
-        const formattedDates = [
-          {
-            date: dayjs(eventData.attributes.start_time).format('DD/MM/YYYY'),
-            startHour: dayjs(eventData.attributes.start_time).format('HH:mm'),
-            endHour: dayjs(eventData.attributes.end_time).format('HH:mm'),
-          },
-        ];
-
+        const startDate = dayjs(eventData.attributes.start_time);
+        const endDate = dayjs(eventData.attributes.end_time);
+    
+        const formattedDate = {
+          startDate: startDate.format('DD/MM'),
+          endDate: endDate.format('DD/MM'),
+          startHour: startDate.format('HH:mm'),
+          endHour: endDate.format('HH:mm'),
+        };
+      
+        
         // Mapeamento dos atributos
         const mappedEvent = {
           id: eventData.id,
@@ -42,8 +45,8 @@ export default function AboutEvent() {
           fullImage:
             eventData?.attributes?.image?.data?.[0]?.attributes?.url || "",
           address: `${eventData.attributes.street}, ${eventData.attributes.number}, ${eventData.attributes.postal_code}`,
-          dates: formattedDates,          
-          ticket: `R$ ${eventData.attributes.price}`,
+          dates: [formattedDate],       
+          ticket: eventData.attributes.price.toLocaleString('pt-br'),
           observation: eventData.attributes.note,
         };
 
@@ -91,10 +94,10 @@ export default function AboutEvent() {
         <section className={styles["container--infos"]}>
           <EventInformationCard
             address={event.address}
-            // Passa a string formatada diretamente para o componente
-            dates={[{ date: event.formattedDates }]}
+            dates={ event.dates }
             observation={event.observation}
             image={event.fullImage}
+            ticket={event.ticket}            
           />
         </section>
       </PaperBackground>

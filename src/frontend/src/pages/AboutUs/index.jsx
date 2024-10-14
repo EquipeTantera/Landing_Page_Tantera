@@ -7,59 +7,8 @@ import HorizontalSubtitle from "../../components/HorizontalSubtitle";
 import Content from "../../components/Content";
 import FullBoardCard from "../../components/Card/BoardCard/FullBoardCard";
 import styles from "./styles.module.scss";
+import Form from "../../components/Card/FormCard";
 
-// formulário de contato
-const Form = ({ inputs, textButton, onSubmit }) => {
-  const [formData, setFormData] = useState({});
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(formData);
-  };
-  return (
-    <form onSubmit={handleSubmit} className={styles.formContainer}>
-      {inputs.map((input, index) => (
-        <div key={index} className={styles.formField}>
-          <label className={styles.formLabel}>{input.label}</label>
-          {input.type === 'select' ? (
-            <select
-              name={input.name}
-              onChange={handleChange}
-              className={styles.formSelect}
-            >
-              {input.options.map((option, idx) => (
-                <option key={idx} value={option.value}>{option.label}</option>
-              ))}
-            </select>
-          ) : input.type === 'textarea' ? (
-            <textarea
-              name={input.name}
-              placeholder={input.placeholder}
-              onChange={handleChange}
-              className={styles.formTextarea}
-            />
-          ) : (
-            <input
-              type={input.type}
-              name={input.name}
-              placeholder={input.placeholder}
-              onChange={handleChange}
-              className={styles.formInput}
-            />
-          )}
-        </div>
-      ))}
-      <button type="submit" className={styles.formButton}>
-        {textButton}
-      </button>
-    </form>
-  );
-};
-
-// página sobre nós
 export default function AboutUs() {
   const [contactPurposes, setContactPurposes] = useState([]);
   const [foundationDescription, setFoundationDescription] = useState('');

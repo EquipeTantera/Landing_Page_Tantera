@@ -2,8 +2,8 @@
 
 .container {
   background-image: url(/background-small-card-2.png);
-  height: 34rem;
-  width: 18rem;
+  height: 38rem;
+  width: 20rem;
   background-position: initial;
   background-size: cover;
   background-repeat: no-repeat;
@@ -30,11 +30,39 @@
       }
     }
 
+    &__div-price {
+      background-image: url("/background-info-product-small-card.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 3rem;
+      width: 10rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      left: 9.5rem;
+      top: -1.5rem;
+
+      &__paragraph {
+        color: v.$white-1;
+        font-size: 1.5rem;
+        font-weight: 300;
+        
+        &__span {
+          font-family: v.$DriveCorps;
+          letter-spacing: 1.5px;
+        }
+
+      }
+    }
+
     &__div {
       background-image: url("/background-infos-small-event-card.png");
-      height: 7rem;
+      height: 9rem;
+      width: 90%;
       background-size: cover;
       margin: 1rem;
+      margin-top: -1rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -54,6 +82,8 @@
 
       &__address {
         margin-bottom: .5rem;
+        line-height: 1.5rem;
+        margin-left: 1.3rem;
       }
     }
 

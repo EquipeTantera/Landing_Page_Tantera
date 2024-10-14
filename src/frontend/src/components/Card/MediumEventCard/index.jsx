@@ -10,6 +10,11 @@ export default function MediumEventCard({ title, date, ticket, address, image, b
         <div className={styles["container__infos__div-image"]}>
           <img src={image} alt={title} className={styles["container__infos__div-image__image"]} />
         </div>
+        <div className={styles["container__infos__div-price"]}>
+          <p className={styles["container__infos__div-price__paragraph"]}>
+            <span className={styles["container__infos__div-price__paragraph__span"]}>R$ </span>{ticket}
+          </p>
+        </div>
         <div className={styles.container__infos__div}>
           <p className={styles.container__infos__div__date}>{date}</p>
           {address && 

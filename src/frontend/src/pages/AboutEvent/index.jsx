@@ -15,9 +15,7 @@ export default function AboutEvent() {
   const { id } = useParams();
   const [event, setEvent] = useState(null);
 
-
   useEffect(() => {
-    // rota do backend
     const fetchEvent = async () => {
       try {
         const response = await axios.get(
@@ -26,18 +24,16 @@ export default function AboutEvent() {
 
         const eventData = response.data.data;
 
-        const startDate = dayjs(eventData.attributes.start_time);
-        const endDate = dayjs(eventData.attributes.end_time);
+        const startDate = new Date(eventData.attributes.start_time);
+        const endDate = new Date(eventData.attributes.end_time);
     
         const formattedDate = {
-          startDate: startDate.format('DD/MM'),
-          endDate: endDate.format('DD/MM'),
-          startHour: startDate.format('HH:mm'),
-          endHour: endDate.format('HH:mm'),
+          startDate: startDate.toLocaleDateString("pt-BR"),
+          endDate: endDate.toLocaleDateString("pt-BR"),
+          startHour: startDate.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" }),
+          endHour: endDate.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" }),
         };
-      
-        
-        // Mapeamento dos atributos
+    
         const mappedEvent = {
           id: eventData.id,
           name: eventData.attributes.title,
@@ -51,6 +47,7 @@ export default function AboutEvent() {
         };
 
         setEvent(mappedEvent);
+        console.log(event)
       } catch (error) {
         console.error("Erro ao buscar o evento:", error);
       }
@@ -94,7 +91,7 @@ export default function AboutEvent() {
         <section className={styles["container--infos"]}>
           <EventInformationCard
             address={event.address}
-            dates={ event.dates }
+            dates={event.dates}
             observation={event.observation}
             image={event.fullImage}
             ticket={event.ticket}            

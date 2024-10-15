@@ -26,26 +26,28 @@ export default function LargePartnerCard({ title, description, image, fullImage,
         </div>
 
         <div className={styles.container__details}>
-          <div className={styles["container__details__div-event"]}>
-            <p className={styles["container__details__div-event__title"]}>Eventos</p>
-            <ul className={styles["container__details__div-event__list"]}>
-              {events.length > 0 ? (
-                events.map((event, index) => (
+          {events.length > 0 && (
+            <div className={styles["container__details__div-event"]}>
+              <p className={styles["container__details__div-event__title"]}>Eventos</p>
+              <ul className={styles["container__details__div-event__list"]}>
+                {events.map((event, index) => (
                   <li key={index} className={styles["container__details__div-event__list__item"]}>
                     <p className={styles["container__details__div-event__list__item__name"]}>
                       {event.title} - {event.date}
                     </p>
                   </li>
-                ))
-              ) : (
-                <li className={styles["container__details__div-event__list__item"]}>Nenhum evento encontrado</li>
-              )}
-            </ul>
-          </div>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <div className={styles["container__details__div-impact"]}>
-            <p className={styles["container__details__div-impact__title"]}>Impactos</p>
-            <Impacts contents={impacts.length > 0 ? impacts : [{ name: "Nenhum impacto disponível" }]} />
+            {impacts.length > 0 && (
+              <>
+              <p className={styles["container__details__div-impact__title"]}>Impactos</p>
+              <Impacts contents={impacts} />
+              </>
+            )}
           </div>
         </div>
 

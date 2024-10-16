@@ -22,35 +22,47 @@ export default function LargeProductCard({ name, description, fullImage, textBut
 
         <div className={styles.container__details}>
           <div className={styles["container__details__div-container"]}>
-            <div className={styles["container__details__div-sizes"]}>
-              <p className={styles["container__details__div-sizes__title"]}>Tamanhos:</p>
-              <ul className={styles["container__details__div-sizes__list"]}>
-                {sizes.map((size, index) => (
-                  <li key={index} className={styles["container__details__div-sizes__list__item"]}>
-                    <p className={styles["container__details__div-sizes__list__item__name"]}>{size}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className={styles["container__details__div-color"]}>	
-              <p className={styles["container__details__div-color__title"]}>Cores:</p>
-              <ul className={styles["container__details__div-color__list"]}>
-                {colors.map((color, index) => (
-                  <li key={index} className={styles["container__details__div-color__list__item"]}> 
-                    <p className={styles["container__details__div-color__list__item__name"]}>{color}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {sizes.length > 0 && (
+              <div className={styles["container__details__div-sizes"]}>
+                <p className={styles["container__details__div-sizes__title"]}>Tamanhos:</p>
+                <ul className={styles["container__details__div-sizes__list"]}>
+                  {sizes.map((size, index) => (
+                    <li key={index} className={styles["container__details__div-sizes__list__item"]}>
+                      <p className={styles["container__details__div-sizes__list__item__name"]}>{size}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {colors.length > 0 && (
+              <div className={styles["container__details__div-color"]}>	
+                <p className={styles["container__details__div-color__title"]}>Cores:</p>
+                <ul className={styles["container__details__div-color__list"]}>
+                  {colors.map((color, index) => (
+                    <li key={index} className={styles["container__details__div-color__list__item"]}> 
+                      <p className={styles["container__details__div-color__list__item__name"]}>{color}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
           
-          <div className={`${styles["container__details__div-price"]} ${!isAvailable ? styles["container__details__div-price--unavailable"] : ''}`}>
-            <p className={styles["container__details__div-price__paragraph"]}> 
-              {isAvailable ? 'R$ ' : ''}
-              <span className={styles["container__details__div-price__paragraph__span"]}>
-                {isAvailable ? price : 'Esgotado'}
-              </span>
-            </p>
+          <div className={styles["container__details__div-price"]}>
+            {isAvailable && (
+              <Content 
+                title={"Preço"}
+              />  
+            )}
+            <div className={`${styles["container__details__div-price__container"]} ${!isAvailable ? styles["container__details__div-price__container--unavailable"] : ''}`}>
+              <p className={styles["container__details__div-price__container__paragraph"]}> 
+                {isAvailable ? 'R$ ' : ''}
+                <span className={styles["container__details__div-price__container__paragraph__span"]}>
+                  {isAvailable ? price : 'Esgotado'}
+                </span>
+              </p>
+            </div>
           </div>
         </div>
         

@@ -94,12 +94,12 @@ FormCard.propTypes = {
   title: PropTypes.string.isRequired,
   inputs: PropTypes.arrayOf(
     PropTypes.shape({
-      type: PropTypes.oneOf(['text', 'select', 'textarea', 'number', 'email']).isRequired,
+      type: PropTypes.oneOf(['text', 'select', 'textarea', 'number', 'email',  'tel']).isRequired,
       label: PropTypes.string,
       placeholder: PropTypes.string,
       options: PropTypes.arrayOf(
         PropTypes.shape({
-          value: PropTypes.string.isRequired,
+          value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]).isRequired,
           label: PropTypes.string.isRequired,
         })
       ),

@@ -191,7 +191,15 @@ export default function AboutUs() {
         <HorizontalSubtitle title="Entre em contato" colorImage="purple" titleSize="3rem" />
         <div className={styles["container-form"]}>
           <div className={styles["container-form__tag"]} />
-          <Form inputs={formInputs} textButton="Enviar" onSubmit={handleSubmit} />
+          <Form
+            title="Entre em Contato"
+            inputs={formInputs}
+            textButton="Enviar"
+            isContact={true}
+            onSubmit={() => { }}
+            backgroundType="purple"
+            inputStyle="white"
+          />
         </div>
       </section>
     </>

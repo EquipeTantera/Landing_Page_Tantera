@@ -2,13 +2,11 @@
 
 .container {
   width: 100%;
-  padding-bottom: 2rem;
 
   &__title {
-    background-image: url('background-title-managament-information-card.png');
+    background-image: url('/background-title-management-information-card.png');
     height: 4rem;
     background-repeat: no-repeat;
-    width: 60%;
     background-size: cover;
     display: flex;
     align-items: center;

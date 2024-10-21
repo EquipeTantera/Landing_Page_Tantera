@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 
-export default function Header({ background, backgroundMenu }) {
+export default function Header({ background, backgroundMenu, className }) {
   const [scroll, setScroll] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
@@ -45,7 +45,7 @@ export default function Header({ background, backgroundMenu }) {
   };
 
   return ReactDOM.createPortal(
-    <header className={`${styles.header} ${scroll ? styles.scrolled : ''} ${menuOpen ? styles.menuActive : ''}`}>
+    <header className={`${styles.header} ${scroll ? styles.scrolled : ''} ${menuOpen ? styles.menuActive : ''} ${className}`}>
       <div className={styles.header__container}>
         <Link to="/" className={styles.header__container__link}>
           <img className={styles.header__container__imagem} src="/logo_header.svg" alt="Logo Atlética" />
@@ -90,6 +90,7 @@ export default function Header({ background, backgroundMenu }) {
 }
 
 Header.propTypes = {
+  className: PropTypes.string,
   background: PropTypes.string,
   backgroundMenu: PropTypes.string,
 };

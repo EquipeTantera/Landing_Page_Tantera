@@ -10,6 +10,11 @@ export default function SmallEventCard({ title, date, ticket, address, image, bu
         <div className={styles["container__infos__div-image"]}>
           <img src={image} alt={title} className={styles["container__infos__div-image__image"]} />
         </div>
+        <div className={styles["container__infos__div-price"]}>
+          <p className={styles["container__infos__div-price__paragraph"]}>
+            <span className={styles["container__infos__div-price__paragraph__span"]}>R$ </span>{ticket}
+          </p>
+        </div>
         <div className={styles.container__infos__div}>
           <p className={styles.container__infos__div__date}>{date}</p>
           {address && 
@@ -18,7 +23,7 @@ export default function SmallEventCard({ title, date, ticket, address, image, bu
             </p>
           }
           <p className={styles.container__infos__div__ticket}>
-            <span className={styles.container__infos__div__ticket__span}>Ingressos a partir: </span>{date}
+            <span className={styles.container__infos__div__ticket__span}>Início das Vendas: </span>{date}
           </p>
         </div>
         <div className={styles.container__infos__button}>

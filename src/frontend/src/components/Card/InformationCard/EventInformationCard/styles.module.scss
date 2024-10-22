@@ -21,6 +21,41 @@
         align-items: center;
         justify-content: space-between;
         margin-bottom: 2rem;
+
+        &-infos {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        &-price {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+
+          &__price {
+            background-image: url("/background-info-product-small-card.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 3rem;
+            width: 10rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+  
+            &__paragraph {
+              color: v.$white-1;
+              font-size: 1.5rem;
+              font-weight: 300;
+              
+              &__span {
+                font-family: v.$DriveCorps;
+                letter-spacing: 1.5px;
+              }
+            }
+          }
+        }
+
       }
     }
 

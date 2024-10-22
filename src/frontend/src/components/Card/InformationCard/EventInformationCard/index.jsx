@@ -4,7 +4,7 @@ import Dates from '../../Common/Date';
 import Content from '../../../Content';
 import TitleCard from '../../Common/TitleCardTag';
 
-export default function EventInformationCard({ address, dates, observation, image }) {
+export default function EventInformationCard({ address, dates, observation, image, ticket }) {
   return(
     <section className={styles.section}>
       <div className={styles.section__title}>
@@ -29,15 +29,28 @@ export default function EventInformationCard({ address, dates, observation, imag
               />
             </div>
           </div>
-          {observation && (
-            <div className={styles["section__container-infos__div-observation"]}>
+          <div className={styles["section__container-infos__div-infos"]}>
+            {observation && (
+              <div className={styles["section__container-infos__div-observation"]}>
+                <Content 
+                  title={"Observações"}
+                  content={observation}
+                  titleSize="2rem"
+                />
+              </div>
+            )}
+            <div className={styles["section__container-infos__div-price"]}>
               <Content 
-                title={"Observações"}
-                content={observation}
-                titleSize="2rem"
+                title="Preço"
               />
+              <div className={styles["section__container-infos__div-price__price"]}>
+                <p className={styles["section__container-infos__div-price__price__paragraph"]}>
+                  <span className={styles["section__container-infos__div-price__price__paragraph__span"]}>R$ </span>
+                  {ticket}
+                </p>
+              </div>
             </div>
-          )}
+          </div>
         </div>
         <div className={styles["section__container-image"]}>
           <img src={image} alt="Imagem do evento" className={styles["section__container-image__image"]} />
@@ -49,6 +62,7 @@ export default function EventInformationCard({ address, dates, observation, imag
 
 EventInformationCard.propTypes = {
   address: PropTypes.string.isRequired,
+  ticket: PropTypes.string.isRequired,
   dates: PropTypes.arrayOf(PropTypes.shape({
     date: PropTypes.string,
     startHour: PropTypes.string,

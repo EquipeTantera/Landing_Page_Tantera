@@ -10,9 +10,6 @@ import axios from "axios";
 import { useEffect, useState } from 'react';
 import CarouselSmallEventCard from '../../components/Carousels/CarouselSmallEventCard';
 
-//apagar depois!!
-import Gallery from '../../components/Gallery';
-
 export default function Home() {
   const [impactCounts, setImpactCounts] = useState({
     eventosRealizados: 0,

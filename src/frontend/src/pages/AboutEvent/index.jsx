@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import dayjs from 'dayjs';
 import MainTitle from "../../components/MainTitle";
 import VerticalSubtitle from "../../components/VerticalSubtitle";
 import HorizontalSubtitle from "../../components/HorizontalSubtitle";

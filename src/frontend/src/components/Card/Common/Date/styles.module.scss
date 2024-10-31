@@ -34,3 +34,24 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .container {
+    &__title {
+      text-align: initial;
+    }
+
+    &__list {
+      flex-direction: column;
+      align-items: flex-start;
+
+      &__item {
+        padding: 0rem;
+        align-items: flex-start;
+        justify-content: flex-start;
+        text-align: initial;
+      }
+
+    }
+  }
+}

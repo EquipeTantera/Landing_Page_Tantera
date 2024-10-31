@@ -24,6 +24,8 @@ export default function Products() {
     gender: '',
   });
 
+  
+
   // Carregar dados dos produtos
   useEffect(() => {
     const fetchProductsData = async () => {
@@ -63,7 +65,7 @@ export default function Products() {
             genres,
             categories,
             buttonText: "Ver Produto",
-            buttonPath: `/produto/${product.id}`,
+            buttonPath: `/produtos/${product.id}`,
           };
         });
 
@@ -177,120 +179,133 @@ export default function Products() {
           </section>
         ) : (
           <>
-            <section className={styles.section}>
-              <div className={styles["container-header"]}>
-                <HorizontalSubtitle title="Acessórios de Festa" colorImage="transparent" tag={false} />
-                <FilterButton text="Filtrar" onClick={handleOpenModal} />
-                <FilterModal isOpen={isModalOpen} onClose={handleCloseModal} onApplyFilters={handleApplyFilters} />
-              </div>
+            {/* Seção de Acessórios de Festa */}
+            {filterProductsByCategory("Acessórios de Festa").length > 0 && (
+              <section className={styles.section}>
+                <div className={styles["container-header"]}>
+                  <HorizontalSubtitle title="Acessórios de Festa" colorImage="transparent" tag={false} />
+                  <FilterButton text="Filtrar" onClick={handleOpenModal} />
+                  <FilterModal isOpen={isModalOpen} onClose={handleCloseModal} onApplyFilters={handleApplyFilters} />
+                </div>
 
-              <div className={styles["container-products"]}>
-                {filterProductsByCategory("Acessórios de Festa").map((product, index) => (
-                  <SmallProductCard
-                    key={index}
-                    title={product.title}
-                    price={product.price} 
-                    image={product.image}
-                    description={product.description}
-                    buttonText={product.buttonText}
-                    buttonPath={product.buttonPath}
-                    isAvailable={!product.sold_out}
-                  />
-                ))}
-              </div>
-
-              <button
-                onClick={() => setShowMoreFesta((prev) => !prev)}
-                className={styles["container-products__button"]}
-              >
-                {showMoreFesta ? (
-                  <p className={styles["container-products__button__paragraph"]}>
-                    Ocultar produtos
-                  </p>
-                ) : (
-                  <p className={styles["container-products__button__paragraph"]}>
-                    Ver mais produtos de{" "}
-                    <span className={styles["container-products__button__paragraph__span"]}>
-                      acessórios de festa
-                    </span>
-                  </p>
+                <div className={styles["container-products"]}>
+                  {filterProductsByCategory("Acessórios de Festa").map((product, index) => (
+                    <SmallProductCard
+                      key={index}
+                      title={product.title}
+                      price={product.price} 
+                      image={product.image}
+                      description={product.description}
+                      buttonText={product.buttonText}
+                      buttonPath={product.buttonPath}
+                      isAvailable={!product.sold_out}
+                    />
+                  ))}
+                </div>
+                
+                {filterProductsByCategory("Acessórios de Festa").length > 3 && (
+                  <button
+                    onClick={() => setShowMoreFesta((prev) => !prev)}
+                    className={styles["container-products__button"]}
+                  >
+                    {showMoreFesta ? (
+                      <p className={styles["container-products__button__paragraph"]}>
+                        Ocultar produtos
+                      </p>
+                    ) : (
+                      <p className={styles["container-products__button__paragraph"]}>
+                        Ver mais produtos de{" "}
+                        <span className={styles["container-products__button__paragraph__span"]}>
+                          acessórios de festa
+                        </span>
+                      </p>
+                    )}
+                  </button>
                 )}
-              </button>
-            </section>
+              </section>
+            )}
 
             {/* Seção de Uniformes */}
-            <section className={styles.section}>
-              <HorizontalSubtitle title="Uniformes" colorImage="transparent" tag={false} titleSize="2.5rem" />
-              <div className={styles["container-products"]}>
-                {filterProductsByCategory("Uniformes").map((product, index) => (
-                  <SmallProductCard
-                    key={index}
-                    title={product.title}
-                    price={product.price}
-                    image={product.image}
-                    description={product.description}
-                    buttonText={product.buttonText}
-                    buttonPath={product.buttonPath}
-                    isAvailable={!product.sold_out}
-                  />
-                ))}
-              </div>
-
-              <button
-                onClick={() => setShowMoreUniformes((prev) => !prev)}
-                className={styles["container-products__button"]}
-              >
-                {showMoreUniformes ? (
-                  <p className={styles["container-products__button__paragraph"]}>
-                    Ocultar produtos
-                  </p>
-                ) : (
-                  <p className={styles["container-products__button__paragraph"]}>
-                    Ver mais produtos de{" "}
-                    <span className={styles["container-products__button__paragraph__span"]}>
-                      uniformes
-                    </span>
-                  </p>
+            {filterProductsByCategory("Uniformes").length > 0 && (  
+              <section className={styles.section}>
+                <HorizontalSubtitle title="Uniformes" colorImage="transparent" tag={false} titleSize="2.5rem" />
+                <div className={styles["container-products"]}>
+                  {filterProductsByCategory("Uniformes").map((product, index) => (
+                    <SmallProductCard
+                      key={index}
+                      title={product.title}
+                      price={product.price}
+                      image={product.image}
+                      description={product.description}
+                      buttonText={product.buttonText}
+                      buttonPath={product.buttonPath}
+                      isAvailable={!product.sold_out}
+                    />
+                  ))}
+                </div>
+                
+                {filterProductsByCategory("Uniformes").length > 3 && (
+                  <button
+                    onClick={() => setShowMoreUniformes((prev) => !prev)}
+                    className={styles["container-products__button"]}
+                  >
+                    {showMoreUniformes ? (
+                      <p className={styles["container-products__button__paragraph"]}>
+                        Ocultar produtos
+                      </p>
+                    ) : (
+                      <p className={styles["container-products__button__paragraph"]}>
+                        Ver mais produtos de{" "}
+                        <span className={styles["container-products__button__paragraph__span"]}>
+                          uniformes
+                        </span>
+                      </p>
+                    )}
+                  </button>
                 )}
-              </button>
-            </section>
+              </section>
+            )}
 
             {/* Seção de Coleções */}
-            <section className={styles.section}>
-              <HorizontalSubtitle title="Coleções" colorImage="transparent" tag={false} titleSize="2.5rem" />
-              <div className={styles["container-products"]}>
-                {filterProductsByCategory("Coleções").map((product, index) => (
-                  <SmallProductCard
-                    key={index}
-                    title={product.title}
-                    price={product.price}
-                    image={product.image}
-                    description={product.description}
-                    buttonText={product.buttonText}
-                    buttonPath={product.buttonPath}
-                    isAvailable={!product.sold_out}
-                  />
-                ))}
-              </div>
+            {filterProductsByCategory("Coleções").length > 0 && (
+              <section className={styles.section}>
+                <HorizontalSubtitle title="Coleções" colorImage="transparent" tag={false} titleSize="2.5rem" />
+                <div className={styles["container-products"]}>
+                  {filterProductsByCategory("Coleções").map((product, index) => (
+                    <SmallProductCard
+                      key={index}
+                      title={product.title}
+                      price={product.price}
+                      image={product.image}
+                      description={product.description}
+                      buttonText={product.buttonText}
+                      buttonPath={product.buttonPath}
+                      isAvailable={!product.sold_out}
+                    />
+                  ))}
+                </div>
 
-              <button
-                onClick={() => setShowMoreColecoes((prev) => !prev)}
-                className={styles["container-products__button"]}
-              >
-                {showMoreColecoes ? (
-                  <p className={styles["container-products__button__paragraph"]}>
-                    Ocultar produtos
-                  </p>
-                ) : (
-                  <p className={styles["container-products__button__paragraph"]}>
-                    Ver mais produtos de{" "}
-                    <span className={styles["container-products__button__paragraph__span"]}>
-                      coleções
-                    </span>
-                  </p>
+                {filterProductsByCategory("Coleções").length > 3 && (
+                  <button
+                    onClick={() => setShowMoreColecoes((prev) => !prev)}
+                    className={styles["container-products__button"]}
+                  >
+                    {showMoreColecoes ? (
+                      <p className={styles["container-products__button__paragraph"]}>
+                        Ocultar produtos
+                      </p>
+                    ) : (
+                      <p className={styles["container-products__button__paragraph"]}>
+                        Ver mais produtos de{" "}
+                        <span className={styles["container-products__button__paragraph__span"]}>
+                          coleções
+                        </span>
+                      </p>
+                    )}
+                  </button>
                 )}
-              </button>
-            </section>
+              </section>
+            )}
           </>
         )}
       </PaperBackground>

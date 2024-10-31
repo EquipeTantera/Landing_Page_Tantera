@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+
+  &__image {
+    width: 100%; // Banner ocupa toda a largura
+    height: auto; // Mantém a proporção da imagem
+    display: block; // Remove espaços em branco indesejados
+    margin-bottom: 3rem;
+    position: absolute;
+  }
+}
+
+.headerWithBanner {
+  margin-top: 5rem;
+}
+
+@media (max-width: 768px) {
+  .headerWithBanner {
+    margin-top: 2.5rem;
+  }
+}

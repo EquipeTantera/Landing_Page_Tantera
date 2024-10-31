@@ -37,5 +37,5 @@ export default function AccordionItem({ buttonText, panelText, colorImage }) {
 AccordionItem.propTypes = {
     buttonText: PropTypes.string.isRequired,
     panelText: PropTypes.string.isRequired,
-    colorImage: PropTypes.oneOf(['black', 'red']).isRequired,
+    colorImage: PropTypes.oneOf(['purple', 'red']).isRequired,
 };

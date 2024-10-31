@@ -1,0 +1,29 @@
+.section {
+  &--faq {
+    margin-top: 6rem;
+  }
+
+  &--register {
+    margin-top: 6rem;
+
+    &__form {
+      margin: 1rem 6rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    &--faq {
+      margin-top: 3rem;
+    }
+
+    &--register {
+      margin-top: 3rem;
+
+      &__form {
+        margin: -3rem 1rem;
+      }
+    }
+  }
+}

@@ -12,6 +12,6 @@ export default function BackgroundTitle({ colorImage, children }) {
 }
 
 BackgroundTitle.propTypes = {
-    colorImage: PropTypes.oneOf(['black', 'red']).isRequired,
+    colorImage: PropTypes.oneOf(['purple', 'red']).isRequired,
     children: PropTypes.node.isRequired,
 }

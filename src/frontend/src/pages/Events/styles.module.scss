@@ -2,7 +2,7 @@
 
 
 .container {
-  &__championships {
+  &__championships, &__others {
     margin-top: 6rem;
 
     &__carousel {
@@ -10,7 +10,7 @@
     }
   }
 
-  &__fests, &__championships {
+  &__fests, &__championships, &__others {
     &__nextParty {
       margin-left: 64px;
       
@@ -36,13 +36,17 @@
     &__cards {
       display: flex;
       justify-content: center;
+
+      &__paragraph {
+        margin-top: 3rem;
+      }
     }
   }
 }
 
 @media screen and (max-width: 768px) {
   .container {
-    &__fests, &__championships {
+    &__fests, &__championships, &__others {
       &__nextParty {
         margin: 0rem 1.5rem;
       
@@ -61,6 +65,12 @@
 
       &__cards {
         margin: 0rem 1rem;
+
+        &__paragraph {
+          margin-top: 2rem;
+          margin-left: .5rem;
+          line-height: 2rem;
+        }
       }
     }
   }

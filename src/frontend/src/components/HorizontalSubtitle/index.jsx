@@ -17,7 +17,7 @@ export default function HorizontalSubtitle({ title, colorImage, tag, titleSize, 
 
 HorizontalSubtitle.propTypes = {
   title: PropTypes.string.isRequired,
-  colorImage: PropTypes.oneOf(['purple', 'red', 'transparent']).isRequired,
+  colorImage: PropTypes.oneOf(['purple', 'red', 'transparent, purple3']).isRequired,
   tag: PropTypes.bool,
   titleSize: PropTypes.string,
 };

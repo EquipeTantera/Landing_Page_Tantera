@@ -11,14 +11,14 @@ import Content from "../../components/Content";
 const mockDirectorias = {
     esportes: {
         directors: [
-            { name: 'Chefe querida', photo: 'profile-tantech.jpeg' },
-            { name: 'Raissão', photo: 'photo-small-card.png' }
+            { name: 'Chefe querida', photo: '/profile-tantech.jpeg' },
+            { name: 'Raissão', photo: '/photo-small-card.png' }
         ],
         cards: [
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Fodas' }
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Fodas' }
         ],
         results: [
             { name: '3 Campeonatos' },
@@ -37,20 +37,20 @@ const mockDirectorias = {
             { name: 'Atividade I', completed: false },
             { name: 'Atividade J', completed: true }
         ],
-        boardImage: 'esportes.png',
+        boardImage: '/esportes.png',
         title: 'PLANEJAMENTO',
         content: "A diretoria de Esportes promove e organiza atividades esportivas que estimulam a prática de esportes, a competição saudável e o espírito de equipe."
     },
     "e-sports": {
         directors: [
-            { name: 'Chefe querida', photo: 'profile-tantech.jpeg' },
-            { name: 'Raissão', photo: 'photo-small-card.png' }
+            { name: 'Chefe querida', photo: '/profile-tantech.jpeg' },
+            { name: 'Raissão', photo: '/photo-small-card.png' }
         ],
         cards: [
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Fodas' }
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Fodas' }
         ],
         results: [
             { name: '3 Campeonatos' },
@@ -75,14 +75,14 @@ const mockDirectorias = {
     },
     eventos: {
         directors: [
-            { name: 'Chefe querida', photo: 'profile-tantech.jpeg' },
-            { name: 'Raissão', photo: 'photo-small-card.png' }
+            { name: 'Chefe querida', photo: '/profile-tantech.jpeg' },
+            { name: 'Raissão', photo: '/photo-small-card.png' }
         ],
         cards: [
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Fodas' }
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Fodas' }
         ],
         results: [
             { name: '3 Campeonatos' },
@@ -101,20 +101,20 @@ const mockDirectorias = {
             { name: 'Atividade I', completed: false },
             { name: 'Atividade J', completed: true }
         ],
-        boardImage: 'esportes.png',
+        boardImage: '/esportes.png',
         title: 'PLANEJAMENTO',
         content: "A diretoria de Esportes promove e organiza atividades esportivas que estimulam a prática de esportes, a competição saudável e o espírito de equipe."
     },
     digital: {
         directors: [
-            { name: 'Chefe querida', photo: 'profile-tantech.jpeg' },
-            { name: 'Raissão', photo: 'photo-small-card.png' }
+            { name: 'Chefe querida', photo: '/profile-tantech.jpeg' },
+            { name: 'Raissão', photo: '/photo-small-card.png' }
         ],
         cards: [
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Fodas' }
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Fodas' }
         ],
         results: [
             { name: '3 Campeonatos' },
@@ -133,20 +133,20 @@ const mockDirectorias = {
             { name: 'Atividade I', completed: false },
             { name: 'Atividade J', completed: true }
         ],
-        boardImage: 'esportes.png',
+        boardImage: '/esportes.png',
         title: 'PLANEJAMENTO',
         content: "A diretoria de Esportes promove e organiza atividades esportivas que estimulam a prática de esportes, a competição saudável e o espírito de equipe."
     },
     financeiro: {
         directors: [
-            { name: 'Chefe querida', photo: 'profile-tantech.jpeg' },
-            { name: 'Raissão', photo: 'photo-small-card.png' }
+            { name: 'Chefe querida', photo: '/profile-tantech.jpeg' },
+            { name: 'Raissão', photo: '/photo-small-card.png' }
         ],
         cards: [
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Fodas' }
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Fodas' }
         ],
         results: [
             { name: '3 Campeonatos' },
@@ -165,20 +165,20 @@ const mockDirectorias = {
             { name: 'Atividade I', completed: false },
             { name: 'Atividade J', completed: true }
         ],
-        boardImage: 'esportes.png',
+        boardImage: '/esportes.png',
         title: 'PLANEJAMENTO',
         content: "A diretoria de Esportes promove e organiza atividades esportivas que estimulam a prática de esportes, a competição saudável e o espírito de equipe."
     },
     tantech: {
         directors: [
-            { name: 'Chefe querida', photo: 'profile-tantech.jpeg' },
-            { name: 'Raissão', photo: 'photo-small-card.png' }
+            { name: 'Chefe querida', photo: '/profile-tantech.jpeg' },
+            { name: 'Raissão', photo: '/photo-small-card.png' }
         ],
         cards: [
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Inteli' },
-            { image: 'copa-inteli.png', event: 'Copa Fodas' }
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Inteli' },
+            { image: '/copa-inteli.png', event: 'Copa Fodas' }
         ],
         results: [
             { name: '3 Campeonatos' },
@@ -197,7 +197,7 @@ const mockDirectorias = {
             { name: 'Atividade I', completed: false },
             { name: 'Atividade J', completed: true }
         ],
-        boardImage: 'esportes.png',
+        boardImage: '/esportes.png',
         title: 'PLANEJAMENTO',
         content: 'blablueble bla bla bleu blau tim ta ca bum pipipi popopo tititi tatata',
     }

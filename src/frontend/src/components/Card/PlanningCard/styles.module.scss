@@ -8,22 +8,22 @@
   align-items: center;
   justify-content: center;
   width: 80rem;
+  position: relative;
 
   &__div {
-    
+
     &-image {
       position: absolute;
-      left: 6rem;
-      top: 125rem;
       object-fit: fill;
-      width: 50%;
-      height: 50%;
+      left: 64px;
+      top: 64px;
 
       &__img {
-        width: 20%;
+        width: 96px;
+        height: 96px;
       }
     }
-    
+
     &-activities {
       text-align: center;
       display: flex;
@@ -42,7 +42,7 @@
           justify-content: space-between;
           margin-top: 2rem;
           width: 42rem;
-          
+
 
           &__item {
             display: flex;
@@ -56,11 +56,10 @@
               appearance: none;
               width: 1.5rem;
               height: 1.5rem;
-              border: 2px solid v.$white-1; 
+              border: 2px solid v.$white-1;
               border-radius: 4px;
               background-color: transparent;
               cursor: pointer;
-              position: relative;
 
               &:checked {
                 background-color: v.$white-1;
@@ -68,8 +67,8 @@
               }
 
               &:checked::after {
-                content: '✔'; 
-                color: v.$purple-1; 
+                content: '✔';
+                color: v.$purple-1;
                 font-size: 1rem;
                 display: flex;
                 align-items: center;
@@ -96,11 +95,10 @@
 
     &__div {
       &-image {
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
+        display: none;
       }
+
+
 
       &-activities {
         &__activities {
@@ -121,8 +119,8 @@
                 height: 1rem;
 
                 &:checked::after {
-                  content: '✔'; 
-                  color: v.$purple-1; 
+                  content: '✔';
+                  color: v.$purple-1;
                   font-size: .5rem;
                   display: flex;
                   align-items: center;

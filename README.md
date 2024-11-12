@@ -27,22 +27,27 @@ Em desenvolvimento 🚧🕸
 
 - [ViteJS](https://vitejs.dev/)
 - [SCSS](https://sass-lang.com/)
-- [Shadcn](https://ui.shadcn.com/)
 
 **Backend:**
 
-- [Django](https://www.djangoproject.com/)
+- [Strapi](https://docs.strapi.io/dev-docs/intro)
 
 **Banco de Dados:**
 
 - [PostgreSQL](https://www.postgresql.org/)
-- [ElephantSQL](https://www.elephantsql.com/)
-- [DjangoORM](https://docs.djangoproject.com/en/3.2/topics/db/models/)
 
 ## 📁 Estrutura de pastas
 
-<!-- [estrutura de pastas] -->
-<!--- [explicação da estrutura de pastas] --->
+|--> docs<br>
+|--> src<br>
+  &emsp;| --> backend <br>
+  &emsp;|--> frontend<br>
+| readme.md<br>
+
+- **docs**: pasta que contém toda a documentação do projeto
+- **src:** pasta que contém todo o código fonte do projeto
+- **frontend:** pasta que contém o código fonte do frontend do projeto
+- **backend:** pasta que contém o código fonte do backend do projeto
 
 ## 📝 Licença
 
@@ -75,6 +80,18 @@ Este projeto está sob a licença CC0 1.0 Universal. Veja o arquivo [LICENSE](LI
             <a href="https://github.com/VictorGM01">Victor Marques</a><br>Consultor de Tecnologia<br>
             <a href="https://www.linkedin.com/in/victor-gabriel-marques/"><img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white"></a>
             <a href="mailto:victor@engvictor.com.br"><img src="https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white"></a>
+        </td>
+        <td>
+            <img src="https://media.licdn.com/dms/image/v2/D4E03AQGIAjQvB_ijqg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1677693943386?e=1736985600&v=beta&t=mH2eHywYVpC_MUCT31eNhXR1_ZFd2J9Mjr6mKCwOPDk" style="width: 100px;" alt="Cecília Galvão"><br>
+            <a href="https://github.com/ceciliagalvaoo">Cecília Galvão</a><br>Desenvolvedora Backend<br>
+            <a href="https://www.linkedin.com/in/cec%C3%ADlia-galv%C3%A3o/"><img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white"></a>
+            <a href="mailto:cecilia.galvao@sou.inteli.edu.br"><img src="https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white"></a>
+        </td>
+        <td>
+            <img src="https://avatars.githubusercontent.com/u/51976773?v=4" style="width: 100px;" alt="João Victor Campos"><br>
+            <a href="https://github.com/souzajv">João Victor Campos</a><br>Desenvolvedor Frontend<br>
+            <a href="https://www.linkedin.com/in/joao-souza-campos/"><img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white"></a>
+            <a href="mailto:joao.campos@sou.inteli.edu.br"><img src="https://img.shields.io/badge/-Gmail-red?style=flat-square&logo=Gmail&logoColor=white"></a>
         </td>
     </tr>
 </table>

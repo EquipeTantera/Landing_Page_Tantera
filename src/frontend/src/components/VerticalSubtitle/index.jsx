@@ -23,6 +23,7 @@ export default function VerticalSubtitle({ title, subtitle, imageBackground, ver
     sectionStyle = {
       ...baseStyle,
       backgroundImage: 'url("/purple-papper-background.png")',
+      backgroundSize: 'normal',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'right center',
       height: '25rem',

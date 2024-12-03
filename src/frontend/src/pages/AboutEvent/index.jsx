@@ -13,6 +13,7 @@ import PaperBackground from "../../components/PaperBackground";
 export default function AboutEvent() {
   const { id } = useParams();
   const [event, setEvent] = useState(null);
+  const [isEventPast, setIsEventPast] = useState(false);
 
   useEffect(() => {
     const fetchEvent = async () => {
@@ -20,19 +21,22 @@ export default function AboutEvent() {
         const response = await axios.get(
           `http://54.145.177.228:1337/api/events/${id}?populate=*`
         );
-
+  
         const eventData = response.data.data;
-
+  
         const startDate = new Date(eventData.attributes.start_time);
         const endDate = new Date(eventData.attributes.end_time);
-    
+        const currentDate = new Date();
+  
+        setIsEventPast(endDate < currentDate); // Atualiza o estado se o evento já passou
+  
         const formattedDate = {
           startDate: startDate.toLocaleDateString("pt-BR"),
           endDate: endDate.toLocaleDateString("pt-BR"),
           startHour: startDate.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" }),
           endHour: endDate.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" }),
         };
-    
+  
         const mappedEvent = {
           id: eventData.id,
           name: eventData.attributes.title,
@@ -40,22 +44,20 @@ export default function AboutEvent() {
           fullImage:
             eventData?.attributes?.image?.data?.[0]?.attributes?.url || "",
           address: `${eventData.attributes.street}, ${eventData.attributes.number}, ${eventData.attributes.postal_code}`,
-          dates: [formattedDate],       
+          dates: [formattedDate],
           ticket: eventData.attributes.price.toLocaleString('pt-br'),
           observation: eventData.attributes.note,
         };
-
+  
         setEvent(mappedEvent);
-        console.log(event)
       } catch (error) {
         console.error("Erro ao buscar o evento:", error);
       }
     };
-
+  
     fetchEvent();
   }, [id]);
-
-
+  
   if (!event) {
     return <p>Evento não encontrado.</p>;
   }
@@ -80,11 +82,14 @@ export default function AboutEvent() {
           <div className={styles["container--event"]}>
             <Content content={event.description} />
             <div className={styles["container--button"]}>
-              <Button
-                title="Participar"
-                path={`/eventos/${event.id}/inscricao`}
-              />
+              {!isEventPast && (
+                <Button
+                  title="Participar"
+                  path={`/eventos/${event.id}/inscricao`}
+                />
+              )}
             </div>
+
           </div>
         </section>
         <section className={styles["container--infos"]}>

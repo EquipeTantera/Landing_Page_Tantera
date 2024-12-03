@@ -27,7 +27,7 @@ export default function EventRegistration() {
       try {
         const response = await axios.get(`${API_BASE_URL}/events/${id}?populate=*`);
         const eventData = response.data.data;
-  
+    
         const formattedEvent = {
           id: eventData.id,
           title: eventData.attributes.title || "Evento",
@@ -35,15 +35,16 @@ export default function EventRegistration() {
           address: `${eventData.attributes.street || ''}, Nº ${eventData.attributes.number || ''}, CEP: ${eventData.attributes.postal_code || ''}`,
           dates: [
             {
-              date: new Date(eventData.attributes.date).toLocaleDateString(),
-              startHour: new Date(eventData.attributes.start_time).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }), // Remove os segundos
-              endHour: new Date(eventData.attributes.end_time).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }), // Remove os segundos
+              startDate: new Date(eventData.attributes.start_time).toLocaleDateString('pt-BR'),
+              endDate: new Date(eventData.attributes.end_time).toLocaleDateString('pt-BR'),
+              startHour: new Date(eventData.attributes.start_time).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
+              endHour: new Date(eventData.attributes.end_time).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
             },
           ],
           fullImage: eventData.attributes.image?.data?.[0]?.attributes?.url || "", 
           eventType: eventData.attributes.event_type?.data?.attributes?.type || "Desconhecido", 
         };
-  
+    
         setEvent(formattedEvent); 
         setLoading(false);
       } catch (error) {
@@ -51,7 +52,8 @@ export default function EventRegistration() {
         setLoading(false);
       }
     };
-  
+    
+    
     fetchEventData();
   }, [id]);
 

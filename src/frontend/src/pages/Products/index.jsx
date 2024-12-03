@@ -24,8 +24,6 @@ export default function Products() {
     gender: '',
   });
 
-  
-
   // Carregar dados dos produtos
   useEffect(() => {
     const fetchProductsData = async () => {
@@ -45,8 +43,8 @@ export default function Products() {
             : [];
 
           const genres = Array.isArray(product?.attributes?.genres_id?.data)
-          ? product.attributes.genres_id.data.map((genre) => genre.attributes.value)
-          : [];
+            ? product.attributes.genres_id.data.map((genre) => genre.attributes.value)
+            : [];
 
           const categories = Array.isArray(product?.attributes?.categories_ids?.data)
             ? product.attributes.categories_ids.data.map((category) => category.attributes.category)
@@ -86,63 +84,63 @@ export default function Products() {
     setModalOpen(false);
   };
 
-  const handleApplyFilters = (appliedFilters) => {
-    console.log('Filtros aplicados:', appliedFilters); 
-    setFilters(appliedFilters);
-    setProductsData([...productsData]);
-  };
-
-  // Função para filtrar os produtos
-  const getFilteredProducts = () => {
-    let filteredProducts = [...productsData]; 
-    
-    // Filtrar por categorias
-    if (filters.categories.length > 0) {
-      filteredProducts = filteredProducts.filter((product) =>
-        product.categories.some((category) => filters.categories.includes(category))
-      );
-    }
-  
-    // Filtrar por tamanhos
-    if (filters.sizes.length > 0) {
-      filteredProducts = filteredProducts.filter((product) =>
-        product.sizes.some((size) => filters.sizes.includes(size))
-      );
-    }
-  
-    // Filtrar por cores
-    if (filters.colors.length > 0) {
-      filteredProducts = filteredProducts.filter((product) =>
-        product.colors.some((color) => filters.colors.includes(color))
-      );
-    }
-  
-    // Filtrar por gênero
-    if (filters.gender) {
-      filteredProducts = filteredProducts.filter((product) =>
-        product.genres.some((genre) => genre === filters.gender)
-      );
-    }
-  
-    // Ordenar por preço
-    if (filters.sort === 'menor') {
-      filteredProducts.sort((a, b) => a.price - b.price);
-    } else if (filters.sort === 'maior') {
-      filteredProducts.sort((a, b) => b.price - a.price); 
-    }
-  
-    console.log('Produtos ordenados e filtrados:', filteredProducts);
-    return filteredProducts;
-  };
-  
-  
-  const filteredProducts = getFilteredProducts();
-  const hasFiltersApplied = filters.price != 0 || filters.categories.length > 0 || filters.sizes.length > 0 || filters.colors.length > 0 || filters.gender != '';
-
-  // Função para filtrar produtos pela categoria
   const filterProductsByCategory = (categoryName) => {
     return productsData.filter((product) =>
       product.categories.includes(categoryName)
+    );
+  };
+
+  const getVisibleProducts = (categoryName, showMore) => {
+    const products = filterProductsByCategory(categoryName);
+    return showMore ? products : products.slice(0, 3);
+  };
+
+  const renderCategorySection = (categoryName, showMoreState, setShowMoreState) => {
+    const products = filterProductsByCategory(categoryName);
+
+    if (products.length === 0) {
+      return null;
+    }
+
+    return (
+      <section className={styles.section}>
+        <div className={styles["container-header"]}>
+          <HorizontalSubtitle title={categoryName} colorImage="transparent" tag={false} />
+        </div>
+        <div className={styles["container-products"]}>
+          {getVisibleProducts(categoryName, showMoreState).map((product, index) => (
+            <SmallProductCard
+              key={index}
+              title={product.title}
+              price={product.price}
+              image={product.image}
+              description={product.description}
+              buttonText={product.buttonText}
+              buttonPath={product.buttonPath}
+              isAvailable={!product.sold_out}
+            />
+          ))}
+        </div>
+        {products.length > 3 && (
+          <button
+            onClick={() => setShowMoreState((prev) => !prev)}
+            className={styles["container-products__button"]}
+          >
+            {showMoreState ? (
+              <p className={styles["container-products__button__paragraph"]}>
+                Ocultar produtos
+              </p>
+            ) : (
+              <p className={styles["container-products__button__paragraph"]}>
+                Ver mais produtos de{" "}
+                <span className={styles["container-products__button__paragraph__span"]}>
+                  {categoryName.toLowerCase()}
+                </span>
+              </p>
+            )}
+          </button>
+        )}
+      </section>
     );
   };
 
@@ -150,164 +148,9 @@ export default function Products() {
     <>
       <MainTitle shadowText="Produtos" mainText="Produtos" />
       <PaperBackground>
-        {hasFiltersApplied ? (
-          <section className={styles.section}>
-            <div className={styles["container-header"]}>
-              <HorizontalSubtitle title="Produtos Filtrados" colorImage="transparent" tag={false} />
-              <FilterButton text="Filtrar" onClick={handleOpenModal} />
-              <FilterModal isOpen={isModalOpen} onClose={handleCloseModal} onApplyFilters={handleApplyFilters} />
-            </div>
-
-            <div className={styles["container-products"]}>
-              {filteredProducts.length > 0 ? (
-                filteredProducts.map((product, index) => (
-                  <SmallProductCard
-                    key={index}
-                    title={product.title}
-                    price={product.price}
-                    image={product.image}
-                    description={product.description}
-                    buttonText={product.buttonText}
-                    buttonPath={product.buttonPath}
-                    isAvailable={!product.sold_out}
-                  />
-                ))
-              ) : (
-                <p>Nenhum produto encontrado com os filtros aplicados.</p>
-              )}
-            </div>
-          </section>
-        ) : (
-          <>
-            {/* Seção de Acessórios de Festa */}
-            {filterProductsByCategory("Acessórios de Festa").length > 0 && (
-              <section className={styles.section}>
-                <div className={styles["container-header"]}>
-                  <HorizontalSubtitle title="Acessórios de Festa" colorImage="transparent" tag={false} />
-                  <FilterButton text="Filtrar" onClick={handleOpenModal} />
-                  <FilterModal isOpen={isModalOpen} onClose={handleCloseModal} onApplyFilters={handleApplyFilters} />
-                </div>
-
-                <div className={styles["container-products"]}>
-                  {filterProductsByCategory("Acessórios de Festa").map((product, index) => (
-                    <SmallProductCard
-                      key={index}
-                      title={product.title}
-                      price={product.price} 
-                      image={product.image}
-                      description={product.description}
-                      buttonText={product.buttonText}
-                      buttonPath={product.buttonPath}
-                      isAvailable={!product.sold_out}
-                    />
-                  ))}
-                </div>
-                
-                {filterProductsByCategory("Acessórios de Festa").length > 3 && (
-                  <button
-                    onClick={() => setShowMoreFesta((prev) => !prev)}
-                    className={styles["container-products__button"]}
-                  >
-                    {showMoreFesta ? (
-                      <p className={styles["container-products__button__paragraph"]}>
-                        Ocultar produtos
-                      </p>
-                    ) : (
-                      <p className={styles["container-products__button__paragraph"]}>
-                        Ver mais produtos de{" "}
-                        <span className={styles["container-products__button__paragraph__span"]}>
-                          acessórios de festa
-                        </span>
-                      </p>
-                    )}
-                  </button>
-                )}
-              </section>
-            )}
-
-            {/* Seção de Uniformes */}
-            {filterProductsByCategory("Uniformes").length > 0 && (  
-              <section className={styles.section}>
-                <HorizontalSubtitle title="Uniformes" colorImage="transparent" tag={false} titleSize="2.5rem" />
-                <div className={styles["container-products"]}>
-                  {filterProductsByCategory("Uniformes").map((product, index) => (
-                    <SmallProductCard
-                      key={index}
-                      title={product.title}
-                      price={product.price}
-                      image={product.image}
-                      description={product.description}
-                      buttonText={product.buttonText}
-                      buttonPath={product.buttonPath}
-                      isAvailable={!product.sold_out}
-                    />
-                  ))}
-                </div>
-                
-                {filterProductsByCategory("Uniformes").length > 3 && (
-                  <button
-                    onClick={() => setShowMoreUniformes((prev) => !prev)}
-                    className={styles["container-products__button"]}
-                  >
-                    {showMoreUniformes ? (
-                      <p className={styles["container-products__button__paragraph"]}>
-                        Ocultar produtos
-                      </p>
-                    ) : (
-                      <p className={styles["container-products__button__paragraph"]}>
-                        Ver mais produtos de{" "}
-                        <span className={styles["container-products__button__paragraph__span"]}>
-                          uniformes
-                        </span>
-                      </p>
-                    )}
-                  </button>
-                )}
-              </section>
-            )}
-
-            {/* Seção de Coleções */}
-            {filterProductsByCategory("Coleções").length > 0 && (
-              <section className={styles.section}>
-                <HorizontalSubtitle title="Coleções" colorImage="transparent" tag={false} titleSize="2.5rem" />
-                <div className={styles["container-products"]}>
-                  {filterProductsByCategory("Coleções").map((product, index) => (
-                    <SmallProductCard
-                      key={index}
-                      title={product.title}
-                      price={product.price}
-                      image={product.image}
-                      description={product.description}
-                      buttonText={product.buttonText}
-                      buttonPath={product.buttonPath}
-                      isAvailable={!product.sold_out}
-                    />
-                  ))}
-                </div>
-
-                {filterProductsByCategory("Coleções").length > 3 && (
-                  <button
-                    onClick={() => setShowMoreColecoes((prev) => !prev)}
-                    className={styles["container-products__button"]}
-                  >
-                    {showMoreColecoes ? (
-                      <p className={styles["container-products__button__paragraph"]}>
-                        Ocultar produtos
-                      </p>
-                    ) : (
-                      <p className={styles["container-products__button__paragraph"]}>
-                        Ver mais produtos de{" "}
-                        <span className={styles["container-products__button__paragraph__span"]}>
-                          coleções
-                        </span>
-                      </p>
-                    )}
-                  </button>
-                )}
-              </section>
-            )}
-          </>
-        )}
+        {renderCategorySection("Acessórios de Festa", showMoreFesta, setShowMoreFesta)}
+        {renderCategorySection("Uniformes", showMoreUniformes, setShowMoreUniformes)}
+        {renderCategorySection("Coleções", showMoreColecoes, setShowMoreColecoes)}
       </PaperBackground>
     </>
   );

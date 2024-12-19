@@ -1340,6 +1340,7 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
     slogan: Attribute.String & Attribute.Required;
     icon: Attribute.Media<'images'> & Attribute.Required;
     image: Attribute.Media<'images', true> & Attribute.Required;
+    url: Attribute.String & Attribute.Required;
     result_id: Attribute.Relation<
       'api::partner.partner',
       'oneToMany',

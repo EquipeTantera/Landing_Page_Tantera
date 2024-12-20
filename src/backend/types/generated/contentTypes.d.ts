@@ -1568,14 +1568,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
     price: Attribute.Decimal & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     sold_out: Attribute.Boolean & Attribute.Required;
-    size: Attribute.Enumeration<['PP', 'P', 'M', 'G', 'GG', 'GGG']> &
-      Attribute.Required;
-    genre: Attribute.Enumeration<['masculino', 'feminino', 'unissex']> &
-      Attribute.Required;
-    color: Attribute.Enumeration<
-      ['vermelho', 'azul', 'verde', 'amarelo', 'preto', 'branco']
-    > &
-      Attribute.Required;
     category_id: Attribute.Relation<
       'api::product.product',
       'manyToMany',

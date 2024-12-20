@@ -20,7 +20,9 @@
       "type": "media",
       "multiple": true,
       "required": true,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "price": {
       "type": "decimal",
@@ -32,21 +34,6 @@
     },
     "sold_out": {
       "type": "boolean",
-      "required": true
-    },
-    "size": {
-      "type": "enumeration",
-      "enum": ["PP", "P", "M", "G", "GG", "GGG"],
-      "required": true
-    },
-    "genre": {
-      "type": "enumeration",
-      "enum": ["masculino", "feminino", "unissex"],
-      "required": true
-    },
-    "color": {
-      "type": "enumeration", 
-      "enum": ["vermelho", "azul", "verde", "amarelo", "preto", "branco"], 
       "required": true
     },
     "category_id": {

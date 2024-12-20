@@ -17,7 +17,7 @@
       "required": true
     },
     "answer": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "plan": {

@@ -13,18 +13,20 @@
   "pluginOptions": {},
   "attributes": {
     "purpose": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "foundation": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "mascot_image": {
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "mascot_description": {
       "type": "text",

@@ -29,7 +29,7 @@
     "board_id": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::specific-board.specific-board",
+      "target": "api::board.board",
       "mappedBy": "result_id"
     },
     "event_id": {

@@ -13,7 +13,7 @@
   "pluginOptions": {},
   "attributes": {
     "description": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "year": {
@@ -38,7 +38,7 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::specific-board.specific-board",
-      "mappedBy": "board"
+      "mappedBy": "board_id"
     },
     "members_id": {
       "type": "relation",

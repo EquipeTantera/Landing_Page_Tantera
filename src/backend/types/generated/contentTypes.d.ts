@@ -800,8 +800,8 @@ export interface ApiAboutUsAboutUs extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    purpose: Attribute.String & Attribute.Required;
-    foundation: Attribute.String & Attribute.Required;
+    purpose: Attribute.Text & Attribute.Required;
+    foundation: Attribute.Text & Attribute.Required;
     mascot_image: Attribute.Media<'images'> & Attribute.Required;
     mascot_description: Attribute.Text & Attribute.Required;
     contact_id: Attribute.Relation<
@@ -844,8 +844,7 @@ export interface ApiAdvantageAdvantage extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String & Attribute.Required;
-    description: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
     plan: Attribute.Relation<
       'api::advantage.advantage',
       'manyToOne',
@@ -917,7 +916,7 @@ export interface ApiBoardBoard extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    description: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
     year: Attribute.String & Attribute.Required;
     start_date: Attribute.Date & Attribute.Required;
     end_date: Attribute.Date & Attribute.Required;
@@ -1269,7 +1268,7 @@ export interface ApiFaqFaq extends Schema.CollectionType {
   };
   attributes: {
     question: Attribute.String & Attribute.Required;
-    answer: Attribute.String & Attribute.Required;
+    answer: Attribute.Text & Attribute.Required;
     plan: Attribute.Relation<'api::faq.faq', 'manyToOne', 'api::plan.plan'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1662,7 +1661,7 @@ export interface ApiResultResult extends Schema.CollectionType {
     board_id: Attribute.Relation<
       'api::result.result',
       'oneToMany',
-      'api::specific-board.specific-board'
+      'api::board.board'
     >;
     event_id: Attribute.Relation<
       'api::result.result',
@@ -1700,7 +1699,7 @@ export interface ApiSpecificBoardSpecificBoard extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
-    about: Attribute.String & Attribute.Required;
+    about: Attribute.Text & Attribute.Required;
     board_id: Attribute.Relation<
       'api::specific-board.specific-board',
       'oneToOne',
@@ -1782,7 +1781,7 @@ export interface ApiYearYear extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    year: Attribute.Integer & Attribute.Required;
+    year: Attribute.BigInteger & Attribute.Required;
     event_form_ids: Attribute.Relation<
       'api::year.year',
       'manyToMany',

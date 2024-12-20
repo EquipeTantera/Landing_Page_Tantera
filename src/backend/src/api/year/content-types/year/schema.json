@@ -13,7 +13,7 @@
   "pluginOptions": {},
   "attributes": {
     "year": {
-      "type": "integer",
+      "type": "biginteger",
       "required": true
     },
     "event_form_ids": {

@@ -17,7 +17,7 @@
       "required": true
     },
     "about": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "board_id": {
